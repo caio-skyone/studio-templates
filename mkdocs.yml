@@ -30,6 +30,7 @@ nav:
   - Zoho CRM: connectors/zoho-crm.md
   - Zoho Desk: connectors/zoho-desk.md
   - Zoho Projects: connectors/zoho-projects.md
+  - Zoho WorkDrive: connectors/zoho-workdrive.md
 - Fluxo de Desenvolvimento:
   - Callback OAuth2:
     - Contexto: dev-flow/callback/contexto.md
