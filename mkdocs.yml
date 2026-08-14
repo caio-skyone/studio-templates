@@ -18,12 +18,14 @@ nav:
   - Databricks: connectors/databricks.md
   - GitHub: connectors/github.md
   - iFood: connectors/ifood.md
+  - Jira: connectors/jira.md
   - Mailgun: connectors/mailgun.md
   - Notion: connectors/notion.md
   - Service Now: connectors/service-now.md
   - Stripe: connectors/stripe.md
   - Twilio: connectors/twilio.md
   - Xero: connectors/xero.md
+  - Zendesk: connectors/zendesk.md
   - Zoho Books: connectors/zoho-books.md
   - Zoho Projects: connectors/zoho-projects.md
 - Fluxo de Desenvolvimento:

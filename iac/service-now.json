@@ -1,0 +1,3682 @@
+{
+ "id": "3d1de28d-4a74-42aa-a364-addbf6d3ae4c",
+ "name": "ServiceNow",
+ "description": "Conector REST para as APIs nativas do ServiceNow: Table, Attachment, Aggregate, Import Set, Batch, Email, Knowledge e Service Catalog.",
+ "type": "rest",
+ "settings": {
+  "authentication_type": "oauth-2"
+ },
+ "operations": [
+  {
+   "id": "0b369c2c-c89b-4ffd-9f12-e8942a282b29",
+   "name": "Table - Retrieve records from a table",
+   "description": "Recupera múltiplos registros da tabela informada, com filtro por query codificada e paginação.",
+   "parameters": [
+    {
+     "id": "api-version-0b369c2c-c89b-4ffd-9f12-e8942a282b29",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v2"
+    },
+    {
+     "id": "0cd14f8d-bf63-4688-b671-e6ef1c9982ba",
+     "name": "table_name",
+     "type": "string",
+     "description": "Nome da tabela alvo da operação, como incident, sc_request ou sys_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "incident"
+    },
+    {
+     "id": "43fda0e3-8e27-4a89-a335-f75fbd787924",
+     "name": "sysparm_query",
+     "type": "string",
+     "description": "Query codificada para filtrar o resultado, relativa à tabela consultada. Aceita ORDERBY e ORDERBYDESC para ordenar.",
+     "required": false,
+     "sensitive": false,
+     "sample": "active=true^priority=1"
+    },
+    {
+     "id": "a525d30a-c610-480b-a40b-e696b28dc5ee",
+     "name": "sysparm_display_value",
+     "type": "string",
+     "description": "Define se retorna o valor do banco, o valor de exibição ou ambos. Valores: true, false ou all.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "eb12ccdd-ec05-4ea6-827a-b3c4a3c96a2c",
+     "name": "sysparm_exclude_reference_link",
+     "type": "string",
+     "description": "Quando true, omite os links da Table API para campos de referência.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "e5e0069c-7680-4063-a6a7-186233402631",
+     "name": "sysparm_fields",
+     "type": "string",
+     "description": "Lista de campos a retornar, separados por vírgula. Campos inválidos são ignorados.",
+     "required": false,
+     "sensitive": false,
+     "sample": "number,short_description,state"
+    },
+    {
+     "id": "9461fcd0-5327-4e8f-9d9a-32130dfc6dd2",
+     "name": "sysparm_limit",
+     "type": "string",
+     "description": "Número máximo de registros retornados. Valores muito altos degradam a performance da instância.",
+     "required": false,
+     "sensitive": false,
+     "sample": "100"
+    },
+    {
+     "id": "7bc9a6a9-cf24-40d2-936f-6f7e16af196c",
+     "name": "sysparm_offset",
+     "type": "string",
+     "description": "Índice inicial dos registros, usado para paginar junto com sysparm_limit.",
+     "required": false,
+     "sensitive": false,
+     "sample": "0"
+    },
+    {
+     "id": "790b3c9b-dadc-460a-9770-149fa03dd305",
+     "name": "sysparm_no_count",
+     "type": "string",
+     "description": "Quando true, não executa select count(*) na tabela, o que acelera a consulta.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "20f2751d-c5ff-4fa3-9e1d-270f1914aea2",
+     "name": "sysparm_query_category",
+     "type": "string",
+     "description": "Nome da categoria de query a ser usada na consulta.",
+     "required": false,
+     "sensitive": false,
+     "sample": "catalog"
+    },
+    {
+     "id": "4ff7658f-8fe1-4c35-ab67-3b3ca63d4769",
+     "name": "sysparm_query_no_domain",
+     "type": "string",
+     "description": "Quando true, inclui registros de domínios que o usuário logado não acessa. Exige papel administrativo.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "6c121c7f-3ff6-4587-b29c-da05907a0b42",
+     "name": "sysparm_suppress_pagination_header",
+     "type": "string",
+     "description": "Quando true, remove o header Link com as URLs de paginação da resposta.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "f5077084-e6b7-40e6-9c36-224cd8567425",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "table",
+      "<>table_name</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_query",
+       "value": "<>sysparm_query</>"
+      },
+      {
+       "key": "sysparm_display_value",
+       "value": "<>sysparm_display_value</>"
+      },
+      {
+       "key": "sysparm_exclude_reference_link",
+       "value": "<>sysparm_exclude_reference_link</>"
+      },
+      {
+       "key": "sysparm_fields",
+       "value": "<>sysparm_fields</>"
+      },
+      {
+       "key": "sysparm_limit",
+       "value": "<>sysparm_limit</>"
+      },
+      {
+       "key": "sysparm_offset",
+       "value": "<>sysparm_offset</>"
+      },
+      {
+       "key": "sysparm_no_count",
+       "value": "<>sysparm_no_count</>"
+      },
+      {
+       "key": "sysparm_query_category",
+       "value": "<>sysparm_query_category</>"
+      },
+      {
+       "key": "sysparm_query_no_domain",
+       "value": "<>sysparm_query_no_domain</>"
+      },
+      {
+       "key": "sysparm_suppress_pagination_header",
+       "value": "<>sysparm_suppress_pagination_header</>"
+      },
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "c5fef4db-1274-4800-977a-ad9fe46c7432",
+   "name": "Table - Retrieve a record",
+   "description": "Obtém um registro específico da tabela pelo sys_id.",
+   "parameters": [
+    {
+     "id": "api-version-c5fef4db-1274-4800-977a-ad9fe46c7432",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v2"
+    },
+    {
+     "id": "b5fe117d-2dea-4a37-93dc-cb8e3f8b94d2",
+     "name": "table_name",
+     "type": "string",
+     "description": "Nome da tabela alvo da operação, como incident, sc_request ou sys_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "incident"
+    },
+    {
+     "id": "b3ca48f1-ebd0-4bbc-a7b4-1808019a7a99",
+     "name": "sys_id",
+     "type": "string",
+     "description": "Identificador único do registro na tabela.",
+     "required": true,
+     "sensitive": false,
+     "sample": "a9e30c7dc61122760116894de7bcc7bd"
+    },
+    {
+     "id": "bf4291af-8fb9-4a7c-bebf-1c2462188608",
+     "name": "sysparm_display_value",
+     "type": "string",
+     "description": "Define se retorna o valor do banco, o valor de exibição ou ambos. Valores: true, false ou all.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "bb066bf6-7a0f-4260-b736-0923ff3d1904",
+     "name": "sysparm_exclude_reference_link",
+     "type": "string",
+     "description": "Quando true, omite os links da Table API para campos de referência.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "25da9db2-853b-4479-a66a-6683fa3985b9",
+     "name": "sysparm_fields",
+     "type": "string",
+     "description": "Lista de campos a retornar, separados por vírgula. Campos inválidos são ignorados.",
+     "required": false,
+     "sensitive": false,
+     "sample": "number,short_description,state"
+    },
+    {
+     "id": "c53c17fe-bbda-4016-ae36-ece70efea398",
+     "name": "sysparm_query_no_domain",
+     "type": "string",
+     "description": "Quando true, inclui registros de domínios que o usuário logado não acessa. Exige papel administrativo.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "f8a9af1c-dadb-4be5-baf8-ee80f74e0a8f",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "table",
+      "<>table_name</>",
+      "<>sys_id</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_display_value",
+       "value": "<>sysparm_display_value</>"
+      },
+      {
+       "key": "sysparm_exclude_reference_link",
+       "value": "<>sysparm_exclude_reference_link</>"
+      },
+      {
+       "key": "sysparm_fields",
+       "value": "<>sysparm_fields</>"
+      },
+      {
+       "key": "sysparm_query_no_domain",
+       "value": "<>sysparm_query_no_domain</>"
+      },
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "2ad3acb1-4c88-498a-ab1e-8bbd43214a55",
+   "name": "Table - Create a record",
+   "description": "Insere um registro na tabela informada. Não suporta inserção múltipla.",
+   "parameters": [
+    {
+     "id": "api-version-2ad3acb1-4c88-498a-ab1e-8bbd43214a55",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v2"
+    },
+    {
+     "id": "bed9f6bd-50c0-4d6d-a81f-3d26d5bc821d",
+     "name": "table_name",
+     "type": "string",
+     "description": "Nome da tabela alvo da operação, como incident, sc_request ou sys_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "incident"
+    },
+    {
+     "id": "80c9c5a7-93a9-497b-9d25-6ffcd323b779",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com os pares campo/valor do registro a criar. Campos com prefixo sys_ são gerados pelo sistema.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"short_description\":\"Impressora sem toner\",\"caller_id\":\"681ccaf9c0a8016400b98a06818d57c7\",\"urgency\":\"2\"}"
+    },
+    {
+     "id": "ebcca1a9-ad4c-4be1-89f5-39ad428ca53f",
+     "name": "sysparm_display_value",
+     "type": "string",
+     "description": "Define se retorna o valor do banco, o valor de exibição ou ambos. Valores: true, false ou all.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "1655ad6e-5905-4a77-b808-6bc97f2e3cb7",
+     "name": "sysparm_exclude_reference_link",
+     "type": "string",
+     "description": "Quando true, omite os links da Table API para campos de referência.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "f586a2df-d686-4151-9877-57791c39d027",
+     "name": "sysparm_fields",
+     "type": "string",
+     "description": "Lista de campos a retornar, separados por vírgula. Campos inválidos são ignorados.",
+     "required": false,
+     "sensitive": false,
+     "sample": "number,sys_id"
+    },
+    {
+     "id": "10361810-0045-43ff-97ce-e630059c0d58",
+     "name": "sysparm_input_display_value",
+     "type": "string",
+     "description": "Quando true, trata os valores enviados como valores de exibição e os converte para o valor de banco.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "9c5ec8d2-bc5f-40e6-b114-f4eb8b021190",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "table",
+      "<>table_name</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_display_value",
+       "value": "<>sysparm_display_value</>"
+      },
+      {
+       "key": "sysparm_exclude_reference_link",
+       "value": "<>sysparm_exclude_reference_link</>"
+      },
+      {
+       "key": "sysparm_fields",
+       "value": "<>sysparm_fields</>"
+      },
+      {
+       "key": "sysparm_input_display_value",
+       "value": "<>sysparm_input_display_value</>"
+      },
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "304fcc16-a0e3-43de-b5bd-b848c0d6db0c",
+   "name": "Table - Modify a record",
+   "description": "Substitui o registro informado pelos dados enviados no corpo da requisição.",
+   "parameters": [
+    {
+     "id": "api-version-304fcc16-a0e3-43de-b5bd-b848c0d6db0c",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v2"
+    },
+    {
+     "id": "90c2ce5b-847c-464c-9986-60770fb771af",
+     "name": "table_name",
+     "type": "string",
+     "description": "Nome da tabela alvo da operação, como incident, sc_request ou sys_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "incident"
+    },
+    {
+     "id": "9a823fb3-238c-45f0-9d3f-ef2e82eaac1c",
+     "name": "sys_id",
+     "type": "string",
+     "description": "Identificador único do registro na tabela.",
+     "required": true,
+     "sensitive": false,
+     "sample": "a9e30c7dc61122760116894de7bcc7bd"
+    },
+    {
+     "id": "61d004ab-25a3-4006-92da-db877b426757",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com os pares campo/valor a gravar no registro.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"short_description\":\"Impressora sem toner - atualizado\",\"state\":\"2\"}"
+    },
+    {
+     "id": "7c908ea6-d879-4f69-aa99-a175aee8cb08",
+     "name": "sysparm_display_value",
+     "type": "string",
+     "description": "Define se retorna o valor do banco, o valor de exibição ou ambos. Valores: true, false ou all.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "ee93fff9-499a-4eee-ab6c-203272a1e5cc",
+     "name": "sysparm_exclude_reference_link",
+     "type": "string",
+     "description": "Quando true, omite os links da Table API para campos de referência.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "fa63c9a9-b24c-4b29-a6ff-87b614534a64",
+     "name": "sysparm_fields",
+     "type": "string",
+     "description": "Lista de campos a retornar, separados por vírgula. Campos inválidos são ignorados.",
+     "required": false,
+     "sensitive": false,
+     "sample": "number,state"
+    },
+    {
+     "id": "c28b7b72-5314-40ef-a19b-99814ed68f32",
+     "name": "sysparm_input_display_value",
+     "type": "string",
+     "description": "Quando true, trata os valores enviados como valores de exibição e os converte para o valor de banco.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "b4927af2-36f0-486e-a64d-1af168e9f3ad",
+     "name": "sysparm_query_no_domain",
+     "type": "string",
+     "description": "Quando true, inclui registros de domínios que o usuário logado não acessa. Exige papel administrativo.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "d9424cf9-8768-40d4-a663-a30b094d5eda",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "PUT",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "table",
+      "<>table_name</>",
+      "<>sys_id</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_display_value",
+       "value": "<>sysparm_display_value</>"
+      },
+      {
+       "key": "sysparm_exclude_reference_link",
+       "value": "<>sysparm_exclude_reference_link</>"
+      },
+      {
+       "key": "sysparm_fields",
+       "value": "<>sysparm_fields</>"
+      },
+      {
+       "key": "sysparm_input_display_value",
+       "value": "<>sysparm_input_display_value</>"
+      },
+      {
+       "key": "sysparm_query_no_domain",
+       "value": "<>sysparm_query_no_domain</>"
+      },
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "12d29c53-5539-48c7-90b5-7cf6c9f90b0b",
+   "name": "Table - Update a record",
+   "description": "Atualiza parcialmente o registro com os pares campo/valor enviados no corpo.",
+   "parameters": [
+    {
+     "id": "api-version-12d29c53-5539-48c7-90b5-7cf6c9f90b0b",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v2"
+    },
+    {
+     "id": "c28e554e-aa3b-4bb9-9ed8-19491845acf1",
+     "name": "table_name",
+     "type": "string",
+     "description": "Nome da tabela alvo da operação, como incident, sc_request ou sys_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "incident"
+    },
+    {
+     "id": "d0a24ba3-2d2f-48ec-bb6f-ffb552403782",
+     "name": "sys_id",
+     "type": "string",
+     "description": "Identificador único do registro na tabela.",
+     "required": true,
+     "sensitive": false,
+     "sample": "a9e30c7dc61122760116894de7bcc7bd"
+    },
+    {
+     "id": "c81cd3fb-dab7-4f40-a4e5-4781a9f4ed49",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com os pares campo/valor a atualizar no registro.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"state\":\"6\",\"close_notes\":\"Toner substituído\"}"
+    },
+    {
+     "id": "237879df-bc61-41ec-8718-52f605e3d8f8",
+     "name": "sysparm_display_value",
+     "type": "string",
+     "description": "Define se retorna o valor do banco, o valor de exibição ou ambos. Valores: true, false ou all.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "f8810e76-56b3-47c2-9ad0-03e9d8cac3b5",
+     "name": "sysparm_fields",
+     "type": "string",
+     "description": "Lista de campos a retornar, separados por vírgula. Campos inválidos são ignorados.",
+     "required": false,
+     "sensitive": false,
+     "sample": "number,state"
+    },
+    {
+     "id": "912dbd1e-01a7-46ac-b107-6945f7134b03",
+     "name": "sysparm_input_display_value",
+     "type": "string",
+     "description": "Quando true, trata os valores enviados como valores de exibição e os converte para o valor de banco.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "3ad34969-7bc2-42d7-943a-cb20b7de2ef1",
+     "name": "sysparm_query_no_domain",
+     "type": "string",
+     "description": "Quando true, inclui registros de domínios que o usuário logado não acessa. Exige papel administrativo.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    },
+    {
+     "id": "5cb9937e-4baa-4f77-a5ac-76e46480a123",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "PATCH",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "table",
+      "<>table_name</>",
+      "<>sys_id</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_display_value",
+       "value": "<>sysparm_display_value</>"
+      },
+      {
+       "key": "sysparm_fields",
+       "value": "<>sysparm_fields</>"
+      },
+      {
+       "key": "sysparm_input_display_value",
+       "value": "<>sysparm_input_display_value</>"
+      },
+      {
+       "key": "sysparm_query_no_domain",
+       "value": "<>sysparm_query_no_domain</>"
+      },
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "b2562e8d-cd26-4050-b003-adf2ac563b81",
+   "name": "Table - Delete a record",
+   "description": "Exclui da tabela o registro identificado pelo sys_id.",
+   "parameters": [
+    {
+     "id": "api-version-b2562e8d-cd26-4050-b003-adf2ac563b81",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v2"
+    },
+    {
+     "id": "ecae42b1-afe1-459c-ace7-d15fcc1e780d",
+     "name": "table_name",
+     "type": "string",
+     "description": "Nome da tabela alvo da operação, como incident, sc_request ou sys_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "incident"
+    },
+    {
+     "id": "c3354180-1803-4da5-b892-9ea11d0613ae",
+     "name": "sys_id",
+     "type": "string",
+     "description": "Identificador único do registro na tabela.",
+     "required": true,
+     "sensitive": false,
+     "sample": "a9e30c7dc61122760116894de7bcc7bd"
+    },
+    {
+     "id": "60cd217f-efa8-4823-9a50-c5d3f76e887c",
+     "name": "sysparm_query_no_domain",
+     "type": "string",
+     "description": "Quando true, inclui registros de domínios que o usuário logado não acessa. Exige papel administrativo.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    }
+   ],
+   "request": {
+    "method": "DELETE",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "table",
+      "<>table_name</>",
+      "<>sys_id</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_query_no_domain",
+       "value": "<>sysparm_query_no_domain</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "5d618fa4-157e-4338-8c38-be248d4107be",
+   "name": "Aggregate - Get record statistics",
+   "description": "Executa funções de agregação (contagem, soma, média, mínimo, máximo) sobre os registros da tabela.",
+   "parameters": [
+    {
+     "id": "api-version-5d618fa4-157e-4338-8c38-be248d4107be",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "4644f2ec-e144-443e-b3e2-4f0aeea78e58",
+     "name": "table_name",
+     "type": "string",
+     "description": "Nome da tabela alvo da operação, como incident, sc_request ou sys_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "incident"
+    },
+    {
+     "id": "0690c98a-cf07-463f-bfe7-f52dbf8c14de",
+     "name": "sysparm_count",
+     "type": "string",
+     "description": "Quando true, retorna a quantidade de registros que atendem à query.",
+     "required": false,
+     "sensitive": false,
+     "sample": "true"
+    },
+    {
+     "id": "ad23fe77-3e4a-47eb-9073-47fb675327c2",
+     "name": "sysparm_aggregate_fields",
+     "type": "string",
+     "description": "Campos da agregação. Troque avg pela função desejada na chave da operação: sysparm_min_fields, max, sum ou avg.",
+     "required": false,
+     "sensitive": false,
+     "sample": "business_duration"
+    },
+    {
+     "id": "26123855-580d-41a9-baf2-77a29c6ba2cc",
+     "name": "sysparm_group_by",
+     "type": "string",
+     "description": "Campos usados para agrupar o resultado, separados por vírgula.",
+     "required": false,
+     "sensitive": false,
+     "sample": "priority,state"
+    },
+    {
+     "id": "b67521e6-d7e0-425d-863c-1e9f92da1447",
+     "name": "sysparm_having",
+     "type": "string",
+     "description": "Filtro sobre o resultado agregado, na sintaxe agregacao^campo^operador^valor.",
+     "required": false,
+     "sensitive": false,
+     "sample": "count^priority^>^3"
+    },
+    {
+     "id": "c7ce768d-6668-467f-b6e8-39f1c9c68915",
+     "name": "sysparm_order_by",
+     "type": "string",
+     "description": "Ordenação dos grupos por campo ou agregação, como AVG^state ou COUNT.",
+     "required": false,
+     "sensitive": false,
+     "sample": "COUNT"
+    },
+    {
+     "id": "c11a56d2-4987-42ad-81b7-4d8b9de0a9bf",
+     "name": "sysparm_query",
+     "type": "string",
+     "description": "Query codificada para filtrar o resultado, relativa à tabela consultada. Aceita ORDERBY e ORDERBYDESC para ordenar.",
+     "required": false,
+     "sensitive": false,
+     "sample": "active=true"
+    },
+    {
+     "id": "7a605ee7-b171-49b6-8a89-e75c1ad73b29",
+     "name": "sysparm_display_value",
+     "type": "string",
+     "description": "Define se retorna o valor do banco, o valor de exibição ou ambos. Valores: true, false ou all.",
+     "required": false,
+     "sensitive": false,
+     "sample": "false"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "stats",
+      "<>table_name</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_count",
+       "value": "<>sysparm_count</>"
+      },
+      {
+       "key": "sysparm_avg_fields",
+       "value": "<>sysparm_aggregate_fields</>"
+      },
+      {
+       "key": "sysparm_group_by",
+       "value": "<>sysparm_group_by</>"
+      },
+      {
+       "key": "sysparm_having",
+       "value": "<>sysparm_having</>"
+      },
+      {
+       "key": "sysparm_order_by",
+       "value": "<>sysparm_order_by</>"
+      },
+      {
+       "key": "sysparm_query",
+       "value": "<>sysparm_query</>"
+      },
+      {
+       "key": "sysparm_display_value",
+       "value": "<>sysparm_display_value</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "6427d2de-7758-47d1-9445-95edf3cd2ad1",
+   "name": "Batch - Send multiple requests",
+   "description": "Envia várias requisições REST da instância em uma única chamada.",
+   "parameters": [
+    {
+     "id": "api-version-6427d2de-7758-47d1-9445-95edf3cd2ad1",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "b22c8073-ef64-4f6e-83bf-54aa3436a86f",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com batch_request_id e rest_requests, cada item com id, method, url e body em Base64.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"batch_request_id\":\"1\",\"rest_requests\":[{\"id\":\"r1\",\"method\":\"GET\",\"url\":\"/api/now/table/incident?sysparm_limit=1\"}]}"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "batch"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "67ade6bc-bfac-4367-bb02-ce902ae439ce",
+   "name": "Attachment - Retrieve attachment metadata",
+   "description": "Lista os metadados de múltiplos anexos da tabela sys_attachment.",
+   "parameters": [
+    {
+     "id": "44a0de22-bcbd-4dc2-b8de-b038dc190f2c",
+     "name": "sysparm_query",
+     "type": "string",
+     "description": "Query codificada para filtrar o resultado, relativa à tabela consultada. Aceita ORDERBY e ORDERBYDESC para ordenar.",
+     "required": false,
+     "sensitive": false,
+     "sample": "table_name=incident^ORDERBYDESCsys_created_on"
+    },
+    {
+     "id": "436dabd4-bec0-4cad-8bd4-00c44bb504fe",
+     "name": "sysparm_limit",
+     "type": "string",
+     "description": "Número máximo de registros retornados. Valores muito altos degradam a performance da instância.",
+     "required": false,
+     "sensitive": false,
+     "sample": "100"
+    },
+    {
+     "id": "c9b079fc-6c0d-4964-8251-76d1e940918b",
+     "name": "sysparm_offset",
+     "type": "string",
+     "description": "Índice inicial dos registros, usado para paginar junto com sysparm_limit.",
+     "required": false,
+     "sensitive": false,
+     "sample": "0"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "attachment"
+     ],
+     "query": [
+      {
+       "key": "sysparm_query",
+       "value": "<>sysparm_query</>"
+      },
+      {
+       "key": "sysparm_limit",
+       "value": "<>sysparm_limit</>"
+      },
+      {
+       "key": "sysparm_offset",
+       "value": "<>sysparm_offset</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "dc54918f-9e60-4bdf-a80c-c5ec466dd099",
+   "name": "Attachment - Retrieve attachment metadata by id",
+   "description": "Obtém os metadados de um anexo específico pelo sys_id.",
+   "parameters": [
+    {
+     "id": "5ad16ba2-9a4d-4f37-b788-881f3faf11f9",
+     "name": "attachment_sys_id",
+     "type": "string",
+     "description": "Identificador único do registro de anexo na tabela sys_attachment.",
+     "required": true,
+     "sensitive": false,
+     "sample": "615ea769c0a80166001cf5f2367302f5"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "attachment",
+      "<>attachment_sys_id</>"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "51a68469-e86d-4b90-a11b-5ff80ecb9c44",
+   "name": "Attachment - Retrieve attachment content",
+   "description": "Baixa o conteúdo binário do arquivo anexado, identificado pelo sys_id.",
+   "parameters": [
+    {
+     "id": "201a8b5d-fe0b-4fe2-9e1c-93b76472a663",
+     "name": "attachment_sys_id",
+     "type": "string",
+     "description": "Identificador único do registro de anexo na tabela sys_attachment.",
+     "required": true,
+     "sensitive": false,
+     "sample": "615ea769c0a80166001cf5f2367302f5"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "attachment",
+      "<>attachment_sys_id</>",
+      "file"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "dd306ef1-8f23-497f-ac9c-08b475d1dd88",
+   "name": "Attachment - Upload a file",
+   "description": "Anexa um arquivo enviado no corpo da requisição ao registro indicado.",
+   "parameters": [
+    {
+     "id": "00296798-f563-4212-88c3-48118d306180",
+     "name": "table_name",
+     "type": "string",
+     "description": "Nome da tabela alvo da operação, como incident, sc_request ou sys_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "incident"
+    },
+    {
+     "id": "6f57ecef-a8e0-4dfa-8e12-3f8a7fa281d4",
+     "name": "table_sys_id",
+     "type": "string",
+     "description": "Sys_id do registro, na tabela indicada, que vai receber o anexo.",
+     "required": true,
+     "sensitive": false,
+     "sample": "d71f7935c0a8016700802b64c67c11c6"
+    },
+    {
+     "id": "22b4a75b-7aae-4572-9e8d-aa8841ea5e2d",
+     "name": "file_name",
+     "type": "string",
+     "description": "Nome a ser dado ao anexo no ServiceNow.",
+     "required": true,
+     "sensitive": false,
+     "sample": "log_do_erro.txt"
+    },
+    {
+     "id": "70543959-bf39-4f78-8c7e-c249c77258e4",
+     "name": "content_type",
+     "type": "string",
+     "description": "Tipo de conteúdo do arquivo, como text/plain ou image/jpeg. Obrigatório para o upload funcionar.",
+     "required": true,
+     "sensitive": false,
+     "sample": "text/plain"
+    },
+    {
+     "id": "c3ea4499-d3a2-4beb-b6b4-bd7846b04799",
+     "name": "file_content",
+     "type": "string",
+     "description": "Conteúdo do arquivo enviado no corpo. Adequado a texto (CSV, JSON, XML, log); binário puro use o upload multipart.",
+     "required": true,
+     "sensitive": false,
+     "sample": "linha 1 do log\nlinha 2 do log"
+    },
+    {
+     "id": "6c582ee0-93d1-4ca8-b070-b868b93a30e7",
+     "name": "creation_time",
+     "type": "string",
+     "description": "Data e hora de criação do anexo. Por padrão usa o momento do envio.",
+     "required": false,
+     "sensitive": false,
+     "sample": "2026-08-12 14:30:00"
+    },
+    {
+     "id": "4efc2638-ad6d-44de-996b-6d4b40f091d8",
+     "name": "encryption_context",
+     "type": "string",
+     "description": "Sys_id do contexto de criptografia que restringe o acesso ao anexo.",
+     "required": false,
+     "sensitive": false,
+     "sample": "7b1c4f7d0f8a4210f877796e70786958"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "attachment",
+      "file"
+     ],
+     "query": [
+      {
+       "key": "table_name",
+       "value": "<>table_name</>"
+      },
+      {
+       "key": "table_sys_id",
+       "value": "<>table_sys_id</>"
+      },
+      {
+       "key": "file_name",
+       "value": "<>file_name</>"
+      },
+      {
+       "key": "creation_time",
+       "value": "<>creation_time</>"
+      },
+      {
+       "key": "encryption_context",
+       "value": "<>encryption_context</>"
+      }
+     ]
+    },
+    "header": [
+     {
+      "key": "Content-Type",
+      "value": "<>content_type</>",
+      "enabled": true
+     }
+    ],
+    "body": {
+     "mode": "raw",
+     "raw": "<>file_content</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "dfe8edf0-a87e-41c0-94c7-a0a8aba94bb3",
+   "name": "Attachment - Upload a multipart file",
+   "description": "Anexa um arquivo a um registro usando requisição multipart/form-data.",
+   "parameters": [
+    {
+     "id": "a7b4a79c-3c48-481d-afcf-61e923ce3c0f",
+     "name": "table_name",
+     "type": "string",
+     "description": "Nome da tabela alvo da operação, como incident, sc_request ou sys_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "incident"
+    },
+    {
+     "id": "ecb40899-1564-4d1c-92f3-72e8cffeaf88",
+     "name": "table_sys_id",
+     "type": "string",
+     "description": "Sys_id do registro, na tabela indicada, que vai receber o anexo.",
+     "required": true,
+     "sensitive": false,
+     "sample": "d71f7935c0a8016700802b64c67c11c6"
+    },
+    {
+     "id": "e845c357-c544-42ff-924f-47e339a01027",
+     "name": "upload_file",
+     "type": "string",
+     "description": "Arquivo a ser anexado ao registro.",
+     "required": true,
+     "sensitive": false,
+     "sample": "captura_de_tela.png"
+    },
+    {
+     "id": "8a23a092-a04a-41c8-bb22-44110749fc69",
+     "name": "content_type",
+     "type": "string",
+     "description": "Tipo de conteúdo do arquivo, como text/plain ou image/jpeg. Obrigatório para o upload funcionar.",
+     "required": true,
+     "sensitive": false,
+     "sample": "image/png"
+    },
+    {
+     "id": "7eb31ead-c01a-46ba-983b-ee973c381a64",
+     "name": "file_name",
+     "type": "string",
+     "description": "Nome a ser dado ao anexo no ServiceNow.",
+     "required": true,
+     "sensitive": false,
+     "sample": "captura_de_tela.png"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "attachment",
+      "upload"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "table_name:<>table_name</>\ntable_sys_id:<>table_sys_id</>\nuploadFile:<>upload_file</>:mime:<>content_type</>:<>file_name</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "c973b32e-34d9-4843-97b3-7498b63d314b",
+   "name": "Attachment - Delete an attachment",
+   "description": "Exclui o anexo identificado pelo sys_id.",
+   "parameters": [
+    {
+     "id": "1cbd847c-9c77-4124-95f5-6a8566212b6b",
+     "name": "attachment_sys_id",
+     "type": "string",
+     "description": "Identificador único do registro de anexo na tabela sys_attachment.",
+     "required": true,
+     "sensitive": false,
+     "sample": "615ea769c0a80166001cf5f2367302f5"
+    }
+   ],
+   "request": {
+    "method": "DELETE",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "attachment",
+      "<>attachment_sys_id</>"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "8a64bf64-9d55-47ff-a1ca-8d03eb5dfc51",
+   "name": "Import Set - Insert a record",
+   "description": "Insere dados na tabela de staging e dispara a transformação síncrona dos transform maps.",
+   "parameters": [
+    {
+     "id": "api-version-8a64bf64-9d55-47ff-a1ca-8d03eb5dfc51",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "b9859493-52b9-45d1-a437-428e7b50a473",
+     "name": "staging_table_name",
+     "type": "string",
+     "description": "Nome da tabela de staging do import set, como imp_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "imp_user"
+    },
+    {
+     "id": "68529d4c-54d9-4854-a46d-9ac590fe6079",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com os pares campo/valor a inserir nos campos de importação da tabela de staging.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"u_first_name\":\"Maria\",\"u_last_name\":\"Souza\",\"u_email\":\"maria.souza@exemplo.com\"}"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "import",
+      "<>staging_table_name</>"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "a4508f9a-028c-4d51-ac2d-0b0023fb0f27",
+   "name": "Import Set - Insert multiple records",
+   "description": "Insere vários registros na tabela de staging numa única requisição, com transformação assíncrona.",
+   "parameters": [
+    {
+     "id": "api-version-a4508f9a-028c-4d51-ac2d-0b0023fb0f27",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "cfa45220-8f0d-4b37-8e25-3d575e65b883",
+     "name": "staging_table_name",
+     "type": "string",
+     "description": "Nome da tabela de staging do import set, como imp_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "u_employee_import_set_table"
+    },
+    {
+     "id": "db6bb8c9-1ca9-4f9f-b546-020ab42655fc",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com o array records, cada item mapeando rótulos de coluna da tabela de staging para os valores.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"records\":[{\"First Name\":\"Maria\",\"Email\":\"maria@exemplo.com\"},{\"First Name\":\"João\",\"Email\":\"joao@exemplo.com\"}]}"
+    },
+    {
+     "id": "3dad8778-ba08-41bc-94a8-9263371a035a",
+     "name": "multi_import_set_id",
+     "type": "string",
+     "description": "Sys_id de um registro em sys_multi_import_set, para agregar esta importação a um conjunto existente.",
+     "required": false,
+     "sensitive": false,
+     "sample": "3f2b8d7d0f8a4210f877796e70786951"
+    },
+    {
+     "id": "cc273e35-184d-4792-ae86-0637ee381d69",
+     "name": "run_after",
+     "type": "string",
+     "description": "Sys_id do import set que deve terminar antes deste rodar. Válido apenas em transformação assíncrona.",
+     "required": false,
+     "sensitive": false,
+     "sample": "e2928be64f411200adf9f8e18110c777"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "import",
+      "<>staging_table_name</>",
+      "insertMultiple"
+     ],
+     "query": [
+      {
+       "key": "multi_import_set_id",
+       "value": "<>multi_import_set_id</>"
+      },
+      {
+       "key": "run_after",
+       "value": "<>run_after</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "6f3a8932-31c6-4601-81b4-eb8427b04d84",
+   "name": "Import Set - Retrieve a record",
+   "description": "Recupera um registro de staging do import set e o resultado da sua transformação.",
+   "parameters": [
+    {
+     "id": "api-version-6f3a8932-31c6-4601-81b4-eb8427b04d84",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "e4d90c91-f100-420e-8c7e-9860f91afcf0",
+     "name": "staging_table_name",
+     "type": "string",
+     "description": "Nome da tabela de staging do import set, como imp_user.",
+     "required": true,
+     "sensitive": false,
+     "sample": "imp_user"
+    },
+    {
+     "id": "6aef0f66-8bf4-451e-9c3e-4af123b2a081",
+     "name": "sys_id",
+     "type": "string",
+     "description": "Identificador único do registro na tabela.",
+     "required": true,
+     "sensitive": false,
+     "sample": "e2928be64f411200adf9f8e18110c777"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "import",
+      "<>staging_table_name</>",
+      "<>sys_id</>"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "a43218b0-2430-4d28-a981-25938fb504f9",
+   "name": "Email - Send an email",
+   "description": "Cria um registro de e-mail na instância para envio pelos destinatários informados.",
+   "parameters": [
+    {
+     "id": "api-version-a43218b0-2430-4d28-a981-25938fb504f9",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "293a1a09-3cb3-43f7-be1d-f5265945ef51",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto do e-mail com to (obrigatório), cc, bcc, subject, text, html, importance, headers, table_name e table_record_id.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"to\":[\"maria.souza@exemplo.com\"],\"subject\":\"Chamado atualizado\",\"text\":\"Seu chamado foi resolvido.\",\"table_name\":\"incident\",\"table_record_id\":\"a9e30c7dc61122760116894de7bcc7bd\"}"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "email"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "bfa86b7a-a737-49dc-80a1-d403e0b5b1ba",
+   "name": "Email - Retrieve an email",
+   "description": "Obtém os detalhes de um registro de e-mail da tabela sys_email.",
+   "parameters": [
+    {
+     "id": "api-version-bfa86b7a-a737-49dc-80a1-d403e0b5b1ba",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "8526278f-1ad1-490a-8631-91a518b6b5f5",
+     "name": "email_id",
+     "type": "string",
+     "description": "Sys_id do e-mail na tabela sys_email.",
+     "required": true,
+     "sensitive": false,
+     "sample": "06e095427f0022007f005212bdfa91b3"
+    },
+    {
+     "id": "dc8c698f-8735-4535-b187-44c1269cd671",
+     "name": "sysparm_fields",
+     "type": "string",
+     "description": "Lista de campos a retornar, separados por vírgula. Campos inválidos são ignorados.",
+     "required": false,
+     "sensitive": false,
+     "sample": "subject,recipients,state"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "now",
+      "<>api_version</>",
+      "email",
+      "<>email_id</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_fields",
+       "value": "<>sysparm_fields</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "cadaf5fc-626b-4166-944b-aa65a2f68335",
+   "name": "Knowledge - Search articles",
+   "description": "Busca artigos da base de conhecimento com filtro por texto, base, idioma e query codificada.",
+   "parameters": [
+    {
+     "id": "api-version-cadaf5fc-626b-4166-944b-aa65a2f68335",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "6b20a43d-ee93-47b4-b9d3-c47f7f3be230",
+     "name": "query",
+     "type": "string",
+     "description": "Texto a pesquisar nos artigos. Pode ser vazio.",
+     "required": false,
+     "sensitive": false,
+     "sample": "reset de senha"
+    },
+    {
+     "id": "dc7a72b4-83bc-4524-ae24-4c26373a7839",
+     "name": "filter",
+     "type": "string",
+     "description": "Query codificada para filtrar o resultado, na sintaxe atributo operador valor, combinada com ^ e ^OR.",
+     "required": false,
+     "sensitive": false,
+     "sample": "workflow_state=published"
+    },
+    {
+     "id": "7b1af69d-88a2-4f06-82f3-54a8c69da296",
+     "name": "fields",
+     "type": "string",
+     "description": "Lista de campos da tabela kb_knowledge a detalhar no resultado, separados por vírgula.",
+     "required": false,
+     "sensitive": false,
+     "sample": "short_description,number"
+    },
+    {
+     "id": "fc7a9c9e-da4b-4b03-aba3-a5f6340b9e48",
+     "name": "kb",
+     "type": "string",
+     "description": "Sys_ids de bases de conhecimento (kb_knowledge_base) para restringir a busca, separados por vírgula.",
+     "required": false,
+     "sensitive": false,
+     "sample": "a7e8a78bff0221009b20ffffffffff17"
+    },
+    {
+     "id": "a67a2daa-5f9f-4272-9b3e-bf482b30bb22",
+     "name": "language",
+     "type": "string",
+     "description": "Códigos de idioma ISO 639-1 separados por vírgula, ou all. Ao buscar artigo por número KB, indica a tradução desejada.",
+     "required": false,
+     "sensitive": false,
+     "sample": "pt"
+    },
+    {
+     "id": "6cbca9c4-457d-4c01-afa5-74f99bbfd161",
+     "name": "limit",
+     "type": "string",
+     "description": "Número máximo de artigos retornados. O padrão da API é 30.",
+     "required": false,
+     "sensitive": false,
+     "sample": "30"
+    },
+    {
+     "id": "0811cb31-f95b-4b84-8ef5-411b5ee38bd6",
+     "name": "offset",
+     "type": "string",
+     "description": "Índice inicial dos registros, usado para paginar junto com limit.",
+     "required": false,
+     "sensitive": false,
+     "sample": "0"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_km_api",
+      "<>api_version</>",
+      "knowledge",
+      "articles"
+     ],
+     "query": [
+      {
+       "key": "query",
+       "value": "<>query</>"
+      },
+      {
+       "key": "filter",
+       "value": "<>filter</>"
+      },
+      {
+       "key": "fields",
+       "value": "<>fields</>"
+      },
+      {
+       "key": "kb",
+       "value": "<>kb</>"
+      },
+      {
+       "key": "language",
+       "value": "<>language</>"
+      },
+      {
+       "key": "limit",
+       "value": "<>limit</>"
+      },
+      {
+       "key": "offset",
+       "value": "<>offset</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "f97163b5-a941-4c8b-9b2b-fe7d71e822ac",
+   "name": "Knowledge - Get featured articles",
+   "description": "Lista os artigos em destaque da base de conhecimento.",
+   "parameters": [
+    {
+     "id": "api-version-f97163b5-a941-4c8b-9b2b-fe7d71e822ac",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "ffb083db-ba03-4136-be12-53a2d72786e6",
+     "name": "fields",
+     "type": "string",
+     "description": "Lista de campos da tabela kb_knowledge a detalhar no resultado, separados por vírgula.",
+     "required": false,
+     "sensitive": false,
+     "sample": "short_description,number"
+    },
+    {
+     "id": "b28efdd5-27f1-47a5-867d-d9d11cfa4396",
+     "name": "kb",
+     "type": "string",
+     "description": "Sys_ids de bases de conhecimento (kb_knowledge_base) para restringir a busca, separados por vírgula.",
+     "required": false,
+     "sensitive": false,
+     "sample": "a7e8a78bff0221009b20ffffffffff17"
+    },
+    {
+     "id": "592ba676-6946-4517-b637-f120f24160a6",
+     "name": "language",
+     "type": "string",
+     "description": "Códigos de idioma ISO 639-1 separados por vírgula, ou all. Ao buscar artigo por número KB, indica a tradução desejada.",
+     "required": false,
+     "sensitive": false,
+     "sample": "pt"
+    },
+    {
+     "id": "d7ec8c22-fa3d-403a-83c1-5bec4083bff5",
+     "name": "limit",
+     "type": "string",
+     "description": "Número máximo de artigos retornados. O padrão da API é 30.",
+     "required": false,
+     "sensitive": false,
+     "sample": "30"
+    },
+    {
+     "id": "16a3d8f7-93a8-4d85-993f-cceab557dfe1",
+     "name": "offset",
+     "type": "string",
+     "description": "Índice inicial dos registros, usado para paginar junto com limit.",
+     "required": false,
+     "sensitive": false,
+     "sample": "0"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_km_api",
+      "<>api_version</>",
+      "knowledge",
+      "articles",
+      "featured"
+     ],
+     "query": [
+      {
+       "key": "fields",
+       "value": "<>fields</>"
+      },
+      {
+       "key": "kb",
+       "value": "<>kb</>"
+      },
+      {
+       "key": "language",
+       "value": "<>language</>"
+      },
+      {
+       "key": "limit",
+       "value": "<>limit</>"
+      },
+      {
+       "key": "offset",
+       "value": "<>offset</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "6795c18c-1a7d-4cc9-b362-8325e63ba2a5",
+   "name": "Knowledge - Get most viewed articles",
+   "description": "Lista os artigos da base de conhecimento ordenados pelos mais visualizados.",
+   "parameters": [
+    {
+     "id": "api-version-6795c18c-1a7d-4cc9-b362-8325e63ba2a5",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "0bcecc31-b486-4332-aef5-f9253266ffd3",
+     "name": "fields",
+     "type": "string",
+     "description": "Lista de campos da tabela kb_knowledge a detalhar no resultado, separados por vírgula.",
+     "required": false,
+     "sensitive": false,
+     "sample": "short_description,number"
+    },
+    {
+     "id": "0f5e0cdf-a7cb-4884-b8eb-c15c9e7cab20",
+     "name": "kb",
+     "type": "string",
+     "description": "Sys_ids de bases de conhecimento (kb_knowledge_base) para restringir a busca, separados por vírgula.",
+     "required": false,
+     "sensitive": false,
+     "sample": "a7e8a78bff0221009b20ffffffffff17"
+    },
+    {
+     "id": "c8d7d4bf-781f-47f0-9511-ac2c32045070",
+     "name": "language",
+     "type": "string",
+     "description": "Códigos de idioma ISO 639-1 separados por vírgula, ou all. Ao buscar artigo por número KB, indica a tradução desejada.",
+     "required": false,
+     "sensitive": false,
+     "sample": "pt"
+    },
+    {
+     "id": "cd29243c-5064-4ae0-aeeb-fbc4d5603ea1",
+     "name": "limit",
+     "type": "string",
+     "description": "Número máximo de artigos retornados. O padrão da API é 30.",
+     "required": false,
+     "sensitive": false,
+     "sample": "30"
+    },
+    {
+     "id": "0ecba103-b0f3-423d-9015-75d7ab7630ca",
+     "name": "offset",
+     "type": "string",
+     "description": "Índice inicial dos registros, usado para paginar junto com limit.",
+     "required": false,
+     "sensitive": false,
+     "sample": "0"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_km_api",
+      "<>api_version</>",
+      "knowledge",
+      "articles",
+      "most_viewed"
+     ],
+     "query": [
+      {
+       "key": "fields",
+       "value": "<>fields</>"
+      },
+      {
+       "key": "kb",
+       "value": "<>kb</>"
+      },
+      {
+       "key": "language",
+       "value": "<>language</>"
+      },
+      {
+       "key": "limit",
+       "value": "<>limit</>"
+      },
+      {
+       "key": "offset",
+       "value": "<>offset</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "eeb2e9a9-efe2-41bf-b21f-3ef732850749",
+   "name": "Knowledge - Get article details",
+   "description": "Obtém o conteúdo e os campos de um artigo específico da base de conhecimento.",
+   "parameters": [
+    {
+     "id": "api-version-eeb2e9a9-efe2-41bf-b21f-3ef732850749",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "cce194b4-df80-4acc-999e-5ad924f6ee0b",
+     "name": "article_id",
+     "type": "string",
+     "description": "Sys_id ou número KB do artigo na tabela kb_knowledge.",
+     "required": true,
+     "sensitive": false,
+     "sample": "KB0000020"
+    },
+    {
+     "id": "5684780e-9739-464e-9c7c-e84434173b90",
+     "name": "fields",
+     "type": "string",
+     "description": "Lista de campos da tabela kb_knowledge a detalhar no resultado, separados por vírgula.",
+     "required": false,
+     "sensitive": false,
+     "sample": "short_description,number"
+    },
+    {
+     "id": "03e86b21-8d05-4722-8d24-8d01019aca43",
+     "name": "language",
+     "type": "string",
+     "description": "Códigos de idioma ISO 639-1 separados por vírgula, ou all. Ao buscar artigo por número KB, indica a tradução desejada.",
+     "required": false,
+     "sensitive": false,
+     "sample": "pt"
+    },
+    {
+     "id": "4c4c7795-786f-4c47-8071-8b595efd8ac7",
+     "name": "search_id",
+     "type": "string",
+     "description": "Identificador da busca que retornou o artigo, usado junto com search_rank para telemetria de relevância.",
+     "required": false,
+     "sensitive": false,
+     "sample": "d2b8a1f70f8a4210f877796e70786953"
+    },
+    {
+     "id": "673c29f5-edd2-40c5-ac5a-ee0ca63610e1",
+     "name": "search_rank",
+     "type": "string",
+     "description": "Posição do artigo no resultado da busca, obtida no campo rank. Usada junto com search_id.",
+     "required": false,
+     "sensitive": false,
+     "sample": "1"
+    },
+    {
+     "id": "ae54256b-a85d-4ef4-a093-94b57b9db81c",
+     "name": "update_view",
+     "type": "string",
+     "description": "Quando presente, incrementa o contador de visualizações e registra o uso em kb_use. É ignorado junto com search_id.",
+     "required": false,
+     "sensitive": false,
+     "sample": "true"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_km_api",
+      "<>api_version</>",
+      "knowledge",
+      "articles",
+      "<>article_id</>"
+     ],
+     "query": [
+      {
+       "key": "fields",
+       "value": "<>fields</>"
+      },
+      {
+       "key": "language",
+       "value": "<>language</>"
+      },
+      {
+       "key": "search_id",
+       "value": "<>search_id</>"
+      },
+      {
+       "key": "search_rank",
+       "value": "<>search_rank</>"
+      },
+      {
+       "key": "update_view",
+       "value": "<>update_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "0d0de7b9-1552-4294-b0c8-3358ecfd46e0",
+   "name": "Knowledge - Get article attachment",
+   "description": "Baixa como arquivo um anexo de um artigo da base de conhecimento.",
+   "parameters": [
+    {
+     "id": "api-version-0d0de7b9-1552-4294-b0c8-3358ecfd46e0",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "dfeb7e37-abd3-40e2-8e64-86c0f298765c",
+     "name": "article_sys_id",
+     "type": "string",
+     "description": "Sys_id do artigo da base de conhecimento que contém o anexo.",
+     "required": true,
+     "sensitive": false,
+     "sample": "0b48fd75474321009db4b5b08b9a71c2"
+    },
+    {
+     "id": "41750fd6-ae4c-472c-b10f-f4b6b91b3193",
+     "name": "attachment_sys_id",
+     "type": "string",
+     "description": "Identificador único do registro de anexo na tabela sys_attachment.",
+     "required": true,
+     "sensitive": false,
+     "sample": "fedf5614294f4010f877796e70786956"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_km_api",
+      "<>api_version</>",
+      "knowledge",
+      "articles",
+      "<>article_sys_id</>",
+      "attachments",
+      "<>attachment_sys_id</>"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "6768ae5e-c431-4ed5-b9fc-a1f6953ceeb7",
+   "name": "Service Catalog - Get catalogs",
+   "description": "Lista os catálogos de serviço aos quais o usuário tem acesso.",
+   "parameters": [
+    {
+     "id": "api-version-6768ae5e-c431-4ed5-b9fc-a1f6953ceeb7",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "1e14dc20-ed33-4f91-b950-655604cd8387",
+     "name": "sysparm_text",
+     "type": "string",
+     "description": "Texto a buscar: no título dos catálogos ou no nome e descrição dos itens, conforme a operação.",
+     "required": false,
+     "sensitive": false,
+     "sample": "hardware"
+    },
+    {
+     "id": "c379d1a9-1548-4124-9c75-49ae809e6a8e",
+     "name": "sysparm_limit",
+     "type": "string",
+     "description": "Número máximo de registros retornados. Valores muito altos degradam a performance da instância.",
+     "required": false,
+     "sensitive": false,
+     "sample": "50"
+    },
+    {
+     "id": "a9ad9d7f-bb1f-4623-b799-0f221e217b4b",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "catalogs"
+     ],
+     "query": [
+      {
+       "key": "sysparm_text",
+       "value": "<>sysparm_text</>"
+      },
+      {
+       "key": "sysparm_limit",
+       "value": "<>sysparm_limit</>"
+      },
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "edf08166-8f35-44c5-86e6-ecd1facb78e6",
+   "name": "Service Catalog - Get catalog details",
+   "description": "Obtém as informações de um catálogo específico.",
+   "parameters": [
+    {
+     "id": "api-version-edf08166-8f35-44c5-86e6-ecd1facb78e6",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "7f81bce8-06ff-4eff-b532-39e2a2b8d013",
+     "name": "catalog_sys_id",
+     "type": "string",
+     "description": "Sys_id do catálogo de serviço na tabela sc_catalog.",
+     "required": true,
+     "sensitive": false,
+     "sample": "e0d08b13c3330100c8b837659bba8fb4"
+    },
+    {
+     "id": "c99392a3-de2a-4249-992c-e8796c608074",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "catalogs",
+      "<>catalog_sys_id</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "d1406cce-8d32-4a1d-8a8e-e843661e8623",
+   "name": "Service Catalog - Get catalog categories",
+   "description": "Lista as categorias disponíveis no catálogo informado.",
+   "parameters": [
+    {
+     "id": "api-version-d1406cce-8d32-4a1d-8a8e-e843661e8623",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "63706e8c-d61a-4751-a645-7d1d34d338a6",
+     "name": "catalog_sys_id",
+     "type": "string",
+     "description": "Sys_id do catálogo de serviço na tabela sc_catalog.",
+     "required": true,
+     "sensitive": false,
+     "sample": "e0d08b13c3330100c8b837659bba8fb4"
+    },
+    {
+     "id": "481ba3cf-e4ad-44ec-a943-2d8a42b3529b",
+     "name": "sysparm_limit",
+     "type": "string",
+     "description": "Número máximo de registros retornados. Valores muito altos degradam a performance da instância.",
+     "required": false,
+     "sensitive": false,
+     "sample": "50"
+    },
+    {
+     "id": "fcb1efb4-cc73-4ea0-8ca1-6ad6870e7efe",
+     "name": "sysparm_offset",
+     "type": "string",
+     "description": "Índice inicial dos registros, usado para paginar junto com sysparm_limit.",
+     "required": false,
+     "sensitive": false,
+     "sample": "0"
+    },
+    {
+     "id": "38ee0f43-ec9f-4225-897b-2ca3f775ddf4",
+     "name": "sysparm_top_level_only",
+     "type": "string",
+     "description": "Quando true, retorna apenas as categorias cujo pai é o próprio catálogo.",
+     "required": false,
+     "sensitive": false,
+     "sample": "true"
+    },
+    {
+     "id": "08990ba7-1f8d-4b46-a336-82150793210c",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "catalogs",
+      "<>catalog_sys_id</>",
+      "categories"
+     ],
+     "query": [
+      {
+       "key": "sysparm_limit",
+       "value": "<>sysparm_limit</>"
+      },
+      {
+       "key": "sysparm_offset",
+       "value": "<>sysparm_offset</>"
+      },
+      {
+       "key": "sysparm_top_level_only",
+       "value": "<>sysparm_top_level_only</>"
+      },
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "b18832bc-abe5-4006-a56f-f4ca40553c06",
+   "name": "Service Catalog - Get category details",
+   "description": "Obtém as informações de uma categoria específica do catálogo.",
+   "parameters": [
+    {
+     "id": "api-version-b18832bc-abe5-4006-a56f-f4ca40553c06",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "f6d58d3a-38dd-4f53-9246-8786290d9e0c",
+     "name": "category_sys_id",
+     "type": "string",
+     "description": "Sys_id da categoria do catálogo na tabela sc_category.",
+     "required": true,
+     "sensitive": false,
+     "sample": "d258b953c611227a0146101fb1be7c31"
+    },
+    {
+     "id": "316ebd8b-15b4-436f-95e2-6d8d9862d85f",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "categories",
+      "<>category_sys_id</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "b454ddd4-ef1c-467d-a1a6-d7cab3bcfc7e",
+   "name": "Service Catalog - Get catalog items",
+   "description": "Lista os itens do catálogo com filtro por catálogo, categoria, texto e tipo.",
+   "parameters": [
+    {
+     "id": "api-version-b454ddd4-ef1c-467d-a1a6-d7cab3bcfc7e",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "2f6e191f-0b9b-44c2-adab-b48a88348a2b",
+     "name": "sysparm_catalog",
+     "type": "string",
+     "description": "Sys_id do catálogo, para restringir a busca a itens de um catálogo específico.",
+     "required": false,
+     "sensitive": false,
+     "sample": "e0d08b13c3330100c8b837659bba8fb4"
+    },
+    {
+     "id": "b75a0462-d0bb-4b71-bb10-ccebbb1a9615",
+     "name": "sysparm_category",
+     "type": "string",
+     "description": "Sys_id da categoria, para restringir a busca a itens de uma categoria específica.",
+     "required": false,
+     "sensitive": false,
+     "sample": "d258b953c611227a0146101fb1be7c31"
+    },
+    {
+     "id": "41d95460-90e6-4a0d-a6fd-44193fa1dd71",
+     "name": "sysparm_text",
+     "type": "string",
+     "description": "Texto a buscar: no título dos catálogos ou no nome e descrição dos itens, conforme a operação.",
+     "required": false,
+     "sensitive": false,
+     "sample": "notebook"
+    },
+    {
+     "id": "2090a4ba-a129-44d9-bd30-f519b283d4c6",
+     "name": "sysparm_type",
+     "type": "string",
+     "description": "Tipo de item a buscar. Valores aceitos: Record Producer ou Order Guide.",
+     "required": false,
+     "sensitive": false,
+     "sample": "Order Guide"
+    },
+    {
+     "id": "9ec7b85f-fc53-4752-934a-7139a94697a8",
+     "name": "sysparm_limit",
+     "type": "string",
+     "description": "Número máximo de registros retornados. Valores muito altos degradam a performance da instância.",
+     "required": false,
+     "sensitive": false,
+     "sample": "50"
+    },
+    {
+     "id": "ef466282-41c6-4722-afde-1734190d8ed7",
+     "name": "sysparm_offset",
+     "type": "string",
+     "description": "Índice inicial dos registros, usado para paginar junto com sysparm_limit.",
+     "required": false,
+     "sensitive": false,
+     "sample": "0"
+    },
+    {
+     "id": "3dd0aeac-96ae-431a-9a0f-7a894274e522",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "items"
+     ],
+     "query": [
+      {
+       "key": "sysparm_catalog",
+       "value": "<>sysparm_catalog</>"
+      },
+      {
+       "key": "sysparm_category",
+       "value": "<>sysparm_category</>"
+      },
+      {
+       "key": "sysparm_text",
+       "value": "<>sysparm_text</>"
+      },
+      {
+       "key": "sysparm_type",
+       "value": "<>sysparm_type</>"
+      },
+      {
+       "key": "sysparm_limit",
+       "value": "<>sysparm_limit</>"
+      },
+      {
+       "key": "sysparm_offset",
+       "value": "<>sysparm_offset</>"
+      },
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "2e3a2944-2f2e-43c7-a337-e007c260140d",
+   "name": "Service Catalog - Get catalog item details",
+   "description": "Obtém os detalhes de um item do catálogo, incluindo suas variáveis.",
+   "parameters": [
+    {
+     "id": "api-version-2e3a2944-2f2e-43c7-a337-e007c260140d",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "77e3a6a4-d417-4f0a-810d-999aac76b224",
+     "name": "item_sys_id",
+     "type": "string",
+     "description": "Sys_id do item do catálogo (sc_cat_item) ou do record producer (sc_cat_item_producer), conforme a operação.",
+     "required": true,
+     "sensitive": false,
+     "sample": "3f1dd0320a0a0b99000a53f7604a2ef9"
+    },
+    {
+     "id": "7421baa0-7365-40e5-a424-f0ba1db4543f",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "items",
+      "<>item_sys_id</>"
+     ],
+     "query": [
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "5cbc64bf-9f2d-40ff-9607-4e7bc52bad6d",
+   "name": "Service Catalog - Get item delegation",
+   "description": "Verifica se o usuário delegado tem direito de aquisição sobre o item do catálogo.",
+   "parameters": [
+    {
+     "id": "api-version-5cbc64bf-9f2d-40ff-9607-4e7bc52bad6d",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "a98b0ad2-5c1e-4e75-af3b-435f0ece121e",
+     "name": "item_sys_id",
+     "type": "string",
+     "description": "Sys_id do item do catálogo (sc_cat_item) ou do record producer (sc_cat_item_producer), conforme a operação.",
+     "required": true,
+     "sensitive": false,
+     "sample": "3f1dd0320a0a0b99000a53f7604a2ef9"
+    },
+    {
+     "id": "e50200db-cc38-4be6-b4b0-80cf9c7b00c2",
+     "name": "user_sys_id",
+     "type": "string",
+     "description": "Sys_id do usuário na tabela sys_user cujo direito de aquisição será verificado.",
+     "required": true,
+     "sensitive": false,
+     "sample": "681ccaf9c0a8016400b98a06818d57c7"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "items",
+      "<>item_sys_id</>",
+      "delegation",
+      "<>user_sys_id</>"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "d1b2e0d2-fd20-4d66-b991-de88748762ff",
+   "name": "Service Catalog - Get invalid delegated users",
+   "description": "Lista os usuários cuja solicitação do item não pode ser delegada a terceiros.",
+   "parameters": [
+    {
+     "id": "api-version-d1b2e0d2-fd20-4d66-b991-de88748762ff",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "ed6fcab8-bb01-4493-95f1-b0158a76984b",
+     "name": "item_sys_id",
+     "type": "string",
+     "description": "Sys_id do item do catálogo (sc_cat_item) ou do record producer (sc_cat_item_producer), conforme a operação.",
+     "required": true,
+     "sensitive": false,
+     "sample": "3f1dd0320a0a0b99000a53f7604a2ef9"
+    },
+    {
+     "id": "d5ab6c99-0103-4103-9f46-eb6ba8184e0f",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com sysparm_also_request_for: sys_ids de usuários, separados por vírgula, a verificar.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"sysparm_also_request_for\":\"681ccaf9c0a8016400b98a06818d57c7,5137153cc611227c000bbd1bd8cd2007\"}"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "items",
+      "<>item_sys_id</>",
+      "get_invalid_delegated_users"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "ef37c49b-f933-4e93-9d92-3c24b5db0ca1",
+   "name": "Service Catalog - Add item to cart",
+   "description": "Adiciona o item do catálogo ao carrinho do usuário logado.",
+   "parameters": [
+    {
+     "id": "api-version-ef37c49b-f933-4e93-9d92-3c24b5db0ca1",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "2fe4b8ba-a65e-45b4-b537-8433be855bc7",
+     "name": "item_sys_id",
+     "type": "string",
+     "description": "Sys_id do item do catálogo (sc_cat_item) ou do record producer (sc_cat_item_producer), conforme a operação.",
+     "required": true,
+     "sensitive": false,
+     "sample": "3f1dd0320a0a0b99000a53f7604a2ef9"
+    },
+    {
+     "id": "4266fffe-d9d8-47bd-8ae3-fe0460a308bc",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com sysparm_quantity (obrigatório), sysparm_requested_for, sysparm_also_request_for e variables obrigatórias do item.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"sysparm_quantity\":\"1\",\"sysparm_requested_for\":\"681ccaf9c0a8016400b98a06818d57c7\",\"variables\":{\"carrier\":\"at_and_t_mobility\"}}"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "items",
+      "<>item_sys_id</>",
+      "add_to_cart"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "9c47f3b1-5955-4948-a562-f74456a86355",
+   "name": "Service Catalog - Order item now",
+   "description": "Faz o pedido imediato do item do catálogo, sem passar pelo carrinho.",
+   "parameters": [
+    {
+     "id": "api-version-9c47f3b1-5955-4948-a562-f74456a86355",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "0040997a-04d0-4d46-af96-6d852c1e3a8d",
+     "name": "item_sys_id",
+     "type": "string",
+     "description": "Sys_id do item do catálogo (sc_cat_item) ou do record producer (sc_cat_item_producer), conforme a operação.",
+     "required": true,
+     "sensitive": false,
+     "sample": "3f1dd0320a0a0b99000a53f7604a2ef9"
+    },
+    {
+     "id": "128f06b7-cada-45bd-9862-131bd77ce73a",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com sysparm_quantity (obrigatório), sysparm_requested_for, sysparm_also_request_for e variables obrigatórias do item.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"sysparm_quantity\":\"1\",\"variables\":{\"carrier\":\"at_and_t_mobility\"}}"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "items",
+      "<>item_sys_id</>",
+      "order_now"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "4a15d94d-8034-4870-92d9-9f676437baf1",
+   "name": "Service Catalog - Add item to wishlist",
+   "description": "Adiciona o item do catálogo à lista de desejos do usuário logado.",
+   "parameters": [
+    {
+     "id": "api-version-4a15d94d-8034-4870-92d9-9f676437baf1",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "ec723a6e-04da-4653-8ef2-f66bd91ff87a",
+     "name": "item_sys_id",
+     "type": "string",
+     "description": "Sys_id do item do catálogo (sc_cat_item) ou do record producer (sc_cat_item_producer), conforme a operação.",
+     "required": true,
+     "sensitive": false,
+     "sample": "3f1dd0320a0a0b99000a53f7604a2ef9"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "items",
+      "<>item_sys_id</>",
+      "add_to_wishlist"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "0cfcfe41-85af-4b37-947b-3e612aa175cc",
+   "name": "Service Catalog - Submit record producer",
+   "description": "Cria um registro a partir do record producer e devolve o caminho do registro criado.",
+   "parameters": [
+    {
+     "id": "api-version-0cfcfe41-85af-4b37-947b-3e612aa175cc",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "e1565489-6cfd-4882-9674-81c126c76ca7",
+     "name": "item_sys_id",
+     "type": "string",
+     "description": "Sys_id do item do catálogo (sc_cat_item) ou do record producer (sc_cat_item_producer), conforme a operação.",
+     "required": true,
+     "sensitive": false,
+     "sample": "d55a4bd8c0a8016400858bd8377ca4bd"
+    },
+    {
+     "id": "361b3b8e-856b-4580-9c67-fe1839efc830",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com variables: pares nome/valor das variáveis do record producer a preencher.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"variables\":{\"short_description\":\"Notebook não liga\",\"urgency\":\"2\"}}"
+    },
+    {
+     "id": "3690b859-fbde-4397-9fc7-0fbce6463c03",
+     "name": "sysparm_view",
+     "type": "string",
+     "description": "View de UI ou dispositivo usado para renderizar os dados e definir os campos retornados. Valores: desktop, mobile ou both.",
+     "required": false,
+     "sensitive": false,
+     "sample": "desktop"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "items",
+      "<>item_sys_id</>",
+      "submit_producer"
+     ],
+     "query": [
+      {
+       "key": "sysparm_view",
+       "value": "<>sysparm_view</>"
+      }
+     ]
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "9e5532a0-1f2e-4cbb-b50a-971386b23329",
+   "name": "Service Catalog - Submit order guide",
+   "description": "Retorna a lista de itens de um order guide a partir das necessidades descritas.",
+   "parameters": [
+    {
+     "id": "api-version-9e5532a0-1f2e-4cbb-b50a-971386b23329",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "a9bb4056-c048-416c-a571-ad46bfcb9fa1",
+     "name": "guide_sys_id",
+     "type": "string",
+     "description": "Sys_id do order guide na tabela sc_cat_item_guide.",
+     "required": true,
+     "sensitive": false,
+     "sample": "6690750f4f7b4200086eeed18110c7fd"
+    },
+    {
+     "id": "1156ed34-2412-43d1-8bbb-1e41a2cc2393",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com variables: array de variáveis, cada uma com pares nome/valor, solicitadas para o item.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"variables\":{\"location\":\"São Paulo\",\"new_email\":\"maria.souza@exemplo.com\"}}"
+    }
+   ],
+   "request": {
+    "method": "PUT",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "items",
+      "<>guide_sys_id</>",
+      "submit_guide"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "d6ba045a-081c-4bf8-a287-fcbfa372773e",
+   "name": "Service Catalog - Checkout order guide",
+   "description": "Retorna os itens de um order guide preparados para checkout.",
+   "parameters": [
+    {
+     "id": "api-version-d6ba045a-081c-4bf8-a287-fcbfa372773e",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "4ef1d428-9e6a-4244-8c0a-312c41726040",
+     "name": "guide_sys_id",
+     "type": "string",
+     "description": "Sys_id do order guide na tabela sc_cat_item_guide.",
+     "required": true,
+     "sensitive": false,
+     "sample": "6690750f4f7b4200086eeed18110c7fd"
+    },
+    {
+     "id": "25cb3071-11f5-491a-9843-fa51f973b03f",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com items: array de itens para checkout, cada um com sys_id, sysparm_quantity e variables.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"items\":[{\"sys_id\":\"3f1dd0320a0a0b99000a53f7604a2ef9\",\"sysparm_quantity\":\"1\",\"variables\":{\"carrier\":\"at_and_t_mobility\"}}]}"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "items",
+      "<>guide_sys_id</>",
+      "checkout_guide"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "2767a59f-19da-4be9-815a-fb033b572783",
+   "name": "Service Catalog - Get cart details",
+   "description": "Recupera os itens e os detalhes do carrinho do usuário logado.",
+   "parameters": [
+    {
+     "id": "api-version-2767a59f-19da-4be9-815a-fb033b572783",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "cart"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "5fb22006-bc6a-4fc1-8f07-0a7ca44c88fe",
+   "name": "Service Catalog - Update cart item",
+   "description": "Atualiza a quantidade e as variáveis de um item do carrinho.",
+   "parameters": [
+    {
+     "id": "api-version-5fb22006-bc6a-4fc1-8f07-0a7ca44c88fe",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "1701400f-d6d1-458f-be16-03ce11725195",
+     "name": "cart_item_id",
+     "type": "string",
+     "description": "Sys_id do item dentro do carrinho, na tabela sc_cart_item.",
+     "required": true,
+     "sensitive": false,
+     "sample": "e6c4d9e40f8a4210f877796e70786957"
+    },
+    {
+     "id": "195fbcaf-c769-4f7c-86da-5b4bb8dbcef8",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com sysparm_quantity (obrigatório) e variables obrigatórias do item.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"sysparm_quantity\":\"2\",\"variables\":{\"carrier\":\"at_and_t_mobility\"}}"
+    }
+   ],
+   "request": {
+    "method": "PUT",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "cart",
+      "<>cart_item_id</>"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "8d270aa6-c6ba-4ead-a90c-b5ae9a5aeba9",
+   "name": "Service Catalog - Remove item from cart",
+   "description": "Remove o item indicado do carrinho atual.",
+   "parameters": [
+    {
+     "id": "api-version-8d270aa6-c6ba-4ead-a90c-b5ae9a5aeba9",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "2a86f91b-01ea-4b02-ba47-c08ce2194bfd",
+     "name": "cart_item_id",
+     "type": "string",
+     "description": "Sys_id do item dentro do carrinho, na tabela sc_cart_item.",
+     "required": true,
+     "sensitive": false,
+     "sample": "e6c4d9e40f8a4210f877796e70786957"
+    }
+   ],
+   "request": {
+    "method": "DELETE",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "cart",
+      "<>cart_item_id</>"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "c69181b6-de81-423b-a878-1944ddf23e27",
+   "name": "Service Catalog - Empty cart",
+   "description": "Esvazia e exclui o carrinho indicado, conforme o papel do usuário autenticado.",
+   "parameters": [
+    {
+     "id": "api-version-c69181b6-de81-423b-a878-1944ddf23e27",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "8058f75b-40b7-43e0-be73-d42663b5f33d",
+     "name": "cart_sys_id",
+     "type": "string",
+     "description": "Sys_id do carrinho a esvaziar e excluir, na tabela sc_cart.",
+     "required": true,
+     "sensitive": false,
+     "sample": "dde34ad713426300027879d96144b072"
+    }
+   ],
+   "request": {
+    "method": "DELETE",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "cart",
+      "<>cart_sys_id</>",
+      "empty"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "941c3789-68c9-4f28-902f-6959e25633f0",
+   "name": "Service Catalog - Get delivery address",
+   "description": "Recupera o endereço de entrega configurado para o usuário informado.",
+   "parameters": [
+    {
+     "id": "api-version-941c3789-68c9-4f28-902f-6959e25633f0",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "4843856a-31cd-408e-b0a6-29cf1673dd8f",
+     "name": "user_id",
+     "type": "string",
+     "description": "Sys_id do usuário na tabela sys_user cujo endereço de entrega será retornado.",
+     "required": true,
+     "sensitive": false,
+     "sample": "62826bf03710200044e0bfc8bcbe5df1"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "cart",
+      "delivery_address",
+      "<>user_id</>"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "c60ba3eb-62b1-4bb5-b51b-a3a328f305d1",
+   "name": "Service Catalog - Checkout cart",
+   "description": "Processa o checkout do carrinho atual conforme o fluxo de uma ou duas etapas configurado.",
+   "parameters": [
+    {
+     "id": "api-version-c60ba3eb-62b1-4bb5-b51b-a3a328f305d1",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "cart",
+      "checkout"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "3259e8c3-b4f3-4e72-aaec-1b72d39c64f5",
+   "name": "Service Catalog - Submit order",
+   "description": "Finaliza o pedido do carrinho do usuário e devolve o número da requisição gerada.",
+   "parameters": [
+    {
+     "id": "api-version-3259e8c3-b4f3-4e72-aaec-1b72d39c64f5",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "cart",
+      "submit_order"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "99f8ba58-dda3-4316-ab40-b214da9e2b1c",
+   "name": "Service Catalog - Get wishlist",
+   "description": "Lista os itens da lista de desejos do usuário logado.",
+   "parameters": [
+    {
+     "id": "api-version-99f8ba58-dda3-4316-ab40-b214da9e2b1c",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "wishlist"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "e399b637-b753-4d17-8032-00b19a0fcd4f",
+   "name": "Service Catalog - Get wishlist item details",
+   "description": "Obtém os detalhes de um item específico da lista de desejos.",
+   "parameters": [
+    {
+     "id": "d80ccd90-866a-40fa-9254-bc775e9cdcce",
+     "name": "cart_item_id",
+     "type": "string",
+     "description": "Sys_id do item dentro do carrinho, na tabela sc_cart_item.",
+     "required": true,
+     "sensitive": false,
+     "sample": "e6c4d9e40f8a4210f877796e70786957"
+    }
+   ],
+   "request": {
+    "method": "GET",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "servicecatalog",
+      "wishlist",
+      "<>cart_item_id</>"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "e4376a94-fc15-4c12-8297-9b577324deea",
+   "name": "Service Catalog - Get variable display value",
+   "description": "Retorna o valor de exibição da variável de catálogo informada.",
+   "parameters": [
+    {
+     "id": "api-version-e4376a94-fc15-4c12-8297-9b577324deea",
+     "name": "api_version",
+     "type": "string",
+     "description": "Versão do endpoint a acessar, como v1 ou v2. As versões disponíveis de cada API constam no REST API Explorer da instância.",
+     "required": true,
+     "sensitive": false,
+     "sample": "v1"
+    },
+    {
+     "id": "abd34dda-abed-4e9f-93fd-ab128036c5a1",
+     "name": "variable_sys_id",
+     "type": "string",
+     "description": "Sys_id da variável de catálogo cujo valor de exibição será retornado.",
+     "required": true,
+     "sensitive": false,
+     "sample": "b0b9f6c40f8a4210f877796e70786952"
+    },
+    {
+     "id": "b3cec0cf-5054-49b9-8485-9b99d7995410",
+     "name": "body",
+     "type": "object",
+     "description": "Objeto com sysparm_value: sys_id do registro que contém o valor de exibição desejado.",
+     "required": true,
+     "sensitive": false,
+     "sample": "{\"sysparm_value\":\"681ccaf9c0a8016400b98a06818d57c7\"}"
+    }
+   ],
+   "request": {
+    "method": "POST",
+    "urlType": "base-url",
+    "url": {
+     "path": [
+      "api",
+      "sn_sc",
+      "<>api_version</>",
+      "servicecatalog",
+      "variables",
+      "<>variable_sys_id</>",
+      "display_value"
+     ],
+     "query": []
+    },
+    "header": [],
+    "body": {
+     "mode": "raw",
+     "raw": "<>body</>",
+     "options": {
+      "raw": {
+       "language": "json"
+      }
+     }
+    }
+   }
+  }
+ ]
+}
