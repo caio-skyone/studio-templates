@@ -27,6 +27,7 @@ nav:
   - Xero: connectors/xero.md
   - Zendesk: connectors/zendesk.md
   - Zoho Books: connectors/zoho-books.md
+  - Zoho CRM: connectors/zoho-crm.md
   - Zoho Projects: connectors/zoho-projects.md
 - Fluxo de Desenvolvimento:
   - Callback OAuth2:
