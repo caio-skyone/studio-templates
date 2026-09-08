@@ -44,9 +44,70 @@ Issues, projetos, comentários, usuários, quadros e sprints aceitam **proprieda
 
 ## Autenticação
 
-**Tipo:** Autenticação básica (HTTP Basic)
+**Tipo:** OAuth 2.0 (padrão) — Basic como alternativa
 
-O Jira Cloud aceita Basic com **e-mail da conta Atlassian** como usuário e um **API token** como senha. A credencial fica na conta conectada — nenhuma operação deste template carrega parâmetro de token.
+O Jira Cloud aceita tanto Basic (e-mail + API token) quanto OAuth 2.0. A Atlassian recomenda OAuth 2.0 para integrações: os tokens são de curta duração, revogáveis sem invalidar credenciais de usuário, e o escopo de acesso é definido na própria credencial em vez de herdar tudo que a conta humana enxerga. Este template usa OAuth 2.0 por padrão; Basic permanece documentado como alternativa mais simples de configurar em cenários de baixo risco.
+
+Em ambos os casos a credencial fica na conta conectada — nenhuma operação deste template carrega parâmetro de token.
+
+### Diferença de host entre Basic e OAuth 2.0
+
+O caminho das operações (`/rest/api/{version}/...`, `/rest/agile/1.0/...`) é o mesmo nos dois casos; o que muda é o **Host** configurado na conta conectada:
+
+| Tipo de autenticação | Host |
+| :--- | :--- |
+| Basic | `https://{{seu_site}}.atlassian.net` |
+| OAuth 2.0 | `https://api.atlassian.com/ex/jira/{{cloud_id}}` |
+
+Com OAuth 2.0, a URL base deixa de ser o site e passa a incluir o **cloudId** — o identificador único da instância — no caminho. Isso não quebra o prefixo comum exigido pelo IAC: o `cloudId` é fixo por instância, então ele entra uma única vez no Host da conta conectada, e as 467 operações do template continuam apontando para os mesmos caminhos relativos.
+
+Para obter o `cloudId` da sua instância, sem autenticação:
+
+```
+GET https://{seu-site}.atlassian.net/_edge/tenant_info
+```
+
+A resposta traz `{"cloudId": "..."}`.
+
+### Fluxo recomendado: Client Credentials com conta de serviço
+
+Para comunicação server-to-server, a Atlassian recomenda criar uma **[conta de serviço](https://support.atlassian.com/user-management/docs/create-oauth-2-0-credential-for-service-accounts/)** e gerar uma credencial OAuth 2.0 para ela — não uma credencial de usuário pessoal.
+
+1. Em **[admin.atlassian.com](https://admin.atlassian.com)**, selecione a organização e acesse **Directory → Service accounts**. Crie a conta de serviço, se ainda não existir.
+2. Na conta de serviço, **Create credentials → OAuth 2.0**.
+3. Selecione os escopos do Jira que a integração vai usar e confirme. O `client_id` e o `client_secret` só aparecem uma vez — copie-os para um local seguro.
+
+**Configuração da conta conectada:**
+
+| Variável | Valor |
+| -------- | ----- |
+| Host | `https://api.atlassian.com/ex/jira/{{cloud_id}}` |
+| Porta | 443 |
+| Client ID | {{client_id}} |
+| Client Secret | {{client_secret}} |
+| Endpoint de troca de token | `https://auth.atlassian.com/oauth/token` |
+
+Na configuração da conta, em **configurações do payload de token**, troque `grant_type` para **client_credentials**. Diferente do fluxo de authorization code, o escopo já foi definido na criação da credencial — não há campo de `scope` nem de `refresh_token` a preencher.
+
+### Alternativa: fluxo de callback (Authorization Code)
+
+Se a integração precisar agir em nome de um usuário específico (em vez de uma conta de serviço), use o fluxo **Authorization Code**, que exige interação humana de login. O Studio não tem callback nativo — siga o **[tutorial de callback](../dev-flow/callback/contexto.md)** deste repositório para o passo a passo genérico; abaixo estão só os pontos específicos do Jira.
+
+**URL de autorização**, no lugar indicado pelo tutorial:
+
+```
+https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id={client_id}&scope={scope}&redirect_uri={redirect_uri}&response_type=code&prompt=consent
+```
+
+O `client_id` vem de um **OAuth 2.0 (3LO) app** criado em **[developer.atlassian.com/console/myapps](https://developer.atlassian.com/console/myapps/)** — não da conta de serviço do fluxo acima, que não suporta authorization code. Cadastre o mesmo `redirect_uri` usado na URL de autorização nas configurações do app, na aba **Authorization**.
+
+**Endpoint de troca de token:** `https://auth.atlassian.com/oauth/token`, com `grant_type=authorization_code`.
+
+O Host da conta conectada é o mesmo do fluxo de client credentials — `https://api.atlassian.com/ex/jira/{{cloud_id}}` —, obtido da mesma forma via `/_edge/tenant_info`.
+
+### Basic (alternativa)
+
+O Jira Cloud aceita Basic com **e-mail da conta Atlassian** como usuário e um **API token** como senha.
 
 **Configuração da conta conectada:**
 
@@ -57,25 +118,13 @@ O Jira Cloud aceita Basic com **e-mail da conta Atlassian** como usuário e um *
 | username | {{email_da_conta}} |
 | password | {{api_token}} |
 
-### Host
-
-É a URL do seu site Atlassian, a mesma que você usa no navegador:
-
-```
-https://{seu-site}.atlassian.net
-```
-
-### API token
+**API token:**
 
 1. Acesse **[id.atlassian.com/manage-profile/security/api-tokens](https://id.atlassian.com/manage-profile/security/api-tokens)**.
 2. Clique em **Create API token**, dê um rótulo que identifique a integração e copie o valor — ele só aparece uma vez.
 3. Use o **e-mail da conta** que criou o token como `username`, e o token como `password`.
 
 O token herda todas as permissões do usuário que o criou. Para integrações, crie uma conta de serviço com o acesso mínimo necessário em vez de usar uma conta pessoal.
-
-### Por que não OAuth 2.0
-
-O Jira Cloud também suporta OAuth 2.0 (3LO), mas nesse fluxo a URL base deixa de ser o site e passa a ser `https://api.atlassian.com/ex/jira/{cloudId}`, com o `cloudId` no caminho. Isso quebraria o prefixo comum exigido pelo IAC — todas as operações de um conector precisam compartilhar o mesmo nível de prefixo. Por isso o template é Basic.
 
 ---
 

@@ -18,7 +18,7 @@ O Skyone Studio não possui uma rota de callback pré-configurada. Para que uma 
 
 Por isso, é necessário obter os tokens antecipadamente, fora do fluxo padrão de criação de conta. Existem dois caminhos possíveis:
 
-- **Usando o Skyone Studio** (API Gateway ou Webhook como receptor do callback)
+- **Usando o Skyone Studio** (Webhook como receptor do callback)
 - **Usando o Postman** (interceptando o callback localmente)
 
 Opte pelo método que lhe for mais confortável.

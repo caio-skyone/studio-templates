@@ -89,11 +89,7 @@ O mesmo vale ao contrário: campos do exemplo que você não usa podem ser remov
 
 ### Versionamento da API
 
-Todas as 276 operações têm o header **`Stripe-Version`** parametrizado como `stripe_version`, **obrigatório neste conector**.
-
-A Stripe trata o header como opcional — se ele não vier, a chamada usa a versão fixada na conta. O conector, por decisão de projeto, exige o valor: um header enviado com valor vazio chega à Stripe como `Stripe-Version: ` (chave presente, valor em branco), e depender da versão implícita da conta faz o formato das respostas mudar sozinho quando a Stripe atualiza a conta. Marcar o parâmetro como obrigatório força a escolha explícita no momento de montar o fluxo.
-
-O template foi gerado a partir do spec `2026-07-29.dahlia` — use esse valor como ponto de partida.
+Todas as 276 operações têm o header **`Stripe-Version`** parametrizado como `stripe_version`, **obrigatório neste conector**. O template foi gerado a partir do spec `2026-07-29.dahlia`.
 
 ### Headers opcionais da API
 

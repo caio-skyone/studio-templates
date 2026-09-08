@@ -70,15 +70,6 @@ Boa parte das listagens respeita a **função do usuário** cujo token está sen
 
 **Tipo:** OAuth 2.0
 
-### Por que OAuth 2.0
-
-O Zendesk está removendo os métodos mais simples de autenticação da API, em duas etapas já anunciadas:
-
-* **Acesso por e-mail e senha:** indisponível para contas novas desde 31/07/2024 e **removido das contas restantes a partir de 12/01/2026**.
-* **API tokens** (Basic auth com `{email}/token:{api_token}`): marcados como *deprecated* na documentação oficial e com **desligamento definitivo previsto para 30/04/2027**.
-
-O único método com suporte de longo prazo é o **access token OAuth**, enviado como `Authorization: Bearer {access_token}`. Por isso este template usa `oauth-2` — mesmo que hoje um API token ainda funcione, um conector novo montado sobre ele nasceria com prazo de validade. O OAuth também é o único método que aceita requisições CORS e que permite emitir credenciais com permissão granular em vez de dar à integração todo o acesso do usuário.
-
 ### Configuração da conta conectada
 
 | Variável | Valor |

@@ -1,34 +1,40 @@
 version: 1
 toolkits:
   toolkit-studio-connectors:
-    version: v0.4.0
-    sha: d01636bf2bff9606d8000b2446ad1ed80ae2f794
+    version: v0.5.0
+    sha: 833a908ee4f643959bc8b98305632421a5b86f5e
     scope: local
-    installed_at: '2026-08-11T13:39:54.833980Z'
+    installed_at: '2026-09-08T14:20:06.753882Z'
     files:
       - dst: .mcp.json
-        sha256: 73af4bdd500a196322861b3608e324f13f410feada1df5c5c5cf69abe7fc01e3
+        sha256: 9e890f355d6f7ce06844dd87019531225ceb56743963ef9212d9188a698fcff9
+        mode: text
+      - dst: .claude/agents/studio-connector-translator.md
+        sha256: 17a313fb8193f939eb35a05022d4f5dcb20522b7ff38eca2a225621e039f2a8c
         mode: text
       - dst: .claude/skills/studio-connector-plan/SKILL.md
         sha256: 23454fd1eb518499975de967d1b82b92c9aa0cafc19e24940b51d64f1165f479
         mode: text
       - dst: .claude/skills/studio-connector-build/SKILL.md
-        sha256: 71fcc990ceb1d6f657bdf60432485cb473bc64674cec243aa1d8729447213bd8
+        sha256: dd1c3b8189336e402a0bcbed4598a9d9cfbf71d83774c8e5af857e72078f34e8
+        mode: text
+      - dst: .claude/skills/studio-connector-patch/SKILL.md
+        sha256: f53f815cd7cb95390522f1d5609c7d5b39f4cbd3be8db8f93adc5ac73bb68e84
         mode: text
       - dst: .claude/skills/studio-connector-publish/SKILL.md
         sha256: 43c51bf45186dfa2b1743b51f7166fc24f91e6ee48254f5ff51c336dff25df5c
         mode: text
       - dst: .claude/skills/studio-connector-account/SKILL.md
-        sha256: 94b15740180a7ab9899c2f4bc5c1826d23eddae7d798035a484356d79b93bdb8
+        sha256: 14cc9388569b3d67ab9907198d1ec7dad9c46a56f17506258fbd4e9b16d4e98b
         mode: text
       - dst: .claude/skills/studio-connector-document/SKILL.md
-        sha256: 89762a9db0727ed003f1a9485b21be886932aaa85685a496094c95318423ae1e
+        sha256: 2e0c27e7eb97364b8453032bfd43f5d315a28ab8da905e9ea40e946732d754db
         mode: text
       - dst: .claude/skills/studio-connector-shared/auth-config.md
-        sha256: 1e70977145381e44538d1bc233b1ab7d026d911f168c803a91e1ace1712bd6b8
+        sha256: 135188e663f712952d74b40efe0ecd642d93ed07b8213b550d39b537d79e9260
         mode: text
       - dst: .claude/skills/studio-connector-shared/authoring-rules.md
-        sha256: 7ff26729cab48e83960bb59f8e4ad0a787d1bd0b289fd1a1b967528d49797e5f
+        sha256: 93ab8fe5674b944e07ded4f1578b80263e814816e6ebdb4ec7805fdd8100c735
         mode: text
       - dst: .claude/skills/studio-connector-shared/doc-template.md
         sha256: 23b0a08d9c2d05bc00aa78cacd5e059e2b3273e3b7603cc06987cc852d1842cf
@@ -37,13 +43,13 @@ toolkits:
         sha256: 79fba0f100cf5bb772eb3da109e95084e478c587abcc290b200af4cb1812a417
         mode: text
       - dst: .claude/skills/studio-connector-shared/openapi-pipeline.md
-        sha256: a8d1e019461833a6a4f5dd414d3e39331b8ab1ed4a5f488960b542b17a13302c
+        sha256: bf77b355e84ecd9b2ab758a0253f4387e3390ff9d06316d0df23d76636fa4c2d
         mode: text
       - dst: .claude/skills/studio-connector-shared/prose-contract.md
-        sha256: ab9db2df2393344ef31c5e28707976fcbe15cec75fdcc79b437e6dddc65a98bd
+        sha256: 6e11b03c09590e56343dde39221353c6d712265dce7b0c1692de7f91b9e6407e
         mode: text
       - dst: .claude/skills/studio-connector-shared/server-normalization.md
-        sha256: f758fcf0f100eb8d0d08d35080fd78ce9c8890f9d3832ec179967fdbd0b31163
+        sha256: cbb7b0cc7ed53811336c1e881ae7089bdee38191d8cbdeeeb6ccff05687d9ddb
         mode: text
       - dst: .claude/skills/studio-connector-shared/template-pattern.md
         sha256: 8ca3cedbf9d12cb2d290c75d8faa9d530d19b770294284bd71e6999aaf5a3b1e
