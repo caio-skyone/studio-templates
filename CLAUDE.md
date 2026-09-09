@@ -12,13 +12,17 @@ um draft para este repositório (`export_draft`, já com `validate_draft`
 aprovado), aplique esta transformação em cada operação do JSON antes de
 commitar em `iac/`:
 
-1. Pegue o array `request.url.query` (se existir e não for vazio).
+1. Pegue o array `request.url.query` (se existir).
 2. Crie `request.query` como um novo array irmão de `request.header`, com os
    mesmos itens, no mesmo formato do header (`{"key": ..., "value": ...,
    "enabled": true}` — adicione `enabled: true` a cada item, já que o MCP não
-   emite esse campo para query).
-3. Remova a chave `query` de dentro de `request.url` (mantendo apenas
-   `request.url.path`).
+   emite esse campo para query). **Aplique em toda operação, mesmo sem
+   parâmetros de query** — nesse caso `request.query` é `[]`. O Studio valida
+   `request.query` como array obrigatório (igual `request.header`, que também
+   fica presente como `[]` quando vazio); se o campo ficar ausente, o Studio
+   rejeita a operação com `Invalid input: expected array, received undefined`.
+3. Remova a chave `query` de dentro de `request.url` em qualquer caso
+   (mantendo apenas `request.url.path`).
 
 Exemplo — antes (como sai do `export_draft`):
 
