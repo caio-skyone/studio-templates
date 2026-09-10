@@ -1,13 +1,13 @@
 version: 1
 toolkits:
   toolkit-studio-connectors:
-    version: v0.5.0
-    sha: 833a908ee4f643959bc8b98305632421a5b86f5e
+    version: v0.6.0
+    sha: 14e692870ee8ea84c66a5b8c342a5702384c6800
     scope: local
-    installed_at: '2026-09-08T14:20:06.753882Z'
+    installed_at: '2026-09-10T12:10:43.917341Z'
     files:
       - dst: .mcp.json
-        sha256: 9e890f355d6f7ce06844dd87019531225ceb56743963ef9212d9188a698fcff9
+        sha256: 95ab99a74af30adf3bb3991c54e6a3658fec14e90d7db6f834af772f5299f46f
         mode: text
       - dst: .claude/agents/studio-connector-translator.md
         sha256: 17a313fb8193f939eb35a05022d4f5dcb20522b7ff38eca2a225621e039f2a8c
@@ -22,7 +22,7 @@ toolkits:
         sha256: f53f815cd7cb95390522f1d5609c7d5b39f4cbd3be8db8f93adc5ac73bb68e84
         mode: text
       - dst: .claude/skills/studio-connector-publish/SKILL.md
-        sha256: 43c51bf45186dfa2b1743b51f7166fc24f91e6ee48254f5ff51c336dff25df5c
+        sha256: 871426558dc1fcfe8988a364b3ca7e2ac49f6c775e674700e2a7f6c21789da5e
         mode: text
       - dst: .claude/skills/studio-connector-account/SKILL.md
         sha256: 14cc9388569b3d67ab9907198d1ec7dad9c46a56f17506258fbd4e9b16d4e98b
