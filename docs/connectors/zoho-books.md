@@ -39,6 +39,16 @@ Para iniciar o desenvolvimento, são necessários:
 
 A API suporta: **OAuth2**.
 
+### Host e versão da API
+
+| Variável | Valor |
+| -------- | ----- |
+| Host | `https://www.zohoapis.<>seu-datacenter</>` |
+
+> **O datacenter faz parte do Host.** Substitua `<>seu-datacenter</>` pelo TLD da sua conta: `com`, `eu`, `in`, `com.au`, `jp`, `ca` ou `sa`. Uma conta do datacenter europeu não responde em `zohoapis.com`. O endpoint de troca de token acompanha o mesmo datacenter — use `https://accounts.zoho.eu/oauth/v2/token` para o DC europeu, e assim por diante.
+
+> **A versão da API é um parâmetro.** Toda operação recebe `version` como parâmetro, com `v3` como valor sugerido — o caminho da requisição é montado como `books/<>version</>/<recurso>`. A versão não é fixada no Host para não prender o conector a ela caso a Zoho publique uma versão futura.
+
 ### Obtendo uma URL de Redirect
 
 No Skyone Studio, acesse **API Gateway**, crie um Gateway e uma rota sem autenticação como essa:

@@ -12,8 +12,6 @@ Este template cobre **276 operações** em 64 domínios, agrupadas em cinco bloc
 **Consumo (usage-based):** Billing Meters, Meter Events, Meter Event Adjustments e Summaries.
 **Operação e antifraude:** Events, Webhook Endpoints, Radar (Value Lists, Value List Items, Early Fraud Warnings), Reviews, Files, File Links.
 
-**Fora do escopo deste template:** Issuing, Terminal, Treasury, Financial Connections, Identity, Stripe Tax (`/v1/tax/*`), Climate, Crypto, Sigma, Reporting, Apps, Entitlements e Forwarding.
-
 ## Conceitos Fundamentais
 
 ### Objetos e IDs com prefixo
@@ -50,14 +48,11 @@ A Stripe autentica com a **secret key** da conta enviada como Bearer Token. A cr
 
 O valor de `token` é a secret key da sua conta Stripe (`sk_live_...` ou `sk_test_...`), obtida em **Developers → API keys** no dashboard.
 
-!!! warning "Upload de arquivo usa outro host"
-    A operação **Files - Create a file** aponta para `https://files.stripe.com`, não para o host da conta. Ela já está configurada como `full-url` no template, com o host embutido no path — a mesma credencial da conta conectada se aplica. Não altere esse path.
+> A operação **Files - Create a file** aponta para `https://files.stripe.com`, não para o host da conta. Ela já está configurada como `full-url` no template, com o host embutido no path — a mesma credencial da conta conectada se aplica. Não altere esse path.
 
 ---
 
 ## Convenções do template
-
-Esta seção é a mais importante para usar o template. Ela descreve escolhas de modelagem que se repetem em todas as operações.
 
 ### O parâmetro `body` — form-urlencoded, não JSON
 
@@ -94,22 +89,16 @@ O mesmo vale ao contrário: campos do exemplo que você não usa podem ser remov
 
 ### Versionamento da API
 
-Todas as 276 operações têm o header **`Stripe-Version`** parametrizado (`stripe_version`, opcional).
+Todas as 276 operações têm o header **`Stripe-Version`** parametrizado como `stripe_version`, **obrigatório neste conector**. O template foi gerado a partir do spec `2026-07-29.dahlia`.
 
-| Valor | Comportamento |
-| ----- | ------------- |
-| vazio | Usa a versão fixada na sua conta Stripe |
-| ex. `2026-07-29.dahlia` | Fixa a versão da API nesta chamada |
+### Headers opcionais da API
 
-O template foi gerado a partir do spec `2026-07-29.dahlia`. Fixar a versão explicitamente protege o fluxo de mudanças de formato quando a Stripe atualiza a versão padrão da conta.
+`Stripe-Account` e `Idempotency-Key` **não fazem parte do conector**. Quando você precisar de um deles, adicione o header manualmente na operação dentro do Studio.
 
-### Connect: agir em nome de outra conta
-
-Todas as operações têm o header **`Stripe-Account`** parametrizado (`stripe_account`, opcional). Preencha com um `acct_...` para executar a chamada em nome de uma conta conectada. Deixe vazio para operar na própria conta da plataforma.
-
-### Idempotência
-
-Operações `POST` e `DELETE` têm o header **`Idempotency-Key`** parametrizado (`idempotency_key`, opcional). Enviar uma chave única por tentativa lógica evita cobrança duplicada quando o fluxo é reexecutado após falha de rede. **Recomendado em qualquer operação que movimente dinheiro.**
+| Header | Para que serve | Valor |
+| ------ | -------------- | ----- |
+| `Stripe-Account` | Executar a chamada em nome de uma conta conectada (Connect) | um `acct_...` |
+| `Idempotency-Key` | Evitar cobrança duplicada quando o fluxo é reexecutado após falha de rede — **recomendado em qualquer operação que movimente dinheiro** | chave única por tentativa lógica, ex. um UUID |
 
 ### Expansão de objetos
 
