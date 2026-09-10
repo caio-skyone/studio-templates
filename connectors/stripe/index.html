@@ -1,0 +1,2996 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://caio-skyone.github.io/studio-templates/connectors/stripe/">
+      
+      
+        <link rel="prev" href="../service-now/">
+      
+      
+        <link rel="next" href="../twilio/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Stripe - Studio Templates</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#stripe" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Studio Templates" class="md-header__button md-logo" aria-label="Studio Templates" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Studio Templates
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Stripe
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Studio Templates" class="md-nav__button md-logo" aria-label="Studio Templates" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    Studio Templates
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conectores
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conectores
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databricks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databricks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ifood/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iFood
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jira/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mailgun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mailgun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-now/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service Now
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stripe
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stripe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceitos-fundamentais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos Fundamentais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos Fundamentais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objetos-e-ids-com-prefixo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetos e IDs com prefixo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valores-monetarios-em-centavos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valores monetários em centavos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paymentintent-e-o-fluxo-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PaymentIntent é o fluxo recomendado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modo-de-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modo de teste
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convencoes-do-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convenções do template
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Convenções do template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-parametro-body-form-urlencoded-nao-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O parâmetro body — form-urlencoded, não JSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-incluir-campos-opcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como incluir campos opcionais
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versionamento-da-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versionamento da API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headers-opcionais-da-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headers opcionais da API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expansao-de-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expansão de objetos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paginacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paginação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtros-de-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtros de data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#busca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Busca
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentacao-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentação oficial
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../twilio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Twilio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xero
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zendesk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zendesk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-crm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho CRM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-desk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Desk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-workdrive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho WorkDrive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo de Desenvolvimento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fluxo de Desenvolvimento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Callback OAuth2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Callback OAuth2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev-flow/callback/contexto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contexto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev-flow/callback/oauth2postman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Postman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceitos-fundamentais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos Fundamentais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos Fundamentais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objetos-e-ids-com-prefixo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetos e IDs com prefixo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valores-monetarios-em-centavos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Valores monetários em centavos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paymentintent-e-o-fluxo-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PaymentIntent é o fluxo recomendado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modo-de-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modo de teste
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticação
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convencoes-do-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convenções do template
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Convenções do template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-parametro-body-form-urlencoded-nao-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O parâmetro body — form-urlencoded, não JSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-incluir-campos-opcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como incluir campos opcionais
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versionamento-da-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versionamento da API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headers-opcionais-da-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headers opcionais da API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expansao-de-objetos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expansão de objetos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paginacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paginação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtros-de-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtros de data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#busca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Busca
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentacao-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentação oficial
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="stripe">Stripe</h1>
+<h2 id="contexto">Contexto</h2>
+<p>A API da <strong>Stripe</strong> é uma API <strong>RESTful</strong> para pagamentos, cobrança recorrente e movimentação de dinheiro. A comunicação é via <strong>HTTPS</strong>, as respostas são <strong>JSON</strong>, mas os <strong>corpos de requisição usam <code>application/x-www-form-urlencoded</code></strong> — não JSON. Esse detalhe muda como o template é preenchido e está explicado em <a href="#convencoes-do-template">Convenções do template</a>.</p>
+<p>Este template cobre <strong>276 operações</strong> em 64 domínios, agrupadas em cinco blocos:</p>
+<p><strong>Pagamentos (core):</strong> Customers, PaymentIntents, Charges, Refunds, PaymentMethods, SetupIntents, Balance, Balance Transactions, Payouts, Disputes e os subrecursos do cliente (saldo, contas bancárias, sources, identificações fiscais).
+<strong>Faturamento (billing):</strong> Products, Prices, Subscriptions, Subscription Items e Schedules, Invoices, Invoice Items, Coupons, Promotion Codes, Credit Notes, Checkout Sessions, Payment Links, Billing Portal, Tax IDs, Tax Rates, Shipping Rates.
+<strong>Connect:</strong> Accounts, Account Links e Sessions, contas bancárias e externas, capacidades, pessoas (representantes), Transfers, Transfer Reversals, Application Fees, Topups.
+<strong>Consumo (usage-based):</strong> Billing Meters, Meter Events, Meter Event Adjustments e Summaries.
+<strong>Operação e antifraude:</strong> Events, Webhook Endpoints, Radar (Value Lists, Value List Items, Early Fraud Warnings), Reviews, Files, File Links.</p>
+<h2 id="conceitos-fundamentais">Conceitos Fundamentais</h2>
+<h3 id="objetos-e-ids-com-prefixo">Objetos e IDs com prefixo</h3>
+<p>Todo objeto da Stripe tem um ID com prefixo que identifica o tipo — <code>cus_</code> (cliente), <code>pi_</code> (PaymentIntent), <code>ch_</code> (cobrança), <code>in_</code> (fatura), <code>sub_</code> (assinatura), <code>price_</code>, <code>prod_</code>, <code>acct_</code> (conta Connect). Os <code>sample</code> de cada parâmetro deste template já usam o prefixo correto, o que ajuda a conferir se você está passando o ID certo no lugar certo.</p>
+<h3 id="valores-monetarios-em-centavos">Valores monetários em centavos</h3>
+<p>Valores são <strong>inteiros na menor unidade da moeda</strong>. <code>amount=2000</code> com <code>currency=brl</code> significa R$ 20,00. Não envie decimais.</p>
+<h3 id="paymentintent-e-o-fluxo-recomendado">PaymentIntent é o fluxo recomendado</h3>
+<p>Para cobrar, o caminho moderno é <strong>PaymentIntent</strong> (criar → confirmar → capturar), não <code>Charges</code>. As operações de <code>Charges</code> seguem no template por compatibilidade e para consulta de cobranças históricas.</p>
+<h3 id="modo-de-teste">Modo de teste</h3>
+<p>A chave define o ambiente: <code>sk_test_...</code> opera em modo de teste, <code>sk_live_...</code> em produção. Não há mudança de host nem de path — só da credencial na conta conectada.</p>
+<hr />
+<h2 id="autenticacao">Autenticação</h2>
+<p><strong>Tipo:</strong> Bearer Token</p>
+<p>A Stripe autentica com a <strong>secret key</strong> da conta enviada como Bearer Token. A credencial fica na conta conectada — <strong>nenhuma operação deste template carrega parâmetro de token</strong>.</p>
+<p><strong>Configuração da conta conectada:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variável</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Host</td>
+<td>https://api.stripe.com</td>
+</tr>
+<tr>
+<td>Porta</td>
+<td>443</td>
+</tr>
+<tr>
+<td>token</td>
+<td>{{token}}</td>
+</tr>
+</tbody>
+</table>
+<p>O valor de <code>token</code> é a secret key da sua conta Stripe (<code>sk_live_...</code> ou <code>sk_test_...</code>), obtida em <strong>Developers → API keys</strong> no dashboard.</p>
+<blockquote>
+<p>A operação <strong>Files - Create a file</strong> aponta para <code>https://files.stripe.com</code>, não para o host da conta. Ela já está configurada como <code>full-url</code> no template, com o host embutido no path — a mesma credencial da conta conectada se aplica. Não altere esse path.</p>
+</blockquote>
+<hr />
+<h2 id="convencoes-do-template">Convenções do template</h2>
+<h3 id="o-parametro-body-form-urlencoded-nao-json">O parâmetro <code>body</code> — form-urlencoded, não JSON</h3>
+<p>Toda operação <code>POST</code> tem <strong>um único parâmetro <code>body</code></strong>, do tipo texto, cujo valor é a string form-urlencoded completa. O <code>sample</code> de cada operação já traz um exemplo realista e pronto para editar.</p>
+<pre><code>amount=2000&amp;currency=brl&amp;customer=cus_NffrFeUfNV2Hib&amp;description=Pedido 12345
+</code></pre>
+<p><strong>Campos aninhados usam sintaxe de bracket:</strong></p>
+<pre><code>metadata[pedido]=12345
+automatic_payment_methods[enabled]=true
+line_items[0][price]=price_1MoBy5LkdIwHu7ixZhnattbh
+line_items[0][quantity]=1
+shipping[address][line1]=Av. Paulista 1000
+</code></pre>
+<p>Arrays são indexados por número (<code>line_items[0]</code>, <code>line_items[1]</code>, …) e objetos por chave (<code>metadata[pedido]</code>).</p>
+<h3 id="como-incluir-campos-opcionais">Como incluir campos opcionais</h3>
+<p>O <code>body</code> de cada operação traz <strong>os campos obrigatórios mais um conjunto representativo de opcionais</strong> — não a lista completa. Vários endpoints da Stripe aceitam 40 ou mais campos de primeiro nível, e alguns chegam a centenas de folhas quando se expande o aninhamento; enumerar tudo tornaria o módulo inutilizável.</p>
+<p><strong>Para usar um campo que não está no exemplo:</strong></p>
+<ol>
+<li>Abra a operação no Studio e localize o parâmetro <code>body</code>.</li>
+<li>Consulte o endpoint na <a href="#documentacao-oficial">documentação oficial</a> e identifique o nome exato do campo.</li>
+<li>Acrescente <code>&amp;campo=valor</code> ao final do valor, usando bracket se for aninhado.</li>
+<li>Se o valor for dinâmico no seu fluxo, substitua por uma referência de parâmetro do Studio.</li>
+</ol>
+<p>O mesmo vale ao contrário: campos do exemplo que você não usa podem ser removidos, desde que os obrigatórios permaneçam. A descrição de cada <code>body</code> lista quais são os obrigatórios daquela operação.</p>
+<h3 id="versionamento-da-api">Versionamento da API</h3>
+<p>Todas as 276 operações têm o header <strong><code>Stripe-Version</code></strong> parametrizado como <code>stripe_version</code>, <strong>obrigatório neste conector</strong>. O template foi gerado a partir do spec <code>2026-07-29.dahlia</code>.</p>
+<h3 id="headers-opcionais-da-api">Headers opcionais da API</h3>
+<p><code>Stripe-Account</code> e <code>Idempotency-Key</code> <strong>não fazem parte do conector</strong>. Quando você precisar de um deles, adicione o header manualmente na operação dentro do Studio.</p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Para que serve</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Stripe-Account</code></td>
+<td>Executar a chamada em nome de uma conta conectada (Connect)</td>
+<td>um <code>acct_...</code></td>
+</tr>
+<tr>
+<td><code>Idempotency-Key</code></td>
+<td>Evitar cobrança duplicada quando o fluxo é reexecutado após falha de rede — <strong>recomendado em qualquer operação que movimente dinheiro</strong></td>
+<td>chave única por tentativa lógica, ex. um UUID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="expansao-de-objetos">Expansão de objetos</h3>
+<p>Onde a API permite, existe o parâmetro <code>expand</code> (chave de query <code>expand[]</code>). Ele substitui um ID na resposta pelo objeto completo — <code>expand=customer</code> numa cobrança devolve o objeto do cliente inline, evitando uma segunda chamada. Para expandir mais de um campo, edite a operação e acrescente chaves <code>expand[]</code> adicionais.</p>
+<h3 id="paginacao">Paginação</h3>
+<p>Listagens usam paginação por cursor: <code>limit</code> (1 a 100, padrão 10), <code>starting_after</code> (ID do último item da página atual, avança) e <code>ending_before</code> (retrocede). Não há paginação por número de página, exceto nas operações de busca (<code>Search</code>), que usam <code>page</code>.</p>
+<h3 id="filtros-de-data">Filtros de data</h3>
+<p>Filtros como <code>created</code> aceitam um timestamp Unix exato. Para <strong>faixas</strong>, edite a chave da query para a forma com bracket:</p>
+<pre><code>created[gte]=1749513600
+created[lte]=1752192000
+</code></pre>
+<h3 id="busca">Busca</h3>
+<p>Operações <code>Search</code> usam a linguagem de consulta da Stripe no parâmetro <code>query</code>:</p>
+<pre><code>status:'succeeded' AND metadata['pedido']:'123'
+</code></pre>
+<p>Os dados de busca têm latência de até um minuto em relação às operações de escrita.</p>
+<hr />
+<h2 id="operacoes">Operações</h2>
+<p>Listadas na ordem do módulo, agrupadas por domínio.</p>
+<table>
+<thead>
+<tr>
+<th>Nome da Operação</th>
+<th>Método</th>
+<th>Descrição da Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Balance - Retrieve balance</td>
+<td>GET</td>
+<td>Recupera o saldo atual da conta Stripe.</td>
+</tr>
+<tr>
+<td>Balance Transactions - List all balance transactions</td>
+<td>GET</td>
+<td>Lista as transações que compõem o saldo da conta.</td>
+</tr>
+<tr>
+<td>Balance Transactions - Retrieve a balance transaction</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma transação de saldo.</td>
+</tr>
+<tr>
+<td>Charges - List all charges</td>
+<td>GET</td>
+<td>Lista todas as cobranças realizadas.</td>
+</tr>
+<tr>
+<td>Charges - Create a charge</td>
+<td>POST</td>
+<td>Cria uma cobrança direta em um cartão ou fonte.</td>
+</tr>
+<tr>
+<td>Charges - Search charges</td>
+<td>GET</td>
+<td>Busca cobranças usando uma consulta de pesquisa.</td>
+</tr>
+<tr>
+<td>Charges - Retrieve a charge</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma cobrança.</td>
+</tr>
+<tr>
+<td>Charges - Update a charge</td>
+<td>POST</td>
+<td>Atualiza os metadados de uma cobrança existente.</td>
+</tr>
+<tr>
+<td>Charges - Capture a charge</td>
+<td>POST</td>
+<td>Captura os fundos de uma cobrança previamente autorizada.</td>
+</tr>
+<tr>
+<td>Customer Sessions - Create a Customer Session</td>
+<td>POST</td>
+<td>Cria uma sessão para embutir componentes voltados ao cliente.</td>
+</tr>
+<tr>
+<td>Customers - List all customers</td>
+<td>GET</td>
+<td>Lista todos os clientes cadastrados.</td>
+</tr>
+<tr>
+<td>Customers - Create a customer</td>
+<td>POST</td>
+<td>Cria um novo cliente.</td>
+</tr>
+<tr>
+<td>Customers - Search customers</td>
+<td>GET</td>
+<td>Busca clientes usando uma consulta de pesquisa.</td>
+</tr>
+<tr>
+<td>Customers - Delete a customer</td>
+<td>DELETE</td>
+<td>Remove um cliente permanentemente.</td>
+</tr>
+<tr>
+<td>Customers - Retrieve a customer</td>
+<td>GET</td>
+<td>Recupera os detalhes de um cliente.</td>
+</tr>
+<tr>
+<td>Customers - Update a customer</td>
+<td>POST</td>
+<td>Atualiza os dados de um cliente.</td>
+</tr>
+<tr>
+<td>Customers - Create or retrieve funding instructions for a customer cash balance</td>
+<td>POST</td>
+<td>Gera ou recupera instruções de depósito para o saldo em dinheiro do cliente.</td>
+</tr>
+<tr>
+<td>Customer Balance Transactions - List customer balance transactions</td>
+<td>GET</td>
+<td>Lista as transações do saldo de crédito do cliente.</td>
+</tr>
+<tr>
+<td>Customer Balance Transactions - Create a customer balance transaction</td>
+<td>POST</td>
+<td>Cria uma transação no saldo de crédito do cliente.</td>
+</tr>
+<tr>
+<td>Customer Balance Transactions - Retrieve a customer balance transaction</td>
+<td>GET</td>
+<td>Recupera uma transação do saldo de crédito do cliente.</td>
+</tr>
+<tr>
+<td>Customer Balance Transactions - Update a customer credit balance transaction</td>
+<td>POST</td>
+<td>Atualiza os metadados de uma transação do saldo do cliente.</td>
+</tr>
+<tr>
+<td>Customer Bank Accounts - List all bank accounts</td>
+<td>GET</td>
+<td>Lista as contas bancárias cadastradas do cliente.</td>
+</tr>
+<tr>
+<td>Customer Bank Accounts - Create a card</td>
+<td>POST</td>
+<td>Adiciona um cartão como forma de pagamento do cliente.</td>
+</tr>
+<tr>
+<td>Customer Bank Accounts - Delete a customer source</td>
+<td>DELETE</td>
+<td>Remove uma conta bancária do cliente.</td>
+</tr>
+<tr>
+<td>Customer Bank Accounts - Retrieve a bank account</td>
+<td>GET</td>
+<td>Recupera uma conta bancária cadastrada do cliente.</td>
+</tr>
+<tr>
+<td>Customer Bank Accounts - Update a card</td>
+<td>POST</td>
+<td>Atualiza os dados de um cartão do cliente.</td>
+</tr>
+<tr>
+<td>Customer Bank Accounts - Verify a bank account</td>
+<td>POST</td>
+<td>Confirma os microdepósitos para validar a conta bancária do cliente.</td>
+</tr>
+<tr>
+<td>Customer Cash Balance - Retrieve a cash balance</td>
+<td>GET</td>
+<td>Recupera o saldo em dinheiro disponível do cliente.</td>
+</tr>
+<tr>
+<td>Customer Cash Balance - Update a cash balance's settings</td>
+<td>POST</td>
+<td>Atualiza as configurações do saldo em dinheiro do cliente.</td>
+</tr>
+<tr>
+<td>Customer Cash Balance Transactions - List cash balance transactions</td>
+<td>GET</td>
+<td>Lista as transações do saldo em dinheiro do cliente.</td>
+</tr>
+<tr>
+<td>Customer Cash Balance Transactions - Retrieve a cash balance transaction</td>
+<td>GET</td>
+<td>Recupera uma transação do saldo em dinheiro do cliente.</td>
+</tr>
+<tr>
+<td>Customer Discount - Delete a customer discount</td>
+<td>DELETE</td>
+<td>Remove o desconto aplicado ao cliente.</td>
+</tr>
+<tr>
+<td>Customer Discount - Retrieve a customer discount</td>
+<td>GET</td>
+<td>Recupera o desconto ativo aplicado ao cliente.</td>
+</tr>
+<tr>
+<td>Customer Payment Methods - List a Customer's PaymentMethods</td>
+<td>GET</td>
+<td>Lista os PaymentMethods vinculados a um cliente.</td>
+</tr>
+<tr>
+<td>Customer Payment Methods - Retrieve a Customer's PaymentMethod</td>
+<td>GET</td>
+<td>Recupera um PaymentMethod vinculado a um cliente.</td>
+</tr>
+<tr>
+<td>Customer Sources - List all sources for a customer</td>
+<td>GET</td>
+<td>Lista as formas de pagamento legadas (sources) do cliente.</td>
+</tr>
+<tr>
+<td>Customer Sources - Create a card</td>
+<td>POST</td>
+<td>Adiciona um cartão como forma de pagamento legada do cliente.</td>
+</tr>
+<tr>
+<td>Customer Sources - Delete a customer source</td>
+<td>DELETE</td>
+<td>Remove uma forma de pagamento legada (source) do cliente.</td>
+</tr>
+<tr>
+<td>Customer Sources - Retrieve a customer source</td>
+<td>GET</td>
+<td>Recupera uma forma de pagamento legada (source) do cliente.</td>
+</tr>
+<tr>
+<td>Customer Sources - Update a card</td>
+<td>POST</td>
+<td>Atualiza os dados de um cartão legado do cliente.</td>
+</tr>
+<tr>
+<td>Customer Sources - Verify a bank account</td>
+<td>POST</td>
+<td>Confirma os microdepósitos para validar a conta bancária legada.</td>
+</tr>
+<tr>
+<td>Customer Tax IDs - List all Customer tax IDs</td>
+<td>GET</td>
+<td>Lista as identificações fiscais cadastradas do cliente.</td>
+</tr>
+<tr>
+<td>Customer Tax IDs - Create a Customer tax ID</td>
+<td>POST</td>
+<td>Cadastra uma identificação fiscal para o cliente.</td>
+</tr>
+<tr>
+<td>Customer Tax IDs - Delete a Customer tax ID</td>
+<td>DELETE</td>
+<td>Remove uma identificação fiscal do cliente.</td>
+</tr>
+<tr>
+<td>Customer Tax IDs - Retrieve a Customer tax ID</td>
+<td>GET</td>
+<td>Recupera uma identificação fiscal do cliente.</td>
+</tr>
+<tr>
+<td>Disputes - List all disputes</td>
+<td>GET</td>
+<td>Lista todas as disputas (chargebacks) registradas.</td>
+</tr>
+<tr>
+<td>Disputes - Retrieve a dispute</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma disputa.</td>
+</tr>
+<tr>
+<td>Disputes - Update a dispute</td>
+<td>POST</td>
+<td>Envia evidências para contestar uma disputa.</td>
+</tr>
+<tr>
+<td>Disputes - Close a dispute</td>
+<td>POST</td>
+<td>Encerra uma disputa aceitando a perda da cobrança.</td>
+</tr>
+<tr>
+<td>Payment Intents - List all PaymentIntents</td>
+<td>GET</td>
+<td>Lista todos os PaymentIntents criados.</td>
+</tr>
+<tr>
+<td>Payment Intents - Create a PaymentIntent</td>
+<td>POST</td>
+<td>Cria um PaymentIntent para processar um pagamento.</td>
+</tr>
+<tr>
+<td>Payment Intents - Search PaymentIntents</td>
+<td>GET</td>
+<td>Busca PaymentIntents usando uma consulta de pesquisa.</td>
+</tr>
+<tr>
+<td>Payment Intents - Retrieve a PaymentIntent</td>
+<td>GET</td>
+<td>Recupera os detalhes de um PaymentIntent.</td>
+</tr>
+<tr>
+<td>Payment Intents - Update a PaymentIntent</td>
+<td>POST</td>
+<td>Atualiza os dados de um PaymentIntent.</td>
+</tr>
+<tr>
+<td>Payment Intents - List all PaymentIntent LineItems</td>
+<td>GET</td>
+<td>Lista os itens de linha de um PaymentIntent.</td>
+</tr>
+<tr>
+<td>Payment Intents - Reconcile a customer_balance PaymentIntent</td>
+<td>POST</td>
+<td>Reconcilia um PaymentIntent pago com saldo do cliente.</td>
+</tr>
+<tr>
+<td>Payment Intents - Cancel a PaymentIntent</td>
+<td>POST</td>
+<td>Cancela um PaymentIntent antes da conclusão do pagamento.</td>
+</tr>
+<tr>
+<td>Payment Intents - Capture a PaymentIntent</td>
+<td>POST</td>
+<td>Captura os fundos de um PaymentIntent previamente autorizado.</td>
+</tr>
+<tr>
+<td>Payment Intents - Confirm a PaymentIntent</td>
+<td>POST</td>
+<td>Confirma um PaymentIntent para processar o pagamento.</td>
+</tr>
+<tr>
+<td>Payment Intents - Increment an authorization</td>
+<td>POST</td>
+<td>Aumenta o valor autorizado de um PaymentIntent capturado parcialmente.</td>
+</tr>
+<tr>
+<td>Payment Intents - Verify microdeposits on a PaymentIntent</td>
+<td>POST</td>
+<td>Confirma os microdepósitos para validar a conta bancária.</td>
+</tr>
+<tr>
+<td>Payment Methods - List PaymentMethods</td>
+<td>GET</td>
+<td>Lista os PaymentMethods cadastrados.</td>
+</tr>
+<tr>
+<td>Payment Methods - Create a PaymentMethod</td>
+<td>POST</td>
+<td>Cria um PaymentMethod para uso em pagamentos.</td>
+</tr>
+<tr>
+<td>Payment Methods - Retrieve a PaymentMethod</td>
+<td>GET</td>
+<td>Recupera os detalhes de um PaymentMethod.</td>
+</tr>
+<tr>
+<td>Payment Methods - Update a PaymentMethod</td>
+<td>POST</td>
+<td>Atualiza os dados de um PaymentMethod.</td>
+</tr>
+<tr>
+<td>Payment Methods - Attach a PaymentMethod to a Customer</td>
+<td>POST</td>
+<td>Vincula um PaymentMethod a um cliente.</td>
+</tr>
+<tr>
+<td>Payment Methods - Detach a PaymentMethod from a Customer</td>
+<td>POST</td>
+<td>Desvincula um PaymentMethod de um cliente.</td>
+</tr>
+<tr>
+<td>Payouts - List all payouts</td>
+<td>GET</td>
+<td>Lista todos os repasses realizados.</td>
+</tr>
+<tr>
+<td>Payouts - Create a payout</td>
+<td>POST</td>
+<td>Cria um repasse do saldo para a conta bancária.</td>
+</tr>
+<tr>
+<td>Payouts - Retrieve a payout</td>
+<td>GET</td>
+<td>Recupera os detalhes de um repasse.</td>
+</tr>
+<tr>
+<td>Payouts - Update a payout</td>
+<td>POST</td>
+<td>Atualiza os metadados de um repasse.</td>
+</tr>
+<tr>
+<td>Payouts - Cancel a payout</td>
+<td>POST</td>
+<td>Cancela um repasse ainda não processado.</td>
+</tr>
+<tr>
+<td>Payouts - Reverse a payout</td>
+<td>POST</td>
+<td>Reverte um repasse já enviado.</td>
+</tr>
+<tr>
+<td>Refunds - List all refunds</td>
+<td>GET</td>
+<td>Lista todos os reembolsos realizados.</td>
+</tr>
+<tr>
+<td>Refunds - Create a refund</td>
+<td>POST</td>
+<td>Cria um reembolso para uma cobrança.</td>
+</tr>
+<tr>
+<td>Refunds - Retrieve a refund</td>
+<td>GET</td>
+<td>Recupera os detalhes de um reembolso.</td>
+</tr>
+<tr>
+<td>Refunds - Update a refund</td>
+<td>POST</td>
+<td>Atualiza os metadados de um reembolso.</td>
+</tr>
+<tr>
+<td>Refunds - Cancel a refund</td>
+<td>POST</td>
+<td>Cancela um reembolso ainda pendente.</td>
+</tr>
+<tr>
+<td>Setup Attempts - List all SetupAttempts</td>
+<td>GET</td>
+<td>Lista as tentativas de configuração de um SetupIntent.</td>
+</tr>
+<tr>
+<td>Setup Intents - List all SetupIntents</td>
+<td>GET</td>
+<td>Lista todos os SetupIntents criados.</td>
+</tr>
+<tr>
+<td>Setup Intents - Create a SetupIntent</td>
+<td>POST</td>
+<td>Cria um SetupIntent para configurar um pagamento futuro.</td>
+</tr>
+<tr>
+<td>Setup Intents - Retrieve a SetupIntent</td>
+<td>GET</td>
+<td>Recupera os detalhes de um SetupIntent.</td>
+</tr>
+<tr>
+<td>Setup Intents - Update a SetupIntent</td>
+<td>POST</td>
+<td>Atualiza os dados de um SetupIntent.</td>
+</tr>
+<tr>
+<td>Setup Intents - Cancel a SetupIntent</td>
+<td>POST</td>
+<td>Cancela um SetupIntent antes da confirmação.</td>
+</tr>
+<tr>
+<td>Setup Intents - Confirm a SetupIntent</td>
+<td>POST</td>
+<td>Confirma um SetupIntent para salvar a forma de pagamento.</td>
+</tr>
+<tr>
+<td>Setup Intents - Verify microdeposits on a SetupIntent</td>
+<td>POST</td>
+<td>Confirma os microdepósitos para validar a conta bancária de um SetupIntent.</td>
+</tr>
+<tr>
+<td>Billing Portal Configurations - List portal configurations</td>
+<td>GET</td>
+<td>Lista as configurações do portal de cobrança.</td>
+</tr>
+<tr>
+<td>Billing Portal Configurations - Create a portal configuration</td>
+<td>POST</td>
+<td>Cria uma configuração para o portal de cobrança do cliente.</td>
+</tr>
+<tr>
+<td>Billing Portal Configurations - Retrieve a portal configuration</td>
+<td>GET</td>
+<td>Recupera uma configuração do portal de cobrança.</td>
+</tr>
+<tr>
+<td>Billing Portal Configurations - Update a portal configuration</td>
+<td>POST</td>
+<td>Atualiza uma configuração do portal de cobrança.</td>
+</tr>
+<tr>
+<td>Billing Portal Sessions - Create a portal session</td>
+<td>POST</td>
+<td>Cria uma sessão de acesso ao portal de cobrança do cliente.</td>
+</tr>
+<tr>
+<td>Checkout Sessions - List all Checkout Sessions</td>
+<td>GET</td>
+<td>Lista todas as sessões de Checkout criadas.</td>
+</tr>
+<tr>
+<td>Checkout Sessions - Create a Checkout Session</td>
+<td>POST</td>
+<td>Cria uma sessão de Checkout para iniciar um pagamento.</td>
+</tr>
+<tr>
+<td>Checkout Sessions - Retrieve a Checkout Session</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma sessão de Checkout.</td>
+</tr>
+<tr>
+<td>Checkout Sessions - Update a Checkout Session</td>
+<td>POST</td>
+<td>Atualiza uma sessão de Checkout existente.</td>
+</tr>
+<tr>
+<td>Checkout Sessions - Expire a Checkout Session</td>
+<td>POST</td>
+<td>Expira uma sessão de Checkout ainda aberta.</td>
+</tr>
+<tr>
+<td>Checkout Sessions - Retrieve a Checkout Session's line items</td>
+<td>GET</td>
+<td>Recupera os itens de linha de uma sessão de Checkout.</td>
+</tr>
+<tr>
+<td>Coupons - List all coupons</td>
+<td>GET</td>
+<td>Lista todos os cupons de desconto.</td>
+</tr>
+<tr>
+<td>Coupons - Create a coupon</td>
+<td>POST</td>
+<td>Cria um cupom de desconto.</td>
+</tr>
+<tr>
+<td>Coupons - Delete a coupon</td>
+<td>DELETE</td>
+<td>Remove um cupom de desconto.</td>
+</tr>
+<tr>
+<td>Coupons - Retrieve a coupon</td>
+<td>GET</td>
+<td>Recupera os detalhes de um cupom de desconto.</td>
+</tr>
+<tr>
+<td>Coupons - Update a coupon</td>
+<td>POST</td>
+<td>Atualiza os metadados de um cupom de desconto.</td>
+</tr>
+<tr>
+<td>Credit Notes - List all credit notes</td>
+<td>GET</td>
+<td>Lista todas as notas de crédito emitidas.</td>
+</tr>
+<tr>
+<td>Credit Notes - Create a credit note</td>
+<td>POST</td>
+<td>Cria uma nota de crédito para uma fatura.</td>
+</tr>
+<tr>
+<td>Credit Notes - Preview a credit note</td>
+<td>GET</td>
+<td>Pré-visualiza uma nota de crédito antes de criá-la.</td>
+</tr>
+<tr>
+<td>Credit Notes - Retrieve a credit note preview's line items</td>
+<td>GET</td>
+<td>Recupera os itens de linha de uma pré-visualização de nota de crédito.</td>
+</tr>
+<tr>
+<td>Credit Notes - Retrieve a credit note's line items</td>
+<td>GET</td>
+<td>Recupera os itens de linha de uma nota de crédito.</td>
+</tr>
+<tr>
+<td>Credit Notes - Retrieve a credit note</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma nota de crédito.</td>
+</tr>
+<tr>
+<td>Credit Notes - Update a credit note</td>
+<td>POST</td>
+<td>Atualiza os metadados de uma nota de crédito.</td>
+</tr>
+<tr>
+<td>Credit Notes - Void a credit note</td>
+<td>POST</td>
+<td>Anula uma nota de crédito emitida.</td>
+</tr>
+<tr>
+<td>Invoice Payments - List all payments for an invoice</td>
+<td>GET</td>
+<td>Lista os pagamentos vinculados a uma fatura.</td>
+</tr>
+<tr>
+<td>Invoice Payments - Retrieve an InvoicePayment</td>
+<td>GET</td>
+<td>Recupera os detalhes de um pagamento de fatura.</td>
+</tr>
+<tr>
+<td>Invoice Items - List all invoice items</td>
+<td>GET</td>
+<td>Lista os itens pendentes de fatura.</td>
+</tr>
+<tr>
+<td>Invoice Items - Create an invoice item</td>
+<td>POST</td>
+<td>Cria um item para incluir na próxima fatura do cliente.</td>
+</tr>
+<tr>
+<td>Invoice Items - Delete an invoice item</td>
+<td>DELETE</td>
+<td>Remove um item pendente de fatura.</td>
+</tr>
+<tr>
+<td>Invoice Items - Retrieve an invoice item</td>
+<td>GET</td>
+<td>Recupera os detalhes de um item de fatura.</td>
+</tr>
+<tr>
+<td>Invoice Items - Update an invoice item</td>
+<td>POST</td>
+<td>Atualiza um item pendente de fatura.</td>
+</tr>
+<tr>
+<td>Invoices - List all invoices</td>
+<td>GET</td>
+<td>Lista todas as faturas emitidas.</td>
+</tr>
+<tr>
+<td>Invoices - Create an invoice</td>
+<td>POST</td>
+<td>Cria uma nova fatura para o cliente.</td>
+</tr>
+<tr>
+<td>Invoices - Create a preview invoice</td>
+<td>POST</td>
+<td>Gera uma pré-visualização de fatura sem criá-la.</td>
+</tr>
+<tr>
+<td>Invoices - Search invoices</td>
+<td>GET</td>
+<td>Busca faturas usando uma consulta de pesquisa.</td>
+</tr>
+<tr>
+<td>Invoices - Delete a draft invoice</td>
+<td>DELETE</td>
+<td>Remove uma fatura ainda em rascunho.</td>
+</tr>
+<tr>
+<td>Invoices - Retrieve an invoice</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma fatura.</td>
+</tr>
+<tr>
+<td>Invoices - Update an invoice</td>
+<td>POST</td>
+<td>Atualiza os dados de uma fatura.</td>
+</tr>
+<tr>
+<td>Invoices - Bulk add invoice line items</td>
+<td>POST</td>
+<td>Adiciona vários itens de linha de uma vez a uma fatura.</td>
+</tr>
+<tr>
+<td>Invoices - Attach a payment to an Invoice</td>
+<td>POST</td>
+<td>Vincula um pagamento existente a uma fatura.</td>
+</tr>
+<tr>
+<td>Invoices - Finalize an invoice</td>
+<td>POST</td>
+<td>Finaliza uma fatura em rascunho para cobrança.</td>
+</tr>
+<tr>
+<td>Invoices - Retrieve an invoice's line items</td>
+<td>GET</td>
+<td>Recupera os itens de linha de uma fatura.</td>
+</tr>
+<tr>
+<td>Invoices - Update an invoice's line item</td>
+<td>POST</td>
+<td>Atualiza um item de linha específico de uma fatura.</td>
+</tr>
+<tr>
+<td>Invoices - Mark an invoice as uncollectible</td>
+<td>POST</td>
+<td>Marca a fatura como incobrável.</td>
+</tr>
+<tr>
+<td>Invoices - Pay an invoice</td>
+<td>POST</td>
+<td>Efetua o pagamento de uma fatura pendente.</td>
+</tr>
+<tr>
+<td>Invoices - Bulk remove invoice line items</td>
+<td>POST</td>
+<td>Remove vários itens de linha de uma vez de uma fatura.</td>
+</tr>
+<tr>
+<td>Invoices - Send an invoice for manual payment</td>
+<td>POST</td>
+<td>Envia a fatura por e-mail para pagamento manual.</td>
+</tr>
+<tr>
+<td>Invoices - Bulk update invoice line items</td>
+<td>POST</td>
+<td>Atualiza vários itens de linha de uma vez em uma fatura.</td>
+</tr>
+<tr>
+<td>Invoices - Void an invoice</td>
+<td>POST</td>
+<td>Anula uma fatura já finalizada.</td>
+</tr>
+<tr>
+<td>Payment Links - List all payment links</td>
+<td>GET</td>
+<td>Lista todos os links de pagamento criados.</td>
+</tr>
+<tr>
+<td>Payment Links - Create a payment link</td>
+<td>POST</td>
+<td>Cria um link de pagamento reutilizável.</td>
+</tr>
+<tr>
+<td>Payment Links - Retrieve payment link</td>
+<td>GET</td>
+<td>Recupera os detalhes de um link de pagamento.</td>
+</tr>
+<tr>
+<td>Payment Links - Update a payment link</td>
+<td>POST</td>
+<td>Atualiza os dados de um link de pagamento.</td>
+</tr>
+<tr>
+<td>Payment Links - Retrieve a payment link's line items</td>
+<td>GET</td>
+<td>Recupera os itens de linha de um link de pagamento.</td>
+</tr>
+<tr>
+<td>Prices - List all prices</td>
+<td>GET</td>
+<td>Lista todos os preços cadastrados.</td>
+</tr>
+<tr>
+<td>Prices - Create a price</td>
+<td>POST</td>
+<td>Cria um preço para um produto.</td>
+</tr>
+<tr>
+<td>Prices - Search prices</td>
+<td>GET</td>
+<td>Busca preços usando uma consulta de pesquisa.</td>
+</tr>
+<tr>
+<td>Prices - Retrieve a price</td>
+<td>GET</td>
+<td>Recupera os detalhes de um preço.</td>
+</tr>
+<tr>
+<td>Prices - Update a price</td>
+<td>POST</td>
+<td>Atualiza os metadados de um preço.</td>
+</tr>
+<tr>
+<td>Products - List all products</td>
+<td>GET</td>
+<td>Lista todos os produtos cadastrados.</td>
+</tr>
+<tr>
+<td>Products - Create a product</td>
+<td>POST</td>
+<td>Cria um novo produto.</td>
+</tr>
+<tr>
+<td>Products - Search products</td>
+<td>GET</td>
+<td>Busca produtos usando uma consulta de pesquisa.</td>
+</tr>
+<tr>
+<td>Products - Delete a product</td>
+<td>DELETE</td>
+<td>Remove um produto cadastrado.</td>
+</tr>
+<tr>
+<td>Products - Retrieve a product</td>
+<td>GET</td>
+<td>Recupera os detalhes de um produto.</td>
+</tr>
+<tr>
+<td>Products - Update a product</td>
+<td>POST</td>
+<td>Atualiza os dados de um produto.</td>
+</tr>
+<tr>
+<td>Product Features - List all features attached to a product</td>
+<td>GET</td>
+<td>Lista os recursos vinculados a um produto.</td>
+</tr>
+<tr>
+<td>Product Features - Attach a feature to a product</td>
+<td>POST</td>
+<td>Vincula um recurso (feature) a um produto.</td>
+</tr>
+<tr>
+<td>Product Features - Remove a feature from a product</td>
+<td>DELETE</td>
+<td>Remove um recurso vinculado de um produto.</td>
+</tr>
+<tr>
+<td>Product Features - Retrieve a product_feature</td>
+<td>GET</td>
+<td>Recupera um recurso vinculado a um produto.</td>
+</tr>
+<tr>
+<td>Promotion Codes - List all promotion codes</td>
+<td>GET</td>
+<td>Lista todos os códigos promocionais cadastrados.</td>
+</tr>
+<tr>
+<td>Promotion Codes - Create a promotion code</td>
+<td>POST</td>
+<td>Cria um código promocional vinculado a um cupom.</td>
+</tr>
+<tr>
+<td>Promotion Codes - Retrieve a promotion code</td>
+<td>GET</td>
+<td>Recupera os detalhes de um código promocional.</td>
+</tr>
+<tr>
+<td>Promotion Codes - Update a promotion code</td>
+<td>POST</td>
+<td>Atualiza os dados de um código promocional.</td>
+</tr>
+<tr>
+<td>Shipping Rates - List all shipping rates</td>
+<td>GET</td>
+<td>Lista todas as taxas de frete cadastradas.</td>
+</tr>
+<tr>
+<td>Shipping Rates - Create a shipping rate</td>
+<td>POST</td>
+<td>Cria uma taxa de frete para uso no Checkout.</td>
+</tr>
+<tr>
+<td>Shipping Rates - Retrieve a shipping rate</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma taxa de frete.</td>
+</tr>
+<tr>
+<td>Shipping Rates - Update a shipping rate</td>
+<td>POST</td>
+<td>Atualiza os dados de uma taxa de frete.</td>
+</tr>
+<tr>
+<td>Subscription Items - List all subscription items</td>
+<td>GET</td>
+<td>Lista os itens de uma assinatura.</td>
+</tr>
+<tr>
+<td>Subscription Items - Create a subscription item</td>
+<td>POST</td>
+<td>Adiciona um item a uma assinatura existente.</td>
+</tr>
+<tr>
+<td>Subscription Items - Delete a subscription item</td>
+<td>DELETE</td>
+<td>Remove um item de uma assinatura.</td>
+</tr>
+<tr>
+<td>Subscription Items - Retrieve a subscription item</td>
+<td>GET</td>
+<td>Recupera os detalhes de um item de assinatura.</td>
+</tr>
+<tr>
+<td>Subscription Items - Update a subscription item</td>
+<td>POST</td>
+<td>Atualiza um item de uma assinatura.</td>
+</tr>
+<tr>
+<td>Subscription Schedules - List all schedules</td>
+<td>GET</td>
+<td>Lista todos os cronogramas de assinatura.</td>
+</tr>
+<tr>
+<td>Subscription Schedules - Create a schedule</td>
+<td>POST</td>
+<td>Cria um cronograma para gerenciar fases de uma assinatura.</td>
+</tr>
+<tr>
+<td>Subscription Schedules - Retrieve a schedule</td>
+<td>GET</td>
+<td>Recupera os detalhes de um cronograma de assinatura.</td>
+</tr>
+<tr>
+<td>Subscription Schedules - Update a schedule</td>
+<td>POST</td>
+<td>Atualiza as fases de um cronograma de assinatura.</td>
+</tr>
+<tr>
+<td>Subscription Schedules - Cancel a schedule</td>
+<td>POST</td>
+<td>Cancela um cronograma de assinatura.</td>
+</tr>
+<tr>
+<td>Subscription Schedules - Release a schedule</td>
+<td>POST</td>
+<td>Libera a assinatura do controle de um cronograma.</td>
+</tr>
+<tr>
+<td>Subscriptions - List subscriptions</td>
+<td>GET</td>
+<td>Lista todas as assinaturas cadastradas.</td>
+</tr>
+<tr>
+<td>Subscriptions - Create a subscription</td>
+<td>POST</td>
+<td>Cria uma nova assinatura para o cliente.</td>
+</tr>
+<tr>
+<td>Subscriptions - Search subscriptions</td>
+<td>GET</td>
+<td>Busca assinaturas usando uma consulta de pesquisa.</td>
+</tr>
+<tr>
+<td>Subscriptions - Cancel a subscription</td>
+<td>DELETE</td>
+<td>Cancela uma assinatura ativa.</td>
+</tr>
+<tr>
+<td>Subscriptions - Retrieve a subscription</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma assinatura.</td>
+</tr>
+<tr>
+<td>Subscriptions - Update a subscription</td>
+<td>POST</td>
+<td>Atualiza os dados de uma assinatura.</td>
+</tr>
+<tr>
+<td>Subscriptions - Delete a subscription discount</td>
+<td>DELETE</td>
+<td>Remove o desconto aplicado a uma assinatura.</td>
+</tr>
+<tr>
+<td>Subscriptions - Migrate a subscription</td>
+<td>POST</td>
+<td>Migra uma assinatura para uma nova versão de faturamento.</td>
+</tr>
+<tr>
+<td>Subscriptions - Resume a subscription</td>
+<td>POST</td>
+<td>Retoma uma assinatura pausada.</td>
+</tr>
+<tr>
+<td>Tax IDs - List all tax IDs</td>
+<td>GET</td>
+<td>Lista as identificações fiscais cadastradas na conta.</td>
+</tr>
+<tr>
+<td>Tax IDs - Create a tax ID</td>
+<td>POST</td>
+<td>Cadastra uma identificação fiscal para a conta.</td>
+</tr>
+<tr>
+<td>Tax IDs - Delete a tax ID</td>
+<td>DELETE</td>
+<td>Remove uma identificação fiscal da conta.</td>
+</tr>
+<tr>
+<td>Tax IDs - Retrieve a tax ID</td>
+<td>GET</td>
+<td>Recupera uma identificação fiscal da conta.</td>
+</tr>
+<tr>
+<td>Tax Rates - List all tax rates</td>
+<td>GET</td>
+<td>Lista todas as alíquotas de imposto cadastradas.</td>
+</tr>
+<tr>
+<td>Tax Rates - Create a tax rate</td>
+<td>POST</td>
+<td>Cria uma alíquota de imposto.</td>
+</tr>
+<tr>
+<td>Tax Rates - Retrieve a tax rate</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma alíquota de imposto.</td>
+</tr>
+<tr>
+<td>Tax Rates - Update a tax rate</td>
+<td>POST</td>
+<td>Atualiza os dados de uma alíquota de imposto.</td>
+</tr>
+<tr>
+<td>Account - Retrieve account</td>
+<td>GET</td>
+<td>Recupera os detalhes da conta conectada atual.</td>
+</tr>
+<tr>
+<td>Connect Account Links - Create an account link</td>
+<td>POST</td>
+<td>Cria um link para onboarding de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account Sessions - Create an Account Session</td>
+<td>POST</td>
+<td>Cria uma sessão para embutir componentes de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Accounts - List all connected accounts</td>
+<td>GET</td>
+<td>Lista todas as contas conectadas à plataforma.</td>
+</tr>
+<tr>
+<td>Connect Accounts - Create an account</td>
+<td>POST</td>
+<td>Cria uma nova conta conectada na plataforma.</td>
+</tr>
+<tr>
+<td>Connect Accounts - Delete an account</td>
+<td>DELETE</td>
+<td>Remove uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Accounts - Retrieve account</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Accounts - Update an account</td>
+<td>POST</td>
+<td>Atualiza os dados de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Accounts - Create a login link</td>
+<td>POST</td>
+<td>Cria um link de login para o painel da conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Accounts - Reject an account</td>
+<td>POST</td>
+<td>Rejeita uma conta conectada por suspeita de fraude.</td>
+</tr>
+<tr>
+<td>Connect Accounts - Unreject an account</td>
+<td>POST</td>
+<td>Remove a rejeição aplicada a uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account Bank Accounts - Create an external account</td>
+<td>POST</td>
+<td>Adiciona uma conta bancária externa a uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account Bank Accounts - Delete an external account</td>
+<td>DELETE</td>
+<td>Remove uma conta bancária externa de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account Bank Accounts - Retrieve an external account</td>
+<td>GET</td>
+<td>Recupera uma conta bancária externa de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account Bank Accounts - Update a bank account</td>
+<td>POST</td>
+<td>Atualiza uma conta bancária de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account Capabilities - List all account capabilities</td>
+<td>GET</td>
+<td>Lista as capacidades habilitadas em uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account Capabilities - Retrieve an Account Capability</td>
+<td>GET</td>
+<td>Recupera uma capacidade específica de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account Capabilities - Update an Account Capability</td>
+<td>POST</td>
+<td>Solicita ou atualiza uma capacidade de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account External Accounts - List all external accounts</td>
+<td>GET</td>
+<td>Lista as contas externas de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account External Accounts - Create an external account</td>
+<td>POST</td>
+<td>Adiciona uma conta externa (bancária ou cartão) a uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account External Accounts - Delete an external account</td>
+<td>DELETE</td>
+<td>Remove uma conta externa de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account External Accounts - Retrieve an external account</td>
+<td>GET</td>
+<td>Recupera uma conta externa de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account External Accounts - Update a bank account</td>
+<td>POST</td>
+<td>Atualiza uma conta bancária externa de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account People - List all persons</td>
+<td>GET</td>
+<td>Lista os representantes cadastrados em uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account People - Create a person</td>
+<td>POST</td>
+<td>Cadastra um representante (pessoa) em uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account People - Delete a person</td>
+<td>DELETE</td>
+<td>Remove um representante de uma conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account People - Retrieve a person</td>
+<td>GET</td>
+<td>Recupera os dados de um representante da conta conectada.</td>
+</tr>
+<tr>
+<td>Connect Account People - Update a person</td>
+<td>POST</td>
+<td>Atualiza os dados de um representante da conta conectada.</td>
+</tr>
+<tr>
+<td>Application Fees - List all application fees</td>
+<td>GET</td>
+<td>Lista todas as taxas de aplicação cobradas pela plataforma.</td>
+</tr>
+<tr>
+<td>Application Fees - Retrieve an application fee</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma taxa de aplicação.</td>
+</tr>
+<tr>
+<td>Application Fee Refunds - Retrieve an application fee refund</td>
+<td>GET</td>
+<td>Recupera um reembolso específico de taxa de aplicação.</td>
+</tr>
+<tr>
+<td>Application Fee Refunds - Update an application fee refund</td>
+<td>POST</td>
+<td>Atualiza os metadados de um reembolso de taxa de aplicação.</td>
+</tr>
+<tr>
+<td>Application Fee Refunds - Refund an application fee</td>
+<td>POST</td>
+<td>Reembolsa uma taxa de aplicação cobrada pela plataforma.</td>
+</tr>
+<tr>
+<td>Application Fee Refunds - List all application fee refunds</td>
+<td>GET</td>
+<td>Lista os reembolsos de uma taxa de aplicação.</td>
+</tr>
+<tr>
+<td>Application Fee Refunds - Create an application fee refund</td>
+<td>POST</td>
+<td>Cria um reembolso para uma taxa de aplicação cobrada.</td>
+</tr>
+<tr>
+<td>Topups - List all top-ups</td>
+<td>GET</td>
+<td>Lista todas as recargas de saldo realizadas.</td>
+</tr>
+<tr>
+<td>Topups - Create a top-up</td>
+<td>POST</td>
+<td>Cria uma recarga de saldo da conta.</td>
+</tr>
+<tr>
+<td>Topups - Retrieve a top-up</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma recarga de saldo.</td>
+</tr>
+<tr>
+<td>Topups - Update a top-up</td>
+<td>POST</td>
+<td>Atualiza os metadados de uma recarga de saldo.</td>
+</tr>
+<tr>
+<td>Topups - Cancel a top-up</td>
+<td>POST</td>
+<td>Cancela uma recarga de saldo pendente.</td>
+</tr>
+<tr>
+<td>Transfers - List all transfers</td>
+<td>GET</td>
+<td>Lista todas as transferências realizadas.</td>
+</tr>
+<tr>
+<td>Transfers - Create a transfer</td>
+<td>POST</td>
+<td>Cria uma transferência de fundos para uma conta conectada.</td>
+</tr>
+<tr>
+<td>Transfers - Retrieve a transfer</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma transferência.</td>
+</tr>
+<tr>
+<td>Transfers - Update a transfer</td>
+<td>POST</td>
+<td>Atualiza os metadados de uma transferência.</td>
+</tr>
+<tr>
+<td>Transfer Reversals - List all reversals</td>
+<td>GET</td>
+<td>Lista as reversões de uma transferência.</td>
+</tr>
+<tr>
+<td>Transfer Reversals - Create a transfer reversal</td>
+<td>POST</td>
+<td>Cria uma reversão de uma transferência enviada.</td>
+</tr>
+<tr>
+<td>Transfer Reversals - Retrieve a reversal</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma reversão de transferência.</td>
+</tr>
+<tr>
+<td>Transfer Reversals - Update a reversal</td>
+<td>POST</td>
+<td>Atualiza os metadados de uma reversão de transferência.</td>
+</tr>
+<tr>
+<td>Events - List all events</td>
+<td>GET</td>
+<td>Lista os eventos gerados pela conta Stripe.</td>
+</tr>
+<tr>
+<td>Events - Retrieve an event</td>
+<td>GET</td>
+<td>Recupera os detalhes de um evento específico.</td>
+</tr>
+<tr>
+<td>Webhook Endpoints - List all webhook endpoints</td>
+<td>GET</td>
+<td>Lista todos os endpoints de webhook cadastrados.</td>
+</tr>
+<tr>
+<td>Webhook Endpoints - Create a webhook endpoint</td>
+<td>POST</td>
+<td>Cria um endpoint de webhook para receber eventos.</td>
+</tr>
+<tr>
+<td>Webhook Endpoints - Delete a webhook endpoint</td>
+<td>DELETE</td>
+<td>Remove um endpoint de webhook cadastrado.</td>
+</tr>
+<tr>
+<td>Webhook Endpoints - Retrieve a webhook endpoint</td>
+<td>GET</td>
+<td>Recupera os detalhes de um endpoint de webhook.</td>
+</tr>
+<tr>
+<td>Webhook Endpoints - Update a webhook endpoint</td>
+<td>POST</td>
+<td>Atualiza os dados de um endpoint de webhook.</td>
+</tr>
+<tr>
+<td>Billing Meter Event Adjustments - Create a billing meter event adjustment</td>
+<td>POST</td>
+<td>Cria um ajuste para um evento de medidor de cobrança.</td>
+</tr>
+<tr>
+<td>Billing Meter Events - Create a billing meter event</td>
+<td>POST</td>
+<td>Registra um novo evento de uso para um medidor de cobrança.</td>
+</tr>
+<tr>
+<td>Billing Meters - List billing meters</td>
+<td>GET</td>
+<td>Lista os medidores de cobrança cadastrados.</td>
+</tr>
+<tr>
+<td>Billing Meters - Create a billing meter</td>
+<td>POST</td>
+<td>Cria um medidor para rastrear o uso cobrado.</td>
+</tr>
+<tr>
+<td>Billing Meters - Retrieve a billing meter</td>
+<td>GET</td>
+<td>Recupera os detalhes de um medidor de cobrança.</td>
+</tr>
+<tr>
+<td>Billing Meters - Update a billing meter</td>
+<td>POST</td>
+<td>Atualiza as informações de um medidor de cobrança.</td>
+</tr>
+<tr>
+<td>Billing Meters - Deactivate a billing meter</td>
+<td>POST</td>
+<td>Desativa um medidor de cobrança existente.</td>
+</tr>
+<tr>
+<td>Billing Meters - Reactivate a billing meter</td>
+<td>POST</td>
+<td>Reativa um medidor de cobrança desativado.</td>
+</tr>
+<tr>
+<td>Billing Meter Event Summaries - List billing meter event summaries</td>
+<td>GET</td>
+<td>Lista os resumos de eventos de um medidor de cobrança.</td>
+</tr>
+<tr>
+<td>File Links - List all file links</td>
+<td>GET</td>
+<td>Lista os links de arquivo criados.</td>
+</tr>
+<tr>
+<td>File Links - Create a file link</td>
+<td>POST</td>
+<td>Cria um link público para acessar um arquivo.</td>
+</tr>
+<tr>
+<td>File Links - Retrieve a file link</td>
+<td>GET</td>
+<td>Recupera os detalhes de um link de arquivo.</td>
+</tr>
+<tr>
+<td>File Links - Update a file link</td>
+<td>POST</td>
+<td>Atualiza os metadados de um link de arquivo.</td>
+</tr>
+<tr>
+<td>Files - List all files</td>
+<td>GET</td>
+<td>Lista os arquivos enviados à Stripe.</td>
+</tr>
+<tr>
+<td>Files - Create a file</td>
+<td>POST</td>
+<td>Envia um arquivo para a Stripe.</td>
+</tr>
+<tr>
+<td>Files - Retrieve a file</td>
+<td>GET</td>
+<td>Recupera os detalhes de um arquivo.</td>
+</tr>
+<tr>
+<td>Radar Early Fraud Warnings - List all early fraud warnings</td>
+<td>GET</td>
+<td>Lista os alertas antecipados de fraude do Radar.</td>
+</tr>
+<tr>
+<td>Radar Early Fraud Warnings - Retrieve an early fraud warning</td>
+<td>GET</td>
+<td>Recupera um alerta antecipado de fraude do Radar.</td>
+</tr>
+<tr>
+<td>Radar Value List Items - List all value list items</td>
+<td>GET</td>
+<td>Lista os itens de uma lista de valores do Radar.</td>
+</tr>
+<tr>
+<td>Radar Value List Items - Create a value list item</td>
+<td>POST</td>
+<td>Adiciona um item a uma lista de valores do Radar.</td>
+</tr>
+<tr>
+<td>Radar Value List Items - Delete a value list item</td>
+<td>DELETE</td>
+<td>Remove um item de uma lista de valores do Radar.</td>
+</tr>
+<tr>
+<td>Radar Value List Items - Retrieve a value list item</td>
+<td>GET</td>
+<td>Recupera um item de uma lista de valores do Radar.</td>
+</tr>
+<tr>
+<td>Radar Value Lists - List all value lists</td>
+<td>GET</td>
+<td>Lista todas as listas de valores do Radar.</td>
+</tr>
+<tr>
+<td>Radar Value Lists - Create a value list</td>
+<td>POST</td>
+<td>Cria uma lista de valores do Radar.</td>
+</tr>
+<tr>
+<td>Radar Value Lists - Delete a value list</td>
+<td>DELETE</td>
+<td>Remove uma lista de valores do Radar.</td>
+</tr>
+<tr>
+<td>Radar Value Lists - Retrieve a value list</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma lista de valores do Radar.</td>
+</tr>
+<tr>
+<td>Radar Value Lists - Update a value list</td>
+<td>POST</td>
+<td>Atualiza os dados de uma lista de valores do Radar.</td>
+</tr>
+<tr>
+<td>Reviews - List all open reviews</td>
+<td>GET</td>
+<td>Lista as revisões de fraude ainda abertas.</td>
+</tr>
+<tr>
+<td>Reviews - Retrieve a review</td>
+<td>GET</td>
+<td>Recupera os detalhes de uma revisão de fraude.</td>
+</tr>
+<tr>
+<td>Reviews - Approve a review</td>
+<td>POST</td>
+<td>Aprova uma revisão de fraude do Radar.</td>
+</tr>
+<tr>
+<td>---</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="documentacao-oficial">Documentação oficial</h2>
+<ul>
+<li><a href="https://docs.stripe.com/api">https://docs.stripe.com/api</a> — referência completa da API</li>
+<li><a href="https://docs.stripe.com/api/versioning">https://docs.stripe.com/api/versioning</a> — versionamento e o header <code>Stripe-Version</code></li>
+<li><a href="https://docs.stripe.com/api/idempotent_requests">https://docs.stripe.com/api/idempotent_requests</a> — idempotência</li>
+<li><a href="https://docs.stripe.com/api/expanding_objects">https://docs.stripe.com/api/expanding_objects</a> — expansão de objetos</li>
+<li><a href="https://docs.stripe.com/search">https://docs.stripe.com/search</a> — linguagem de consulta das operações de busca</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

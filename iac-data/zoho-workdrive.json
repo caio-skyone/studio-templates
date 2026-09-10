@@ -1,0 +1,5668 @@
+{
+  "id": "7eaa7d6c-bf21-442f-ab96-fcf7ba489636",
+  "name": "Zoho WorkDrive",
+  "description": "Arquivos, pastas, compartilhamento e administração de equipes do Zoho WorkDrive.",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "oauth-2"
+  },
+  "operations": [
+    {
+      "id": "b079687c-1e35-408f-b468-2845a25ec605",
+      "name": "Comments - Create Comments",
+      "description": "Cria um comentário em um arquivo ou uma resposta a um comentário existente.",
+      "parameters": [
+        {
+          "id": "592af32b-023c-4870-ac27-93e9c1c139ea",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"comments\", \"attributes\": {\"resource_id\": \"ly9zm850678101cec4b0698777ab4534a3002\", \"comment_html\": \"Fine\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "comments"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "1d00c857-249e-4ac0-b62f-a55f8e26c0a6",
+      "name": "Comments - Get Comment Info",
+      "description": "Recupera as informações detalhadas de um comentário específico.",
+      "parameters": [
+        {
+          "id": "3002899b-17a6-48fc-9eb1-4852f8a0098f",
+          "name": "comment_id",
+          "type": "string",
+          "description": "ID único do comentário.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002-2774428000000002063"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "comments",
+            "<>comment_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "de0afaf8-97d9-4b64-a268-367bb3bcc2a1",
+      "name": "Comments - Update Comments",
+      "description": "Atualiza um comentário: cobre resolver, editar e reabrir o comentário.",
+      "parameters": [
+        {
+          "id": "e8399fa8-f5a6-4ef6-b8a9-e44bb0042062",
+          "name": "comment_id",
+          "type": "string",
+          "description": "ID único do comentário.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002-2774428000000002063"
+        },
+        {
+          "id": "49889392-45b1-4f81-a51d-9eeee8eb673d",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"comments\", \"attributes\": {\"comment_html\": \"Fine\"}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "comments",
+            "<>comment_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "aed33fcf-7eed-4711-8166-21c5ed473603",
+      "name": "Comments - Delete Comment",
+      "description": "Exclui um comentário ou uma resposta existente.",
+      "parameters": [
+        {
+          "id": "2eed9064-38bf-40a0-a2d5-fc884645f08a",
+          "name": "comment_id",
+          "type": "string",
+          "description": "ID único do comentário.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002-2774428000000002063"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "comments",
+            "<>comment_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f9e97c43-622a-456e-9ba6-2112fac80c17",
+      "name": "Createzip - Create Multiple Files/Folders as ZIP",
+      "description": "Compacta vários arquivos e pastas em um ZIP e salva o resultado na pasta de destino informada.",
+      "parameters": [
+        {
+          "id": "d3565620-6966-4e15-88c9-46e06a472b7e",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"files\", \"attributes\": {\"resource_id\": \"jxtee81865c6d7ed64dc596540aa30dfd2753,cjrrr6d1a5111809e4704a025dde678a0c523\", \"name\": \"reports\", \"destination_id\": \"6n758918f686c932a45fdbb08a699611761d7\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "createzip"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "9c30944b-2e5c-4800-8551-ee7870c3a1a9",
+      "name": "Files - Create Zoho format files",
+      "description": "Cria arquivos em formato Zoho: documentos no Zoho Writer, planilhas no Zoho Sheet e apresentações no Zoho Show.",
+      "parameters": [
+        {
+          "id": "26f0d390-e5f4-496b-a058-7a5b15e221ac",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"files\", \"attributes\": {\"name\": \"ExpensesSheet\", \"service_type\": \"zohosheet\", \"parent_id\": \"0nk78318a1771da934f22939e4a00d8aab225\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "52a38630-7666-4168-896b-721a615b6ab1",
+      "name": "Files - Update Multiple Files Folders",
+      "description": "Atualiza vários arquivos e pastas de uma vez: cobre mover para a lixeira, marcar e desmarcar como favorito, mover, restaurar e excluir definitivamente.",
+      "parameters": [
+        {
+          "id": "40419630-61ee-4156-8632-d26950a9ebd5",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": [{\"type\": \"files\", \"id\": \"ly9zm3c10f18ca7e3422db10f5b335d33b0cc\", \"attributes\": {\"status\": \"51\"}}, {\"type\": \"files\", \"id\": \"ly9zm1d1ee3b833c1438a9232ad6ac77bc8f2\", \"attributes\": {\"status\": \"51\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "bd77d077-9203-4ea9-aaf9-dbaa9c0299e0",
+      "name": "Files - List Files/Folders inside a Folder",
+      "description": "Lista todos os arquivos e pastas dentro de uma pasta específica.",
+      "parameters": [
+        {
+          "id": "c1ebab0f-47b8-40a4-bb64-913d5a6155e5",
+          "name": "folder_id",
+          "type": "string",
+          "description": "ID único da pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "0nk78318a1771da934f22939e4a00d8aab225"
+        },
+        {
+          "id": "47a32156-b851-4673-b36a-6fe39e18038d",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "allfiles"
+        },
+        {
+          "id": "e2441031-8441-4823-a67a-2fc6b6d03d0b",
+          "name": "filter_external_upload",
+          "type": "string",
+          "description": "Informe \"false\" para deixar de fora as pastas enviadas externamente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "b2ea0e17-60c2-4055-afb1-cec3c3a296cd",
+          "name": "filter_extension",
+          "type": "string",
+          "description": "Filtra os recursos pela extensão do arquivo. Ex.: filter[extension]=docx,jpeg.",
+          "required": false,
+          "sensitive": false,
+          "sample": "docx,jpeg"
+        },
+        {
+          "id": "4d802c0e-3edc-4687-8196-55dd2b76ebfc",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "d343a065-d6af-492e-9e8d-24c0d0d5439a",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "314f8f36-3815-42b6-99d8-d50ef8a991a2",
+          "name": "page_next",
+          "type": "string",
+          "description": "Paginação por cursor, que retorna 1000 itens por padrão. Use 0 na primeira requisição e, da segunda em diante, o token de página devolvido pela API.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "834fb0f1-10e3-47a3-a7aa-af7c556cad3d",
+          "name": "fields_files",
+          "type": "string",
+          "description": "Indica quais campos devem vir nos atributos da resposta.",
+          "required": false,
+          "sensitive": false,
+          "sample": "parent_id"
+        },
+        {
+          "id": "753fb327-66c5-439d-b851-cfec118f0849",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>folder_id</>",
+            "files"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[externalUpload]",
+            "value": "<>filter_external_upload</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[extension]",
+            "value": "<>filter_extension</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "page[next]",
+            "value": "<>page_next</>",
+            "enabled": true
+          },
+          {
+            "key": "fields[files]",
+            "value": "<>fields_files</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "5a69fc88-5071-410a-aed4-2d44e52a2ab8",
+      "name": "Files - Save File as Template",
+      "description": "Salva um arquivo como modelo reutilizável na biblioteca de modelos informada.",
+      "parameters": [
+        {
+          "id": "dce93af6-211b-4fb4-8691-c27de2281a6a",
+          "name": "library_id",
+          "type": "string",
+          "description": "ID único da biblioteca de modelos.",
+          "required": true,
+          "sensitive": false,
+          "sample": "8fv34f20c00bf4b6840e4b8b5628fc7750514"
+        },
+        {
+          "id": "f56e56d3-044e-4f1d-92c5-3854b15b4ed6",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"files\", \"attributes\": {\"resource_id\": \"ly9zm1d1ee3b833c1438a9232ad6ac77bc8f2\", \"name\": \"Marketing Template\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>library_id</>",
+            "saveastemplate"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "fe80a613-b111-47b8-b5af-54157b48c436",
+      "name": "Files - Fetch Files Folders",
+      "description": "Busca um arquivo ou pasta: cobre as informações do recurso e a URL da miniatura.",
+      "parameters": [
+        {
+          "id": "0eb3bdd1-2d02-4ccf-a9ad-ef423089d1f5",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "14651e81-8b9b-4f0c-b400-e80a51c3d810",
+      "name": "Files - Update Files Folders",
+      "description": "Atualiza um arquivo ou pasta: cobre mover, renomear, excluir definitivamente, favoritar, restaurar, enviar para a lixeira, liberar edição, check-out, check-in, marcar como final, incluir ou remover da visão de índice e atualizar link.",
+      "parameters": [
+        {
+          "id": "0f27b850-d312-45d9-b982-6414f9082afb",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        },
+        {
+          "id": "622e778a-36c4-42ee-9e26-d828ab80c173",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"files\", \"attributes\": {\"name\": \"User screenshot\"}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "94888fb5-c18b-4027-be7e-4cb89e2d3f38",
+      "name": "Files - Get File/Folder Breadcrumbs",
+      "description": "Busca a localização e a hierarquia de pastas de um arquivo ou pasta.",
+      "parameters": [
+        {
+          "id": "295c1d40-a819-4370-baca-71a3f0a28657",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "breadcrumbs"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "35937b54-cecd-4693-8a18-6c4e41a9d035",
+      "name": "Files - Get File Comments",
+      "description": "Busca todos os comentários de um arquivo.",
+      "parameters": [
+        {
+          "id": "baafd428-0545-4215-be27-859af9a1e2a0",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "comments"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "39249d89-8f97-4e7b-8890-d8b8432b5329",
+      "name": "Files - Copy Files Folders",
+      "description": "Copia um ou vários arquivos e pastas para o destino informado.",
+      "parameters": [
+        {
+          "id": "2d0785d6-17c9-4b91-a938-101407fa79ac",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        },
+        {
+          "id": "8ccf09f6-8b24-47ed-a6b0-00f122fe6aa5",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"files\", \"attributes\": {\"resource_id\": \"jxtee81865c6d7ed64dc596540aa30dfd2753\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "copy"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "18c250e3-2c56-47cd-99a8-f3e8b04c6896",
+      "name": "Files - Get File Query",
+      "description": "Consulta o conteúdo do arquivo com o Zia e devolve respostas contextuais. Na primeira requisição o Zia indexa o arquivo antes de gerar respostas; acompanhe pelo status da resposta: 1 = indexação concluída, 2 = em andamento, 3 ou mais = falha.",
+      "parameters": [
+        {
+          "id": "deced72b-d4ca-48f9-867c-cc6a459d3a20",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        },
+        {
+          "id": "d9dba131-6594-4718-9395-6422a6d7b87e",
+          "name": "filter_org_id",
+          "type": "string",
+          "description": "Identificador único da sua organização ou equipe. Garante que a requisição seja executada no contexto correto da conta do WorkDrive.",
+          "required": true,
+          "sensitive": false,
+          "sample": "6oq3d00e1e07d58c64077b4f1c1f28da4a777"
+        },
+        {
+          "id": "b71dc447-5467-4269-a6db-b2f56f0c602b",
+          "name": "filter_question",
+          "type": "string",
+          "description": "Pergunta ou instrução a executar sobre o conteúdo do arquivo, por exemplo pontos principais deste arquivo. Se omitida, apenas o status da consulta é retornado e nenhuma resposta é gerada.",
+          "required": true,
+          "sensitive": false,
+          "sample": "quais sao os pontos principais deste arquivo?"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "filequery"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[orgId]",
+            "value": "<>filter_org_id</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[question]",
+            "value": "<>filter_question</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "10e67a82-e330-4397-b5ca-0d0e46c0ef44",
+      "name": "Files - Convert File to Zoho Format",
+      "description": "Converte arquivos que não são do Zoho para os formatos do Zoho Office, como Writer, Sheet e Show.",
+      "parameters": [
+        {
+          "id": "b5b8fa65-f75c-4fe5-b0f0-8494acf2fc30",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        },
+        {
+          "id": "587e21f8-66db-4a22-99c1-366cc506c1e1",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"files\", \"attributes\": {\"resource_id\": \"d1mlj59afbbdf85bb4cd5b95f8177e4e805dc\", \"name\": \"worksheet\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "importfile"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "4c0b8e3c-b996-48bc-98ef-dfc39306f4d9",
+      "name": "Files - Create Link file",
+      "description": "Cria um arquivo de link, que permite guardar URLs da web e organizar arquivos e pastas de uso frequente em um só lugar.",
+      "parameters": [
+        {
+          "id": "7a895850-361b-431a-8b9f-c6764ff495a2",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        },
+        {
+          "id": "4854d44a-b5f6-4d67-b31e-0347e6871bd5",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"files\", \"attributes\": {\"name\": \"WorkDrive\", \"url_link\": \"https://workdrive.zoho.com\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "linkfile"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "782e380a-b135-4ed4-858a-ba34ab2b972b",
+      "name": "Files - Get File/Folder External Share Links",
+      "description": "Busca todos os links de compartilhamento externo de um arquivo ou pasta.",
+      "parameters": [
+        {
+          "id": "005c1725-eb13-4e43-a8f5-f8dbf201355d",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        },
+        {
+          "id": "7a8b9f9e-385c-4a3d-994a-f49e763847b2",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "download"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "links"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "adff4fce-4f03-4b57-8ba0-8eeb610410ea",
+      "name": "Files - Get Shared Users of File",
+      "description": "Busca todos os usuários com quem um arquivo ou pasta está compartilhado.",
+      "parameters": [
+        {
+          "id": "0bee1f89-deba-435b-bcd0-a77ddcfb30ab",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "permissions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "4d6f4d82-cd8b-419f-8866-1ef26b712705",
+      "name": "Files - Get Preview Meta Data",
+      "description": "Recupera os metadados de prévia de um arquivo, incluindo URLs e tamanho.",
+      "parameters": [
+        {
+          "id": "5f1f091f-e9f1-4010-80c6-13eb44f0006d",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "previewinfo"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "efc28255-5060-4b66-92e7-e416f8f2cfae",
+      "name": "Files - Get File/Folder statistics",
+      "description": "Busca as estatísticas de acesso de um arquivo ou pasta, com a atividade dos usuários, como visualizações e downloads.",
+      "parameters": [
+        {
+          "id": "301dd9ea-5998-4824-b921-54510d8af23c",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "statistics"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "741ecc76-a516-44d1-ac36-3b81ccda78bf",
+      "name": "Files - Unzip File",
+      "description": "Extrai o conteúdo de um arquivo ZIP para a pasta informada no WorkDrive.",
+      "parameters": [
+        {
+          "id": "8f70cd70-939b-4bf5-b2ba-e0b74382c2d9",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        },
+        {
+          "id": "731bb4de-d021-482e-9e21-0ee9f55a3be9",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"unzip\", \"attributes\": {\"resource_id\": \"cjrrr27f73d5b59a54b16aaf3cd74478a0fa2\", \"selected_file_extraction\": false, \"merge\": \"no\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "unzip"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "6942779b-e55a-40dc-b012-16d2f867bb17",
+      "name": "Files - Get File Versions",
+      "description": "Recupera todas as versões disponíveis de um arquivo.",
+      "parameters": [
+        {
+          "id": "52364bb9-c006-49ab-8edb-a5d0b8c7b091",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "files",
+            "<>resource_id</>",
+            "versions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "03ac1067-9879-4b64-aa18-e6288e1fee01",
+      "name": "Filesummary - Generate File Summary",
+      "description": "Gera um resumo do arquivo informado com inteligência artificial.",
+      "parameters": [
+        {
+          "id": "00c61bbc-9f38-4667-ae64-2b4d7aaa48fb",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"filesummary\", \"attributes\": {\"resource_id\": \"6yc4zb75a47c203e64c4e99705c2524d768af\", \"org_id\": \"6oq3d00e1e07d58c64077b4f1c1f28da4a777\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "filesummary"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b25adc81-483c-445f-b451-1ed3c85707d8",
+      "name": "Filesummary - Get File Summary",
+      "description": "Retorna o status do resumo de um arquivo: disponível, em geração ou não criado.",
+      "parameters": [
+        {
+          "id": "b814982f-d727-4269-bd82-1c6131087f3a",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "filesummary",
+            "<>resource_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "872a6370-5a34-48b8-9780-56140705ad7e",
+      "name": "Groupmembers - Add Multiple Members to Group",
+      "description": "Adiciona vários membros a um grupo e retorna os dados dos membros criados.",
+      "parameters": [
+        {
+          "id": "a6d14dc4-c88e-48ad-809e-2df1438d8545",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"groupmembers\", \"attributes\": {\"member_zuid\": \"747938058\", \"group_id\": \"ly9zmae16b43c258f458a9a57ac02c4f8d763-2774428000000002023\", \"role_id\": \"31\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "groupmembers"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5c4b6654-4b71-4649-bfa1-5a3f7f4d62d4",
+      "name": "Groupmembers - Get Group Member Info",
+      "description": "Recupera as informações detalhadas de um membro de grupo específico.",
+      "parameters": [
+        {
+          "id": "826006e2-784e-4ed5-a1e0-b9b7e2447814",
+          "name": "group_member_id",
+          "type": "string",
+          "description": "ID único do membro do grupo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763-2774428000000002031"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "groupmembers",
+            "<>group_member_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "cd1984a5-f80f-4426-91c7-113c845ea42e",
+      "name": "Groupmembers - Update Group Member Role",
+      "description": "Atualiza o papel de um membro existente do grupo.",
+      "parameters": [
+        {
+          "id": "4eea1d02-33c1-4004-ae67-e966a34683cd",
+          "name": "group_member_id",
+          "type": "string",
+          "description": "ID único do membro do grupo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763-2774428000000002031"
+        },
+        {
+          "id": "ca2a4054-7732-4a5e-971d-177970479389",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"groupmembers\", \"attributes\": {\"role_id\": \"30\"}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "groupmembers",
+            "<>group_member_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "9983e1cb-fd85-44b7-9568-50ab97196738",
+      "name": "Groupmembers - Remove Group Member",
+      "description": "Remove um membro do grupo informado.",
+      "parameters": [
+        {
+          "id": "ca1745c7-28c8-4622-a994-f1b55ce11d2f",
+          "name": "group_member_id",
+          "type": "string",
+          "description": "ID único do membro do grupo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763-2774428000000002031"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "groupmembers",
+            "<>group_member_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "7c6a53ce-9aa8-4601-8c30-ce44a6fe2947",
+      "name": "Groups - Create Group",
+      "description": "Cria um grupo na equipe ou organização informada.",
+      "parameters": [
+        {
+          "id": "851e3157-dd47-4d84-9b54-0770d767756c",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"groups\", \"attributes\": {\"name\": \"Employees\", \"parent_id\": \"ly9zmae16b43c258f458a9a57ac02c4f8d763\", \"description\": \"Groups for employees\", \"type\": \"1\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "groups"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "ca66c3ec-2335-4efc-9afc-fe4a525e77d3",
+      "name": "Groups - Get Group Info",
+      "description": "Recupera as informações detalhadas de um grupo específico.",
+      "parameters": [
+        {
+          "id": "889cab08-100d-47b6-b254-61ef87487d53",
+          "name": "group_id",
+          "type": "string",
+          "description": "ID único do grupo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763-2774428000000002023"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "groups",
+            "<>group_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "11f06702-72df-4de0-9150-430629e19525",
+      "name": "Groups - Update Groups",
+      "description": "Atualiza um grupo: cobre renomear o grupo e alterar sua descrição.",
+      "parameters": [
+        {
+          "id": "14c00c68-cf6b-4d68-918e-6303dadb1ec6",
+          "name": "group_id",
+          "type": "string",
+          "description": "ID único do grupo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763-2774428000000002023"
+        },
+        {
+          "id": "ed5f5c2b-bf58-45a0-8cef-fa58240629b2",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"groups\", \"attributes\": {\"name\": \"Managers - Engg\"}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "groups",
+            "<>group_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "325ca0c4-7313-48ff-9e06-483c2d474c1b",
+      "name": "Groups - Delete Group",
+      "description": "Exclui um grupo e remove todos os membros associados a ele.",
+      "parameters": [
+        {
+          "id": "321f24e6-d2b5-4d48-8fdf-edae090a0383",
+          "name": "group_id",
+          "type": "string",
+          "description": "ID único do grupo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763-2774428000000002023"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "groups",
+            "<>group_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b12196c6-ca41-492f-abd6-06c041bbcf3f",
+      "name": "Groups - Get List of Group Members",
+      "description": "Recupera a lista de todos os membros de um grupo específico.",
+      "parameters": [
+        {
+          "id": "cb20d021-ff00-4d34-ba0a-a615c2b0262c",
+          "name": "group_id",
+          "type": "string",
+          "description": "ID único do grupo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763-2774428000000002023"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "groups",
+            "<>group_id</>",
+            "groupmembers"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "009057e6-c441-48e4-a63b-1769d0d431c8",
+      "name": "Libraries - Get Public Templates Library ID",
+      "description": "Recupera as bibliotecas públicas de modelos conforme os filtros informados.",
+      "parameters": [
+        {
+          "id": "45c8815a-f743-4f44-8816-e872747fe538",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "allfiles"
+        },
+        {
+          "id": "2d65d5c9-9f4f-4de7-ada1-98a2af785b17",
+          "name": "filter_space",
+          "type": "string",
+          "description": "O valor deve ser a string template, que indica a biblioteca de modelos.",
+          "required": false,
+          "sensitive": false,
+          "sample": "template"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "libraries"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[space]",
+            "value": "<>filter_space</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "29dd95aa-dc92-4322-be34-7f9bb74c3fef",
+      "name": "Libraries - Get Template Library Info",
+      "description": "Recupera os detalhes de uma biblioteca de modelos pelo ID da biblioteca.",
+      "parameters": [
+        {
+          "id": "19a75218-67a5-4c7d-8bd7-fa86486819ff",
+          "name": "library_id",
+          "type": "string",
+          "description": "ID único da biblioteca de modelos.",
+          "required": true,
+          "sensitive": false,
+          "sample": "8fv34f20c00bf4b6840e4b8b5628fc7750514"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "libraries",
+            "<>library_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "9823b59d-76e9-44d6-9446-bb900cf85ee1",
+      "name": "Libraries - Change Sort Type and Order",
+      "description": "Atualiza as preferências de visualização do usuário para a biblioteca de modelos informada.",
+      "parameters": [
+        {
+          "id": "4d4d6f7f-daf6-422f-b496-258752dc6400",
+          "name": "library_id",
+          "type": "string",
+          "description": "ID único da biblioteca de modelos.",
+          "required": true,
+          "sensitive": false,
+          "sample": "8fv34f20c00bf4b6840e4b8b5628fc7750514"
+        },
+        {
+          "id": "e24d877e-653c-41ca-9466-3047d15b8d85",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"libraries\", \"attributes\": {\"view_pref\": {\"sort_by\": \"created_time\", \"sort_order\": \"desc\", \"filtered_by\": \"all\", \"layout\": \"grid\"}}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "libraries",
+            "<>library_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b8d61f07-e8fb-4283-b0e1-ff6ebff1344b",
+      "name": "Libraries - Get all Templates from a Template Library",
+      "description": "Recupera a lista de arquivos de modelo da biblioteca informada, conforme os filtros aplicados.",
+      "parameters": [
+        {
+          "id": "64369fc1-5370-4fc6-85aa-fec87f4c7817",
+          "name": "library_id",
+          "type": "string",
+          "description": "ID único da biblioteca de modelos.",
+          "required": true,
+          "sensitive": false,
+          "sample": "8fv34f20c00bf4b6840e4b8b5628fc7750514"
+        },
+        {
+          "id": "d0823ad8-5612-48e1-82e6-263de5f88667",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "allfiles"
+        },
+        {
+          "id": "c17c1f46-bf4a-490c-96a2-f1e019afd406",
+          "name": "filter_category_id",
+          "type": "string",
+          "description": "Filtra os modelos de uma categoria de modelos específica.",
+          "required": false,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        },
+        {
+          "id": "e76aee3f-93ac-47a9-9b98-3672a7218433",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-created_time"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "libraries",
+            "<>library_id</>",
+            "files"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[category_id]",
+            "value": "<>filter_category_id</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "8667dced-09c2-4fb9-8944-673bcac0458a",
+      "name": "Libraries - Get Template Library Permissions",
+      "description": "Recupera as permissões de compartilhamento configuradas para uma biblioteca de modelos.",
+      "parameters": [
+        {
+          "id": "05eacf22-7c02-4680-901d-5e418db515a2",
+          "name": "library_id",
+          "type": "string",
+          "description": "ID único da biblioteca de modelos.",
+          "required": true,
+          "sensitive": false,
+          "sample": "8fv34f20c00bf4b6840e4b8b5628fc7750514"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "libraries",
+            "<>library_id</>",
+            "permissions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c1841747-671f-4a72-b693-f95eac4d3d74",
+      "name": "Links - Create External Share",
+      "description": "Cria um compartilhamento externo: cobre o link personalizado e o link de download.",
+      "parameters": [
+        {
+          "id": "a14f0d12-00d5-4867-aab1-324c276499a0",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"links\", \"attributes\": {\"resource_id\": \"cjrrr55b395f872ad4b0a8c52b02eab98c1c5\", \"link_name\": \"report2021\", \"request_user_data\": false, \"allow_download\": true, \"expiration_date\": \"2021-05-01 23:59:59\", \"download_link\": {\"download_limit\": 5}}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "links"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a78e44cc-4436-4bed-bbb6-fe6d1fc4c040",
+      "name": "Links - Get External Share Link Info",
+      "description": "Recupera as informações detalhadas de um link de compartilhamento externo.",
+      "parameters": [
+        {
+          "id": "c86d96f9-f4a3-4c5e-9e3d-473736f668d2",
+          "name": "link_id",
+          "type": "string",
+          "description": "ID único do link de compartilhamento externo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cjrrr81bad43595d94a5bbbb4ea1589ef9236"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "links",
+            "<>link_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "e1177968-5204-4cff-b5a5-52f002126efe",
+      "name": "Links - Update External Share",
+      "description": "Atualiza um compartilhamento externo: cobre as configurações de download, de expiração e de senha do link.",
+      "parameters": [
+        {
+          "id": "922472e9-4008-4b69-b199-cd67210a3b43",
+          "name": "link_id",
+          "type": "string",
+          "description": "ID único do link de compartilhamento externo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cjrrr81bad43595d94a5bbbb4ea1589ef9236"
+        },
+        {
+          "id": "d95478ff-3284-44bc-93e0-d4b384bad710",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"links\", \"attributes\": {\"allow_download\": true}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "links",
+            "<>link_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5f472340-2efb-42cd-a966-ca278228704a",
+      "name": "Links - Revoke External Share Link",
+      "description": "Revoga um link de compartilhamento externo existente de um recurso.",
+      "parameters": [
+        {
+          "id": "191c1a19-2642-4b8e-9d69-c67e17750420",
+          "name": "link_id",
+          "type": "string",
+          "description": "ID único do link de compartilhamento externo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cjrrr81bad43595d94a5bbbb4ea1589ef9236"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "links",
+            "<>link_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "2b5ed0eb-fd84-4285-8616-33edda350fa7",
+      "name": "Members - Create Team Folder Members",
+      "description": "Adiciona membros ou grupos como colaboradores de uma pasta de equipe.",
+      "parameters": [
+        {
+          "id": "a816d7d6-a6a5-46b6-9fc3-c4b1e423b1f8",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"members\", \"attributes\": {\"resource_id\": \"ly9zm0170fb40015f4e2297a144e2b68cfa68\", \"shared_type\": \"workspace\", \"email_id\": \"reyansh.ahuja@zylker.com\", \"role_id\": \"5\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "members"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "64468836-6b50-46e3-a24e-476a75606e4b",
+      "name": "Members - Update Member Role in Team Folder",
+      "description": "Atualiza o papel de acesso de um membro compartilhado na pasta de equipe informada.",
+      "parameters": [
+        {
+          "id": "aabe50b3-d3ae-4100-b8d7-1dad5dead37e",
+          "name": "member_id",
+          "type": "string",
+          "description": "ID único do membro compartilhado na pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68-2774428000000002051"
+        },
+        {
+          "id": "d592e656-7746-437b-b8b3-573ce59dda27",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"members\", \"attributes\": {\"role_id\": \"2\"}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "members",
+            "<>member_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f16786c1-6612-4d24-9e64-dccce08bfb61",
+      "name": "Members - Delete Member from Team Folder",
+      "description": "Remove o usuário ou grupo informado da lista de colaboração da pasta de equipe.",
+      "parameters": [
+        {
+          "id": "812ba0c1-ac25-4fb7-9cc5-6212d7fe673b",
+          "name": "member_id",
+          "type": "string",
+          "description": "ID único do membro compartilhado na pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68-2774428000000002051"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "members",
+            "<>member_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "d2ce59b3-9910-47fb-a187-d9b6d2f9c59c",
+      "name": "Multizip - Download Multiple Files/Folders as ZIP",
+      "description": "Compacta vários arquivos e pastas em um ZIP e retorna uma chave WMS para acompanhar os metadados do ZIP.",
+      "parameters": [
+        {
+          "id": "9f94339e-1905-489d-a7b5-b4667c3445e0",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"files\", \"attributes\": {\"resource_id\": \"ly9zm7d2d47e189a041e3be9e64b86e4a79bd,ly9zm4af5c1d02da64bbca3398ab8080a6ba7\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "multizip"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "008a3225-0f9e-437d-aaf9-557e8dbaae42",
+      "name": "Permissions - Create Files Folders Share",
+      "description": "Compartilha arquivos e pastas: cobre o compartilhamento com membros individuais, com a equipe, com membros de grupo, com todos na internet e a geração de código de incorporação.",
+      "parameters": [
+        {
+          "id": "11ed9dd9-793f-4d73-9811-53b83da130f9",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"permissions\", \"attributes\": {\"resource_id\": \"cjrrrbba68351fce045a986ea712783c38fe6\", \"shared_type\": \"personal\", \"email_id\": \"reyansh.ahuja@zylker.com\", \"role_id\": \"5\", \"expiration_date\": \"1970-1-1 23:59:59\", \"send_notification_mail\": true}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "permissions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a299a624-256c-45f2-99de-d8e7439a31be",
+      "name": "Permissions - Get File/Folder Collaboration Info",
+      "description": "Retorna os dados de colaboração correspondentes ao ID de compartilhamento informado.",
+      "parameters": [
+        {
+          "id": "8fdfaeef-bc19-4525-822d-a2a507107233",
+          "name": "permission_id",
+          "type": "string",
+          "description": "ID único do compartilhamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cjrrr55b395f872ad4b0a8c52b02eab98c1c5-2774428000000002011"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "permissions",
+            "<>permission_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c4c9ebcc-75b2-4d6a-a469-8dae7ce84cf1",
+      "name": "Permissions - Update Files Folders Share",
+      "description": "Atualiza um compartilhamento de arquivo ou pasta: cobre as permissões e a data de expiração.",
+      "parameters": [
+        {
+          "id": "116aff9e-6aa6-4d57-8635-043ce558d23c",
+          "name": "permission_id",
+          "type": "string",
+          "description": "ID único do compartilhamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cjrrr55b395f872ad4b0a8c52b02eab98c1c5-2774428000000002011"
+        },
+        {
+          "id": "615aaa26-c8c6-4223-9191-3905b3a5b3d7",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"permissions\", \"attributes\": {\"role_id\": \"5\"}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "permissions",
+            "<>permission_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5c75ab4b-34ca-4b80-8277-70360c432c1e",
+      "name": "Permissions - Delete File/Folder Share Access",
+      "description": "Remove o acesso a um arquivo ou pasta compartilhado.",
+      "parameters": [
+        {
+          "id": "0041ccb6-58bb-460f-b163-169ee78dcb14",
+          "name": "permission_id",
+          "type": "string",
+          "description": "ID único do compartilhamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cjrrr55b395f872ad4b0a8c52b02eab98c1c5-2774428000000002011"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "permissions",
+            "<>permission_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "88bd52fc-45c0-48e6-8515-ed7c6e02e3c0",
+      "name": "Privatespace - Get Files in My Folders",
+      "description": "Recupera os arquivos das suas Minhas pastas.",
+      "parameters": [
+        {
+          "id": "6b4b3d36-816a-464a-bd73-69b5b2d5963f",
+          "name": "myfolder_id",
+          "type": "string",
+          "description": "ID único da área Minhas pastas.",
+          "required": true,
+          "sensitive": false,
+          "sample": "6n758918f686c932a45fdbb08a699611761d7"
+        },
+        {
+          "id": "526afded-54a8-4a4e-80b0-bb261e915fc3",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "documents"
+        },
+        {
+          "id": "0c80fc3f-4553-48b7-bd9c-9939cf6009d4",
+          "name": "filter_extension",
+          "type": "string",
+          "description": "Filtra os recursos pela extensão do arquivo. Ex.: filter[extension]=docx,jpeg.",
+          "required": false,
+          "sensitive": false,
+          "sample": "docs, jpeg"
+        },
+        {
+          "id": "8f025a71-9971-437f-8a7d-6cfc195d5952",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "058b6e6b-222b-4043-97e0-670588cba42f",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "6c7a31e6-6375-4543-babc-a6b07c85186e",
+          "name": "page_next",
+          "type": "string",
+          "description": "Paginação por cursor, que retorna 1000 itens por padrão. Use 0 na primeira requisição e, da segunda em diante, o token de página devolvido pela API.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "9d119d60-1219-4095-a22e-b71f7bdab78d",
+          "name": "fields_files",
+          "type": "string",
+          "description": "Indica quais campos devem vir nos atributos da resposta.",
+          "required": false,
+          "sensitive": false,
+          "sample": "parent_id,status_change_time_in_millisecond"
+        },
+        {
+          "id": "353c8b58-987a-4a4d-8f81-aee74d4d1863",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "privatespace",
+            "<>myfolder_id</>",
+            "files"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[extension]",
+            "value": "<>filter_extension</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "page[next]",
+            "value": "<>page_next</>",
+            "enabled": true
+          },
+          {
+            "key": "fields[files]",
+            "value": "<>fields_files</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "63d66965-72b3-4bff-9458-b0cc2f19ce5c",
+      "name": "Privatespace - Get Folders in My Folders",
+      "description": "Recupera as pastas das suas Minhas pastas.",
+      "parameters": [
+        {
+          "id": "7a9cde5f-1b2b-4186-b937-78a90b7dd10f",
+          "name": "myfolder_id",
+          "type": "string",
+          "description": "ID único da área Minhas pastas.",
+          "required": true,
+          "sensitive": false,
+          "sample": "6n758918f686c932a45fdbb08a699611761d7"
+        },
+        {
+          "id": "31ccfe7d-5c8f-43f9-afec-9644a2561ce3",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "40fbf514-0ee9-49e5-9a4f-4674ae802ca7",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "5b8a15fc-3d90-44d7-b1b7-81b136251263",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "privatespace",
+            "<>myfolder_id</>",
+            "folders"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "c09fc916-2336-4dc5-8684-f99745b9fb17",
+      "name": "Privatespace - Get My Folders Links",
+      "description": "Retorna a lista de links compartilhados do recurso de Minhas pastas informado.",
+      "parameters": [
+        {
+          "id": "a6ade9b3-23e0-400b-aff7-2ac7b4a339ba",
+          "name": "myfolder_id",
+          "type": "string",
+          "description": "ID único da área Minhas pastas.",
+          "required": true,
+          "sensitive": false,
+          "sample": "6n758918f686c932a45fdbb08a699611761d7"
+        },
+        {
+          "id": "ba9a674f-112e-4c6d-9fa0-61e3899266af",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "download"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "privatespace",
+            "<>myfolder_id</>",
+            "links"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "300f2eca-db99-405b-8b08-fb1d669fc36d",
+      "name": "Privatespace - Get Trashed Files in My Folders",
+      "description": "Retorna a lista de arquivos na lixeira do recurso de Minhas pastas informado.",
+      "parameters": [
+        {
+          "id": "83eb760e-140d-4ed9-bdab-e56153ba0526",
+          "name": "myfolder_id",
+          "type": "string",
+          "description": "ID único da área Minhas pastas.",
+          "required": true,
+          "sensitive": false,
+          "sample": "6n758918f686c932a45fdbb08a699611761d7"
+        },
+        {
+          "id": "0834d525-e6d1-4787-a065-d672c6788860",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "301298d2-a476-43cf-b7f6-19dfc96adf1d",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "9ba253bf-5b28-4d1d-8e3d-beee6629682c",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "privatespace",
+            "<>myfolder_id</>",
+            "trashedfiles"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "bbd9a46e-09ba-4e18-a862-2703c2d57f55",
+      "name": "Resourceproperty - Get File/Folder ResourceProperty",
+      "description": "Busca propriedades adicionais de um arquivo ou pasta.",
+      "parameters": [
+        {
+          "id": "d0ba19e2-f5c4-4b1b-ba30-165dca7a4e28",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "resourceproperty",
+            "<>resource_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "bcd32d27-5779-4045-ad1b-0705f92fbb57",
+      "name": "Teamfolders - Create Team Folder",
+      "description": "Cria uma pasta de equipe no local pai informado.",
+      "parameters": [
+        {
+          "id": "16480141-7a0e-4837-b019-0084070a0368",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"teamfolders\", \"attributes\": {\"name\": \"Marketing Details\", \"parent_id\": \"ly9zmae16b43c258f458a9a57ac02c4f8d763\", \"is_public_within_team\": false, \"description\": \"Marketing related files\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "02d80104-030b-44bf-9662-9c35207621c3",
+      "name": "Teamfolders - Get Team Folder Info",
+      "description": "Retorna os metadados detalhados da pasta de equipe informada, incluindo configurações de compartilhamento, atributos do espaço de trabalho e status atual.",
+      "parameters": [
+        {
+          "id": "7980a79b-9973-4f89-914e-9421c7206f4c",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "47cec727-ce3f-4fcd-b796-21d3f8572874",
+      "name": "Teamfolders - Update Team Folder",
+      "description": "Atualiza uma pasta de equipe: cobre fixar e desafixar, arquivar e desarquivar, renomear e alterar a descrição.",
+      "parameters": [
+        {
+          "id": "125aa51b-b2b2-4fc0-a77b-15623024ba15",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        },
+        {
+          "id": "9ac75350-5a0c-4c31-a654-ed2ffbc6a4d7",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"teamfolders\", \"id\": \"ly9zm0170fb40015f4e2297a144e2b68cfa68\", \"attributes\": {\"name\": \"Marketing Details 2021\"}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "450bf5bf-e813-429c-b1a9-ee881e167a0c",
+      "name": "Teamfolders - Delete Team Folder",
+      "description": "Exclui a pasta de equipe informada e atualiza o estado do espaço de trabalho relacionado.",
+      "parameters": [
+        {
+          "id": "54a2136d-0737-425c-823e-f2588534f1e2",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "63c5a968-30fa-42a1-9fcb-f7a8c1f6347b",
+      "name": "Teamfolders - Get Team Folder Files and Folders",
+      "description": "Retorna os arquivos e pastas da pasta de equipe informada, com filtros, ordenação, seleção de campos e paginação.",
+      "parameters": [
+        {
+          "id": "ae6368f9-4123-4cee-9fe0-17ec1ce3ba2d",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        },
+        {
+          "id": "cc477a9f-886e-412d-aa0b-485344c7b1ee",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "documents"
+        },
+        {
+          "id": "266d5072-9482-412b-a190-119573fe7518",
+          "name": "filter_extension",
+          "type": "string",
+          "description": "Filtra os recursos pela extensão do arquivo. Ex.: filter[extension]=docx,jpeg.",
+          "required": false,
+          "sensitive": false,
+          "sample": "docx,jpeg"
+        },
+        {
+          "id": "278519c3-eb71-44c9-9e74-95af8fc2938e",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "afebf8e3-1dc3-4a67-b0fd-9c1cc7703808",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "2132a4a4-1bfb-42ee-9711-7cac51bcee4f",
+          "name": "page_next",
+          "type": "string",
+          "description": "Paginação por cursor, que retorna 1000 itens por padrão. Use 0 na primeira requisição e, da segunda em diante, o token de página devolvido pela API.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "29eebb5e-d319-45f0-8e29-e58621d528b9",
+          "name": "fields_files",
+          "type": "string",
+          "description": "Indica quais campos devem vir nos atributos da resposta.",
+          "required": false,
+          "sensitive": false,
+          "sample": "parent_id,status_change_time_in_millisecond"
+        },
+        {
+          "id": "d2f1529f-c114-439e-9638-104d95f0500e",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>",
+            "files"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[extension]",
+            "value": "<>filter_extension</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "page[next]",
+            "value": "<>page_next</>",
+            "enabled": true
+          },
+          {
+            "key": "fields[files]",
+            "value": "<>fields_files</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "bb049ba9-454e-4d09-a274-43f8d12aeb5a",
+      "name": "Teamfolders - Get list of Sub Folders",
+      "description": "Retorna as subpastas disponíveis na pasta de equipe informada, com paginação e ordenação.",
+      "parameters": [
+        {
+          "id": "b992b6e8-5395-4f18-b477-6ff7922b229d",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        },
+        {
+          "id": "fb5feaa6-72bc-4519-8ece-654a61bc73e4",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "20c1c96a-5819-4f6b-a1aa-e36891edede1",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "f88b99a4-220b-41c5-8a4c-5b819a1086aa",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>",
+            "folders"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "4bc07a8e-50cf-4bd0-978b-7fdf66ac22af",
+      "name": "Teamfolders - Get Team Folder Links",
+      "description": "Retorna os links compartilhados criados para recursos da pasta de equipe informada, com filtro por tipo e paginação.",
+      "parameters": [
+        {
+          "id": "51152193-653a-4e15-ba60-9aa2ffbc11b8",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        },
+        {
+          "id": "4911a1a2-db2e-40e3-a739-dfac258c336d",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "download"
+        },
+        {
+          "id": "629434df-fd5b-4e53-ade7-3a1783861017",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "679bf64a-e4aa-4c2b-8bfb-f023dd004e5b",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>",
+            "links"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b0fbf65d-cb1d-43d8-874d-e20906e8a481",
+      "name": "Teamfolders - Get Team Folder Members",
+      "description": "Retorna os membros e grupos compartilhados na pasta de equipe informada, com filtros, busca e paginação.",
+      "parameters": [
+        {
+          "id": "0cff479c-03c3-4094-b6cb-79835bda14f8",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>",
+            "members"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "d4aea058-2553-4191-84aa-996ad7c911eb",
+      "name": "Teamfolders - Get Team Folder MyDraft Files",
+      "description": "Retorna os arquivos de rascunho criados pelo usuário atual na pasta de equipe informada.",
+      "parameters": [
+        {
+          "id": "847748ff-3f6a-41da-9ffa-578a94eb5b00",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        },
+        {
+          "id": "aad5229a-3c22-4807-b61d-316bbfb3eb05",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "documents"
+        },
+        {
+          "id": "961b7afb-3922-4f76-83ba-6b395f8dc8c9",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "e86f98af-7940-42eb-a8fc-7aff090cdd45",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "028c4ee1-1ffd-4eea-83f0-86abaf966e4e",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>",
+            "mydrafts"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "77d71b05-aa8e-4785-b8b6-7d7003fa92ae",
+      "name": "Teamfolders - Get Team Folder Settings",
+      "description": "Recupera as configurações atuais da pasta de equipe informada, incluindo compartilhamento externo, conversão de arquivos, permissão de download para visualizadores e acesso por dispositivo.",
+      "parameters": [
+        {
+          "id": "d0e41d51-5f34-4a85-8791-1f65948b5c4b",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>",
+            "settings"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f3d68b15-e87b-4135-af22-c2f830d1694e",
+      "name": "Teamfolders - Get Team Folder Trashed Files",
+      "description": "Retorna os arquivos na lixeira da pasta de equipe informada, para administradores com acesso à lixeira.",
+      "parameters": [
+        {
+          "id": "c88a151f-3474-44c3-91a0-b03dd7ba8c43",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        },
+        {
+          "id": "647f416f-d457-4a97-b7e2-c95b41309de7",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "documents"
+        },
+        {
+          "id": "5ae084f2-8ecf-470e-ae69-3fcfe9ed6acb",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "98e6c4df-3023-4e88-bc61-31a1da4d42c3",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "54cd436d-3ed4-4509-8331-252903209727",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>",
+            "trashedfiles"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "04d48488-b0f6-42b6-a1cc-d9b9cc76816d",
+      "name": "Teamfolders - Get Team Folder Unread Files",
+      "description": "Retorna os arquivos não lidos da pasta de equipe informada, com filtro opcional por tipo de recurso.",
+      "parameters": [
+        {
+          "id": "fa081eee-10c4-4ccc-962f-cec05b80ef35",
+          "name": "teamfolder_id",
+          "type": "string",
+          "description": "ID único da pasta de equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        },
+        {
+          "id": "a8315fb0-369c-4f84-b94e-f52f0d600b25",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "documents"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teamfolders",
+            "<>teamfolder_id</>",
+            "unreadfiles"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "4ae68804-8f14-4545-8a23-841449a3d931",
+      "name": "Teams - Get Team Info",
+      "description": "Retorna os dados de perfil e configuração da equipe informada, incluindo nome, descrição, quantidade de membros e configurações de compartilhamento.",
+      "parameters": [
+        {
+          "id": "0685e3e3-4d31-4c54-86fb-f657cd839691",
+          "name": "team_id",
+          "type": "string",
+          "description": "ID único da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teams",
+            "<>team_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "66f39eb7-a7d5-4b43-a22e-3dafe7f0b903",
+      "name": "Teams - Update Teams",
+      "description": "Atualiza uma equipe: cobre alterar o nome, a descrição e definir a equipe preferida.",
+      "parameters": [
+        {
+          "id": "d1781819-1c42-4028-ab3b-664366422880",
+          "name": "team_id",
+          "type": "string",
+          "description": "ID único da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        },
+        {
+          "id": "08bd6059-1642-4fbb-8980-848189c31733",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"teams\", \"attributes\": {\"name\": \"Zylker Creation Limited\"}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teams",
+            "<>team_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "7ea496d3-e5ea-44d4-9902-7a632aecc7ac",
+      "name": "Teams - Get Current Team Member",
+      "description": "Retorna os dados de participação do usuário autenticado na equipe informada.",
+      "parameters": [
+        {
+          "id": "d6bd485f-51c8-4702-89a3-e0422b7efcdd",
+          "name": "team_id",
+          "type": "string",
+          "description": "ID único da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teams",
+            "<>team_id</>",
+            "currentuser"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "19d0ef31-4df3-4d6c-810d-1c7080e40fa9",
+      "name": "Teams - Get Groups in a Team",
+      "description": "Retorna todos os grupos da equipe informada, com filtro por tipo de grupo e paginação.",
+      "parameters": [
+        {
+          "id": "e9aa1fdb-981f-428b-bc25-0f175dd40fd7",
+          "name": "team_id",
+          "type": "string",
+          "description": "ID único da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        },
+        {
+          "id": "60f804ac-514b-40ae-bf6f-bc61e55ddabc",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "54f23e0e-9ab2-40ec-8e15-07b80e47678e",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "851e667f-7065-4ceb-81f2-ae36b41adf1b",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teams",
+            "<>team_id</>",
+            "groups"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "56a0b7c3-3412-415d-b22b-f29939fd9b03",
+      "name": "Teams - Get Org Templates Library ID",
+      "description": "Recupera os detalhes da biblioteca de modelos da equipe informada.",
+      "parameters": [
+        {
+          "id": "c90602e5-4634-415b-b449-10fd87473694",
+          "name": "team_id",
+          "type": "string",
+          "description": "ID único da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        },
+        {
+          "id": "72264033-47fe-416f-b080-38b1e0166efd",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "allfiles"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teams",
+            "<>team_id</>",
+            "libraries"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "a890409f-4710-4f40-b2f6-6d10322b0a5a",
+      "name": "Teams - Search Records",
+      "description": "Busca registros: cobre a busca em Minhas pastas, em uma pasta de equipe, em uma pasta, em toda a equipe, por modelo de dados e em Compartilhados comigo.",
+      "parameters": [
+        {
+          "id": "2fd541e7-2782-43e5-b6b2-1b8ffb4b07ea",
+          "name": "team_id",
+          "type": "string",
+          "description": "ID único da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        },
+        {
+          "id": "fd6fefff-7ccf-41cd-9436-c9543a006b52",
+          "name": "search_all",
+          "type": "string",
+          "description": "Busca membros da equipe por palavra-chave.",
+          "required": false,
+          "sensitive": false,
+          "sample": "relatorio"
+        },
+        {
+          "id": "8f64f1d9-f891-454d-ac6c-a2c30a08f7d3",
+          "name": "search_name",
+          "type": "string",
+          "description": "Busca pelo nome.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{file_name}"
+        },
+        {
+          "id": "8f069e55-4079-4eb7-af88-4e37f1b38ee9",
+          "name": "search_content",
+          "type": "string",
+          "description": "Busca pelo conteúdo.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{content}"
+        },
+        {
+          "id": "47564823-df29-4e55-bf27-698ce9342b39",
+          "name": "filter_user",
+          "type": "string",
+          "description": "Use o ZUID do membro para buscar membros específicos da equipe. Para vários membros, informe os ZUIDs separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "747938058"
+        },
+        {
+          "id": "180ea6b3-51d5-40ae-89c0-eeb1ff0391b6",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "documents"
+        },
+        {
+          "id": "d5e9982d-9c69-4600-980d-9e8e3343585a",
+          "name": "filter_date",
+          "type": "string",
+          "description": "Filtra os registros por data.",
+          "required": false,
+          "sensitive": false,
+          "sample": "today"
+        },
+        {
+          "id": "c01b4a4c-25e2-45a5-a178-bbdb4433d013",
+          "name": "filter_from_date",
+          "type": "string",
+          "description": "Data inicial do período considerado no filtro.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1625097600000"
+        },
+        {
+          "id": "ea38a7fe-47dd-42e1-8816-ccbbb2327127",
+          "name": "filter_to_date",
+          "type": "string",
+          "description": "Data final do período considerado no filtro.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1625097700000"
+        },
+        {
+          "id": "9d6a1233-2ca0-4ca6-9588-b24c4310401d",
+          "name": "filter_status",
+          "type": "string",
+          "description": "Filtra pelo status.",
+          "required": false,
+          "sensitive": false,
+          "sample": "trashed"
+        },
+        {
+          "id": "33e67d8b-315d-4935-8452-e37bdac459d4",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "3c587793-a4c5-4531-93e5-f64d4833d442",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "771dccc1-c224-4fb1-815b-cdf2634ecaf3",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        },
+        {
+          "id": "14aa4ff2-ec00-41bc-a26f-56425fc6d06e",
+          "name": "filter_team_folder",
+          "type": "string",
+          "description": "Filtra pela pasta de equipe.",
+          "required": false,
+          "sensitive": false,
+          "sample": "ly9zm0170fb40015f4e2297a144e2b68cfa68"
+        },
+        {
+          "id": "d28f862a-5853-4179-bf28-6345e4960474",
+          "name": "filter_creator",
+          "type": "string",
+          "description": "Filtra os registros pelo criador.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{zuid}"
+        },
+        {
+          "id": "1c3641f3-b453-47d4-9f47-9ebb76330025",
+          "name": "filter_parent_id",
+          "type": "string",
+          "description": "Filtra pelo ID do recurso pai.",
+          "required": false,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        },
+        {
+          "id": "a382c2ed-6617-4990-8fd0-8fb16753fd94",
+          "name": "filter_datatemplate",
+          "type": "string",
+          "description": "Filtra os registros pelo modelo de dados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2774428000000002045"
+        },
+        {
+          "id": "1557d6e7-7852-4ff1-be62-fe25589796ab",
+          "name": "filter_custom_fields",
+          "type": "string",
+          "description": "Filtra os registros pelos campos personalizados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "[{\"key\":\"CF1\",\"value\":\"John\",\"comparator\":\"EQ\"}]"
+        },
+        {
+          "id": "66e5d914-29e2-4ac4-a4c2-4f1924c2e918",
+          "name": "filter_shared_resources",
+          "type": "string",
+          "description": "Filtra pelos recursos compartilhados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teams",
+            "<>team_id</>",
+            "records"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "search[all]",
+            "value": "<>search_all</>",
+            "enabled": true
+          },
+          {
+            "key": "search[name]",
+            "value": "<>search_name</>",
+            "enabled": true
+          },
+          {
+            "key": "search[content]",
+            "value": "<>search_content</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[user]",
+            "value": "<>filter_user</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[date]",
+            "value": "<>filter_date</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[fromDate]",
+            "value": "<>filter_from_date</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[toDate]",
+            "value": "<>filter_to_date</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[status]",
+            "value": "<>filter_status</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[teamFolder]",
+            "value": "<>filter_team_folder</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[creator]",
+            "value": "<>filter_creator</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[parentId]",
+            "value": "<>filter_parent_id</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[datatemplate]",
+            "value": "<>filter_datatemplate</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[customFields]",
+            "value": "<>filter_custom_fields</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[sharedResources]",
+            "value": "<>filter_shared_resources</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "dd58ba64-7307-4617-9b18-9c51e6ac3043",
+      "name": "Teams - Get Team Settings",
+      "description": "Recupera as configurações de administrador da equipe informada, incluindo permissões, políticas de compartilhamento, restrições de armazenamento e configurações de recursos.",
+      "parameters": [
+        {
+          "id": "a8c2ab91-a8ae-4d38-a7b4-76a6e9eda3e9",
+          "name": "team_id",
+          "type": "string",
+          "description": "ID único da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teams",
+            "<>team_id</>",
+            "settings"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "89a19f88-e366-4ff9-acc1-cbce4c488fee",
+      "name": "Teams - Get Team Folders in a Team",
+      "description": "Retorna todas as pastas de equipe da equipe informada, com filtro opcional por tipo e paginação.",
+      "parameters": [
+        {
+          "id": "3ebb5570-a7c7-4754-9731-33353cd16027",
+          "name": "team_id",
+          "type": "string",
+          "description": "ID único da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        },
+        {
+          "id": "11406a12-18e1-4058-9362-b2f89b18ec07",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "userjoinedws"
+        },
+        {
+          "id": "1b8eac02-78e5-4841-aebd-2fe57da619de",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "f917395d-ea77-4e8f-862a-2646553ec4ab",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teams",
+            "<>team_id</>",
+            "teamfolders"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "3433dc45-286d-4f75-a14e-e8a6522c533a",
+      "name": "Teams - Get Team Members",
+      "description": "Retorna os membros da equipe informada, com filtros e busca opcionais.",
+      "parameters": [
+        {
+          "id": "717c383b-ed9f-4e4b-9eba-4195fd2aa953",
+          "name": "team_id",
+          "type": "string",
+          "description": "ID único da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zmae16b43c258f458a9a57ac02c4f8d763"
+        },
+        {
+          "id": "762be915-72a2-4f4c-aa36-bb50d41ffa9e",
+          "name": "filter_user",
+          "type": "string",
+          "description": "Use o ZUID do membro para buscar membros específicos da equipe. Para vários membros, informe os ZUIDs separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "50992032,6474673"
+        },
+        {
+          "id": "17337d45-7d18-428d-9e94-aff5d67d4993",
+          "name": "search_all",
+          "type": "string",
+          "description": "Busca membros da equipe por palavra-chave.",
+          "required": false,
+          "sensitive": false,
+          "sample": "john"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "teams",
+            "<>team_id</>",
+            "users"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[user]",
+            "value": "<>filter_user</>",
+            "enabled": true
+          },
+          {
+            "key": "search[all]",
+            "value": "<>search_all</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "2c713536-9a6b-4212-b0d1-029b492f228d",
+      "name": "Upload - Upload New Version",
+      "description": "Envia uma nova versão de um arquivo existente.",
+      "parameters": [
+        {
+          "id": "c77ff957-65ee-4ef7-b773-cfd7085c906a",
+          "name": "parent_id",
+          "type": "string",
+          "description": "ID único da pasta de destino do envio.",
+          "required": true,
+          "sensitive": false,
+          "sample": "0nk78318a1771da934f22939e4a00d8aab225"
+        },
+        {
+          "id": "c76aab9d-adab-4f6a-b99a-a36c99d2a48c",
+          "name": "content",
+          "type": "string",
+          "description": "Arquivo a ser enviado em multipart, com no máximo 250 MB. Informe o conteúdo em base64 e marque \"Forçar bufferização da requisição\" na operação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "SGVsbG8gV29yayBEcml2ZQ=="
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "upload"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "parent_id:<>parent_id</>\ncontent:<>content</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "ac8a6cc0-360b-491a-901d-d51371ea6210",
+      "name": "Uploadsession - Upload Session Progress",
+      "description": "Retorna os dados de progresso de uma sessão de upload em partes em andamento.",
+      "parameters": [
+        {
+          "id": "07de3b5c-88b7-401a-b2ef-28f6cdf3ec5c",
+          "name": "upload_id",
+          "type": "string",
+          "description": "ID único da sessão de upload em partes.",
+          "required": true,
+          "sensitive": false,
+          "sample": "8d5c5ffb91b94e289e1f5bd2a5e70a17"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "uploadsession"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "upload_id",
+            "value": "<>upload_id</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "fdf87025-a34f-45e5-a455-a12b2656611e",
+      "name": "Uploadsession - Commit Session (Normal Upload)",
+      "description": "Conclui a sessão de upload em partes depois de todas as partes enviadas, criando o novo arquivo ou a nova versão após validar a atividade da sessão, a expiração, os limites de armazenamento e as permissões.",
+      "parameters": [
+        {
+          "id": "4065340a-94c3-4543-912e-6f0070d125e2",
+          "name": "upload_id",
+          "type": "string",
+          "description": "ID único da sessão de upload em partes.",
+          "required": true,
+          "sensitive": false,
+          "sample": "8d5c5ffb91b94e289e1f5bd2a5e70a17"
+        },
+        {
+          "id": "e7f393b1-d084-4887-85d7-b447b16c87b2",
+          "name": "parent_id",
+          "type": "string",
+          "description": "ID único da pasta de destino do envio.",
+          "required": true,
+          "sensitive": false,
+          "sample": "0nk78318a1771da934f22939e4a00d8aab225"
+        },
+        {
+          "id": "2f76cde1-81db-4279-b01f-3d24d1291875",
+          "name": "file_name",
+          "type": "string",
+          "description": "Nome do arquivo a ser criado pela sessão de upload em partes.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{name_of_the_file}"
+        },
+        {
+          "id": "d08a0bfd-d7d3-4ecd-898f-b4e05c6decbd",
+          "name": "name_conflict",
+          "type": "string",
+          "description": "Define o comportamento quando já existe um arquivo com o mesmo nome. Padrão: fail.",
+          "required": false,
+          "sensitive": false,
+          "sample": "fail"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "uploadsession",
+            "commit"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "upload_id",
+            "value": "<>upload_id</>",
+            "enabled": true
+          },
+          {
+            "key": "parent_id",
+            "value": "<>parent_id</>",
+            "enabled": true
+          },
+          {
+            "key": "file_name",
+            "value": "<>file_name</>",
+            "enabled": true
+          },
+          {
+            "key": "name_conflict",
+            "value": "<>name_conflict</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "077a4d35-8625-4cde-a074-e203eb3fd256",
+      "name": "Uploadsession - Create Session (Normal Upload)",
+      "description": "Cria uma sessão de upload em partes, para enviar um arquivo novo ou uma nova versão de um arquivo existente.",
+      "parameters": [
+        {
+          "id": "11947444-afef-45ab-a424-3150a7ec092e",
+          "name": "size",
+          "type": "string",
+          "description": "Tamanho do arquivo em bytes.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1048576"
+        },
+        {
+          "id": "ade1bb26-58ac-4f0a-9d41-4a23e7269413",
+          "name": "file_name",
+          "type": "string",
+          "description": "Nome do arquivo a ser criado pela sessão de upload em partes.",
+          "required": true,
+          "sensitive": false,
+          "sample": "relatorio-mensal.pdf"
+        },
+        {
+          "id": "0373f3fa-5788-4ca8-958c-ab793cb3ae58",
+          "name": "parent_id",
+          "type": "string",
+          "description": "ID único da pasta de destino do envio.",
+          "required": true,
+          "sensitive": false,
+          "sample": "0nk78318a1771da934f22939e4a00d8aab225"
+        },
+        {
+          "id": "ab793e41-1154-4c13-ac4e-912b426151e6",
+          "name": "name_conflict",
+          "type": "string",
+          "description": "Define o comportamento quando já existe um arquivo com o mesmo nome. Padrão: fail.",
+          "required": false,
+          "sensitive": false,
+          "sample": "fail"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "uploadsession",
+            "create"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "size",
+            "value": "<>size</>",
+            "enabled": true
+          },
+          {
+            "key": "file_name",
+            "value": "<>file_name</>",
+            "enabled": true
+          },
+          {
+            "key": "parent_id",
+            "value": "<>parent_id</>",
+            "enabled": true
+          },
+          {
+            "key": "name_conflict",
+            "value": "<>name_conflict</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "42ca65e8-a151-48c5-9d0c-48a81cf2a201",
+      "name": "Uploadsession - Commit Session for Revision Upload",
+      "description": "Conclui a sessão de upload em partes depois de todas as partes enviadas, criando o novo arquivo ou a nova versão após validar a atividade da sessão, a expiração, os limites de armazenamento e as permissões.",
+      "parameters": [
+        {
+          "id": "e98345a3-d03c-49c6-8086-8b75b83d565e",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        },
+        {
+          "id": "74cf4a90-d4cd-4d69-9be4-a4b94f174a70",
+          "name": "upload_id",
+          "type": "string",
+          "description": "ID único da sessão de upload em partes.",
+          "required": true,
+          "sensitive": false,
+          "sample": "8d5c5ffb91b94e289e1f5bd2a5e70a17"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "uploadsession",
+            "<>resource_id</>",
+            "commit"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "upload_id",
+            "value": "<>upload_id</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "c9497df0-d712-4b34-b678-f5ec19e67f05",
+      "name": "Uploadsession - Create Session for Revision Upload",
+      "description": "Cria uma sessão de upload em partes, para enviar um arquivo novo ou uma nova versão de um arquivo existente.",
+      "parameters": [
+        {
+          "id": "1eaa5769-c029-42c2-821c-fc7110586045",
+          "name": "resource_id",
+          "type": "string",
+          "description": "ID único do recurso, arquivo ou pasta.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ly9zm850678101cec4b0698777ab4534a3002"
+        },
+        {
+          "id": "d0f0eef4-db91-421a-b766-5bdf37a37b06",
+          "name": "size",
+          "type": "string",
+          "description": "Tamanho do arquivo em bytes.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1048576"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "uploadsession",
+            "<>resource_id</>",
+            "create"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "size",
+            "value": "<>size</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "ba961301-4dce-4ca2-bfd1-86959487920a",
+      "name": "Users - Invite New Member to Team",
+      "description": "Convida um ou mais usuários para entrar na equipe pelo endereço de e-mail.",
+      "parameters": [
+        {
+          "id": "f8597eda-228b-42a3-9f4b-7fcb844f6209",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"users\", \"attributes\": {\"email_id\": \"reyansh.ahuja@zylker.com\", \"category_id\": \"ly9zmae16b43c258f458a9a57ac02c4f8d763\", \"role_id\": \"30\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "6cf403ce-aadb-487b-8f60-d0a04319c1a5",
+      "name": "Users - Get User Info",
+      "description": "Retorna os dados do usuário autenticado.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "me"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f1912c0a-cd16-4d56-b2c2-cb132f16624d",
+      "name": "Users - Get Team Member Info",
+      "description": "Retorna as informações de perfil e papel do membro da equipe informado.",
+      "parameters": [
+        {
+          "id": "494e3307-e1c1-4ed3-afd3-f0bf5bd3ae5c",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a225cfda-05e9-4f51-8901-a3e4a13e8f43",
+      "name": "Users - Update users",
+      "description": "Atualiza um membro da equipe: cobre excluir, suspender e alterar o papel do membro.",
+      "parameters": [
+        {
+          "id": "fc1c4d54-d74f-46ca-8628-e924fee13b0c",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        },
+        {
+          "id": "80ff3da0-ff03-4afe-a3be-ee79ee5d29a2",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"users\", \"attributes\": {\"role_id\": \"31\"}}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "cb07e472-a194-4676-aac9-bdf9451d3f6e",
+      "name": "Users - Get Team Member Collaborators",
+      "description": "Retorna a lista de usuários e grupos com quem o membro da equipe informado compartilhou arquivos ou pastas.",
+      "parameters": [
+        {
+          "id": "32b3cd88-0055-45fa-8324-7db878f58d1d",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        },
+        {
+          "id": "04aa2187-3fdc-4d1b-9f54-c0f449db7e84",
+          "name": "filter_sharedtype",
+          "type": "string",
+          "description": "Use 'sharetome' para buscar os colaboradores que compartilharam itens com este membro.",
+          "required": false,
+          "sensitive": false,
+          "sample": "sharetome"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>",
+            "collaborators"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[sharedtype]",
+            "value": "<>filter_sharedtype</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "76f411a2-aff4-4dc5-ba76-bf11914da07d",
+      "name": "Users - Get Favorited Files",
+      "description": "Retorna a lista de arquivos marcados como favoritos pelo membro da equipe informado.",
+      "parameters": [
+        {
+          "id": "2e7dbab0-8d40-426d-b149-7b90a8606b5a",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        },
+        {
+          "id": "a3a8c2fd-5c41-46f1-88fd-79ff350dfe95",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "documents"
+        },
+        {
+          "id": "469b9cd8-e52d-443b-bbcc-3ae4f749662f",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "e869001f-31d5-4f0a-a3a1-07211fbfb89c",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "b55e05e4-ffb8-4335-accc-09bf259cb228",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>",
+            "favoritedfiles"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "aadab521-d08d-4659-948f-d4a35fc9e413",
+      "name": "Users - Get Team Member's Groups",
+      "description": "Retorna todos os grupos a que o membro da equipe informado pertence dentro da equipe.",
+      "parameters": [
+        {
+          "id": "2cc8ef1c-55bb-4bee-9d04-e6c2e9d01c47",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        },
+        {
+          "id": "fe52b5d9-4b2a-4e22-ba5a-72b25f7b4c08",
+          "name": "filter_type",
+          "type": "number",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>",
+            "groups"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "3f4c3bac-5d6d-4b4f-96e0-59f1ec1546d3",
+      "name": "Users - Get Files in Shared with Me",
+      "description": "Retorna os arquivos da aba Compartilhados comigo, ou seja, os arquivos que outros membros da equipe compartilharam com o usuário.",
+      "parameters": [
+        {
+          "id": "035e22f8-7b84-491a-921d-5b1939598d00",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        },
+        {
+          "id": "7c356095-200d-4fd7-ac99-7b664e25e006",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "allfiles"
+        },
+        {
+          "id": "e88f4596-82ef-420d-99c4-47a68e847a07",
+          "name": "filter_user",
+          "type": "string",
+          "description": "Use o ZUID do membro para buscar membros específicos da equipe. Para vários membros, informe os ZUIDs separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{zuid}"
+        },
+        {
+          "id": "e97e44dc-cb7b-4654-b9f5-761b943ab315",
+          "name": "filter_group",
+          "type": "string",
+          "description": "Filtra pelo grupo.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{group_id}"
+        },
+        {
+          "id": "49625f0f-7cd8-4905-963e-79bd756b8791",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "919e3b1e-1701-4227-a969-f6aaf9df6cba",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        },
+        {
+          "id": "89554f28-584c-4e5e-8e85-32222c107a2b",
+          "name": "sort",
+          "type": "string",
+          "description": "Padrão de ordenação: sort=<tipo> ou sort=-<tipo>; o sinal de menos indica ordem decrescente.",
+          "required": false,
+          "sensitive": false,
+          "sample": "-name"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>",
+            "incomingfiles"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[user]",
+            "value": "<>filter_user</>",
+            "enabled": true
+          },
+          {
+            "key": "filter[group]",
+            "value": "<>filter_group</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "fee90185-cc2c-499d-8321-21d0b67b955b",
+      "name": "Users - Get Folders in Shared with Me",
+      "description": "Retorna a lista de pastas compartilhadas com o membro da equipe informado.",
+      "parameters": [
+        {
+          "id": "3c7d9dea-461d-4551-8a86-208292c80fd0",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        },
+        {
+          "id": "0720281b-ccf4-46f6-8df3-41f41b15ed1f",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "29c9cfb3-aa76-4bcc-b23f-6521724781d9",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>",
+            "incomingfolders"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "f4568f30-b9dd-4f44-a882-3065630bbd98",
+      "name": "Users - Get My Templates Library ID",
+      "description": "Recupera os detalhes da biblioteca de modelos do membro da equipe informado.",
+      "parameters": [
+        {
+          "id": "d05c0639-1bb6-4912-ae1f-c16d1502564a",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        },
+        {
+          "id": "1b309e59-bb07-45ba-8f19-7a695c2f4256",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "allfiles"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>",
+            "libraries"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "99cbf967-a1af-480b-835c-acfeb7b0c48c",
+      "name": "Users - Get My Folders Id",
+      "description": "Retorna o ID de Minhas pastas do membro da equipe informado.",
+      "parameters": [
+        {
+          "id": "fa970d40-d648-4a21-9167-5d3219633c57",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>",
+            "privatespace"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "507d835b-e32a-4c5c-8d36-cbb43e9a5a03",
+      "name": "Users - Get Recent Files",
+      "description": "Retorna a lista de arquivos acessados recentemente pelo membro da equipe informado.",
+      "parameters": [
+        {
+          "id": "21673869-8a1d-4e7a-b658-062cdc4a4c08",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        },
+        {
+          "id": "11c0d78a-553b-49c4-a4f3-a920a8bb9c86",
+          "name": "filter_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de recurso. Ex.: filter[type]=allfiles.",
+          "required": false,
+          "sensitive": false,
+          "sample": "allfiles"
+        },
+        {
+          "id": "22e16e6e-98a6-4726-b5af-66dc6da21c90",
+          "name": "page_limit",
+          "type": "string",
+          "description": "Quantidade de itens a listar (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        },
+        {
+          "id": "76602660-f344-4c11-a85a-1c7cddfdc73b",
+          "name": "page_offset",
+          "type": "string",
+          "description": "Paginação por deslocamento, que retorna 50 itens por padrão. Indica a partir de onde a listagem começa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>",
+            "recentfiles"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[type]",
+            "value": "<>filter_type</>",
+            "enabled": true
+          },
+          {
+            "key": "page[limit]",
+            "value": "<>page_limit</>",
+            "enabled": true
+          },
+          {
+            "key": "page[offset]",
+            "value": "<>page_offset</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "d2cf18ba-8162-4dbb-a60f-a978d35f31ac",
+      "name": "Users - Get Suggested Files",
+      "description": "Retorna a lista de arquivos sugeridos para o membro da equipe informado.",
+      "parameters": [
+        {
+          "id": "6277e159-8660-4ddf-9b01-15aa01ea0a83",
+          "name": "team_member_id",
+          "type": "string",
+          "description": "ID único do membro da equipe.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cn7ay0715e0eb8bd0463d92f7b1ce8db56311"
+        },
+        {
+          "id": "0568591b-5c81-4681-a7b9-53aad3c61ee3",
+          "name": "filter_reason",
+          "type": "string",
+          "description": "Filtra pelo motivo.",
+          "required": false,
+          "sensitive": false,
+          "sample": "user_accessed"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>team_member_id</>",
+            "suggestedfiles"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "filter[reason]",
+            "value": "<>filter_reason</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "30bf4d91-ed59-4f99-97f4-665cac405336",
+      "name": "Users - Get All Teams of User",
+      "description": "Busca todas as equipes associadas a um usuário.",
+      "parameters": [
+        {
+          "id": "ab2f92dd-d2fd-416d-a60c-2622dd3e1229",
+          "name": "zuid",
+          "type": "string",
+          "description": "ZUID do usuário no Zoho.",
+          "required": true,
+          "sensitive": false,
+          "sample": "747938058"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "users",
+            "<>zuid</>",
+            "teams"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "afb8e70a-c075-43fa-9994-991fc21d6201",
+      "name": "Versions - Restore as Top Version",
+      "description": "Restaura uma versão selecionada do arquivo como a versão mais recente.",
+      "parameters": [
+        {
+          "id": "39535de0-3b7c-4e46-b6bb-809450e6430e",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"data\": {\"type\": \"versions\", \"attributes\": {\"resource_id\": \"cjrrr55b395f872ad4b0a8c52b02eab98c1c5\", \"revert_to\": \"5.0\"}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "versions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5590464a-7215-486e-9cfa-7420d22ea9ac",
+      "name": "Versions - Delete Version",
+      "description": "Exclui uma versão específica de um arquivo. O ID da versão é criado quando um usuário cria uma nova versão do arquivo.",
+      "parameters": [
+        {
+          "id": "6d04b25d-234c-4f8e-b4df-1c2229b56b1e",
+          "name": "version_id",
+          "type": "string",
+          "description": "ID único da versão do arquivo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cjrrr55b395f872ad4b0a8c52b02eab98c1c5-5.0"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "workdrive",
+            "api",
+            "v1",
+            "versions",
+            "<>version_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    }
+  ]
+}
