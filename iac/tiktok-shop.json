@@ -1,0 +1,3788 @@
+{
+  "id": "f89bb8c0-3503-47d1-bfeb-f4afad00361c",
+  "name": "tiktok-shop",
+  "description": "Conector para a TikTok Shop API (Products e Orders) — e-commerce, catálogo de produtos e gestão de pedidos.",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "header-auth"
+  },
+  "operations": [
+    {
+      "id": "5e751a28-f9b8-43d8-8cec-cae281893304",
+      "name": "Products - Create product",
+      "description": "Cria um novo produto no catálogo da loja.",
+      "parameters": [
+        {
+          "id": "83642914-c242-468e-b633-3e76bb115b36",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "ce0d24f7-f480-4879-9024-e459d6950c4e",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "aaa3602f-7058-41b3-9d43-209f17a3fd07",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "3c7fff4c-99f7-4834-9786-a43c4e5c13a5",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "c8ce3bf5-fce0-478a-8f17-5736334b118e",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com os dados do produto (título, descrição, categoria, skus, imagens, etc.)",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "products"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "e82c571c-8a94-40fd-aeb3-d1e8a31a08e3",
+      "name": "Products - Get product",
+      "description": "Obtém os detalhes de um produto pelo id.",
+      "parameters": [
+        {
+          "id": "a55796ab-a3be-4b20-937d-cf598719b9fe",
+          "name": "product_id",
+          "type": "string",
+          "description": "Id do produto",
+          "required": true,
+          "sensitive": false,
+          "sample": "1729000000000000000"
+        },
+        {
+          "id": "8a494466-e98e-43d3-8f8d-f684db2e3ca3",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "fd0bd1cf-12ef-4297-8a8c-11df587e577a",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "9d44ded0-3915-42c7-8f07-e65be75ff180",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "8c196fb8-c833-4445-a872-87210edfc0c2",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "products",
+            "<>product_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "7b027c93-34c1-496d-9a80-05047a488245",
+      "name": "Products - Search products",
+      "description": "Busca produtos da loja com filtros e paginação.",
+      "parameters": [
+        {
+          "id": "05c43639-01f6-40ff-b1ff-b469e7a1075e",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "fabbd861-6d1c-449b-820a-5faa9ad37edf",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "fd05dd4c-3c25-4e2d-b278-294276f32590",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "73a90123-136d-47ca-8e9a-e0d23a915c5b",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "cae89a3c-9d26-4e55-a182-578ece0a03a1",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com filtros de busca e paginação (page_size, page_token, status, etc.)",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202502",
+            "products",
+            "search"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "4aeaeda5-f194-4ddc-b151-ae51f8e7a774",
+      "name": "Products - Edit product",
+      "description": "Substitui integralmente os dados de um produto existente.",
+      "parameters": [
+        {
+          "id": "895c0596-ce94-4367-995d-f6710abe84c4",
+          "name": "product_id",
+          "type": "string",
+          "description": "Id do produto",
+          "required": true,
+          "sensitive": false,
+          "sample": "1729000000000000000"
+        },
+        {
+          "id": "062b496c-aed5-4204-b2cd-e2e49f51c75b",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "c0a5e587-61d9-4950-be6f-8762e577831f",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "ac735b16-f918-44f3-bd95-ba5a05fb3fd0",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "5509bec9-a744-4819-b190-74d9541779dc",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "1f2efc07-fbc1-480b-a185-ddc49991bb36",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com os dados completos do produto",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202509",
+            "products",
+            "<>product_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "c32de3b3-40d6-4050-8f0e-a734463a2f82",
+      "name": "Products - Partial edit product",
+      "description": "Atualiza parcialmente os campos de um produto existente.",
+      "parameters": [
+        {
+          "id": "131e902e-6647-4239-baa4-49597b2e0cb9",
+          "name": "product_id",
+          "type": "string",
+          "description": "Id do produto",
+          "required": true,
+          "sensitive": false,
+          "sample": "1729000000000000000"
+        },
+        {
+          "id": "6ff41538-8f1d-46e1-9551-7d966926806f",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "944672fd-08e5-41e1-b27d-d8a1920474c7",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "01b6a50f-82fe-4d07-8ce8-30152ccf4b1b",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "a8cdf3e3-e267-4713-a748-8b1552688568",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "d1c10ef7-4eea-4e07-903e-4e2b7565541e",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com os campos do produto a atualizar",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202509",
+            "products",
+            "<>product_id</>",
+            "partial_edit"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "82862c2f-67e8-4781-b687-1c4f718afec7",
+      "name": "Products - Activate product",
+      "description": "Reativa produtos desativados na loja.",
+      "parameters": [
+        {
+          "id": "1748baa5-5f06-4dbd-a7e8-4bfe254121c5",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "df74b9d7-77cf-4bd2-b958-c95a88036e2b",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "f19814bf-c71d-4efd-8854-598a57bd7add",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "cd5efc11-4807-4178-9eda-2751b817ded1",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "31d63725-e452-4cd9-a75e-61e5c997695d",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com a lista de product_ids a ativar",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "products",
+            "activate"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "66a7b3d0-9689-4f20-b490-a240536cb45a",
+      "name": "Products - Deactivate products",
+      "description": "Desativa produtos na loja.",
+      "parameters": [
+        {
+          "id": "706cfad5-4a8d-4437-86af-7f959d49a0fd",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "2bd28b5b-988c-420f-9f40-2a4af51f3c0f",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "7993c580-107b-4067-a960-eac346895623",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "3c1af0f8-977b-41f4-b42b-ef1496b55203",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "b0f35c50-c9f1-45f7-97cc-8afdeceafd6f",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com a lista de product_ids a desativar",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "products",
+            "deactivate"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "0fc62cc7-97a2-479b-ac39-2872883eede8",
+      "name": "Products - Delete products",
+      "description": "Remove produtos da loja.",
+      "parameters": [
+        {
+          "id": "8176f156-c3d5-48fa-a90b-5510f1b15265",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "a5d2d58d-6eaa-4c83-8c9a-216442be33b2",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "43223805-fbcd-4080-bc83-4c3a44a866c0",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "8dde90bd-4966-47e4-aaa8-9c8f111e1e77",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "03a9b531-fd5d-4cb5-a838-58fa862769ca",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com a lista de product_ids a excluir",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "products"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "90d6e89f-f9e5-4bb6-8c7c-98bb408ccf5a",
+      "name": "Products - Recover products",
+      "description": "Recupera produtos excluídos dentro do prazo de retenção.",
+      "parameters": [
+        {
+          "id": "26616261-215b-4108-a45a-d7e50c29b5f1",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "b8d2ec53-9bd9-4118-be47-7f9134d74792",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "12e59c8d-e67a-46ce-9799-375192c63a17",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "8bfdd1f4-353b-4e09-9ee1-d13228daa0b9",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "3266d1f8-2631-43cd-95b0-40850b22b601",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com a lista de product_ids a recuperar",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "products",
+            "recover"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "aaff53d2-256f-4a9a-b4f7-021cd3a17bd1",
+      "name": "Products - Update price",
+      "description": "Atualiza o preço de um produto e suas variações.",
+      "parameters": [
+        {
+          "id": "1715cca7-182a-4d02-b5f1-c78d3b4b00d1",
+          "name": "product_id",
+          "type": "string",
+          "description": "Id do produto",
+          "required": true,
+          "sensitive": false,
+          "sample": "1729000000000000000"
+        },
+        {
+          "id": "c2de5fbf-1fc5-4889-8222-2c5129736a5e",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "61f958c6-6f5b-4a0a-8406-8fcbe0d218c2",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "3fc0592b-d9ae-4fc4-828c-1a791e90bafc",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "2501fd70-99af-4d24-a9eb-f207720faf1f",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "8024a935-3172-4bd8-a29d-440481910a69",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com os novos preços por sku",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "products",
+            "<>product_id</>",
+            "prices",
+            "update"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "807eed9f-4b78-4c4a-9bf2-2005ac7ebc29",
+      "name": "Products - Update inventory",
+      "description": "Atualiza o estoque de um produto e suas variações.",
+      "parameters": [
+        {
+          "id": "eef8902d-9ef3-4338-ad98-f81f189f653c",
+          "name": "product_id",
+          "type": "string",
+          "description": "Id do produto",
+          "required": true,
+          "sensitive": false,
+          "sample": "1729000000000000000"
+        },
+        {
+          "id": "a0206078-c9b7-440f-abb0-f872eab616dd",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "ed5176ef-fbe9-4f8a-9f00-82ad12b39bba",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "5cf82526-7635-4d2c-b754-e48cbde84778",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "76489339-2033-47f0-bd10-5adb90f185e5",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "f98d098e-b8ca-499d-a782-f39d7a2df22e",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com o estoque por sku e warehouse",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "products",
+            "<>product_id</>",
+            "inventory",
+            "update"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "c6e3cb48-86a7-427f-bba0-1d08666d4e0f",
+      "name": "Products - Search inventory",
+      "description": "Busca informações de estoque de produtos.",
+      "parameters": [
+        {
+          "id": "5537f63f-f59a-420d-bff0-63550d294393",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "1b4598f9-91e0-46d2-b046-4312333e49b8",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "13de0934-082c-457d-9de9-b39e93e52d5b",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "34129337-05da-43eb-b0ac-75e25f85f9ac",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "97e86e54-babb-40e3-ac9f-fb1983a9096e",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com filtros de busca de estoque (skus, warehouse_ids, etc.)",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "inventory",
+            "search"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "394e2566-a8ac-491a-96a7-33aba248b468",
+      "name": "Products - Check listing prerequisites",
+      "description": "Verifica os pré-requisitos da loja para listar produtos.",
+      "parameters": [
+        {
+          "id": "96147c34-f323-4adc-b2ab-9ec62046ddc9",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "37c7dfa7-8d9a-486e-9c1c-09394a2eee49",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "01f03db9-8923-4e8e-9647-c0b504c14ce5",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "04d6df36-d7b6-450c-a75e-d2ef905e86f5",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202312",
+            "prerequisites"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "659b9ddf-7710-4563-b360-2bca6d3ead11",
+      "name": "Products - Get categories",
+      "description": "Lista as categorias de produto disponíveis para a loja.",
+      "parameters": [
+        {
+          "id": "9b182f4c-6fa3-48c9-a055-be637cc817bc",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "9518f905-2954-4478-bb47-7338f9a5e4a8",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "a4604e7a-1a56-4331-ace4-7cbe0b1317f8",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "ee8ce1b4-599c-4e75-8abe-1eb17a0185cc",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "categories"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "d79a21a0-b0f3-4288-b4aa-8e793bd89f0b",
+      "name": "Products - Recommend category",
+      "description": "Recomenda uma categoria com base no título/descrição do produto.",
+      "parameters": [
+        {
+          "id": "9b7870e6-781f-4fd5-b3b6-bc8f70ae9d93",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "193e9c28-d702-4b58-901d-6ca5997585c2",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "cee94c1a-13bf-4a64-abf8-714c7882e3bd",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "41790dd0-5561-4bca-ab7d-224a765db91b",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "8cd44450-bbbd-41b1-9fbc-2626b259e0ed",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com título/descrição do produto para recomendação de categoria",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "categories",
+            "recommend"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "da5f686b-382c-4544-bdf3-24be65f88025",
+      "name": "Products - Get category rules",
+      "description": "Obtém as regras de listagem de uma categoria específica.",
+      "parameters": [
+        {
+          "id": "206c0f2d-3703-49a3-a895-6120fea88a54",
+          "name": "category_id",
+          "type": "string",
+          "description": "Id da categoria",
+          "required": true,
+          "sensitive": false,
+          "sample": "601226"
+        },
+        {
+          "id": "47aab7dd-3edf-49ad-99a9-172094f4cd5b",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "5c9b0e1b-9485-4f99-9d9d-31d445dff1a7",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "9bdc22c5-cb67-4895-a9b7-ab98f75edb7b",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "35bf0a98-dd3e-4db2-aabc-ef10b133c9bd",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "categories",
+            "<>category_id</>",
+            "rules"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "d9f2674f-8e7f-4c1f-a6d5-cdb17ac2c16a",
+      "name": "Products - Get attributes",
+      "description": "Lista os atributos exigidos/opcionais de uma categoria.",
+      "parameters": [
+        {
+          "id": "fe8df6cc-c5b4-47ae-a8f0-cb0d123227a9",
+          "name": "category_id",
+          "type": "string",
+          "description": "Id da categoria",
+          "required": true,
+          "sensitive": false,
+          "sample": "601226"
+        },
+        {
+          "id": "9d9122ee-62f3-43e5-9fe5-6949beebd213",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "cb968d2c-d829-4fbf-aa4d-2530a57cb923",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "50e7c686-d4e1-48f9-8d1a-86946abd6b88",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "241a1bcc-f42c-488f-b021-aa7cbc2aa4a0",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "categories",
+            "<>category_id</>",
+            "attributes"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "08f552d2-669a-4618-8e14-ab92acaf9830",
+      "name": "Products - Get brands",
+      "description": "Lista as marcas disponíveis para vincular a produtos.",
+      "parameters": [
+        {
+          "id": "5c5d521c-6541-4305-916a-1351f5bc92a6",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "3f40f7d2-9bf1-4773-848f-b76573b236fd",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "89552204-0d5e-4078-9065-4e916769f045",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "4e6456a3-813b-460a-b23f-0fea4ec339b9",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "brands"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "345f7f77-8116-4517-9c7a-82f59c82a6a3",
+      "name": "Products - Create custom brand",
+      "description": "Cria uma marca customizada para uso nos produtos da loja.",
+      "parameters": [
+        {
+          "id": "c41ff318-e36c-4e24-9905-62d53ec0bc2d",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "248e1814-e4da-4c50-bfce-4c2ee5932c18",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "7cca99df-a0ce-4567-8a9d-b50059ba08f1",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "cb845b6b-5d7c-43ab-8036-b6077a0c6fe1",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "f9bd070a-3e6c-4ede-99fe-3e53dbe9627c",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com o nome da marca customizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "brands"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "957ad733-2c46-447f-9050-87e1b13051e4",
+      "name": "Products - Check product listing",
+      "description": "Valida se um produto está pronto para ser listado.",
+      "parameters": [
+        {
+          "id": "6aec8f18-5942-418f-904c-16eb2d5b58ec",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "55a09101-4019-4e7d-b6f8-02f90ba7ce55",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "c7d66639-db00-4bd2-8c83-b18849fe05dc",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "be135cc7-79b2-47b8-9479-350f3232f11b",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "82ddf1e8-6b4d-4e2e-b9d7-c88859c7a77d",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com os dados do produto a validar",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "products",
+            "listing_check"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "8eb4fd04-f6a9-49cf-a238-72fde3b01140",
+      "name": "Products - Upload product image",
+      "description": "Faz upload de uma imagem para uso em produtos.",
+      "parameters": [
+        {
+          "id": "69bdb0ed-58f3-4803-9623-19ad709d92df",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "b302e870-b10c-4b9c-b887-35c34f942cfe",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "6e33d443-9b10-4dc7-9065-dd3407246793",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "edb77891-2c48-4606-9529-8b73141e47ab",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "6b11e82f-1d06-4922-a443-8a89ae1f24b1",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com a imagem (base64 ou referência) a enviar",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "images",
+            "upload"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "fafc37f8-a8aa-4d15-abdc-266fbc7e08c4",
+      "name": "Products - Upload product file",
+      "description": "Faz upload de um arquivo para uso em produtos.",
+      "parameters": [
+        {
+          "id": "492c27c3-eea7-42fa-a3aa-ecbb186084eb",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "044dd232-653d-4587-9a5c-dda475fd68ad",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "fa2f9857-34b6-4bfc-8e64-1ea13339295f",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "555c22bf-b523-4b33-802e-8cbc34bdd252",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "a21a0ccb-101b-4532-bd0b-be3505bd6455",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com o arquivo (base64 ou referência) a enviar",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202309",
+            "files",
+            "upload"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "fd4a7e0e-2458-4d77-a6f5-bd987a3e16ec",
+      "name": "Products - Search size charts",
+      "description": "Busca tabelas de medidas cadastradas.",
+      "parameters": [
+        {
+          "id": "69f2c03b-4ba3-41a2-8e86-5d7439848cc1",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "fbce4d5a-22d8-4ed4-a158-430831069224",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "6a20b544-a939-4a9e-9ca6-ef31211ce7dd",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "d30db1d0-f547-468e-843f-053f7dd74d09",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "06ce768c-4a3f-484a-b77e-9769905a8046",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com filtros de busca de tabelas de medida",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202407",
+            "sizecharts",
+            "search"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "8d3a1593-ff73-4444-bf07-48977982de7e",
+      "name": "Products - Create size chart",
+      "description": "Cria uma nova tabela de medidas.",
+      "parameters": [
+        {
+          "id": "34f2beca-74d1-4055-86e1-115f5fa6de51",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "cc882e15-92db-436b-94b3-b51b205c9112",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "e43158e5-749d-48fc-ac69-b4d4349e076b",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "c5738b2f-8384-41c9-b2f2-de179349bbd6",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "bc24c332-0856-466a-bc3e-b4492e36e962",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com os dados da tabela de medidas",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202608",
+            "size_charts"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "68872de1-b6f8-46d6-a002-f25fa37d9e29",
+      "name": "Products - Edit size charts",
+      "description": "Edita tabelas de medidas existentes.",
+      "parameters": [
+        {
+          "id": "09c2c723-b912-4594-b989-26dad649a86b",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "dd2011a4-ff5b-4b0f-ba69-d53bab268b55",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "32e9accd-c0df-41d4-9d47-546613eb5333",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "60cb71db-1000-4859-969b-5015953c8eea",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "bfce8323-a91f-4906-81b3-f5a122dcad9b",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com as alterações da tabela de medidas",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202608",
+            "size_charts",
+            "edit"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "d8e5168b-19c9-491a-9256-ab9f57ab533e",
+      "name": "Products - Optimize images",
+      "description": "Otimiza imagens de produto automaticamente.",
+      "parameters": [
+        {
+          "id": "8a8b5124-08a2-4b69-b225-65c046a23246",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "b0c027e5-d4ed-46a5-9c81-a03136726b81",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "2ec859d7-6d3f-4c46-8d6d-b3b5d68a55cd",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "cbd5f054-af96-4bb6-b223-194f36f9a4b8",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "8f9d8c2d-92ae-4eb5-afcf-6ce75241c374",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com as imagens a otimizar",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202404",
+            "images",
+            "optimize"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "05f6c13d-2b76-4c9e-9832-e6ad97689885",
+      "name": "Products - Create image translation task",
+      "description": "Cria uma tarefa de tradução automática de texto em imagens.",
+      "parameters": [
+        {
+          "id": "01220b11-b25b-4f3c-a64a-92ed52ddd6b7",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "1d3038d7-4ee6-4418-9ea5-4298974b32c4",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "003df6dd-1e51-4683-8704-0bb53c01882f",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "2ada27c0-f8ed-4c20-8daa-3af53f45b5a0",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "29b3cc24-918b-4bf3-989e-6c8b2fa3aca6",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com as imagens e idioma alvo da tradução",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202505",
+            "images",
+            "translation_tasks"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "3aafa4e1-6575-44ce-bcf7-2ded98a94354",
+      "name": "Products - Get image translation tasks",
+      "description": "Consulta o status de tarefas de tradução de imagens.",
+      "parameters": [
+        {
+          "id": "418963f4-2027-4bfd-8c1d-49f87a1baaf0",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "61509f55-24e7-4f49-bd3a-25ad4bfd9de3",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "70212a75-cdf8-4edc-9845-2d1afc13ff06",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "0a711b59-f6f7-4f12-8014-9b837e2d940a",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202506",
+            "images",
+            "translation_tasks"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "171b5a46-84c8-4a7b-bb43-67dd4fd40c64",
+      "name": "Products - Diagnose and optimize product",
+      "description": "Diagnostica e sugere otimizações para um produto listado.",
+      "parameters": [
+        {
+          "id": "921fe02f-bbab-4142-9e1d-2a7ce38fa753",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "81b02a56-08d7-4155-b540-b891bae54781",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "4a23153c-3e7f-46fe-a96a-df6910f44dfb",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "09d8352a-386a-4fee-b4b9-5ac5c4ee701c",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "33ceeddc-6b21-4391-b963-0c56fb65633f",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com os product_ids a diagnosticar",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202411",
+            "products",
+            "diagnose_optimize"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "a7efe4b6-ba80-4ef2-8917-8776cce13fbe",
+      "name": "Products - Get product information issue diagnosis",
+      "description": "Lista problemas de informação identificados nos produtos.",
+      "parameters": [
+        {
+          "id": "a1f88657-4d5e-472b-862e-94cf7865be9c",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "e0c1ddf2-33ed-4829-9396-f40c32d99929",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "4c7420cf-0165-4c58-8781-c03b602dbd53",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "15cac600-fb04-4ae1-bada-bf065f70bec1",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202405",
+            "products",
+            "diagnoses"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "8381ac3a-529d-497a-9823-cff3fc1df682",
+      "name": "Products - Get products SEO words",
+      "description": "Sugere palavras-chave de SEO para os produtos.",
+      "parameters": [
+        {
+          "id": "01695590-3995-41b9-88a0-150bf713ce2e",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "ee5024d4-7489-40a4-8dfb-ce7907752d97",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "e5611b9e-716e-4de7-9c14-a7cf96e531c0",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "92a23c4b-d124-42a2-b1bd-1dcfd46c3af1",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202405",
+            "products",
+            "seo_words"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "7c9d2db4-176a-4e17-8812-16f9efd2c368",
+      "name": "Products - Get recommended product title and description",
+      "description": "Sugere título e descrição otimizados para um produto.",
+      "parameters": [
+        {
+          "id": "ffe88361-0bdc-48c4-ab1d-b6e5fdb0d9ff",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "8e0448c1-3c74-4ada-a4a1-3a249fd939b3",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "eb3f5757-5c0c-439a-ab08-84ca9ec209c8",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "245ac46f-dcf9-4475-bde5-d80fde393cac",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "product",
+            "202405",
+            "products",
+            "suggestions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "ab0c5e62-7237-4980-a3e7-bbf273c01809",
+      "name": "Orders - Get order list",
+      "description": "Busca a lista de pedidos da loja com filtros e paginação.",
+      "parameters": [
+        {
+          "id": "93959517-2fd3-421f-996e-35716c0404c5",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "bbefc496-1eb2-4ef6-8445-7611ad22fd0f",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "a851ccac-9677-4513-b8ca-d7d8fa08b344",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "cce7c9f8-f03a-4c08-9146-353a2ef3cec3",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "f32eaab1-49db-472e-bace-b8dc9bdc8815",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com filtros de busca de pedidos e paginação",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "202309",
+            "orders",
+            "search"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "3646022c-ceca-43d8-b4be-a35989f236ba",
+      "name": "Orders - Get price detail",
+      "description": "Obtém o detalhamento de preços de um pedido.",
+      "parameters": [
+        {
+          "id": "0702787f-3d08-45df-8be8-73966f0ef097",
+          "name": "order_id",
+          "type": "string",
+          "description": "Id do pedido",
+          "required": true,
+          "sensitive": false,
+          "sample": "576461344001334546"
+        },
+        {
+          "id": "92ebff7b-010e-459c-90c2-f698d7e9685c",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "45b1c013-82b9-48d2-8a00-6ae358b03417",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "e49de9d4-eb2e-489c-a4d7-f28b45a27a6f",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "5426c927-9a06-4443-857a-85741f5219bf",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "202407",
+            "orders",
+            "<>order_id</>",
+            "price_detail"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "d9b4980a-bfa7-4b6f-afac-21a811c39267",
+      "name": "Orders - Add external order references",
+      "description": "Vincula referências de pedido de sistemas externos a um pedido.",
+      "parameters": [
+        {
+          "id": "4926de85-ed26-4927-94bc-13ece7a61d5b",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "088b52f4-ffea-4fd9-aefe-cbc51d0aa807",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "9e19bd56-634d-48a6-9fc9-a188ba45bbbb",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "4d2c2ec8-e587-41aa-967a-4be8b5f54dfa",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "f5fd0efb-f206-415d-b428-97aa6bfb798e",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com o pedido e as referências externas",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "202406",
+            "orders",
+            "external_orders"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "10e28eaf-dcce-4575-8041-239601be1f83",
+      "name": "Orders - Get external order references",
+      "description": "Consulta as referências de sistemas externos vinculadas a um pedido.",
+      "parameters": [
+        {
+          "id": "109f7d0a-d07b-4c46-87b2-e69189febc7e",
+          "name": "order_id",
+          "type": "string",
+          "description": "Id do pedido",
+          "required": true,
+          "sensitive": false,
+          "sample": "576461344001334546"
+        },
+        {
+          "id": "cbd0126f-dc8e-4ec2-bbc2-7c2f2831e187",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "9bf5d3c6-f573-4291-ae77-21b1a27cd03b",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "d729d825-9a1d-4675-aa04-225a3def6e2b",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "51a3aa28-8ae7-43e8-8933-fcbf57fbe05a",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "202406",
+            "orders",
+            "<>order_id</>",
+            "external_orders"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "f196a22f-7b89-4f0e-932a-ae8cbad333fc",
+      "name": "Orders - Search order by external order reference",
+      "description": "Busca um pedido a partir de uma referência de sistema externo.",
+      "parameters": [
+        {
+          "id": "1ac6ca2d-52af-483a-b2de-dd6a4985e8ea",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "09f13b77-28ed-4d9c-b6fd-22c7b19e4bfb",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "6578cd68-fe3b-4db5-9bc8-1d78d27fd433",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "21fa86bd-d479-4b33-8ef0-ac989e4af150",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        },
+        {
+          "id": "3e47bc58-c287-4540-b198-2f74e95ff29f",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo JSON com a referência externa a buscar",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "202406",
+            "orders",
+            "external_order_search"
+          ]
+        },
+        "header": [
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2bbd8db-6f7f-428c-b0e2-6f31bfcb6c38",
+      "name": "Orders - Get order detail",
+      "description": "Obtém os detalhes completos de um ou mais pedidos.",
+      "parameters": [
+        {
+          "id": "d5fa01d9-52be-4dcc-a11c-c572155410d2",
+          "name": "order_ids",
+          "type": "string",
+          "description": "Lista de ids de pedidos separados por vírgula",
+          "required": true,
+          "sensitive": false,
+          "sample": "576461344001334546"
+        },
+        {
+          "id": "fa49443c-5ddf-451a-8a90-1004ed3df8cb",
+          "name": "app_key",
+          "type": "string",
+          "description": "Chave do app TikTok Shop",
+          "required": true,
+          "sensitive": false,
+          "sample": "6a1b2c3d4e5f"
+        },
+        {
+          "id": "47aa4d11-d0df-436c-adce-805f622e6bf6",
+          "name": "timestamp",
+          "type": "string",
+          "description": "Unix timestamp GMT da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "1717000000"
+        },
+        {
+          "id": "cb3bed3e-b60d-4516-884c-341c04e732bc",
+          "name": "sign",
+          "type": "string",
+          "description": "Assinatura HMAC-SHA256 calculada da requisição",
+          "required": true,
+          "sensitive": false,
+          "sample": "5361235029d141222525e303d742f9e38aea052d10896d3197ab9d6233730b8c"
+        },
+        {
+          "id": "adab64a9-1a64-455b-850d-7cdc2f7adb43",
+          "name": "shop_cipher",
+          "type": "string",
+          "description": "Identificador cifrado da loja autorizada",
+          "required": true,
+          "sensitive": false,
+          "sample": "TTP_XF90igAAAABh0sddwer0qsWgt233vOiG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "202507",
+            "orders"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "ids",
+            "value": "<>order_ids</>",
+            "enabled": true
+          },
+          {
+            "key": "app_key",
+            "value": "<>app_key</>",
+            "enabled": true
+          },
+          {
+            "key": "timestamp",
+            "value": "<>timestamp</>",
+            "enabled": true
+          },
+          {
+            "key": "sign",
+            "value": "<>sign</>",
+            "enabled": true
+          },
+          {
+            "key": "shop_cipher",
+            "value": "<>shop_cipher</>",
+            "enabled": true
+          }
+        ]
+      }
+    }
+  ]
+}
