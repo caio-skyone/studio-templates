@@ -1,0 +1,7078 @@
+{
+  "id": "e67a3ad1-50d5-4d88-85e3-ba1b26511be1",
+  "name": "RabbitMQ",
+  "description": "Conector para a Management HTTP API do RabbitMQ — administração de cluster, nós, virtual hosts, exchanges, filas, bindings, conexões, usuários, permissões, policies, streams e health checks.",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "basic"
+  },
+  "operations": [
+    {
+      "id": "8d22908e-00c8-4eef-b194-ae027bd5bb11",
+      "name": "Overview - Get overview",
+      "description": "Retorna informações e estatísticas gerais do cluster.",
+      "parameters": [
+        {
+          "id": "fb74b6ac-d0e8-4a1b-8a43-9cd99379e4ec",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "overview"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "a93ad763-256d-430f-94da-d78210c3677b",
+      "name": "Overview - Get cluster name",
+      "description": "Retorna o identificador atual do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "cluster-name"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "4c58ddcf-5cf6-48fb-a002-5b92e46e0227",
+      "name": "Overview - Update cluster name",
+      "description": "Atualiza o nome do cluster.",
+      "parameters": [
+        {
+          "id": "c98adc1f-ef98-4281-8e04-8c44b53f96ba",
+          "name": "cluster_name_config",
+          "type": "object",
+          "description": "Novo nome do cluster.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"rabbit@node1\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "cluster-name"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>cluster_name_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "28584b14-2f37-40b4-82d8-d29c082cc0bd",
+      "name": "Overview - Get current user",
+      "description": "Retorna os dados do usuário autenticado na requisição.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "whoami"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "7c4f0639-a1d5-4e9e-8f2a-f510f9ca1ae3",
+      "name": "Nodes - Get all nodes",
+      "description": "Lista todos os nós do cluster com suas métricas.",
+      "parameters": [
+        {
+          "id": "a77bde54-30c5-489b-ba37-34fd6d1a450e",
+          "name": "memory",
+          "type": "string",
+          "description": "Se true, inclui o detalhamento de uso de memória.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "cb698719-7243-420c-94a0-fea9df48b1f0",
+          "name": "binary",
+          "type": "string",
+          "description": "Se true, inclui as estatísticas de memória binária.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "b194fa98-840f-4dc5-a892-e068e6b138c0",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "nodes"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "memory",
+            "value": "<>memory</>",
+            "enabled": true
+          },
+          {
+            "key": "binary",
+            "value": "<>binary</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "c91c339c-a596-4a7c-8e16-11821ed46a44",
+      "name": "Nodes - Get node",
+      "description": "Retorna as métricas de um nó específico do cluster.",
+      "parameters": [
+        {
+          "id": "2101e807-019a-432a-bdae-3c81377fef5e",
+          "name": "node_name",
+          "type": "string",
+          "description": "Nome do nó do cluster RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "rabbit@localhost"
+        },
+        {
+          "id": "fc672e16-fe84-4642-aedc-9934c6c4c7ea",
+          "name": "memory",
+          "type": "string",
+          "description": "Se true, inclui o detalhamento de uso de memória.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "b43bf86d-b8bc-4af3-9fd4-1d32bf635a04",
+          "name": "binary",
+          "type": "string",
+          "description": "Se true, inclui as estatísticas de memória binária.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "5b55218e-c32e-480b-90cd-9f3c4827732e",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "nodes",
+            "<>node_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "memory",
+            "value": "<>memory</>",
+            "enabled": true
+          },
+          {
+            "key": "binary",
+            "value": "<>binary</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "3b6e7078-d64d-4aab-8c1a-c3e4612a4052",
+      "name": "Nodes - Get node memory",
+      "description": "Retorna o detalhamento do uso de memória de um nó.",
+      "parameters": [
+        {
+          "id": "7128d31e-312d-4924-9ee3-b1da5b4fc220",
+          "name": "node_name",
+          "type": "string",
+          "description": "Nome do nó do cluster RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "rabbit@localhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "nodes",
+            "<>node_name</>",
+            "memory"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "640a2ab8-f026-4301-8e93-77c3115ddc3e",
+      "name": "Definitions - Export definitions",
+      "description": "Exporta todas as definições do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "definitions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "2572feef-613c-4309-9743-5478eb4d3b22",
+      "name": "Definitions - Import definitions",
+      "description": "Importa definições para o cluster.",
+      "parameters": [
+        {
+          "id": "8247b912-c7a4-4c1f-8fca-246abfcac91e",
+          "name": "definitions",
+          "type": "object",
+          "description": "Definições a importar no cluster ou no virtual host.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"queues\": [], \"exchanges\": []}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "definitions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>definitions</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "fde67312-1374-4c7e-978f-c7e1e83e88f1",
+      "name": "Definitions - Export vhost definitions",
+      "description": "Exporta as definições de um virtual host.",
+      "parameters": [
+        {
+          "id": "f41755bc-495c-45a7-b810-51be707c6db0",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "definitions",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b930587e-60fe-4d2e-9687-f395e91d8d65",
+      "name": "Definitions - Import vhost definitions",
+      "description": "Importa definições para um virtual host.",
+      "parameters": [
+        {
+          "id": "8e26076f-4c5c-4752-91e7-9d0edaa2e781",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "490c0e63-25b3-4ac2-968f-103c4252bed2",
+          "name": "definitions",
+          "type": "object",
+          "description": "Definições a importar no cluster ou no virtual host.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"queues\": [], \"exchanges\": []}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "definitions",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>definitions</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5789b115-f3ee-4169-843f-1f37e0b8fceb",
+      "name": "Connections - Get all connections",
+      "description": "Lista todas as conexões abertas no cluster.",
+      "parameters": [
+        {
+          "id": "3db55894-27b8-4365-b425-824fd3755a40",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "44732028-18e9-4dc8-8288-00ec66f274e7",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "b3712c83-fc4d-417f-9187-1ef27765e062",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "ad51dbfa-b473-4686-b182-659dbc7f920e",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "938b1572-e4b8-4de7-ad85-bac7390f52c8",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "d3ad024c-a1c7-4090-be70-8da0007f6dbd",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "8bc3e1b2-5792-4cf5-a203-8d762dc57c4b",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "connections"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "3c050507-48b4-4978-af53-5884f120f4b2",
+      "name": "Connections - Get connections by vhost",
+      "description": "Lista as conexões abertas em um virtual host.",
+      "parameters": [
+        {
+          "id": "e80662fe-e358-4e1a-a6c7-fd9ebfbfe2d7",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "553ffe95-51af-4bb6-9284-14eb93827a71",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "327194c1-bf4f-457c-82c3-44544294d2be",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "0c121021-749b-42f8-9f8b-23b119a0d9df",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "762a0207-543c-4a43-bd59-03d0e58241c5",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "2c5da673-21e8-4c23-b7e8-cec437a8c92a",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "805b719f-45ca-494b-b6e1-b9b9765e2f6a",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "27e190b0-4eac-4127-be0b-a8a81bea42d9",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts",
+            "<>vhost</>",
+            "connections"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "8ed230e3-56b4-4e0e-aa24-bf068b1918fb",
+      "name": "Connections - Get connection",
+      "description": "Retorna as métricas de uma conexão específica.",
+      "parameters": [
+        {
+          "id": "04fdddc5-1681-4b66-8a57-db4b626c250a",
+          "name": "connection_name",
+          "type": "string",
+          "description": "Nome da conexão, URL-encoded.",
+          "required": true,
+          "sensitive": false,
+          "sample": "127.0.0.1%3A52048%20-%3E%20127.0.0.1%3A5672"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "connections",
+            "<>connection_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "1976542d-87c5-4c27-97fe-76238653f701",
+      "name": "Connections - Close connection",
+      "description": "Encerra uma conexão específica.",
+      "parameters": [
+        {
+          "id": "61ee7bf7-040e-4978-ae25-7560c076b82b",
+          "name": "connection_name",
+          "type": "string",
+          "description": "Nome da conexão, URL-encoded.",
+          "required": true,
+          "sensitive": false,
+          "sample": "127.0.0.1%3A52048%20-%3E%20127.0.0.1%3A5672"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "connections",
+            "<>connection_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "86d4cf86-ec16-46e3-8924-6eb4129b04f2",
+      "name": "Connections - Get connections by username",
+      "description": "Lista as conexões abertas por um usuário autenticado.",
+      "parameters": [
+        {
+          "id": "fa1f3240-c895-4899-ae41-e158d440c9ec",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "connections",
+            "username",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5b961a5e-c224-47b4-80e2-449929ad4ac9",
+      "name": "Connections - Close connections by username",
+      "description": "Encerra todas as conexões abertas por um usuário.",
+      "parameters": [
+        {
+          "id": "e8d10654-6c0e-494d-ae10-a270708f0907",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "connections",
+            "username",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "923427fe-8911-422e-a6a4-d58bc8fef464",
+      "name": "Connections - Get connection channels",
+      "description": "Lista os canais abertos em uma conexão.",
+      "parameters": [
+        {
+          "id": "58a260cd-fd34-4a0f-9a89-1f0ab3bc05fc",
+          "name": "connection_name",
+          "type": "string",
+          "description": "Nome da conexão, URL-encoded.",
+          "required": true,
+          "sensitive": false,
+          "sample": "127.0.0.1%3A52048%20-%3E%20127.0.0.1%3A5672"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "connections",
+            "<>connection_name</>",
+            "channels"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a88420bc-0823-4e99-911a-cb86d859cb82",
+      "name": "Channels - Get all channels",
+      "description": "Lista todos os canais abertos no cluster.",
+      "parameters": [
+        {
+          "id": "73ab117a-dbb9-49df-956d-db5287dadfc0",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "f61bda22-f890-4cf8-9e9d-c1051acb1eb3",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "c321b5ff-e50f-4d3b-8c64-3b17293ad0c5",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "019e6afe-2d49-4e1f-8d20-425699ced50a",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "8dddcd2e-cc22-4f1a-b5ca-308140dadf04",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "4dcb3479-8543-4617-9956-e872d03374d4",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "7c6632f3-6739-4e4c-a9e1-401866f995bf",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "channels"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "f43d09af-d86e-4aa8-ba7e-7eb59bf8bde3",
+      "name": "Channels - Get channels by vhost",
+      "description": "Lista os canais abertos em um virtual host.",
+      "parameters": [
+        {
+          "id": "4f6f0e82-2a6e-4516-9b4c-33e45787c0b6",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "c6655e31-3ad3-4ae0-819f-3ccc95520d07",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "5c5b3983-1f32-45b5-8b82-16b571379830",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "455e5e73-6179-4616-afbd-dd626fe8f768",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "72a706b8-bcaf-41b4-a66e-1d71e83d7256",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "bf0423d6-ee47-4ae7-9eb8-9d311d86b119",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "b7956583-83f6-43c1-9e00-21d578a1511c",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "839d5dbe-acad-4dd3-a1bd-81e4ff4e65be",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts",
+            "<>vhost</>",
+            "channels"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "845a8d53-9286-4947-ac5e-555040cb75e7",
+      "name": "Channels - Get channel",
+      "description": "Retorna os detalhes de um canal específico.",
+      "parameters": [
+        {
+          "id": "9d1cdb46-b79b-4cff-8db8-cad44fbfec42",
+          "name": "channel_name",
+          "type": "string",
+          "description": "Nome do canal, URL-encoded.",
+          "required": true,
+          "sensitive": false,
+          "sample": "127.0.0.1%3A52048%20-%3E%20127.0.0.1%3A5672%20(1)"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "channels",
+            "<>channel_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f49b14a1-50f8-4102-a16d-ef7e1ceabb36",
+      "name": "Consumers - Get all consumers",
+      "description": "Lista todos os consumidores do cluster.",
+      "parameters": [
+        {
+          "id": "ecafe062-ae6d-4bc7-b517-aa68647f922f",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "0c370168-5948-49a7-9e15-3aba6e6b2cf1",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "791982a6-694e-4f10-bd52-89c55f8dfa92",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "957861a9-20dc-4050-8f3e-94332097ca16",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "cad5be9e-317a-4c73-987d-2a684f473da9",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "93698d5f-14f4-4bf4-ad71-71f1363b52a5",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "ceeb061b-59f0-45ce-b23e-90be85bf280a",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "consumers"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "d0c0160f-8b8a-47a4-add4-5c3a5bbd608c",
+      "name": "Consumers - Get consumers by vhost",
+      "description": "Lista os consumidores de um virtual host.",
+      "parameters": [
+        {
+          "id": "b71a248f-de38-40f5-83c6-e68a2cbdf483",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "258ed549-816c-4683-9cc5-b85f6ce086d3",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "225b1f19-f9a2-4d33-b775-6d196295f90d",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "a431dfd8-25d1-4f31-9ab7-dbfa0f007428",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "ccc1cbaa-d0de-4e64-b02b-2503b85e1cfa",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "2c8ad373-32f7-4e40-a3dc-5085e78b974c",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "13b87067-97e8-4169-964c-22c27071bc11",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "0be99cc6-898b-4ee7-9ece-734601ad024a",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "consumers",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "8cbb7435-e543-409d-9abe-2a2328107e7f",
+      "name": "Exchanges - Get all exchanges",
+      "description": "Lista todos os exchanges do cluster.",
+      "parameters": [
+        {
+          "id": "6b4242d8-c6f2-413a-ae14-dad81a8fbe67",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "0c5665a5-d1c9-4b61-b188-b5398b9c64a7",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "e04c998f-1a8c-4ddf-90d3-83bb702e71f9",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "e045ff4a-8068-410b-a660-80e143d278b3",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "c356ff3d-fbaf-4539-afe5-3130ae8546a2",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "3ca45868-64d9-48e2-9435-e920de6b3758",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "a149edce-e3ef-4f3d-b199-580825a27ce1",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "exchanges"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "fb76159c-6305-45ee-91c2-f8a7badb8814",
+      "name": "Exchanges - Get exchanges by vhost",
+      "description": "Lista os exchanges de um virtual host.",
+      "parameters": [
+        {
+          "id": "c2c57d35-59cd-44d5-bf23-2aec5f90b201",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "e3eb327f-b574-435d-8501-4e24e9d74a1a",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "00d2243d-dab3-40be-868e-741cf1c3bf93",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "4cd704f0-0ef1-4cd8-8075-ccf39786242b",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "38971ee9-c483-447d-9dc3-1ff14f3c0af1",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "fda4fdb1-fde5-4df0-bf3e-8f1ab941910f",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "ac3799e2-9881-42d0-bb02-5b547ea98aa2",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "b977aef9-149f-4bb1-b8d7-2044b77c3115",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "exchanges",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "153ccb94-6a9d-42c8-8d35-decae1f76e67",
+      "name": "Exchanges - Get exchange",
+      "description": "Retorna as métricas de um exchange específico.",
+      "parameters": [
+        {
+          "id": "5f118a08-b5b6-4781-8f27-ceebe40c454d",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "28d9384d-cda4-43c3-ac7a-8bb7d9e40484",
+          "name": "exchange_name",
+          "type": "string",
+          "description": "Nome do exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "exchanges",
+            "<>vhost</>",
+            "<>exchange_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "518f9b62-f6fd-4162-8106-5d4abf5ceb41",
+      "name": "Exchanges - Declare exchange",
+      "description": "Cria ou atualiza um exchange em um virtual host.",
+      "parameters": [
+        {
+          "id": "63afb1ae-4f01-4dbd-8e05-5731e2ebb4f1",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "899af7eb-b0eb-44b6-a0a5-cd622ee5c5b8",
+          "name": "exchange_name",
+          "type": "string",
+          "description": "Nome do exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "8384ec31-f17e-47dc-ace1-9d7119cd5d8b",
+          "name": "exchange_config",
+          "type": "object",
+          "description": "Configuração do exchange a declarar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"type\": \"direct\", \"durable\": true}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "exchanges",
+            "<>vhost</>",
+            "<>exchange_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>exchange_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "9ef1898f-83ac-4d5e-bf27-3fea0885296e",
+      "name": "Exchanges - Delete exchange",
+      "description": "Remove um exchange de um virtual host.",
+      "parameters": [
+        {
+          "id": "56a42101-993d-4f38-89b0-1265ab154b30",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "679dbbe9-afc1-4306-b2a8-c8ae47659297",
+          "name": "exchange_name",
+          "type": "string",
+          "description": "Nome do exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "6e35ef26-7d84-47c0-b551-ceed861abd0c",
+          "name": "if_unused",
+          "type": "string",
+          "description": "Se true, só remove quando o recurso não estiver em uso.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "exchanges",
+            "<>vhost</>",
+            "<>exchange_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "if_unused",
+            "value": "<>if_unused</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "11ddb7a0-986d-43c1-862f-a8ef5104b309",
+      "name": "Exchanges - Get source bindings",
+      "description": "Lista as bindings em que o exchange é a origem.",
+      "parameters": [
+        {
+          "id": "c57f3724-82b9-4909-9430-5640fce62957",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "9e10ab0d-281e-4177-b62e-000f1e1b08e9",
+          "name": "exchange_name",
+          "type": "string",
+          "description": "Nome do exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "exchanges",
+            "<>vhost</>",
+            "<>exchange_name</>",
+            "bindings",
+            "source"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "32e65547-4628-489c-bdd1-9fa68b0018bd",
+      "name": "Exchanges - Get destination bindings",
+      "description": "Lista as bindings em que o exchange é o destino.",
+      "parameters": [
+        {
+          "id": "9cac8fe0-dbdd-40a8-a3b8-81b460cf27ae",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "b4cfcb64-c76a-4d3a-a260-7c93c43657da",
+          "name": "exchange_name",
+          "type": "string",
+          "description": "Nome do exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "exchanges",
+            "<>vhost</>",
+            "<>exchange_name</>",
+            "bindings",
+            "destination"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "29a15e85-c9e0-40a7-9d4c-31cb26338f8c",
+      "name": "Exchanges - Publish message",
+      "description": "Publica uma mensagem em um exchange.",
+      "parameters": [
+        {
+          "id": "e7ad9426-eb0d-4c7b-9943-49253b3b31d4",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "29942e33-10d8-4477-8f90-c7501db8a8d1",
+          "name": "exchange_name",
+          "type": "string",
+          "description": "Nome do exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "82bf5649-8ba3-42c0-a2eb-537048eaaa08",
+          "name": "message",
+          "type": "object",
+          "description": "Mensagem a publicar no exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"properties\": {}, \"routing_key\": \"minha-chave\", \"payload\": \"ola\", \"payload_encoding\": \"string\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "exchanges",
+            "<>vhost</>",
+            "<>exchange_name</>",
+            "publish"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>message</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "30430fee-e423-41e5-9f50-22daf3cc403d",
+      "name": "Queues - Get all queues",
+      "description": "Lista todas as filas do cluster.",
+      "parameters": [
+        {
+          "id": "752528a7-38c4-4a21-99b3-20cdd7be7288",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "bb1f281b-3b43-4bf6-bc75-ddd01b89d257",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "ab303fb1-9dc1-466a-8428-45a7c15b4002",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "49654d33-f444-488b-a702-4ff0c4a88c46",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "2bd359db-5ead-4947-ab00-9246e9e50eca",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "5f202eae-013c-457b-8d04-721a21c1c21b",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "9637a9ed-7600-4b2f-9244-667444db8fa6",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        },
+        {
+          "id": "d565c8a1-a2ab-42bf-af24-91b6f7b1059c",
+          "name": "enable_queue_totals",
+          "type": "string",
+          "description": "Se true, retorna apenas os totais agregados das filas.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "213cd8ce-0587-4793-b86c-6916bd328095",
+          "name": "disable_stats",
+          "type": "string",
+          "description": "Se true, omite as estatísticas detalhadas.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "queues"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          },
+          {
+            "key": "enable_queue_totals",
+            "value": "<>enable_queue_totals</>",
+            "enabled": true
+          },
+          {
+            "key": "disable_stats",
+            "value": "<>disable_stats</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "23f11794-6247-469f-b42c-5d2aae4ff5a8",
+      "name": "Queues - Get all queues detailed",
+      "description": "Lista todas as filas com métricas detalhadas.",
+      "parameters": [
+        {
+          "id": "47fd34af-2cc4-4b1a-b64e-ec4134c2ff47",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "73d9db54-b145-4f9f-9bb9-f8b15dd3eae7",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "06177d70-f66f-48e8-aee5-7c96d9c40957",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "1110fdb7-2af6-45f7-9948-18f8bb355b15",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "269d1c20-cd12-44cc-8bf6-e94e487f728f",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "25dafe3c-8283-4492-94da-2865d181c4c8",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "65a61367-7187-4ff4-8fb2-f889d68af147",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "queues",
+            "detailed"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "1f320707-57fe-4208-891f-bce44e320a92",
+      "name": "Queues - Get queues by vhost",
+      "description": "Lista as filas de um virtual host.",
+      "parameters": [
+        {
+          "id": "dc90f548-19f8-4dd1-8ce5-a63312a58661",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "27b474c9-6b00-40b9-ada3-1bf69bb0be14",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "f56060ed-4699-433f-bc44-bde61d088eb3",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "a4b5e1ac-5ccd-49db-8edb-de83ac426050",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "d4d0662f-884c-41a6-9aed-16789e195811",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "8a5fe205-4a99-4bea-9816-98e9661ad88e",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "727618cc-65ff-4901-8a0e-579a9a0d4b72",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "f0b50974-6717-400a-bdfd-1c48fdc1064e",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "queues",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "c9bcea2f-6e4d-4384-82d1-9a908f9eaa2b",
+      "name": "Queues - Get queue",
+      "description": "Retorna as métricas de uma fila específica.",
+      "parameters": [
+        {
+          "id": "756b13f9-2c48-404e-b266-3adeadba8c24",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "817c6509-78e6-4260-8b99-aa2081c21235",
+          "name": "queue_name",
+          "type": "string",
+          "description": "Nome da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "minha-fila"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "queues",
+            "<>vhost</>",
+            "<>queue_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "72412801-b689-4d46-bdb8-efc103ed6a23",
+      "name": "Queues - Declare queue",
+      "description": "Cria ou atualiza uma fila em um virtual host.",
+      "parameters": [
+        {
+          "id": "19d28549-4c6e-4b4d-ac30-13940cdf1aba",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "3b06fb99-3149-4830-af1e-10a58260d963",
+          "name": "queue_name",
+          "type": "string",
+          "description": "Nome da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "minha-fila"
+        },
+        {
+          "id": "e9e3abea-7804-40bf-ba04-c39f6ef03c34",
+          "name": "queue_config",
+          "type": "object",
+          "description": "Configuração da fila a declarar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"durable\": true, \"auto_delete\": false, \"arguments\": {}}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "queues",
+            "<>vhost</>",
+            "<>queue_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>queue_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "99f9afb4-28d1-420a-b295-799db2686c73",
+      "name": "Queues - Delete queue",
+      "description": "Remove uma fila de um virtual host.",
+      "parameters": [
+        {
+          "id": "237552f7-3d5b-41db-940c-c5819b97833c",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "62b01abd-f1f2-4aa7-8e45-5b09bdecd55b",
+          "name": "queue_name",
+          "type": "string",
+          "description": "Nome da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "minha-fila"
+        },
+        {
+          "id": "a9a8c9b1-444f-4efb-8d18-f29fe9367422",
+          "name": "if_empty",
+          "type": "string",
+          "description": "Se true, só remove a fila quando ela estiver vazia.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "fd451c09-6900-4e4f-8dd2-59e5055e6371",
+          "name": "if_unused",
+          "type": "string",
+          "description": "Se true, só remove quando o recurso não estiver em uso.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "queues",
+            "<>vhost</>",
+            "<>queue_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "if_empty",
+            "value": "<>if_empty</>",
+            "enabled": true
+          },
+          {
+            "key": "if_unused",
+            "value": "<>if_unused</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "8e9a50da-66aa-47cc-a63b-32225cd5031f",
+      "name": "Queues - Get queue bindings",
+      "description": "Lista todas as bindings associadas a uma fila.",
+      "parameters": [
+        {
+          "id": "ad7ff1a0-d538-436f-b098-7f101e943df4",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "07ef793b-edab-43a5-abe2-d1bfedece9dc",
+          "name": "queue_name",
+          "type": "string",
+          "description": "Nome da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "minha-fila"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "queues",
+            "<>vhost</>",
+            "<>queue_name</>",
+            "bindings"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "2b136d88-a62b-4073-ab5f-ed8ca99b438e",
+      "name": "Queues - Purge queue",
+      "description": "Remove todas as mensagens de uma fila.",
+      "parameters": [
+        {
+          "id": "c55c8bd7-ff32-4344-b944-becd59b105a1",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "4527e231-35b8-4b21-8d6e-d55ddf5b3637",
+          "name": "queue_name",
+          "type": "string",
+          "description": "Nome da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "minha-fila"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "queues",
+            "<>vhost</>",
+            "<>queue_name</>",
+            "contents"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c169177f-1d4e-493b-be59-b0ca49bfd2ed",
+      "name": "Queues - Get messages",
+      "description": "Lê mensagens de uma fila sem consumi-las por um cliente AMQP.",
+      "parameters": [
+        {
+          "id": "72ac9f8d-0f58-4afd-ae16-f93c5b02a56f",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "098f8e9c-7e7c-4db5-9007-e308b477a228",
+          "name": "queue_name",
+          "type": "string",
+          "description": "Nome da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "minha-fila"
+        },
+        {
+          "id": "dd14f9ba-7477-4577-a05b-e98878387f33",
+          "name": "get_config",
+          "type": "object",
+          "description": "Critérios de leitura das mensagens da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"count\": 5, \"ackmode\": \"ack_requeue_true\", \"encoding\": \"auto\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "queues",
+            "<>vhost</>",
+            "<>queue_name</>",
+            "get"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>get_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "0d3a1392-1aa2-43b3-9dca-cdb1ad4390bd",
+      "name": "Bindings - Get all bindings",
+      "description": "Lista todas as bindings do cluster.",
+      "parameters": [
+        {
+          "id": "129ad392-d60e-4311-988e-1b7064cb9a37",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "aeecf983-3a14-42fd-87b7-eb4b2691c83d",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "fa884763-352b-41c0-b69c-1fce8101335b",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "b1d79e27-b1f5-46e0-b5e3-3e8a79bd3921",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "ccce242b-9c5c-46ce-a0ed-1a7d1e3f6c6a",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "5bb8f481-e065-451a-8987-401db3f022f8",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "162dece8-a3cb-4a89-bf10-3dbea8668eb3",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "bindings"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b21e36f9-72ff-4b17-9ef0-10576a64e5b8",
+      "name": "Bindings - Get bindings by vhost",
+      "description": "Lista as bindings de um virtual host.",
+      "parameters": [
+        {
+          "id": "34197478-bb1d-45e9-9e51-b952d7475a51",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "bindings",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "727de3c4-0d35-4f72-adc9-31394a871aa7",
+      "name": "Bindings - Get exchange to queue bindings",
+      "description": "Lista as bindings entre um exchange e uma fila.",
+      "parameters": [
+        {
+          "id": "3039d548-fec3-4a13-ac19-b18d3b42b987",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "c47654fd-31b3-415a-b64c-f33910d035e7",
+          "name": "exchange_name",
+          "type": "string",
+          "description": "Nome do exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "1dffe060-1f28-4a1f-8909-62e7a84b6835",
+          "name": "queue_name",
+          "type": "string",
+          "description": "Nome da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "minha-fila"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "bindings",
+            "<>vhost</>",
+            "e",
+            "<>exchange_name</>",
+            "q",
+            "<>queue_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "108734fe-325c-4bed-b1e1-db129b6419e3",
+      "name": "Bindings - Bind queue to exchange",
+      "description": "Cria uma binding entre um exchange e uma fila.",
+      "parameters": [
+        {
+          "id": "e82a4f75-8ac5-4076-bc75-0b8fdf883d2e",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "7bd607af-9bd0-4a7a-bfa4-3275da6c1f2b",
+          "name": "exchange_name",
+          "type": "string",
+          "description": "Nome do exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "7c1d2d7d-a8bb-41aa-a7e3-5a68e0ee7f50",
+          "name": "queue_name",
+          "type": "string",
+          "description": "Nome da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "minha-fila"
+        },
+        {
+          "id": "dd6ce82c-0a7c-4848-b90d-7402575588f6",
+          "name": "binding_config",
+          "type": "object",
+          "description": "Configuração da binding a criar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"routing_key\": \"minha-chave\", \"arguments\": {}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "bindings",
+            "<>vhost</>",
+            "e",
+            "<>exchange_name</>",
+            "q",
+            "<>queue_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>binding_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "be615e4a-7c40-4d58-a6f6-11e9dfc35677",
+      "name": "Bindings - Get exchange to queue binding",
+      "description": "Retorna uma binding específica entre exchange e fila.",
+      "parameters": [
+        {
+          "id": "07e2c42a-eb38-4881-8415-856028c06fe2",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "d2e3e18c-4132-4de8-9e12-f2d4a7396f15",
+          "name": "exchange_name",
+          "type": "string",
+          "description": "Nome do exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "0d862582-739e-4068-a2ce-f183b3f9adbf",
+          "name": "queue_name",
+          "type": "string",
+          "description": "Nome da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "minha-fila"
+        },
+        {
+          "id": "363d0e74-af12-45b0-aeeb-ca183f37d3ba",
+          "name": "properties_key",
+          "type": "string",
+          "description": "Chave de propriedades que identifica a binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "~"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "bindings",
+            "<>vhost</>",
+            "e",
+            "<>exchange_name</>",
+            "q",
+            "<>queue_name</>",
+            "<>properties_key</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "40e706a5-edcf-4cfe-bec6-d4326f982941",
+      "name": "Bindings - Delete exchange to queue binding",
+      "description": "Remove uma binding específica entre exchange e fila.",
+      "parameters": [
+        {
+          "id": "b3c516b3-1e61-4f68-95d4-b12a92756aa2",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "90d6338c-12d1-4164-a62c-26e5d1116579",
+          "name": "exchange_name",
+          "type": "string",
+          "description": "Nome do exchange.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "ebb4fedf-5d4e-4957-8a49-99d3b941c0f8",
+          "name": "queue_name",
+          "type": "string",
+          "description": "Nome da fila.",
+          "required": true,
+          "sensitive": false,
+          "sample": "minha-fila"
+        },
+        {
+          "id": "250d1020-0efc-4b96-9c12-cf20f8217443",
+          "name": "properties_key",
+          "type": "string",
+          "description": "Chave de propriedades que identifica a binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "~"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "bindings",
+            "<>vhost</>",
+            "e",
+            "<>exchange_name</>",
+            "q",
+            "<>queue_name</>",
+            "<>properties_key</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "934d4ebe-4e65-4a87-981c-007cfb9c1c1b",
+      "name": "Bindings - Get exchange to exchange bindings",
+      "description": "Lista as bindings entre dois exchanges.",
+      "parameters": [
+        {
+          "id": "9cd08105-86c3-4324-93fc-cac6de326e22",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "2944595c-f610-40b8-ad46-dc808d6db0a3",
+          "name": "source_exchange",
+          "type": "string",
+          "description": "Nome do exchange de origem da binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "99579c3c-88da-48f2-ad80-7dd8b00dad06",
+          "name": "destination_exchange",
+          "type": "string",
+          "description": "Nome do exchange de destino da binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.fanout"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "bindings",
+            "<>vhost</>",
+            "e",
+            "<>source_exchange</>",
+            "e",
+            "<>destination_exchange</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "903a0e9b-5b4c-4f15-b299-67166d665b59",
+      "name": "Bindings - Bind exchange to exchange",
+      "description": "Cria uma binding entre dois exchanges.",
+      "parameters": [
+        {
+          "id": "5f307836-c888-47aa-86c3-37958bad6702",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "b418a4d6-1034-44ff-982e-b8d1c5e8d1b2",
+          "name": "source_exchange",
+          "type": "string",
+          "description": "Nome do exchange de origem da binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "c84cae72-2901-4c32-9e82-cd6591195e88",
+          "name": "destination_exchange",
+          "type": "string",
+          "description": "Nome do exchange de destino da binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.fanout"
+        },
+        {
+          "id": "510fa2c0-a89a-4fe9-9d7c-4283b9b5c492",
+          "name": "binding_config",
+          "type": "object",
+          "description": "Configuração da binding a criar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"routing_key\": \"minha-chave\", \"arguments\": {}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "bindings",
+            "<>vhost</>",
+            "e",
+            "<>source_exchange</>",
+            "e",
+            "<>destination_exchange</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>binding_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "da467838-84b8-4736-8a1a-a9f438a39a8b",
+      "name": "Bindings - Get exchange to exchange binding",
+      "description": "Retorna uma binding específica entre dois exchanges.",
+      "parameters": [
+        {
+          "id": "76e1bb4f-3b52-49a4-a39b-38dff6406a28",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "a5177b0b-f77c-40fa-b698-df5206dccc56",
+          "name": "source_exchange",
+          "type": "string",
+          "description": "Nome do exchange de origem da binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "add848fb-395e-449b-8b13-4d247629ba94",
+          "name": "destination_exchange",
+          "type": "string",
+          "description": "Nome do exchange de destino da binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.fanout"
+        },
+        {
+          "id": "c6809cee-a0d3-4800-9459-697c25878821",
+          "name": "properties_key",
+          "type": "string",
+          "description": "Chave de propriedades que identifica a binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "~"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "bindings",
+            "<>vhost</>",
+            "e",
+            "<>source_exchange</>",
+            "e",
+            "<>destination_exchange</>",
+            "<>properties_key</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "131a9652-32d1-4821-aedd-fc08220a81d9",
+      "name": "Bindings - Delete exchange to exchange binding",
+      "description": "Remove uma binding específica entre dois exchanges.",
+      "parameters": [
+        {
+          "id": "37645379-8a71-4183-83af-d56b5cc0e90f",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "d4903462-2bb1-40e4-94d2-1c2eed2396bd",
+          "name": "source_exchange",
+          "type": "string",
+          "description": "Nome do exchange de origem da binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.direct"
+        },
+        {
+          "id": "0034eadc-3126-4f75-bad6-dd775f836985",
+          "name": "destination_exchange",
+          "type": "string",
+          "description": "Nome do exchange de destino da binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amq.fanout"
+        },
+        {
+          "id": "208c1cd3-b01c-452c-a117-b5989ae34170",
+          "name": "properties_key",
+          "type": "string",
+          "description": "Chave de propriedades que identifica a binding.",
+          "required": true,
+          "sensitive": false,
+          "sample": "~"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "bindings",
+            "<>vhost</>",
+            "e",
+            "<>source_exchange</>",
+            "e",
+            "<>destination_exchange</>",
+            "<>properties_key</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5791cf37-ecfa-41d3-a099-5a94604c3112",
+      "name": "Vhosts - Get all vhosts",
+      "description": "Lista todos os virtual hosts do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "d945da6a-ccbb-4654-bd73-8b67aa645282",
+      "name": "Vhosts - Get vhost",
+      "description": "Retorna as métricas de um virtual host específico.",
+      "parameters": [
+        {
+          "id": "8146478d-9aa7-4c45-a804-a23af7a6ffa0",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "dcdd8fde-1d08-4a4f-a027-dc6d1be7adb4",
+      "name": "Vhosts - Create vhost",
+      "description": "Cria ou atualiza um virtual host.",
+      "parameters": [
+        {
+          "id": "f45afaa4-9187-49f6-bada-c22f3ad3a931",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "bb3a1be3-4601-4f37-9904-d3125d585e1c",
+          "name": "vhost_config",
+          "type": "object",
+          "description": "Configuração do virtual host.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{\"description\": \"Meu vhost\", \"tags\": \"production\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>vhost_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c7e25371-f66e-4746-bde9-3f6946c32690",
+      "name": "Vhosts - Delete vhost",
+      "description": "Remove um virtual host e todo o seu conteúdo.",
+      "parameters": [
+        {
+          "id": "03c65fac-0d3c-4ef7-944c-7fbd525f8408",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "836c51f0-1b0c-4086-b28d-043460412c8e",
+      "name": "Vhosts - Get vhost permissions",
+      "description": "Lista as permissões concedidas em um virtual host.",
+      "parameters": [
+        {
+          "id": "23b73ee8-4ade-497b-858a-019be219b918",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts",
+            "<>vhost</>",
+            "permissions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f0ca9c84-7647-4440-8c6c-e8e2dc6e2498",
+      "name": "Vhosts - Get vhost topic permissions",
+      "description": "Lista as permissões de tópico em um virtual host.",
+      "parameters": [
+        {
+          "id": "b8b01ce9-fbd9-48a4-ad7a-f8d5bbaa2f6b",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts",
+            "<>vhost</>",
+            "topic-permissions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "7ae10f2f-b896-4b86-b853-b6c2ef1927b7",
+      "name": "Vhosts - Enable deletion protection",
+      "description": "Ativa a proteção contra exclusão de um virtual host.",
+      "parameters": [
+        {
+          "id": "a034dad0-7c40-4bae-bed1-d0f3b848dd4b",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts",
+            "<>vhost</>",
+            "deletion",
+            "protection"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "3090144f-2b2c-4841-8937-77a42aa1084d",
+      "name": "Vhosts - Disable deletion protection",
+      "description": "Desativa a proteção contra exclusão de um virtual host.",
+      "parameters": [
+        {
+          "id": "0dc149af-2020-48ad-a62c-75eb45043f1c",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts",
+            "<>vhost</>",
+            "deletion",
+            "protection"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "0949f6f6-c0b8-4fca-8d30-5244784d4d8d",
+      "name": "Vhosts - Start vhost on node",
+      "description": "Inicia um virtual host em um nó específico do cluster.",
+      "parameters": [
+        {
+          "id": "6b5ffd96-8ade-48e5-801a-7d2a36f86eb6",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "66e8fb1a-98cd-4130-b278-95839f345dce",
+          "name": "node_name",
+          "type": "string",
+          "description": "Nome do nó do cluster RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "rabbit@localhost"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhosts",
+            "<>vhost</>",
+            "start",
+            "<>node_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "49defd5d-a8de-4122-9719-d93db151aed8",
+      "name": "Users - Get all users",
+      "description": "Lista todos os usuários do banco interno do RabbitMQ.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "users"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c43ccfea-e56c-4f65-9be6-45aeeea9241f",
+      "name": "Users - Get users without permissions",
+      "description": "Lista os usuários que não possuem nenhuma permissão.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "users",
+            "without-permissions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b1ee46b8-dd5f-49e0-a965-72b4835102d4",
+      "name": "Users - Bulk delete users",
+      "description": "Remove vários usuários em uma única requisição.",
+      "parameters": [
+        {
+          "id": "aa43b894-f2ab-42f4-9e2f-a9ee1eb06c81",
+          "name": "users",
+          "type": "object",
+          "description": "Lista de usuários a remover.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"users\": [\"usuario1\", \"usuario2\"]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "users",
+            "bulk-delete"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>users</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a839a2e2-5e22-4ea9-84d7-642298f00f53",
+      "name": "Users - Get user",
+      "description": "Retorna os dados de um usuário específico.",
+      "parameters": [
+        {
+          "id": "41ba7fc6-24c4-4328-be47-fc316e1bf3a7",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "users",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "18c325d5-25aa-426d-8eda-c91f6e5159d5",
+      "name": "Users - Create or update user",
+      "description": "Cria ou atualiza um usuário do banco interno.",
+      "parameters": [
+        {
+          "id": "2e16e339-7b20-4534-8294-7ab8d55b1ea9",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        },
+        {
+          "id": "a222e9b8-2059-4f36-8c61-75ba1f6b544d",
+          "name": "user_config",
+          "type": "object",
+          "description": "Dados do usuário a criar ou atualizar.",
+          "required": true,
+          "sensitive": true,
+          "sample": "{\"password\": \"exemplo\", \"tags\": \"administrator\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "users",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>user_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "ac3d3b7b-3cf2-439d-b238-5ff7d7a6d75f",
+      "name": "Users - Delete user",
+      "description": "Remove um usuário do banco interno.",
+      "parameters": [
+        {
+          "id": "95e99244-479b-472b-ba7b-a76f9584fa59",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "users",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "50e6dd0b-ea06-487b-be20-91940c446d92",
+      "name": "Users - Get user permissions",
+      "description": "Lista as permissões de um usuário em todos os vhosts.",
+      "parameters": [
+        {
+          "id": "4a8f02c4-652b-457e-bd42-821e3de69159",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "users",
+            "<>username</>",
+            "permissions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "2443df82-e23d-4aa6-bec0-9e1f49788715",
+      "name": "Users - Get user topic permissions",
+      "description": "Lista as permissões de tópico de um usuário.",
+      "parameters": [
+        {
+          "id": "0a745807-2804-4bfa-9c6c-62b863b4c113",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "users",
+            "<>username</>",
+            "topic-permissions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "af765715-9598-4a44-ab96-36354ca69730",
+      "name": "Users - Get user queues",
+      "description": "Lista as filas declaradas por um usuário.",
+      "parameters": [
+        {
+          "id": "6a7772c9-e26a-4fa7-a038-205316b3f1d0",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "users",
+            "<>username</>",
+            "queues"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "6dbc613d-0d36-4ccd-bae3-0a846389ce01",
+      "name": "User Limits - Get all user limits",
+      "description": "Lista os limites por usuário de todos os usuários.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "user-limits"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "ee8c03f2-d659-4f65-811c-ffed55427e63",
+      "name": "User Limits - Get user limits",
+      "description": "Lista os limites configurados para um usuário.",
+      "parameters": [
+        {
+          "id": "4481aaf1-7655-47d7-bc1a-807f309ac378",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "user-limits",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "d3e870b7-6404-43b6-aeac-55fda4e1ed72",
+      "name": "User Limits - Set user limit",
+      "description": "Define um limite para um usuário.",
+      "parameters": [
+        {
+          "id": "6d930b34-bb8b-454d-9e83-15df0e340dbc",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        },
+        {
+          "id": "10c2aaa8-2d09-491b-b828-78ef9fe1d015",
+          "name": "limit_name",
+          "type": "string",
+          "description": "Nome do limite a definir ou remover.",
+          "required": true,
+          "sensitive": false,
+          "sample": "max-connections"
+        },
+        {
+          "id": "28a21182-2797-45d2-b3a4-a7efcfdde98c",
+          "name": "limit_config",
+          "type": "object",
+          "description": "Valor do limite a aplicar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"value\": 100}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "user-limits",
+            "<>username</>",
+            "<>limit_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>limit_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "857303ba-1861-4ba2-8b81-f28fab01eded",
+      "name": "User Limits - Clear user limit",
+      "description": "Remove um limite configurado para um usuário.",
+      "parameters": [
+        {
+          "id": "5c52a6c0-6bb4-4e0c-a4f5-778180d75e27",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        },
+        {
+          "id": "11fa3fdb-309c-4b0f-a4a5-7018c2090f1b",
+          "name": "limit_name",
+          "type": "string",
+          "description": "Nome do limite a definir ou remover.",
+          "required": true,
+          "sensitive": false,
+          "sample": "max-connections"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "user-limits",
+            "<>username</>",
+            "<>limit_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "7e68cad0-1ffa-428f-bb0d-8e5685f5febf",
+      "name": "Permissions - Get all permissions",
+      "description": "Lista todas as permissões de usuários do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "permissions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f27464bf-21bf-4f47-8769-42c9ad7ae0c3",
+      "name": "Permissions - Get user permissions in vhost",
+      "description": "Retorna as permissões de um usuário em um virtual host.",
+      "parameters": [
+        {
+          "id": "bfcbd187-2681-4fed-98e1-88de14a19929",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "484151ef-9b31-4a1f-bb52-532c3ec47a7f",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "permissions",
+            "<>vhost</>",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "78b5b307-6814-45ca-b43e-5093db6910ed",
+      "name": "Permissions - Set user permissions",
+      "description": "Concede ou atualiza as permissões de um usuário em um vhost.",
+      "parameters": [
+        {
+          "id": "2143659b-9d37-486c-a83f-b99b1306d475",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "91b3eab8-6fea-4d28-b093-dac988be1502",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        },
+        {
+          "id": "49c4d0a1-e511-44bc-9a04-41854fd36ecd",
+          "name": "permissions_config",
+          "type": "object",
+          "description": "Permissões de configure, write e read.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"configure\": \".*\", \"write\": \".*\", \"read\": \".*\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "permissions",
+            "<>vhost</>",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>permissions_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b3e633b3-d5da-4f7c-9fdc-ffe974c6bcc7",
+      "name": "Permissions - Delete user permissions",
+      "description": "Revoga as permissões de um usuário em um virtual host.",
+      "parameters": [
+        {
+          "id": "0d906573-3054-47b2-9db0-d6b787c5baf0",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "4aaedfc0-c83c-4f4f-991a-8df0ffea8f41",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "permissions",
+            "<>vhost</>",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "4138b068-25a5-4f92-beca-b43f136be923",
+      "name": "Topic Permissions - Get all topic permissions",
+      "description": "Lista todas as permissões de tópico do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "topic-permissions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "37c179ba-1e4e-480d-b253-b88daaa0650e",
+      "name": "Topic Permissions - Get user topic permissions",
+      "description": "Retorna as permissões de tópico de um usuário em um vhost.",
+      "parameters": [
+        {
+          "id": "90e34c92-e183-4507-8c24-db93737ba33a",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "71aa72b3-af0b-41da-acf3-b18fca0e9d28",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "topic-permissions",
+            "<>vhost</>",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "84806222-80f0-40d5-8fe3-2e3c54657386",
+      "name": "Topic Permissions - Set user topic permissions",
+      "description": "Concede ou atualiza permissões de tópico de um usuário.",
+      "parameters": [
+        {
+          "id": "f9e04681-33c0-4bdf-ba31-1d1ec7edb7cf",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "fae7a52c-544a-48da-a1c6-d01d3896696c",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        },
+        {
+          "id": "51dfbcf5-9b71-4064-92ae-b07d74e88bfd",
+          "name": "topic_permissions_config",
+          "type": "object",
+          "description": "Permissões de tópico para o exchange informado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"exchange\": \"amq.topic\", \"write\": \".*\", \"read\": \".*\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "topic-permissions",
+            "<>vhost</>",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>topic_permissions_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "330243a2-abe4-4e52-908c-ca1a6cbb0ac4",
+      "name": "Topic Permissions - Delete user topic permissions",
+      "description": "Revoga as permissões de tópico de um usuário em um vhost.",
+      "parameters": [
+        {
+          "id": "13e308c1-5968-4c55-a3da-27d009173831",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "43896846-05d9-4a4e-806a-4521560a81ff",
+          "name": "username",
+          "type": "string",
+          "description": "Nome do usuário do RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "guest"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "topic-permissions",
+            "<>vhost</>",
+            "<>username</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "7d782660-3c0d-4eb3-9dd1-445097fedf60",
+      "name": "Parameters - Get all parameters",
+      "description": "Lista todos os parâmetros de runtime do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "parameters"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b90e97dc-34fc-4c2d-9fd3-9f92ca27ea1f",
+      "name": "Parameters - Get parameters by component",
+      "description": "Lista os parâmetros de runtime de um componente.",
+      "parameters": [
+        {
+          "id": "05f21fd6-fcc7-4852-a354-dbbe9037f71d",
+          "name": "component",
+          "type": "string",
+          "description": "Nome do componente do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "federation-upstream"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "parameters",
+            "<>component</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "10e2a05a-b9c4-42c5-a0a4-db3139cd593f",
+      "name": "Parameters - Get parameters by component and vhost",
+      "description": "Lista os parâmetros de um componente em um virtual host.",
+      "parameters": [
+        {
+          "id": "bc8a9749-4d0c-438d-b492-36544f533572",
+          "name": "component",
+          "type": "string",
+          "description": "Nome do componente do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "federation-upstream"
+        },
+        {
+          "id": "d539f066-3391-4376-85bb-ced6c9b7fbc5",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "parameters",
+            "<>component</>",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c2b6640e-56b3-4cc6-80ed-cccc01bb82d9",
+      "name": "Parameters - Get parameter",
+      "description": "Retorna um parâmetro de runtime específico.",
+      "parameters": [
+        {
+          "id": "43c3a16c-cf18-416f-8e5f-20e89e3f1159",
+          "name": "component",
+          "type": "string",
+          "description": "Nome do componente do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "federation-upstream"
+        },
+        {
+          "id": "bc33e2e3-10a9-4c79-98fa-8e67e9b5342b",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "b68fe8ac-0880-4e71-856e-ef59c5c00b16",
+          "name": "parameter_name",
+          "type": "string",
+          "description": "Nome do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "meu-parametro"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "parameters",
+            "<>component</>",
+            "<>vhost</>",
+            "<>parameter_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c11bc061-db6f-43a8-a66a-511fd82eefec",
+      "name": "Parameters - Set parameter",
+      "description": "Cria ou atualiza um parâmetro de runtime.",
+      "parameters": [
+        {
+          "id": "cffbe241-1f58-4438-a2a0-462f69e6288e",
+          "name": "component",
+          "type": "string",
+          "description": "Nome do componente do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "federation-upstream"
+        },
+        {
+          "id": "971ebbe7-05e5-4bc1-b0d2-9be743e76061",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "6b6c01bc-73ea-4f22-b91c-a3e6d49803f9",
+          "name": "parameter_name",
+          "type": "string",
+          "description": "Nome do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "meu-parametro"
+        },
+        {
+          "id": "e35de0a0-68cc-4e99-ad59-15ab245b7541",
+          "name": "parameter_config",
+          "type": "object",
+          "description": "Valor do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"value\": {}}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "parameters",
+            "<>component</>",
+            "<>vhost</>",
+            "<>parameter_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>parameter_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "beb36828-d054-4c3e-8f09-1120a16c4ef8",
+      "name": "Parameters - Delete parameter",
+      "description": "Remove um parâmetro de runtime.",
+      "parameters": [
+        {
+          "id": "09ffc45b-2717-49bb-9f80-aac8b3b9d572",
+          "name": "component",
+          "type": "string",
+          "description": "Nome do componente do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "federation-upstream"
+        },
+        {
+          "id": "b791811e-867e-45ad-a8de-a10175602260",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "11cda955-4a96-4d60-b01d-1b7c875f7832",
+          "name": "parameter_name",
+          "type": "string",
+          "description": "Nome do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "meu-parametro"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "parameters",
+            "<>component</>",
+            "<>vhost</>",
+            "<>parameter_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "01a29f45-fa43-4a70-90ec-be2fcf0adc51",
+      "name": "Global Parameters - Get all global parameters",
+      "description": "Lista todos os parâmetros globais de runtime.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "global-parameters"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "2ebccd95-5f76-41d6-b22a-e36663d01027",
+      "name": "Global Parameters - Get global parameter",
+      "description": "Retorna um parâmetro global específico.",
+      "parameters": [
+        {
+          "id": "f712d366-537f-46bf-980d-1a37e8d2d199",
+          "name": "parameter_name",
+          "type": "string",
+          "description": "Nome do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "meu-parametro"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "global-parameters",
+            "<>parameter_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "3aaa7c4e-4b2b-4bd6-97d8-c1edabe7d181",
+      "name": "Global Parameters - Set global parameter",
+      "description": "Cria ou atualiza um parâmetro global de runtime.",
+      "parameters": [
+        {
+          "id": "66d7deef-bac4-49fc-953e-4474b653cef1",
+          "name": "parameter_name",
+          "type": "string",
+          "description": "Nome do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "meu-parametro"
+        },
+        {
+          "id": "3ec6e1b1-62bf-4139-927c-bfffc90a7f3d",
+          "name": "parameter_config",
+          "type": "object",
+          "description": "Valor do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"value\": {}}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "global-parameters",
+            "<>parameter_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>parameter_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "9d29989c-c3f2-409b-aa95-8cee5552024d",
+      "name": "Global Parameters - Delete global parameter",
+      "description": "Remove um parâmetro global de runtime.",
+      "parameters": [
+        {
+          "id": "71ceb8da-a983-4aa2-be3f-b0aeadd06b99",
+          "name": "parameter_name",
+          "type": "string",
+          "description": "Nome do parâmetro de runtime.",
+          "required": true,
+          "sensitive": false,
+          "sample": "meu-parametro"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "global-parameters",
+            "<>parameter_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "bb34cb89-a91c-4dda-9547-e9f375d55e7b",
+      "name": "Policies - Get all policies",
+      "description": "Lista todas as policies do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "policies"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5c42860a-90d8-45c7-a68c-cebb2dc27240",
+      "name": "Policies - Get policies by vhost",
+      "description": "Lista as policies de um virtual host.",
+      "parameters": [
+        {
+          "id": "feac3808-9766-48ab-9f4c-eb414dcb05c7",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "policies",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "855ada6f-85e5-4cad-badb-33c980d842f6",
+      "name": "Policies - Get policy",
+      "description": "Retorna uma policy específica.",
+      "parameters": [
+        {
+          "id": "bf348440-01e6-4768-b1a0-26673950becd",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "ba6b2b9a-dfa2-4810-bf9e-ec3db68af4d2",
+          "name": "policy_name",
+          "type": "string",
+          "description": "Nome da policy.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ha-all"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "policies",
+            "<>vhost</>",
+            "<>policy_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "ce137141-0908-4cd7-a400-78ff0d245821",
+      "name": "Policies - Create or update policy",
+      "description": "Cria ou atualiza uma policy em um virtual host.",
+      "parameters": [
+        {
+          "id": "72387a42-9d4a-48cc-bcf4-63e5f68982be",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "2177c382-5f5b-44a5-86ea-d03c8096b57e",
+          "name": "policy_name",
+          "type": "string",
+          "description": "Nome da policy.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ha-all"
+        },
+        {
+          "id": "0d3aac8c-c241-4aa3-aa32-6dc7db9fd981",
+          "name": "policy_config",
+          "type": "object",
+          "description": "Definição da policy.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"pattern\": \".*\", \"definition\": {\"ha-mode\": \"all\"}, \"priority\": 0, \"apply-to\": \"queues\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "policies",
+            "<>vhost</>",
+            "<>policy_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>policy_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "e6b0f888-f81f-4010-aaf0-2c320767705c",
+      "name": "Policies - Delete policy",
+      "description": "Remove uma policy de um virtual host.",
+      "parameters": [
+        {
+          "id": "33438a8c-bd32-4a8b-9e0d-d5ae3cd7ad50",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "de945f67-3a29-4bb5-bbbe-13e9cc4d7721",
+          "name": "policy_name",
+          "type": "string",
+          "description": "Nome da policy.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ha-all"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "policies",
+            "<>vhost</>",
+            "<>policy_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "08d047a1-d2b3-43e6-98bd-089a78b10037",
+      "name": "Operator Policies - Get all operator policies",
+      "description": "Lista todas as operator policies do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "operator-policies"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "d2c646b8-2605-4e21-b8d9-1b3e9e75b001",
+      "name": "Operator Policies - Get operator policies by vhost",
+      "description": "Lista as operator policies de um virtual host.",
+      "parameters": [
+        {
+          "id": "f22a4803-fd62-4918-8c16-e248c12d4b2a",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "operator-policies",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "444ab6cd-c1f2-4d25-ada3-6f3371d4618d",
+      "name": "Operator Policies - Get operator policy",
+      "description": "Retorna uma operator policy específica.",
+      "parameters": [
+        {
+          "id": "8ddabc7d-06b5-443a-a57d-8cadb8142cdf",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "237ea2f4-600f-4375-9416-da4577319499",
+          "name": "policy_name",
+          "type": "string",
+          "description": "Nome da policy.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ha-all"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "operator-policies",
+            "<>vhost</>",
+            "<>policy_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a47f2daf-aea5-4d4d-b295-23a2fb0e19b4",
+      "name": "Operator Policies - Create or update operator policy",
+      "description": "Cria ou atualiza uma operator policy em um virtual host.",
+      "parameters": [
+        {
+          "id": "60279320-26e3-41aa-9868-ce3277dbf0e9",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "14cceb46-eac9-4a59-8f83-101c3a2319d7",
+          "name": "policy_name",
+          "type": "string",
+          "description": "Nome da policy.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ha-all"
+        },
+        {
+          "id": "9395e1a9-dea4-4e4c-891e-433d7b2d3fe0",
+          "name": "operator_policy_config",
+          "type": "object",
+          "description": "Definição da operator policy.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"pattern\": \".*\", \"definition\": {\"max-length\": 1000}, \"priority\": 0, \"apply-to\": \"queues\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "operator-policies",
+            "<>vhost</>",
+            "<>policy_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>operator_policy_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5fd03428-fc32-4ecd-8da8-8dc66f1a1013",
+      "name": "Operator Policies - Delete operator policy",
+      "description": "Remove uma operator policy de um virtual host.",
+      "parameters": [
+        {
+          "id": "580f8c1a-7cdc-4bdf-899d-2ac6f3341887",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "b2939c31-6555-4a0a-97b7-62d037c408ed",
+          "name": "policy_name",
+          "type": "string",
+          "description": "Nome da policy.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ha-all"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "operator-policies",
+            "<>vhost</>",
+            "<>policy_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "341d39cf-1db3-4e2d-930f-91035b094814",
+      "name": "Vhost Limits - Get all vhost limits",
+      "description": "Lista os limites de todos os virtual hosts.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhost-limits"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f2539cc2-3edd-4e29-921d-08029448a68d",
+      "name": "Vhost Limits - Get vhost limits",
+      "description": "Lista os limites configurados para um virtual host.",
+      "parameters": [
+        {
+          "id": "411b1c51-c82d-4c49-83ff-cadc9b32215c",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhost-limits",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "1da5b108-e6bd-4c97-a4ba-005259423101",
+      "name": "Vhost Limits - Set vhost limit",
+      "description": "Define um limite para um virtual host.",
+      "parameters": [
+        {
+          "id": "56f448f1-66f2-454f-b6ae-7be6ec14e103",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "1200f254-71cf-48cb-a1c2-3e85013ecbf4",
+          "name": "limit_name",
+          "type": "string",
+          "description": "Nome do limite a definir ou remover.",
+          "required": true,
+          "sensitive": false,
+          "sample": "max-connections"
+        },
+        {
+          "id": "0466a37f-8803-44c7-b93f-f8a0510755a2",
+          "name": "limit_config",
+          "type": "object",
+          "description": "Valor do limite a aplicar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"value\": 100}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhost-limits",
+            "<>vhost</>",
+            "<>limit_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>limit_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "650f4f1e-db9f-4630-8d58-f36a8e051ecd",
+      "name": "Vhost Limits - Clear vhost limit",
+      "description": "Remove um limite configurado para um virtual host.",
+      "parameters": [
+        {
+          "id": "1e8ca0e4-77fd-4964-9b60-8461cad7d4fe",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "642df122-4368-4b4f-af73-ea288bcc4c81",
+          "name": "limit_name",
+          "type": "string",
+          "description": "Nome do limite a definir ou remover.",
+          "required": true,
+          "sensitive": false,
+          "sample": "max-connections"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "vhost-limits",
+            "<>vhost</>",
+            "<>limit_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c585f33e-3d8c-4c35-9112-525e0b223293",
+      "name": "Federation - Get all federation links",
+      "description": "Lista o status de todos os links de federação.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "federation-links"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "07b2ee90-d256-40f8-b4e2-e355097f4528",
+      "name": "Federation - Get federation links by vhost",
+      "description": "Lista os links de federação de um virtual host.",
+      "parameters": [
+        {
+          "id": "a53c0f02-698a-43ca-9dbb-319dc535c21e",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "federation-links",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "0819d364-d520-4e05-b733-f42f1becac45",
+      "name": "Health - Check alarms",
+      "description": "Verifica se há alarmes de recurso ativos no cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "health",
+            "checks",
+            "alarms"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "0d485ece-792e-470f-898c-bc6a9066ea8d",
+      "name": "Health - Check local alarms",
+      "description": "Verifica se há alarmes de recurso ativos no nó local.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "health",
+            "checks",
+            "local-alarms"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "4dca2a6f-5926-4d71-9b9b-f154885be05f",
+      "name": "Health - Check certificate expiration",
+      "description": "Verifica se algum certificado expira dentro da janela informada.",
+      "parameters": [
+        {
+          "id": "8edd7c6b-870d-4b1e-9787-22e145d30c2c",
+          "name": "within",
+          "type": "number",
+          "description": "Janela de tempo usada na checagem de expiração de certificados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "15935dac-5370-4381-9a79-3d84ffa7f545",
+          "name": "unit",
+          "type": "string",
+          "description": "Unidade da janela: days, weeks, months ou years.",
+          "required": true,
+          "sensitive": false,
+          "sample": "months"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "health",
+            "checks",
+            "certificate-expiration",
+            "<>within</>",
+            "<>unit</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "acef9bdb-46aa-4e77-a2aa-816b931d9e64",
+      "name": "Health - Check port listener",
+      "description": "Verifica se há um listener ativo na porta informada.",
+      "parameters": [
+        {
+          "id": "307d4740-9ea6-4a10-a200-2ff36b192ed2",
+          "name": "port",
+          "type": "number",
+          "description": "Porta TCP cuja escuta será verificada.",
+          "required": true,
+          "sensitive": false,
+          "sample": "5672"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "health",
+            "checks",
+            "port-listener",
+            "<>port</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "e7e20a94-9d50-4135-8345-d4236df1ce1f",
+      "name": "Health - Check protocol listener",
+      "description": "Verifica se há listeners ativos para os protocolos informados.",
+      "parameters": [
+        {
+          "id": "01f2ca2e-85be-4bde-b6cb-57b1fd459dce",
+          "name": "protocols",
+          "type": "string",
+          "description": "Protocolos a verificar, separados por vírgula.",
+          "required": true,
+          "sensitive": false,
+          "sample": "amqp091,http"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "health",
+            "checks",
+            "protocol-listener",
+            "<>protocols</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "3596c481-eb22-4692-a5a1-63ad30f32e85",
+      "name": "Health - Check virtual hosts",
+      "description": "Verifica se todos os virtual hosts do nó estão operacionais.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "health",
+            "checks",
+            "virtual-hosts"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "2ac86d80-196b-4554-887d-bdc21de8d009",
+      "name": "Health - Check node quorum criticality",
+      "description": "Verifica se há filas quorum sem redundância no nó.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "health",
+            "checks",
+            "node-is-quorum-critical"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "af17b4cd-6788-46e0-b4f6-5ee50cbbc056",
+      "name": "Health - Check node is in service",
+      "description": "Verifica se o nó está em serviço e pronto para uso.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "health",
+            "checks",
+            "is-in-service"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f019e913-cd17-4c26-a6b5-d123032e9d27",
+      "name": "Health - Check node connection limit",
+      "description": "Verifica se o nó está abaixo do limite de conexões.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "health",
+            "checks",
+            "below-node-connection-limit"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "33adbfb2-6b08-49c2-91d7-392b4a7b4fed",
+      "name": "Health - Check ready to serve clients",
+      "description": "Verifica se o nó está pronto para atender clientes.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "health",
+            "checks",
+            "ready-to-serve-clients"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "6c34ee08-b22b-425d-a3cc-2bf028c987c3",
+      "name": "Streams - Get all stream connections",
+      "description": "Lista todas as conexões do protocolo stream.",
+      "parameters": [
+        {
+          "id": "901db20b-6cda-4d00-a168-91553d9a69b2",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "edf401cf-4c66-46c2-9f76-1be98e7a1d64",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "b0ab0162-8e3c-4c79-85cf-d048036ec569",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "8898fd7c-b2d7-4b1f-aa34-596e0b070757",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "95448536-29e4-4576-8d4f-e7c321767727",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "7deb406d-377e-4902-97ff-5f7ca7b2ebef",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "337fa36a-1cc5-4217-8435-96cefb501b46",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "connections"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "067ee60b-fffa-48d9-a64d-8e14cef0e2c1",
+      "name": "Streams - Get stream connections by vhost",
+      "description": "Lista as conexões stream de um virtual host.",
+      "parameters": [
+        {
+          "id": "5f7a80eb-1f0e-43ae-8b28-2f79bf8cdd5a",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "dc599401-3d35-45ba-848c-7108a46d4c10",
+          "name": "page",
+          "type": "number",
+          "description": "Número da página a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "b7e4c953-3c6f-428e-b0ce-e3a48e9edef0",
+          "name": "page_size",
+          "type": "number",
+          "description": "Quantidade de itens por página.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "900f833d-f3d0-4669-b2f5-f97b9a152f46",
+          "name": "name",
+          "type": "string",
+          "description": "Filtro por nome, combinado com use_regex.",
+          "required": false,
+          "sensitive": false,
+          "sample": "amq"
+        },
+        {
+          "id": "03cfeff0-2968-4816-a1f2-07b16e019b14",
+          "name": "use_regex",
+          "type": "string",
+          "description": "Se true, trata o filtro name como expressão regular.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "3097c72a-78ec-4601-9082-425b3b036818",
+          "name": "sort",
+          "type": "string",
+          "description": "Campo usado para ordenar os resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name"
+        },
+        {
+          "id": "33eabe5f-3088-4562-b6a2-739bfbd683a7",
+          "name": "sort_reverse",
+          "type": "string",
+          "description": "Se true, inverte a ordem da ordenação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "6783886f-a9df-443f-9ee2-7a2a8c5c6596",
+          "name": "columns",
+          "type": "string",
+          "description": "Colunas a retornar, separadas por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "name,vhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "connections",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "name",
+            "value": "<>name</>",
+            "enabled": true
+          },
+          {
+            "key": "use_regex",
+            "value": "<>use_regex</>",
+            "enabled": true
+          },
+          {
+            "key": "sort",
+            "value": "<>sort</>",
+            "enabled": true
+          },
+          {
+            "key": "sort_reverse",
+            "value": "<>sort_reverse</>",
+            "enabled": true
+          },
+          {
+            "key": "columns",
+            "value": "<>columns</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "cbba00d2-8f22-45e2-8ea7-1eff92abbb6c",
+      "name": "Streams - Get stream connection",
+      "description": "Retorna os detalhes de uma conexão stream específica.",
+      "parameters": [
+        {
+          "id": "0f19c8a8-66b8-4032-b581-7344c025bc98",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "784e6667-a53e-494c-9e4f-424989c2cfc4",
+          "name": "connection_name",
+          "type": "string",
+          "description": "Nome da conexão, URL-encoded.",
+          "required": true,
+          "sensitive": false,
+          "sample": "127.0.0.1%3A52048%20-%3E%20127.0.0.1%3A5672"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "connections",
+            "<>vhost</>",
+            "<>connection_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "97b028ea-d5a7-4226-90cf-addcfc1fbe65",
+      "name": "Streams - Close stream connection",
+      "description": "Encerra uma conexão do protocolo stream.",
+      "parameters": [
+        {
+          "id": "c721fe53-6abc-4c36-adf5-a101514ba4db",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "cca95e87-a7c1-4267-a089-e14296dd5a97",
+          "name": "connection_name",
+          "type": "string",
+          "description": "Nome da conexão, URL-encoded.",
+          "required": true,
+          "sensitive": false,
+          "sample": "127.0.0.1%3A52048%20-%3E%20127.0.0.1%3A5672"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "connections",
+            "<>vhost</>",
+            "<>connection_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "e01d84aa-1eb4-4cc6-a703-f0d14637df7f",
+      "name": "Streams - Get connection publishers",
+      "description": "Lista os publishers ativos em uma conexão stream.",
+      "parameters": [
+        {
+          "id": "c2cd0ce0-9f58-469e-a2b0-9d80d5a87440",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "23c1923b-6402-4566-bdb3-02d4731758b0",
+          "name": "connection_name",
+          "type": "string",
+          "description": "Nome da conexão, URL-encoded.",
+          "required": true,
+          "sensitive": false,
+          "sample": "127.0.0.1%3A52048%20-%3E%20127.0.0.1%3A5672"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "connections",
+            "<>vhost</>",
+            "<>connection_name</>",
+            "publishers"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f33afa10-d758-4a2b-8779-47d1899d2b36",
+      "name": "Streams - Get connection consumers",
+      "description": "Lista os consumidores ativos em uma conexão stream.",
+      "parameters": [
+        {
+          "id": "0527d9f1-4f7b-4edf-8f37-1a7803c50676",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "b79723bc-277c-4e60-b082-b0e8ba69dcea",
+          "name": "connection_name",
+          "type": "string",
+          "description": "Nome da conexão, URL-encoded.",
+          "required": true,
+          "sensitive": false,
+          "sample": "127.0.0.1%3A52048%20-%3E%20127.0.0.1%3A5672"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "connections",
+            "<>vhost</>",
+            "<>connection_name</>",
+            "consumers"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "adc5834a-4768-4f41-95e3-f789cdde61b8",
+      "name": "Streams - Get all stream publishers",
+      "description": "Lista todos os publishers de stream do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "publishers"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "011dc7f6-1ace-4c01-8b41-a22020ac7fe1",
+      "name": "Streams - Get stream publishers by vhost",
+      "description": "Lista os publishers de stream de um virtual host.",
+      "parameters": [
+        {
+          "id": "17ad3edf-24cb-40bf-acae-9866eee4c737",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "publishers",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "9682059f-7d5c-4144-8df7-e38db9a19d6f",
+      "name": "Streams - Get publishers by stream",
+      "description": "Lista os publishers que escrevem em um stream específico.",
+      "parameters": [
+        {
+          "id": "7bca9fd2-fe4c-4127-9727-9adc79fa4da8",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        },
+        {
+          "id": "0f6488e8-2435-4c74-ae7a-0d88c80e1077",
+          "name": "stream_name",
+          "type": "string",
+          "description": "Nome do stream.",
+          "required": true,
+          "sensitive": false,
+          "sample": "meu-stream"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "publishers",
+            "<>vhost</>",
+            "<>stream_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a71a14ba-830c-4e11-8bd2-9942f9c25e12",
+      "name": "Streams - Get all stream consumers",
+      "description": "Lista todos os consumidores de stream do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "consumers"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "1098a923-9016-4d95-8d10-461c4b19ff89",
+      "name": "Streams - Get stream consumers by vhost",
+      "description": "Lista os consumidores de stream de um virtual host.",
+      "parameters": [
+        {
+          "id": "5184cd9b-8d04-401f-a399-859b7499ae65",
+          "name": "vhost",
+          "type": "string",
+          "description": "Nome do virtual host, URL-encoded (o padrão `/` vira %2F).",
+          "required": true,
+          "sensitive": false,
+          "sample": "%2F"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "stream",
+            "consumers",
+            "<>vhost</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a22512ae-1994-4799-b8d5-285766f2ab37",
+      "name": "Auth - Get auth attempts by node",
+      "description": "Lista as tentativas de autenticação registradas em um nó.",
+      "parameters": [
+        {
+          "id": "e5e79e51-7231-4453-9c8a-7e0399999f39",
+          "name": "node_name",
+          "type": "string",
+          "description": "Nome do nó do cluster RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "rabbit@localhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "auth",
+            "attempts",
+            "<>node_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "0018b28c-a6c0-4821-9e90-e126cca169c3",
+      "name": "Auth - Get auth attempts by source",
+      "description": "Lista as tentativas de autenticação agrupadas por origem.",
+      "parameters": [
+        {
+          "id": "02522c75-4f1b-432a-9bcb-4888764bd9ba",
+          "name": "node_name",
+          "type": "string",
+          "description": "Nome do nó do cluster RabbitMQ.",
+          "required": true,
+          "sensitive": false,
+          "sample": "rabbit@localhost"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "auth",
+            "attempts",
+            "<>node_name</>",
+            "source"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "35c7252f-57e9-4118-88c8-9a17dfedc268",
+      "name": "Auth - Hash password",
+      "description": "Gera o hash de uma senha com o algoritmo configurado no cluster.",
+      "parameters": [
+        {
+          "id": "33051e3f-0f36-4998-b1f6-aaa49b88abb3",
+          "name": "password",
+          "type": "string",
+          "description": "Senha em texto plano a ser convertida em hash.",
+          "required": true,
+          "sensitive": true,
+          "sample": "s3nh4-exemplo"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "auth",
+            "hash_password",
+            "<>password</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c32df78c-6a81-4a81-8e39-916c03baa67b",
+      "name": "Auth - Get OAuth configuration",
+      "description": "Retorna a configuração de OAuth 2 do plugin de gerenciamento.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "auth"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b3028cac-2a9a-4cb0-9735-7d6e811715d9",
+      "name": "Extensions - Get all extensions",
+      "description": "Lista as extensões registradas no plugin de gerenciamento.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "extensions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "66bb9dd0-70d9-4d63-9cb9-f7f141c4e28c",
+      "name": "Cluster - Rebalance queues",
+      "description": "Redistribui as líderes das filas entre os nós do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "rebalance",
+            "queues"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    }
+  ]
+}
