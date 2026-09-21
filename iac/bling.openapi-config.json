@@ -1,0 +1,42 @@
+{
+  "module": {
+    "name": "Bling",
+    "description": "Bling API 3.0 - ERP de gestão para pequenas e médias empresas (vendas, estoque, financeiro e documentos fiscais)",
+    "authentication_type": "oauth-2",
+    "strip_path_prefix": []
+  },
+  "include_roots": [
+    "anuncios",
+    "borderos",
+    "caixas",
+    "campos-customizados",
+    "canais-venda",
+    "categorias",
+    "contas",
+    "contas-contabeis",
+    "contatos",
+    "contratos",
+    "depositos",
+    "documentos-compartilhados",
+    "empresas",
+    "estoques",
+    "formas-pagamentos",
+    "grupos-produtos",
+    "homologacao",
+    "logisticas",
+    "naturezas-operacoes",
+    "nfce",
+    "nfe",
+    "nfse",
+    "notificacoes",
+    "ordens",
+    "ordens-producao",
+    "pedidos",
+    "produtos",
+    "propostas-comerciais",
+    "situacoes",
+    "usuarios",
+    "vendedores"
+  ],
+  "exclude": []
+}
