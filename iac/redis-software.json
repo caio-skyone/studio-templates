@@ -1,0 +1,2989 @@
+{
+  "id": "d9c50959-eeb7-45fd-8780-97674599669f",
+  "name": "Redis Software",
+  "description": "Conector para a REST API do Redis Software (Redis Enterprise) — gerenciamento de databases, cluster, nós, usuários, roles, ACLs e demais recursos administrativos.",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "basic"
+  },
+  "operations": [
+    {
+      "id": "ccc7966f-eb90-4a3a-bfba-f2e4ab993301",
+      "name": "Actions - Get all actions (v1)",
+      "description": "Lista todas as ações em execução no cluster (v1).",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "actions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "2a45eed2-fec0-43d8-aef8-5ed90fdca08c",
+      "name": "Actions - Get all actions (v2)",
+      "description": "Lista todas as ações em execução no cluster, incluindo import/export/backup (v2).",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v2",
+            "actions"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "32406833-4e66-49f6-a1fb-18da8742e0ae",
+      "name": "Actions - Get action by id (v1)",
+      "description": "Obtém detalhes de uma ação específica pelo uid (v1).",
+      "parameters": [
+        {
+          "id": "28dc227f-d416-4f6c-9661-9022aa201909",
+          "name": "action_uid",
+          "type": "string",
+          "description": "Identificador único da ação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "action:1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "actions",
+            "<>action_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "eb5b1080-a142-4c82-bb45-2ddb7cd94ac8",
+      "name": "Actions - Get action by id (v2)",
+      "description": "Obtém detalhes de uma ação específica pelo uid (v2).",
+      "parameters": [
+        {
+          "id": "90a9eb6f-5097-482e-b2d4-f47eca6927cd",
+          "name": "action_uid",
+          "type": "string",
+          "description": "Identificador único da ação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "action:1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v2",
+            "actions",
+            "<>action_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "fa85909e-23f1-4afb-9f57-b4e3fb16f3ab",
+      "name": "Databases - Get all databases",
+      "description": "Lista todos os bancos de dados do cluster.",
+      "parameters": [
+        {
+          "id": "a63ccdd7-d0dc-48d3-bd2b-9bc8c7dd53bf",
+          "name": "fields",
+          "type": "string",
+          "description": "Lista de campos a retornar, separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "uid,name,status"
+        },
+        {
+          "id": "799d60a9-ce82-498d-a517-29ce8f8880c2",
+          "name": "extended",
+          "type": "string",
+          "description": "Se true, inclui campos estendidos de módulos (search, timeseries, probabilistic).",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "bdbs"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "fields",
+            "value": "<>fields</>",
+            "enabled": true
+          },
+          {
+            "key": "extended",
+            "value": "<>extended</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "ba58972b-8400-4ee3-9f68-b89924aa980b",
+      "name": "Databases - Get database",
+      "description": "Obtém detalhes de um banco de dados específico.",
+      "parameters": [
+        {
+          "id": "5112e2a8-7388-42a5-b536-ea0d56b7867c",
+          "name": "bdb_uid",
+          "type": "number",
+          "description": "Identificador único do banco de dados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "197c7af3-e2b4-4794-a028-2b4e83993773",
+          "name": "fields",
+          "type": "string",
+          "description": "Lista de campos a retornar, separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "uid,name,status"
+        },
+        {
+          "id": "c4ea9b03-5e1a-494e-abf0-3a1e09d99eff",
+          "name": "extended",
+          "type": "string",
+          "description": "Se true, inclui campos estendidos de módulos (search, timeseries, probabilistic).",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "bdbs",
+            "<>bdb_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "fields",
+            "value": "<>fields</>",
+            "enabled": true
+          },
+          {
+            "key": "extended",
+            "value": "<>extended</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "e91f6500-584e-461f-a546-51ee66df968f",
+      "name": "Databases - Update database",
+      "description": "Atualiza a configuração de um banco de dados existente.",
+      "parameters": [
+        {
+          "id": "4a55fea3-f2fd-43dd-9628-cf6e798521ff",
+          "name": "bdb_uid",
+          "type": "number",
+          "description": "Identificador único do banco de dados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "15dc8bf4-3719-4985-847e-2a142271b97d",
+          "name": "dry_run",
+          "type": "string",
+          "description": "Se true, valida a operação sem aplicá-la.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "ce765a11-a8d8-4347-8098-30c1ffdc81cf",
+          "name": "database_config",
+          "type": "object",
+          "description": "Configuração do banco de dados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"memory_size\": 1073741824}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "bdbs",
+            "<>bdb_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>database_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "dry_run",
+            "value": "<>dry_run</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "5441fb95-56e8-4b4a-a0fd-5e22070731fe",
+      "name": "Databases - Update database and run action",
+      "description": "Atualiza configuração do banco de dados e executa uma ação adicional (ex.: flush, reset_admin_pass).",
+      "parameters": [
+        {
+          "id": "5cc86319-b0a9-412a-9d2f-7bc99160f2ae",
+          "name": "bdb_uid",
+          "type": "number",
+          "description": "Identificador único do banco de dados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "d2141ade-7828-423d-a840-40c0ddf87ac0",
+          "name": "action",
+          "type": "string",
+          "description": "Nome da ação a executar no endpoint.",
+          "required": true,
+          "sensitive": false,
+          "sample": "flush"
+        },
+        {
+          "id": "88b5a3df-bc86-4d36-a449-cc85d93c48e4",
+          "name": "database_action_config",
+          "type": "object",
+          "description": "Configuração adicional exigida pela ação, se houver.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "bdbs",
+            "<>bdb_uid</>",
+            "<>action</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>database_action_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "178d5ef9-e557-48d4-94a0-c4ff898b1497",
+      "name": "Databases - Create database (v1)",
+      "description": "Cria um novo banco de dados (v1).",
+      "parameters": [
+        {
+          "id": "ca75f29d-bd90-4acd-be50-0eebf2840936",
+          "name": "dry_run",
+          "type": "string",
+          "description": "Se true, valida a operação sem aplicá-la.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "d7ee5d68-ff39-4c28-bd33-e2fdfac49fd4",
+          "name": "database_config",
+          "type": "object",
+          "description": "Configuração do banco de dados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"my-db\", \"memory_size\": 1073741824}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "bdbs"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>database_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "dry_run",
+            "value": "<>dry_run</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "534fc984-3c6b-46df-8146-dc565ba7fc27",
+      "name": "Databases - Create database (v2)",
+      "description": "Cria um novo banco de dados, com plano de recuperação opcional (v2).",
+      "parameters": [
+        {
+          "id": "e549833f-1558-4c3b-afc4-ec1fbbc3ab66",
+          "name": "dry_run",
+          "type": "string",
+          "description": "Se true, valida a operação sem aplicá-la.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "19742387-6b13-4174-a615-17f5648ddd12",
+          "name": "database_config",
+          "type": "object",
+          "description": "Configuração do banco de dados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"my-db\", \"memory_size\": 1073741824}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v2",
+            "bdbs"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>database_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "dry_run",
+            "value": "<>dry_run</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1e91524-edf9-4844-abe8-2e9ed675ae69",
+      "name": "Databases - Delete database",
+      "description": "Exclui um banco de dados.",
+      "parameters": [
+        {
+          "id": "b91da874-5e92-4fa8-9495-d28a1f1be397",
+          "name": "bdb_uid",
+          "type": "number",
+          "description": "Identificador único do banco de dados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "bdbs",
+            "<>bdb_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "3fae304e-d0eb-4f93-b691-d375aa6c1a92",
+      "name": "Bootstrap - Get bootstrap status",
+      "description": "Obtém o status de bootstrap do nó local.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "bootstrap"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5f7d0b9b-46e5-40e1-84c0-4ec01c79753e",
+      "name": "Bootstrap - Start bootstrap action",
+      "description": "Inicia um processo de bootstrap (ex.: create_cluster, join_cluster).",
+      "parameters": [
+        {
+          "id": "ca78d5ea-9693-45ee-a9b5-706bb7e327fe",
+          "name": "action",
+          "type": "string",
+          "description": "Nome da ação a executar no endpoint.",
+          "required": true,
+          "sensitive": false,
+          "sample": "create_cluster"
+        },
+        {
+          "id": "53684285-23be-4961-b06f-85a311f697e4",
+          "name": "bootstrap_config",
+          "type": "object",
+          "description": "Configuração necessária para a ação de bootstrap.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"cluster\": {\"name\": \"cluster.local\"}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "bootstrap",
+            "<>action</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>bootstrap_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "df65787f-65ff-46c0-af2b-2cc13c6eb6c4",
+      "name": "Cluster - Get cluster info",
+      "description": "Obtém informações do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "cluster"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "ef8eb51c-be16-42f7-a609-ff87197d3550",
+      "name": "Cluster - Update cluster settings",
+      "description": "Atualiza as configurações do cluster.",
+      "parameters": [
+        {
+          "id": "9065cd36-2481-4a31-9ed4-5111bf03e8ac",
+          "name": "cluster_config",
+          "type": "object",
+          "description": "Campos de configuração do cluster a atualizar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"cluster.local\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "cluster"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>cluster_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a4038697-93d6-4cb5-9d5c-f560452945f8",
+      "name": "CM Settings - Get UI settings",
+      "description": "Obtém as configurações da UI do Cluster Manager.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "cm_settings"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b01f1b3e-a635-4e61-a0bf-e9e6a56f3750",
+      "name": "CM Settings - Update UI settings",
+      "description": "Atualiza as configurações da UI do Cluster Manager.",
+      "parameters": [
+        {
+          "id": "be43a4e1-b917-48a6-ab1e-e1bcb622d3c3",
+          "name": "cm_settings_config",
+          "type": "object",
+          "description": "Campos de configuração da UI a atualizar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"show_internal_encryption_dialog\": false}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "cm_settings"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>cm_settings_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "295bea99-6d24-4a3b-b518-45c75edf38e0",
+      "name": "CRDB Tasks - List tasks",
+      "description": "Lista as tarefas de Active-Active em execução.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "crdb_tasks"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c9f5eeab-eb60-4165-a5bc-fddbd7078ee4",
+      "name": "CRDB Tasks - Get task status",
+      "description": "Obtém o status de uma tarefa de Active-Active.",
+      "parameters": [
+        {
+          "id": "ff948acf-f96e-4b34-ba6b-e41b794a9fe5",
+          "name": "task_id",
+          "type": "string",
+          "description": "Identificador da tarefa Active-Active.",
+          "required": true,
+          "sensitive": false,
+          "sample": "crdb-task:1"
+        },
+        {
+          "id": "21a33bde-a7b9-46a8-80c3-fec6e8179ac5",
+          "name": "verbose",
+          "type": "string",
+          "description": "Se true, retorna detalhes adicionais da tarefa.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "crdb_tasks",
+            "<>task_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "verbose",
+            "value": "<>verbose</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "903c8683-fb6f-4135-94f4-f49675a4701a",
+      "name": "CRDB Tasks - Cancel task",
+      "description": "Cancela uma tarefa de Active-Active em execução.",
+      "parameters": [
+        {
+          "id": "4914ade5-d4a8-4edd-8086-491c58fcb95a",
+          "name": "task_id",
+          "type": "string",
+          "description": "Identificador da tarefa Active-Active.",
+          "required": true,
+          "sensitive": false,
+          "sample": "crdb-task:1"
+        },
+        {
+          "id": "3e97bc81-4e53-47e5-931d-e9382ba7f5be",
+          "name": "force",
+          "type": "string",
+          "description": "Se true, força o cancelamento mesmo podendo afetar o CCS.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "crdb_tasks",
+            "<>task_id</>",
+            "actions",
+            "cancel"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "force",
+            "value": "<>force</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "f87d95c9-0fab-42f8-902e-b09946a57058",
+      "name": "CRDBs - List Active-Active databases",
+      "description": "Lista os bancos de dados Active-Active (CRDB) do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "crdbs"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "ab9debea-2ab2-4fcd-a17d-60b43cade97a",
+      "name": "CRDBs - Get Active-Active database",
+      "description": "Obtém detalhes de um banco de dados Active-Active.",
+      "parameters": [
+        {
+          "id": "34fad5df-159e-4be4-acc3-908957b1f6ab",
+          "name": "crdb_guid",
+          "type": "string",
+          "description": "GUID do banco de dados Active-Active.",
+          "required": true,
+          "sensitive": false,
+          "sample": "12345678-1234-1234-1234-123456789abc"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "crdbs",
+            "<>crdb_guid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c9968758-a378-44a5-90bb-f817ee3b2895",
+      "name": "CRDBs - Update Active-Active database",
+      "description": "Atualiza um banco de dados Active-Active existente.",
+      "parameters": [
+        {
+          "id": "065cfc31-9d7d-40c4-bc79-ffcd1654fb49",
+          "name": "crdb_guid",
+          "type": "string",
+          "description": "GUID do banco de dados Active-Active.",
+          "required": true,
+          "sensitive": false,
+          "sample": "12345678-1234-1234-1234-123456789abc"
+        },
+        {
+          "id": "1c344631-1dfa-4fe1-8cd9-5c37906bb3b2",
+          "name": "crdb_config",
+          "type": "object",
+          "description": "Configuração do banco de dados Active-Active.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"memory_size\": 1073741824}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "crdbs",
+            "<>crdb_guid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>crdb_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "bec761a3-1b51-4177-b52c-a3ecd14f3725",
+      "name": "CRDBs - Create Active-Active database",
+      "description": "Cria um novo banco de dados Active-Active.",
+      "parameters": [
+        {
+          "id": "e4611cfa-d80d-4fc1-89e1-3a3cc794decf",
+          "name": "dry_run",
+          "type": "string",
+          "description": "Se true, valida a operação sem aplicá-la.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "b7905f37-7f44-42c2-93ab-49261843bbc5",
+          "name": "crdb_config",
+          "type": "object",
+          "description": "Configuração do banco de dados Active-Active.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"my-crdb\", \"memory_size\": 1073741824}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "crdbs"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>crdb_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "dry_run",
+            "value": "<>dry_run</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "d585ef41-7725-4129-b456-4209b331b495",
+      "name": "CRDBs - Delete Active-Active database",
+      "description": "Exclui um banco de dados Active-Active.",
+      "parameters": [
+        {
+          "id": "a0b612fc-d7eb-47e5-af06-6e897ca5ef97",
+          "name": "crdb_guid",
+          "type": "string",
+          "description": "GUID do banco de dados Active-Active.",
+          "required": true,
+          "sensitive": false,
+          "sample": "12345678-1234-1234-1234-123456789abc"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "crdbs",
+            "<>crdb_guid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "e88cfa70-cdad-4f0c-9475-45fa84f5ac29",
+      "name": "Diagnostics - Get diagnostics configuration",
+      "description": "Obtém a configuração do serviço de diagnóstico.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "diagnostics"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "11395e17-91bd-4724-96aa-53c06967d2f8",
+      "name": "Diagnostics - Update diagnostics configuration",
+      "description": "Atualiza a configuração do serviço de diagnóstico.",
+      "parameters": [
+        {
+          "id": "04093a85-c53e-4ca1-ab2f-87637f6acf26",
+          "name": "diagnostics_config",
+          "type": "object",
+          "description": "Campos de configuração de diagnóstico a atualizar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"slowlog_target\": {}}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "diagnostics"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>diagnostics_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "dce66425-0b3d-44a5-b5e9-6da4f29ca5a1",
+      "name": "Job Scheduler - Get job scheduler settings",
+      "description": "Obtém as configurações do agendador de jobs.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "job_scheduler"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c062c7df-19b3-405f-8a77-a899f7dcb0c8",
+      "name": "Job Scheduler - Update job scheduler settings",
+      "description": "Atualiza as configurações do agendador de jobs.",
+      "parameters": [
+        {
+          "id": "8a0b4677-859b-46f3-be16-2780d2f55fc8",
+          "name": "job_scheduler_config",
+          "type": "object",
+          "description": "Campos de configuração do agendador de jobs a atualizar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"cluster\": {\"stats_send_interval_sec\": 60}}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "job_scheduler"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>job_scheduler_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b013c6f2-6b4f-418d-bf36-be6c413b248e",
+      "name": "JSON Schema - Get object schema",
+      "description": "Obtém o schema JSON de um objeto da API (ex.: cluster, node, bdb).",
+      "parameters": [
+        {
+          "id": "053209e9-9889-456a-bee2-4445079eb202",
+          "name": "object_name",
+          "type": "string",
+          "description": "Nome do objeto da API para obter o schema.",
+          "required": false,
+          "sensitive": false,
+          "sample": "bdb"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "jsonschema"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "object",
+            "value": "<>object_name</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "d22b54b0-1387-471e-9edf-7402ea509a36",
+      "name": "LDAP Mappings - List mappings",
+      "description": "Lista todos os mapeamentos LDAP.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "ldap_mappings"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "1194dcb7-4358-42e5-b4f7-722d4265136b",
+      "name": "LDAP Mappings - Get mapping",
+      "description": "Obtém um mapeamento LDAP específico.",
+      "parameters": [
+        {
+          "id": "5a63fd52-3663-4631-a846-47f484b1f4a6",
+          "name": "mapping_uid",
+          "type": "number",
+          "description": "Identificador único do mapeamento LDAP.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "ldap_mappings",
+            "<>mapping_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "89f728da-2d62-44b6-a7db-6d6ca1c2f99b",
+      "name": "LDAP Mappings - Update mapping",
+      "description": "Atualiza um mapeamento LDAP existente.",
+      "parameters": [
+        {
+          "id": "a64b32e3-e02c-4a5c-ae63-e825922cd581",
+          "name": "mapping_uid",
+          "type": "number",
+          "description": "Identificador único do mapeamento LDAP.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "66134ca3-2704-40c5-a48c-3d64763c3b54",
+          "name": "ldap_mapping_config",
+          "type": "object",
+          "description": "Configuração do mapeamento LDAP.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"role_uids\": [1]}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "ldap_mappings",
+            "<>mapping_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>ldap_mapping_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "8521f745-07ae-47da-8cc0-c0623bd81e2d",
+      "name": "LDAP Mappings - Create mapping",
+      "description": "Cria um novo mapeamento LDAP.",
+      "parameters": [
+        {
+          "id": "2f680896-60c5-49bb-9d82-3da37408b702",
+          "name": "ldap_mapping_config",
+          "type": "object",
+          "description": "Configuração do mapeamento LDAP.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"dn\": \"cn=admins,dc=example,dc=com\", \"role_uids\": [1]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "ldap_mappings"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>ldap_mapping_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "08460527-8763-4136-8b88-cf5b2c5b7acc",
+      "name": "LDAP Mappings - Delete mapping",
+      "description": "Exclui um mapeamento LDAP.",
+      "parameters": [
+        {
+          "id": "6e596baf-1c5c-46a7-90e0-f6b2747356bd",
+          "name": "mapping_uid",
+          "type": "number",
+          "description": "Identificador único do mapeamento LDAP.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "ldap_mappings",
+            "<>mapping_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "d6bf42fb-27ea-42d4-8658-e3bf0a35c90b",
+      "name": "License - Get license details",
+      "description": "Obtém os detalhes da licença do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "license"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "6f7d7245-06a1-4685-956e-a9fa9df6fd76",
+      "name": "License - Update license",
+      "description": "Atualiza ou instala a licença do cluster.",
+      "parameters": [
+        {
+          "id": "ad533b5f-7c9a-444c-bf35-a2eab24b22fa",
+          "name": "license_config",
+          "type": "object",
+          "description": "Objeto contendo a chave de licença (license).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"license\": \"...\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "license"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>license_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5b0577ae-67f9-4789-a621-f916017953fd",
+      "name": "Logs - Get cluster event log",
+      "description": "Obtém o log de eventos do cluster.",
+      "parameters": [
+        {
+          "id": "e669ec52-a32f-465e-96b0-62675bb51d8f",
+          "name": "stime",
+          "type": "string",
+          "description": "Horário inicial do filtro (ISO 8601).",
+          "required": false,
+          "sensitive": false,
+          "sample": "2024-01-01T00:00:00Z"
+        },
+        {
+          "id": "b6253a5a-ca3c-4625-836f-2de304719dc9",
+          "name": "etime",
+          "type": "string",
+          "description": "Horário final do filtro (ISO 8601).",
+          "required": false,
+          "sensitive": false,
+          "sample": "2024-01-31T23:59:59Z"
+        },
+        {
+          "id": "18a15d52-007a-461f-8490-bb18f5a5a6fd",
+          "name": "order",
+          "type": "string",
+          "description": "Ordem de retorno dos eventos (asc ou desc).",
+          "required": false,
+          "sensitive": false,
+          "sample": "desc"
+        },
+        {
+          "id": "b84ead6a-043d-4d5b-94fe-0aabd7346c5d",
+          "name": "limit",
+          "type": "string",
+          "description": "Número máximo de eventos a retornar.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "e0ed174b-94b2-4718-8c57-545dbe0daf89",
+          "name": "offset",
+          "type": "string",
+          "description": "Número de eventos a pular antes de retornar resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "logs"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "stime",
+            "value": "<>stime</>",
+            "enabled": true
+          },
+          {
+            "key": "etime",
+            "value": "<>etime</>",
+            "enabled": true
+          },
+          {
+            "key": "order",
+            "value": "<>order</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "8aae296b-6183-4876-a377-f84b658af558",
+      "name": "Metrics Config - Get metrics configuration",
+      "description": "Obtém a configuração de métricas do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "metrics_config"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "05c248ef-b3d4-4a2c-920a-960e6fc3512d",
+      "name": "Metrics Config - Update metrics configuration",
+      "description": "Atualiza a configuração de métricas do cluster.",
+      "parameters": [
+        {
+          "id": "f276022a-61df-4f60-8e98-955bf65b8c8a",
+          "name": "metrics_config",
+          "type": "object",
+          "description": "Campos de configuração de métricas a atualizar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"enabled\": true}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "metrics_config"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>metrics_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b7de4c01-e568-44d4-bcaa-95aa366bc6e1",
+      "name": "Migrations - Get migration status",
+      "description": "Obtém o status de migração de um banco de dados (Replica Of).",
+      "parameters": [
+        {
+          "id": "99728eb4-dbf4-4ddc-9be0-92e3cad0b53c",
+          "name": "bdb_uid",
+          "type": "number",
+          "description": "Identificador único do banco de dados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "migrations",
+            "<>bdb_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "34d5d1bb-e3cd-4a30-ada5-8b8d0d9a469f",
+      "name": "Modules - List modules",
+      "description": "Lista os módulos Redis disponíveis no cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "modules"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "00784a20-0690-41e0-a114-610315f0237b",
+      "name": "Modules - Get module",
+      "description": "Obtém detalhes de um módulo Redis específico.",
+      "parameters": [
+        {
+          "id": "1787bbcf-1445-4ef2-9671-27ae1c9fe902",
+          "name": "module_uid",
+          "type": "string",
+          "description": "Identificador único do módulo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ff541d97ce0e28ce8dcb35c1f7c1d9bcd93744dc"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "modules",
+            "<>module_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "49d61a35-5b60-4216-a414-7212ea790fbe",
+      "name": "Node Master Healthcheck - Check connection to primary node",
+      "description": "Verifica a conexão do nó local com o nó primário do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "local",
+            "node",
+            "master_healthcheck"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "6ada4fdf-9fa5-49c1-af9a-8f562bee5f70",
+      "name": "Nodes - List nodes",
+      "description": "Lista todos os nós do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "nodes"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "e20d9b00-33c2-485f-8743-2c69a241cd78",
+      "name": "Nodes - Get node",
+      "description": "Obtém detalhes de um nó específico.",
+      "parameters": [
+        {
+          "id": "1b7bed4b-3a7a-407b-bc05-7a2b02e3b495",
+          "name": "node_uid",
+          "type": "number",
+          "description": "Identificador único do nó.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "nodes",
+            "<>node_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "031f9ad9-c7fb-41be-9fde-fa3aa6828f64",
+      "name": "Nodes - Update node",
+      "description": "Atualiza a configuração de um nó existente.",
+      "parameters": [
+        {
+          "id": "950a8bd5-c159-4daa-8e5c-16d253520734",
+          "name": "node_uid",
+          "type": "number",
+          "description": "Identificador único do nó.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "28be916e-921d-40ea-92f8-9c743acb2844",
+          "name": "node_config",
+          "type": "object",
+          "description": "Campos de configuração do nó a atualizar (ex.: addr, external_addr, rack_id).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"rack_id\": \"us-east-1a\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "nodes",
+            "<>node_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>node_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "fdf78c85-be03-4502-8f83-0ab3c1f5c3aa",
+      "name": "OCSP - Get OCSP configuration",
+      "description": "Obtém a configuração OCSP do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "ocsp"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "fd36037a-88bd-4806-8839-58286bff4909",
+      "name": "OCSP - Update OCSP configuration",
+      "description": "Atualiza a configuração OCSP do cluster.",
+      "parameters": [
+        {
+          "id": "86ddea3a-9166-4f38-9d5a-fdd4b160e1ff",
+          "name": "ocsp_config",
+          "type": "object",
+          "description": "Campos de configuração OCSP a atualizar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"ocsp_functionality\": true}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "ocsp"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>ocsp_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "4f12f3c8-95a9-42ee-aa3d-19fb8fc49dd1",
+      "name": "Proxies - List proxies",
+      "description": "Lista todos os proxies do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "proxies"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "80ddb4f8-1039-40e8-9813-44b1b0c36db4",
+      "name": "Proxies - Get proxy",
+      "description": "Obtém detalhes de um proxy específico.",
+      "parameters": [
+        {
+          "id": "9f419428-d8bf-4bae-8fcc-5abdd3a74806",
+          "name": "proxy_uid",
+          "type": "number",
+          "description": "Identificador único do proxy.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "proxies",
+            "<>proxy_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "bfbd3f86-ba4f-4561-9164-835883fdcc74",
+      "name": "Proxies - Update proxy",
+      "description": "Atualiza a configuração de um proxy específico.",
+      "parameters": [
+        {
+          "id": "220adbd8-0c41-410e-8d58-76255943346f",
+          "name": "proxy_uid",
+          "type": "number",
+          "description": "Identificador único do proxy.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "34d96eac-83bf-42e9-b1fb-73b3b34e6899",
+          "name": "proxy_config",
+          "type": "object",
+          "description": "Campos de configuração do proxy a atualizar.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"max_threads\": 4}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "proxies",
+            "<>proxy_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>proxy_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "d3c2ee30-c169-4372-8605-fe2284f4ec7b",
+      "name": "Proxies - Update all proxies",
+      "description": "Atualiza a configuração de todos os proxies do cluster.",
+      "parameters": [
+        {
+          "id": "131ae53d-b6db-4ffc-b2f8-4f846641a635",
+          "name": "proxies_config",
+          "type": "object",
+          "description": "Configuração a aplicar em todos os proxies.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"max_threads\": 4}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "proxies"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>proxies_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "412d8048-2417-402a-a847-c7c5793794fd",
+      "name": "Redis ACLs - List ACLs",
+      "description": "Lista todas as ACLs Redis configuradas.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "redis_acls"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "4ed2a263-ca9c-45e0-b301-2f21ce77658e",
+      "name": "Redis ACLs - Get ACL",
+      "description": "Obtém detalhes de uma ACL Redis específica.",
+      "parameters": [
+        {
+          "id": "31b4727e-0988-429e-a71f-7692f9abd412",
+          "name": "acl_uid",
+          "type": "number",
+          "description": "Identificador único da ACL Redis.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "redis_acls",
+            "<>acl_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "1241a9e2-38d2-44ec-a05f-269284a9981f",
+      "name": "Redis ACLs - Update ACL",
+      "description": "Atualiza uma ACL Redis existente.",
+      "parameters": [
+        {
+          "id": "b5329323-4088-4021-b4aa-e890b09d05e0",
+          "name": "acl_uid",
+          "type": "number",
+          "description": "Identificador único da ACL Redis.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "2e40fb77-90f0-4c2c-9570-a780bb2ef559",
+          "name": "acl_config",
+          "type": "object",
+          "description": "Configuração da ACL Redis.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"acl\": \"+@all\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "redis_acls",
+            "<>acl_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>acl_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "23bcc436-4c39-428c-a81c-c6f452f36687",
+      "name": "Redis ACLs - Create ACL",
+      "description": "Cria uma nova ACL Redis.",
+      "parameters": [
+        {
+          "id": "7a753c0d-4d90-40e2-9995-c2ef52728ad1",
+          "name": "acl_config",
+          "type": "object",
+          "description": "Configuração da ACL Redis.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"my-acl\", \"acl\": \"+@all\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "redis_acls"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>acl_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "6a0b02d5-9d9b-4b1f-b395-225dd7dd0a55",
+      "name": "Redis ACLs - Delete ACL",
+      "description": "Exclui uma ACL Redis.",
+      "parameters": [
+        {
+          "id": "ed4cb8df-6743-4d5a-801c-c67d7a3a4c78",
+          "name": "acl_uid",
+          "type": "number",
+          "description": "Identificador único da ACL Redis.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "redis_acls",
+            "<>acl_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "9b84c0ea-3290-445a-8870-e2e190fb5e7f",
+      "name": "Roles - List roles",
+      "description": "Lista todas as roles configuradas.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "roles"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "cc508ff7-209c-47e5-a63d-b6695c613afd",
+      "name": "Roles - Get role",
+      "description": "Obtém detalhes de uma role específica.",
+      "parameters": [
+        {
+          "id": "cf5ca725-aed5-4cfd-8551-65a0f1617f88",
+          "name": "role_uid",
+          "type": "number",
+          "description": "Identificador único da role.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "roles",
+            "<>role_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c0bbaedb-514e-4581-8a95-04b9d93d2d43",
+      "name": "Roles - Update role",
+      "description": "Atualiza uma role existente.",
+      "parameters": [
+        {
+          "id": "8f2aabd1-ac9c-43f8-b81a-694f515529f5",
+          "name": "role_uid",
+          "type": "number",
+          "description": "Identificador único da role.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "f00fb70c-633e-4296-b10b-11a5c4912ae3",
+          "name": "role_config",
+          "type": "object",
+          "description": "Configuração da role.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"db_viewer\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "roles",
+            "<>role_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>role_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "fdb7d8fe-d468-4848-b153-ae38dba6f94b",
+      "name": "Roles - Create role",
+      "description": "Cria uma nova role.",
+      "parameters": [
+        {
+          "id": "0b0fd1cd-866a-48a8-80cc-dbcbb019caf0",
+          "name": "role_config",
+          "type": "object",
+          "description": "Configuração da role.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"db_viewer\", \"management\": \"db_viewer\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "roles"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>role_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "0c85f58f-47b2-4b00-84c5-d25dd6b84b22",
+      "name": "Roles - Delete role",
+      "description": "Exclui uma role.",
+      "parameters": [
+        {
+          "id": "d644ee6f-3a3d-4b81-b01a-f7bfa92356ed",
+          "name": "role_uid",
+          "type": "number",
+          "description": "Identificador único da role.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "roles",
+            "<>role_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "ed59f989-254f-4974-98eb-962bd322609e",
+      "name": "Services - List local node services",
+      "description": "Lista os serviços do nó local.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "local",
+            "services"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "9538b6bd-59f0-4b0d-b16e-518b211bf041",
+      "name": "Services - Operate local node services",
+      "description": "Executa uma operação (start, stop ou restart) em serviços opcionais do nó local.",
+      "parameters": [
+        {
+          "id": "b50a1cee-b98f-4aac-a44d-c36a0b00a098",
+          "name": "services_operation",
+          "type": "object",
+          "description": "Objeto com operation_type (start/stop/restart) e a lista de services.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"operation_type\": \"restart\", \"services\": [\"cm_server\"]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "local",
+            "services"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>services_operation</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "83872ae3-0122-491b-834e-b489c64cf5f7",
+      "name": "Services - Operate primary node services",
+      "description": "Executa uma operação (start, stop ou restart) em serviços opcionais do nó primário.",
+      "parameters": [
+        {
+          "id": "18b728b7-f3fb-45df-ad79-e7e2d0d78808",
+          "name": "services_operation",
+          "type": "object",
+          "description": "Objeto com operation_type (start/stop/restart) e a lista de services.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"operation_type\": \"restart\", \"services\": [\"cm_server\"]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "services"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>services_operation</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f7604b54-be6a-48a9-bd2e-d025998d2d38",
+      "name": "Shards - List shards",
+      "description": "Lista todos os shards do cluster.",
+      "parameters": [
+        {
+          "id": "b6d7f193-3f03-4cf8-85c8-dacd4bf88f05",
+          "name": "extra_info_keys",
+          "type": "string",
+          "description": "Chaves extras do comando INFO a incluir (ex.: memory, replication).",
+          "required": false,
+          "sensitive": false,
+          "sample": "memory"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "shards"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "extra_info_keys",
+            "value": "<>extra_info_keys</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "45ecc403-2a17-4c50-9308-27c6e7f3a0ca",
+      "name": "Shards - Get shard",
+      "description": "Obtém detalhes de um shard específico.",
+      "parameters": [
+        {
+          "id": "c02d805e-e695-4461-bc39-9a98cf1e7bc9",
+          "name": "shard_uid",
+          "type": "number",
+          "description": "Identificador único do shard.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "80fd8656-2e3e-4e1a-b4b2-e98e08ad485d",
+          "name": "extra_info_keys",
+          "type": "string",
+          "description": "Chaves extras do comando INFO a incluir (ex.: memory, replication).",
+          "required": false,
+          "sensitive": false,
+          "sample": "memory"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "shards",
+            "<>shard_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "extra_info_keys",
+            "value": "<>extra_info_keys</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "1c2a9728-f305-4893-84a8-38ad67890b13",
+      "name": "Suffix - Get DNS suffix",
+      "description": "Obtém um sufixo DNS específico pelo nome.",
+      "parameters": [
+        {
+          "id": "bd0e5a91-40d8-48e1-b9e9-95ee5f3539f7",
+          "name": "suffix_name",
+          "type": "string",
+          "description": "Nome do sufixo DNS.",
+          "required": true,
+          "sensitive": false,
+          "sample": "cluster.local"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "suffix",
+            "<>suffix_name</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "734f0057-c3ff-4bd3-8d87-d8c62d685b66",
+      "name": "Suffixes - List DNS suffixes",
+      "description": "Lista todos os sufixos DNS configurados no cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "suffixes"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "31b13b81-1e36-4287-b9f3-0cc6e1d3402e",
+      "name": "Usage Report - Get database usage report",
+      "description": "Obtém o relatório de uso das bases de dados do cluster (NDJSON).",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "usage_report"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "3a9ce813-965d-44fd-bd10-956ab2141d27",
+      "name": "Users - List users",
+      "description": "Lista todos os usuários do cluster.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "users"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "185b389f-9962-48fa-8bfd-1223b5d98d38",
+      "name": "Users - Get user",
+      "description": "Obtém detalhes de um usuário específico.",
+      "parameters": [
+        {
+          "id": "29307057-e9ad-44b6-9470-32020b2efaeb",
+          "name": "user_uid",
+          "type": "number",
+          "description": "Identificador único do usuário.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "users",
+            "<>user_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c52c1f1b-d3bb-4c6e-940a-2233bea25ec4",
+      "name": "Users - Update user",
+      "description": "Atualiza a configuração de um usuário existente.",
+      "parameters": [
+        {
+          "id": "6905e175-683d-4bae-b4c0-800843d15a8a",
+          "name": "user_uid",
+          "type": "number",
+          "description": "Identificador único do usuário.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "4686c58f-58f8-4be0-ae0b-f6468dda87e9",
+          "name": "dry_run",
+          "type": "string",
+          "description": "Se true, valida a operação sem aplicá-la.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "ed931331-ba3c-46e2-8f06-c948d83d9135",
+          "name": "user_config",
+          "type": "object",
+          "description": "Configuração do usuário.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"email\": \"user@example.com\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "users",
+            "<>user_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>user_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "dry_run",
+            "value": "<>dry_run</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "a69397ed-1779-4c6b-a8fb-ce85c384563f",
+      "name": "Users - Create user",
+      "description": "Cria um novo usuário.",
+      "parameters": [
+        {
+          "id": "e1f50fec-1e17-4552-b38b-04334a9e1a2b",
+          "name": "dry_run",
+          "type": "string",
+          "description": "Se true, valida a operação sem aplicá-la.",
+          "required": false,
+          "sensitive": false,
+          "sample": "true"
+        },
+        {
+          "id": "6008bdbc-f423-4899-832e-b3ea216152f6",
+          "name": "user_config",
+          "type": "object",
+          "description": "Configuração do usuário.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"email\": \"user@example.com\", \"password\": \"...\", \"role\": \"admin\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "users"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>user_config</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "dry_run",
+            "value": "<>dry_run</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "86084be7-a13a-482a-b86f-2b446c8df45e",
+      "name": "Users - Delete user",
+      "description": "Exclui um usuário.",
+      "parameters": [
+        {
+          "id": "d764b524-19b6-4a4a-a945-7c1325319860",
+          "name": "user_uid",
+          "type": "number",
+          "description": "Identificador único do usuário.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "users",
+            "<>user_uid</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    }
+  ]
+}
