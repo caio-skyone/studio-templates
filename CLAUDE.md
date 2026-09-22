@@ -1,66 +1,50 @@
 # Instruções do projeto studio-templates
 
-## Normalização de `query` no IAC exportado (workaround de bug do MCP)
+## `query` no IAC exportado
 
-O `studio-connector-mcp` modela `request.query` dentro de `request.url.query`,
-enquanto `request.header` fica um nível acima, como irmão de `url`. Isso é
-inconsistente: `query` deveria ser um array irmão de `header`, no mesmo
-formato (`{key, value, enabled}`).
+Ao criar ou editar operações pelas ferramentas do MCP (`add_draft_operation`,
+`add_draft_operations_batch`, `update_draft_operation`), escreva sempre
+`request.query` — o array irmão de `request.header`, no formato
+`{key, value, enabled}`. É o formato que o servidor prefere.
 
-Enquanto esse bug não for corrigido no servidor MCP, **depois** de exportar
-um draft para este repositório (`export_draft`, já com `validate_draft`
-aprovado), aplique esta transformação em cada operação do JSON antes de
-commitar em `iac/`:
+**Nunca** use `request.url.query`. É o formato legado: o servidor o stringifica
+dentro do endpoint e, nesse caminho, lê só `key` e `value` — `enabled` é
+ignorado. O `validate_draft` avisa quando uma operação usa `url.query`, e avisa
+mais forte quando preenche os dois, porque aí a mesma chave vai duas vezes na
+requisição.
 
-1. Pegue o array `request.url.query` (se existir).
-2. Crie `request.query` como um novo array irmão de `request.header`, com os
-   mesmos itens, no mesmo formato do header (`{"key": ..., "value": ...,
-   "enabled": true}` — adicione `enabled: true` a cada item, já que o MCP não
-   emite esse campo para query). **Aplique em toda operação, mesmo sem
-   parâmetros de query** — nesse caso `request.query` é `[]`. O Studio valida
-   `request.query` como array obrigatório (igual `request.header`, que também
-   fica presente como `[]` quando vazio); se o campo ficar ausente, o Studio
-   rejeita a operação com `Invalid input: expected array, received undefined`.
-3. Remova a chave `query` de dentro de `request.url` em qualquer caso
-   (mantendo apenas `request.url.path`).
+O servidor normaliza o resto sozinho. Depois do `export_draft`, `request.query`
+já vem como irmão de `header`, com `enabled: true` em cada item e `[]` nas
+operações sem parâmetros de query — não há nada a transformar aí.
 
-Exemplo — antes (como sai do `export_draft`):
+Resta **uma** limpeza manual antes de commitar em `iac/`: o servidor também
+injeta um `request.url.query: []` legado em toda operação. Remova essa chave,
+deixando `request.url` apenas com `path`.
+
+Antes (como sai do `export_draft`):
 
 ```json
-"request": {
-  "method": "GET",
-  "url": {
-    "path": ["authorized_payments"],
-    "query": [
-      {"key": "status", "value": "<>status</>"}
-    ]
-  },
-  "header": [],
-  "body": {...}
-}
+"url": {
+  "path": ["authorized_payments"],
+  "query": []
+},
+"query": [
+  {"key": "status", "value": "<>status</>", "enabled": true}
+]
 ```
 
 Depois (formato final para este repo):
 
 ```json
-"request": {
-  "method": "GET",
-  "url": {
-    "path": ["authorized_payments"]
-  },
-  "header": [],
-  "query": [
-    {"key": "status", "value": "<>status</>", "enabled": true}
-  ],
-  "body": {...}
-}
+"url": {
+  "path": ["authorized_payments"]
+},
+"query": [
+  {"key": "status", "value": "<>status</>", "enabled": true}
+]
 ```
 
-**Escopo do workaround:** isso se aplica só aos arquivos finais versionados
-em `iac/` neste repo. Não tente enviar `request.query` (fora de `url`) para
-as ferramentas do MCP (`add_draft_operation`, `update_draft_operation`,
-etc.) — o servidor não lê esse campo daí; ele só reconhece
-`request.url.query`. A transformação é estritamente pós-exportação/pós-validação.
-
-Remova esta cláusula quando o bug for corrigido no `studio-connector-mcp`
-(query passar a ser aceito nativamente como array irmão de `header`).
+Isso é higiene de arquivo, não correção de defeito: o `url.query` injetado é
+sempre `[]` e não duplica nada na requisição real. A lista completa dos campos
+que o servidor preenche por conta própria está em
+`.claude/skills/studio-connector-shared/server-normalization.md`.
