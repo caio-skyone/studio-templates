@@ -36,6 +36,8 @@ Apps privados e em rascunho começam com limite de **120 chamadas por minuto** e
 
 > **Nota:** o token é o access token do app, enviado como `Authorization: Bearer {token}`. Num app privado que acessa só a própria conta, ele aparece nas configurações do app, na aba *My Apps* do portal de desenvolvedores. Para acessar contas de terceiros é preciso o fluxo OAuth 2.0 do SurveyMonkey, que gera um token de longa duração por conta. Os tokens não expiram hoje, mas o usuário pode revogá-los.
 
+> **Nota:** o token só acessa os escopos marcados no app. Em *My Apps* > *Settings* > *Scopes*, marque os escopos das operações que você vai usar (`users_read`, `surveys_read`, `surveys_write`, `collectors_read`, `collectors_write`, `contacts_read`, `contacts_write`, `responses_read`, `responses_read_detail`, `webhooks_read`, `webhooks_write`, `library_read`) e clique em *Update Scopes*. Os escopos ficam gravados no token quando ele é emitido, então depois de alterá-los é preciso copiar o access token de novo (ou refazer a autorização OAuth). Com um escopo faltando, a API responde `403` com o erro `1014 Permission Error`. O header `x-oauth-scopes-granted` da resposta mostra os escopos que o token tem.
+
 > **Nota:** o Host depende do datacenter da conta. Contas da UE usam `https://api.eu.surveymonkey.com` e contas do Canadá `https://api.surveymonkey.ca`. O valor correto vem no campo `access_url` da troca de token OAuth.
 
 > **Nota:** o Host é apenas a origem. O prefixo `/v3` faz parte do caminho de cada operação, não da conta conectada.
