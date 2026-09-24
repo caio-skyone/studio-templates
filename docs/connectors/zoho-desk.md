@@ -169,7 +169,6 @@ Os escopos vão no parâmetro `scope` da URL de autorização, separados por ví
 | **Agents - Get an Agent Time Entry** | GET | Obtém um registro de tempo relacionado a um agente. |
 | **Agents - Get summation of Agent Time Entries** | GET | Obtém a soma dos registros de tempo associados a um agente. |
 | **Agents - Update customized signatures of agent** | POST | Atualiza as assinaturas personalizadas de um agente. |
-| **Agents - Auto Display an Entity** | POST | Instrui o navegador de um agente a abrir e exibir uma entidade automaticamente, sem ação manual. |
 | **Agentsbyids - Get agent details by agentId** | GET | Obtém os detalhes dos agentes através dos IDs passados na requisição. |
 | **Agentsticketscount - List all agentsTicketsCount** | GET | Retorna o número de tickets atribuídos a múltiplos agentes. |
 | **Associatedtickets - List all associated tickets** | GET | Lista um número específico de tickets associados a você do seu help desk, conforme o limite especificado. |
