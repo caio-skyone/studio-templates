@@ -2858,6 +2858,15 @@
           "required": true,
           "sensitive": false,
           "sample": "1048576"
+        },
+        {
+          "id": "7379a689-ae6e-431f-ab75-4ce874324f95",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
         }
       ],
       "request": {
@@ -2883,7 +2892,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "",
+          "raw": "<>body</>",
           "options": {
             "raw": {
               "language": "json"
@@ -2914,6 +2923,15 @@
           "required": true,
           "sensitive": false,
           "sample": "8d5c5ffb91b94e289e1f5bd2a5e70a17"
+        },
+        {
+          "id": "eed1b03a-2a19-42da-8426-e4012e35de8e",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
         }
       ],
       "request": {
@@ -2939,7 +2957,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "",
+          "raw": "<>body</>",
           "options": {
             "raw": {
               "language": "json"
@@ -2988,6 +3006,15 @@
           "required": false,
           "sensitive": false,
           "sample": "fail"
+        },
+        {
+          "id": "e31c4004-4015-4b95-a95c-4c3b557bf7a9",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
         }
       ],
       "request": {
@@ -3027,7 +3054,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "",
+          "raw": "<>body</>",
           "options": {
             "raw": {
               "language": "json"
@@ -3076,6 +3103,15 @@
           "required": false,
           "sensitive": false,
           "sample": "fail"
+        },
+        {
+          "id": "bd7b036f-d0af-4173-addd-2408ec87c434",
+          "name": "body",
+          "type": "string",
+          "description": "Corpo da requisição em JSON, no formato JSON:API do WorkDrive: {\"data\":{\"type\":\"<recurso>\",\"attributes\":{...}}}. Informe o objeto completo da ação desejada; o exemplo do campo mostra o formato esperado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}"
         }
       ],
       "request": {
@@ -3115,7 +3151,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "",
+          "raw": "<>body</>",
           "options": {
             "raw": {
               "language": "json"
