@@ -1,0 +1,1193 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://caio-skyone.github.io/studio-templates/iac-viewer/">
+      
+      
+        <link rel="prev" href="../dev-flow/callback/oauth2postman/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../img/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>IAC - Studio Templates</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#visualizador-de-iac" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Studio Templates" class="md-header__button md-logo" aria-label="Studio Templates" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Studio Templates
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IAC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Studio Templates" class="md-nav__button md-logo" aria-label="Studio Templates" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    Studio Templates
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conectores
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conectores
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/databricks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databricks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/ifood/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iFood
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/jira/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/mailgun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mailgun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/notion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/service-now/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service Now
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/stripe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stripe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/twilio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Twilio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/xero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xero
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/zendesk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zendesk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/zoho-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/zoho-books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/zoho-crm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho CRM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/zoho-desk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Desk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/zoho-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connectors/zoho-workdrive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho WorkDrive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo de Desenvolvimento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fluxo de Desenvolvimento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Callback OAuth2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Callback OAuth2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-flow/callback/contexto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contexto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-flow/callback/oauth2postman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Postman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="visualizador-de-iac">Visualizador de IAC</h1>
+<p>Selecione um conector para inspecionar o JSON de IAC exportado.</p>
+<div id="iac-viewer">
+  <div class="iac-controls">
+    <select id="iac-select"><option value="">Selecione um conector…</option></select>
+    <input id="iac-search" type="search" placeholder="Buscar chave ou valor…" disabled>
+  </div>
+  <div id="iac-status"></div>
+  <div id="iac-tree"></div>
+</div>
+
+<style>
+#iac-viewer { font-family: var(--md-text-font-family, sans-serif); }
+.iac-controls { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.iac-controls select, .iac-controls input { padding: 0.4rem; font-size: 0.9rem; }
+#iac-status { font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.5rem; }
+#iac-tree { font-family: var(--md-code-font-family, monospace); font-size: 0.85rem; }
+.iac-node-header { cursor: pointer; user-select: none; }
+.iac-node-header:hover { text-decoration: underline; }
+.iac-toggle { display: inline-block; width: 1rem; }
+.iac-children { margin-left: 1.25rem; }
+.iac-children.iac-collapsed { display: none; }
+.iac-leaf { margin-left: 1.25rem; }
+.iac-key { font-weight: 600; }
+.iac-match { background: rgba(255, 220, 0, 0.35); border-radius: 2px; }
+</style>
+
+<script>
+(function () {
+  var select = document.getElementById('iac-select');
+  var search = document.getElementById('iac-search');
+  var status = document.getElementById('iac-status');
+  var tree = document.getElementById('iac-tree');
+  var currentData = null;
+
+  function nodeMatches(key, value, query) {
+    if (!query) return true;
+    var q = query.toLowerCase();
+    if (String(key).toLowerCase().indexOf(q) !== -1) return true;
+    if (value !== null && typeof value === 'object') {
+      var entries = Array.isArray(value)
+        ? value.map(function (v, i) { return [i, v]; })
+        : Object.entries(value);
+      for (var i = 0; i < entries.length; i++) {
+        if (nodeMatches(entries[i][0], entries[i][1], query)) return true;
+      }
+      return false;
+    }
+    return String(value).toLowerCase().indexOf(q) !== -1;
+  }
+
+  function highlight(text, query) {
+    if (!query) return text;
+    var q = query.toLowerCase();
+    var idx = text.toLowerCase().indexOf(q);
+    if (idx === -1) return text;
+    var span = document.createElement('span');
+    span.appendChild(document.createTextNode(text.slice(0, idx)));
+    var mark = document.createElement('span');
+    mark.className = 'iac-match';
+    mark.textContent = text.slice(idx, idx + query.length);
+    span.appendChild(mark);
+    span.appendChild(document.createTextNode(text.slice(idx + query.length)));
+    return span;
+  }
+
+  function appendText(el, textOrNode) {
+    if (typeof textOrNode === 'string') {
+      el.appendChild(document.createTextNode(textOrNode));
+    } else {
+      el.appendChild(textOrNode);
+    }
+  }
+
+  function renderNode(key, value, container, query, depth) {
+    if (!nodeMatches(key, value, query)) return;
+    var item = document.createElement('div');
+    item.className = 'iac-node';
+
+    if (value !== null && typeof value === 'object') {
+      var isArray = Array.isArray(value);
+      var entries = isArray
+        ? value.map(function (v, i) { return [i, v]; })
+        : Object.entries(value);
+
+      var toggle = document.createElement('span');
+      toggle.className = 'iac-toggle';
+      var expanded = Boolean(query) || depth < 1;
+      toggle.textContent = expanded ? '▾' : '▸';
+
+      var label = document.createElement('span');
+      label.className = 'iac-key';
+      appendText(label, highlight(String(key), query));
+      var countLabel = document.createElement('span');
+      countLabel.textContent = ' ' + (isArray ? '[' + entries.length + ']' : '{' + entries.length + '}');
+
+      var header = document.createElement('div');
+      header.className = 'iac-node-header';
+      header.appendChild(toggle);
+      header.appendChild(label);
+      header.appendChild(countLabel);
+
+      var children = document.createElement('div');
+      children.className = 'iac-children' + (expanded ? '' : ' iac-collapsed');
+      entries.forEach(function (entry) {
+        renderNode(entry[0], entry[1], children, query, depth + 1);
+      });
+
+      header.addEventListener('click', function () {
+        var collapsed = children.classList.toggle('iac-collapsed');
+        toggle.textContent = collapsed ? '▸' : '▾';
+      });
+
+      item.appendChild(header);
+      item.appendChild(children);
+    } else {
+      var row = document.createElement('div');
+      row.className = 'iac-leaf';
+      var keySpan = document.createElement('span');
+      keySpan.className = 'iac-key';
+      appendText(keySpan, highlight(String(key), query));
+      row.appendChild(keySpan);
+      row.appendChild(document.createTextNode(': '));
+      var valueSpan = document.createElement('span');
+      valueSpan.className = 'iac-value';
+      appendText(valueSpan, highlight(JSON.stringify(value), query));
+      row.appendChild(valueSpan);
+      item.appendChild(row);
+    }
+
+    container.appendChild(item);
+  }
+
+  function render(query) {
+    tree.innerHTML = '';
+    if (!currentData) return;
+    renderNode(currentData.__slug, currentData.value, tree, query || '', 0);
+  }
+
+  search.addEventListener('input', function () {
+    render(search.value.trim());
+  });
+
+  select.addEventListener('change', function () {
+    var slug = select.value;
+    tree.innerHTML = '';
+    if (!slug) {
+      currentData = null;
+      search.disabled = true;
+      return;
+    }
+    status.textContent = 'Carregando ' + slug + '…';
+    fetch('../iac-data/' + encodeURIComponent(slug) + '.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        currentData = { __slug: slug, value: data };
+        search.disabled = false;
+        search.value = '';
+        status.textContent = '';
+        render('');
+      })
+      .catch(function (err) {
+        status.textContent = 'Falha ao carregar ' + slug + ': ' + err;
+      });
+  });
+
+  fetch('../iac-data/index.json')
+    .then(function (res) { return res.json(); })
+    .then(function (slugs) {
+      if (!slugs.length) {
+        status.textContent = 'Nenhum JSON de IAC encontrado em iac/.';
+        return;
+      }
+      slugs.forEach(function (slug) {
+        var option = document.createElement('option');
+        option.value = slug;
+        option.textContent = slug;
+        select.appendChild(option);
+      });
+    })
+    .catch(function (err) {
+      status.textContent = 'Falha ao carregar lista de conectores: ' + err;
+    });
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

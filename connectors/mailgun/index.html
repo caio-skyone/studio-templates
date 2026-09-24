@@ -1,0 +1,2479 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://caio-skyone.github.io/studio-templates/connectors/mailgun/">
+      
+      
+        <link rel="prev" href="../jira/">
+      
+      
+        <link rel="next" href="../notion/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Mailgun - Studio Templates</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mailgun" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Studio Templates" class="md-header__button md-logo" aria-label="Studio Templates" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Studio Templates
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mailgun
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Studio Templates" class="md-nav__button md-logo" aria-label="Studio Templates" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    Studio Templates
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conectores
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conectores
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databricks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databricks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ifood/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iFood
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jira/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mailgun
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mailgun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-a-api-do-mailgun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é a API do Mailgun?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceitos-fundamentais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos Fundamentais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos Fundamentais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-de-dados-e-hierarquia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estrutura de Dados e Hierarquia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos-e-configuracao-no-mailgun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pré-requisitos e Configuração no Mailgun
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pré-requisitos e Configuração no Mailgun">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-autenticacao-suportados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Autenticação suportados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtendo-as-credenciais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtendo as credenciais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Obtendo as credenciais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-chaves-e-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Chaves e Tokens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SMTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-da-conta-no-skyone-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuração da conta no Skyone Studio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuração da conta no Skyone Studio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conectividade-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conectividade REST
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conectividade-smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conectividade SMTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes-disponiveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operações Disponíveis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-fluxo-utilizando-o-mailgun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo de Fluxo utilizando o Mailgun
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-now/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service Now
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stripe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stripe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../twilio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Twilio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xero
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zendesk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zendesk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-crm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho CRM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-desk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Desk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-workdrive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho WorkDrive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo de Desenvolvimento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fluxo de Desenvolvimento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Callback OAuth2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Callback OAuth2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev-flow/callback/contexto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contexto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev-flow/callback/oauth2postman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Postman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-a-api-do-mailgun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é a API do Mailgun?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceitos-fundamentais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos Fundamentais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos Fundamentais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-de-dados-e-hierarquia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estrutura de Dados e Hierarquia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos-e-configuracao-no-mailgun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pré-requisitos e Configuração no Mailgun
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pré-requisitos e Configuração no Mailgun">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-autenticacao-suportados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Autenticação suportados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtendo-as-credenciais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtendo as credenciais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Obtendo as credenciais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-chaves-e-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Chaves e Tokens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SMTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-da-conta-no-skyone-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuração da conta no Skyone Studio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuração da conta no Skyone Studio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conectividade-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conectividade REST
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conectividade-smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conectividade SMTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes-disponiveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operações Disponíveis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-fluxo-utilizando-o-mailgun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo de Fluxo utilizando o Mailgun
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mailgun">Mailgun</h1>
+<h2 id="introducao">Introdução</h2>
+<p>Este artigo detalha como configurar, autenticar e integrar a API do <strong>Mailgun</strong> no <strong>Skyone Studio</strong> usando o template de módulo.</p>
+<h2 id="o-que-e-a-api-do-mailgun">O que é a API do Mailgun?</h2>
+<p>A API do Mailgun utiliza uma arquitetura <strong>RESTful</strong> para permitir a interação programática com a plataforma de <strong>automação e envio de e-mails (Email Service Provider)</strong>. A comunicação é realizada via protocolo <strong>HTTPS</strong>, com troca de dados padronizada no formato <strong>JSON</strong>.</p>
+<p>Se sua intenção é apenas enviar emails usando Mailgun, pode ser vantajoso usar o template <strong>Mailgun (SMTP)</strong>, combinar os dois templates é provavelmente o formato ideal, mas observe que eles possuem credenciais separadas que serão abordadas posteriormente.</p>
+<p><strong>Principais capacidades:</strong></p>
+<p><strong>Envio de E-mails:</strong> Envio de mensagens transacionais e de marketing com suporte a templates e formato MIME.
+<strong>Gerenciamento de Listas:</strong> Controle completo sobre listas de mailing, membros e uploads em lote via CSV ou JSON.
+<strong>Monitoramento de Entregabilidade:</strong> Gestão de bounces, reclamações (complaints), desinscrições (unsubscribes) e tabelas de permissão (allowlists).
+<strong>Analytics e Logs:</strong> Acesso a estatísticas detalhadas por dispositivo, país e provedor, além de logs de eventos em tempo real.</p>
+<h2 id="conceitos-fundamentais">Conceitos Fundamentais</h2>
+<p>A estrutura do Mailgun baseia-se nos seguintes pilares:</p>
+<h3 id="estrutura-de-dados-e-hierarquia">Estrutura de Dados e Hierarquia</h3>
+<p>Para manipular dados com sucesso, é fundamental compreender a hierarquia:</p>
+<p><strong>Domain (Domínio)</strong>: É a entidade central. Todas as credenciais, estatísticas, webhooks e configurações de rastreamento estão vinculadas a um domínio específico.
+<strong>Mailing List</strong>: Um grupo de membros associado a um endereço de e-mail próprio que funciona como um identificador para comunicações em massa.
+<strong>Subaccounts</strong>: Contas vinculadas à conta principal que permitem isolar o tráfego e os limites de envio para diferentes clientes ou projetos.</p>
+<hr />
+<h2 id="pre-requisitos-e-configuracao-no-mailgun">Pré-requisitos e Configuração no Mailgun</h2>
+<p>Para iniciar o desenvolvimento, são necessários:</p>
+<p><strong>Conta ativa</strong> no Mailgun.</p>
+<p><strong>API Key / Credentials</strong>: Obtida no dashboard da plataforma.</p>
+<h3 id="tipos-de-autenticacao-suportados">Tipos de Autenticação suportados</h3>
+<p>A API suporta: <strong>Basic Authentication</strong> (utilizando a API Key) ou o login de SMTP (para Mailgun SMTP).</p>
+<h3 id="obtendo-as-credenciais">Obtendo as credenciais</h3>
+<p>Para integrar a plataforma ao Mailgun, siga os passos abaixo para obter os diferentes tipos de identificadores e chaves:</p>
+<ol>
+<li>Crie uma conta no Mailgun e siga o <strong>Get Started Guide</strong> na tela inicial.</li>
+<li>Resgate um dos tipos de tokens</li>
+</ol>
+<h4 id="tipos-de-chaves-e-tokens">Tipos de Chaves e Tokens</h4>
+<p>Para integrar a plataforma ao Mailgun, utilize a chave de API adequada ao escopo da sua operação, veja mais informações na <a href="https://documentation.mailgun.com/docs/mailgun/user-manual/api-key-mgmt/rbac-mgmt">documentação oficial</a>.</p>
+<h4 id="smtp">SMTP</h4>
+<ol>
+<li>No dashboard do Mailgun, acesse <strong>Domain Settings</strong> na aba lateral e depois <strong>SMTP Credentials</strong> nesta seção.</li>
+<li>Clique em <strong>Add new user</strong> e escolha entre criar uma senha ou gerar ela automaticamente (o segundo é o método recomendado)</li>
+<li>Guarde o login e senha que irão aparecer</li>
+</ol>
+<hr />
+<h2 id="configuracao-da-conta-no-skyone-studio">Configuração da conta no Skyone Studio</h2>
+<ol>
+<li>No template do conector, clique em <strong>Conta conectada</strong> e em <strong>Adicionar conta conectada</strong></li>
+<li>Preencha da seguinte forma:</li>
+</ol>
+<h3 id="conectividade-rest">Conectividade REST</h3>
+<table>
+<thead>
+<tr>
+<th>Nome da conta</th>
+<th>[Escolha um nome identificável]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Host</strong></td>
+<td>https://api.mailgun.net</td>
+</tr>
+<tr>
+<td><strong>Porta</strong></td>
+<td>443</td>
+</tr>
+<tr>
+<td><strong>Usuário</strong></td>
+<td>api</td>
+</tr>
+<tr>
+<td><strong>Senha</strong></td>
+<td>[Insira seu token]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="conectividade-smtp">Conectividade SMTP</h3>
+<table>
+<thead>
+<tr>
+<th>Nome da conta</th>
+<th>[Escolha um nome identificável]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Host</strong></td>
+<td>smtp.mailgun.org</td>
+</tr>
+<tr>
+<td><strong>Porta</strong></td>
+<td><a href="https://www.mailgun.com/blog/email/which-smtp-port-understanding-ports-25-465-587/">Entenda qual porta usar</a></td>
+</tr>
+<tr>
+<td><strong>Login</strong></td>
+<td>[Seu login do SMTP User]</td>
+</tr>
+<tr>
+<td><strong>Password</strong></td>
+<td>[Sua password do SMTP User]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="operacoes-disponiveis">Operações Disponíveis</h2>
+<p>Abaixo listamos as operações mapeadas neste conector.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome da Operação</th>
+<th style="text-align: left;">Método HTTP</th>
+<th style="text-align: left;">Descrição da Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Delete a member</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui um assinante de uma lista de e‑mail.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Routes-Update a route</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza rota, alterando apenas os campos informados.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Routes-Delete a route</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove uma rota da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Routes-Match address to route</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Verifica se um endereço corresponde a pelo menos uma rota.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Create a mailing list</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona uma lista de emails à conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Get mailing lists</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista os grupos de membros com endereços próprios.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Get mailing lists members</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Exibe os membros de uma lista de correio específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Create a mailing list member</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Inclui um novo membro na lista de emails.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Bulk upload members (JSON)</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona até 1000 membros em lote via JSON.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Bulk upload members (CSV)</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona até 1000 membros em lote via arquivo CSV.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Get a member</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém detalhes de um membro específico da lista.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Update a mailing list member</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza um membro de mailing list com as propriedades indicadas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Routes-Get a route</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Retorna visualização detalhada da rota.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Update a mailing list</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza os campos de uma lista de e-mails (endereço, nome, etc).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Delete a mailing list</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma lista de distribuição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Get a mailing list by address</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Retorna a lista de correio que corresponde ao endereço informado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Get mailing lists by page</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Paginador de listas de mailing.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mailing Lists-Get members by page</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar membros de uma lista com paginação ascendente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Get templates</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Retorna a lista de templates disponíveis para o domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Create a template</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Armazena um novo template com nome e descrição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Delete all templates</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove todos os templates e suas versões no domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Get all template versions</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista paginada de todas as versões de template.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Create a template version</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona nova versão a um template existente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Get template</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Retorna metadados do template especificado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bounces-Clear a single bounce</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove um registro de bounce para retomar entregas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Unsubscribe-View all unsubscribes</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Pagina a lista de cancelamentos de inscrição de um domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Unsubscribe-Insert records</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Envia registros de cancelamento via JSON ou form-data.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Unsubscribe-Delete entire list</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Limpa a lista completa de e-mails cancelados do domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Complaints-Import list</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Importa arquivo CSV para a lista de reclamações.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Complaints-View a single record</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Verifica se um endereço está na lista de queixas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Complaints-Clear a single event</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Reinicia entregas para um endereço que reclamou anteriormente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Complaints-View all</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listagem paginada de reclamações do domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Complaints-Insert records</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Envia registros de reclamações em lote.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Complaints-Delete entire list</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove todas as reclamações do domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bounces-Import list</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Importar lista de bounces via arquivo CSV.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bounces-View single event</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém o evento de bounce para um e-mail específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Update template</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualizar a descrição de um template.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bounces-View all bounces</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Exibe e pagina a lista de retornos de e-mails.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bounces-Insert records</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Envia registros de rejeição em lote.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bounces-Delete entire list</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Limpa a lista de bounce permitindo futuras entregas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Allowlist-Import list</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Importa CSV de endereços ou domínios autorizados.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Allowlist-View a single record</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera um registro para validar permissão.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Allowlist-Remove a record</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove um registro da lista de permissões.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Allowlist-View all records</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Exibe registros de allowlist do domínio divididos em páginas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Allowlist-Add a single record</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona um endereço ou domínio à tabela de permissões.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Allowlist-Clear domains allowlist</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui a lista de permissões completa de um domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Routes-Create a route</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona uma nova rota à conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Routes-Get all routes</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista todas as rotas definidas globalmente na conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Credentials-Delete all SMTP credentials</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Apaga todas as credenciais SMTP de um domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subaccounts-Enable a subaccount</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Habilita uma subconta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subaccounts-Get current sending limit</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém detalhes do limite de envio personalizado da subconta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subaccounts-Set custom sending limit</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Define um limite personalizado de envio para mensagens.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subaccounts-Delete custom sending limit</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui o limite personalizado de envio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subaccounts-Update subaccount feature</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza recursos específicos de uma subconta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keys-List Mailgun API keys</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar chaves da API Mailgun.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keys-Create Mailgun API key</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma nova chave de API (domain, user ou web).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keys-Delete Mailgun API key</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove uma chave da API Mailgun.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keys-Regenerate Public API key</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Regenera a chave pública da API.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Credentials-List SMTP metadata</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista metadados das credenciais SMTP de um domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Credentials-Create SMTP credentials</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria credenciais SMTP para o domínio especificado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subaccounts-Disable a subaccount</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Desabilita uma subconta informando o motivo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Credentials-Update SMTP credentials</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza a senha de uma credencial SMTP específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Credentials-Delete SMTP credentials</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma credencial SMTP específica de um usuário.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Allowlist-List entries</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Exibir entradas da lista de IPs autorizados da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Allowlist-Update description</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza a descrição de uma entrada na allowlist de IP.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Allowlist-Add entry</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona um IP à lista de permissões da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Allowlist-Delete entry</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma entrada da lista de IPs autorizados.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Users-Get users</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Retorna os usuários de uma conta filtrados por cargo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Users-Get details</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera os dados completos de um usuário.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Users-Get own details</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém detalhes do usuário autenticado (exige chave 'user').</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Users-Add to organization</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Adiciona um usuário a uma organização.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Users-Remove from organization</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove um usuário de uma organização.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Account Management-Resend activation</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Reenvia o e-mail de ativação ao proprietário da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Delete a template</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui um template e todas as suas versões.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Get a version</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera conteúdo de uma versão específica de um template.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Update a version</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza informações ou conteúdo de uma versão específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Delete a version</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma versão específica de um template.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates-Copy a version</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Cria uma nova versão copiando uma existente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Account Management-Update settings</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza configurações variáveis (timeouts, URLs de logout).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Account Management-Get webhook key</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera a chave de assinatura de webhook da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Account Management-Regenerate webhook key</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria ou regenera a chave de assinatura de webhook.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Account Management-Get sandbox recipients</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista destinatários autorizados de um domínio sandbox.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Account Management-Add sandbox recipient</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona destinatário autorizado a um domínio sandbox.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Account Management-Remove sandbox recipient</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove destinatário autorizado de um domínio sandbox.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Unsubscribe-Clear event</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove evento de desinscrição para retomar envios.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Account Management-Get SAML Org ID</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Retorna o ID da organização SAML da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Account Management-Add SAML Org</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona uma organização SAML à conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Custom Message Limit-Get current</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém detalhes do limite de envio personalizado da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Custom Message Limit-Set</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Define limite de envio personalizado para a conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Custom Message Limit-Delete</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui limite de envio personalizado da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Custom Message Limit-Re-enable account</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Reativa conta bloqueada por atingir limite de envio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subaccounts-Get single</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar detalhes de uma subconta específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subaccounts-List all</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera todas as subcontas da conta principal.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subaccounts-Create</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma nova subconta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subaccounts-Delete</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma subconta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPs-Get domains by IP</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista domínios onde um IP específico está atribuído.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Keys-Update DKIM selector</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza o seletor DKIM de um domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DKIM Security-Update rotation</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza a rotação automática da chave DKIM.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DKIM Security-Rotate now</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Roda a chave DKIM imediatamente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Webhooks-Get domain webhooks</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Retorna todos os webhooks configurados no domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Webhooks-Create</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria URLs de webhook para receber dados de eventos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Webhooks-Get by type</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera as URLs de um webhook específico pelo nome.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Webhooks-Update</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza a URL de um webhook existente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Webhooks-Delete by type</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove todas as URLs de um tipo específico de webhook.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPs-Remove from domain pool</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove um IP ou desvincula DIPP de um domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPs-List account IPs</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista IPs atribuíveis e totais segundo filtros.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPs-Get details</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Retorna informações detalhadas sobre um IP da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Keys-Update authority</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Delega a autoridade do domínio para outro domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPs-Assign to all domains</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atribui um IP da conta a todos os seus domínios.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPs-Remove from all domains</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove um IP de todos os domínios da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPs-Place into IP band</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Aloca um IP dedicado em uma faixa específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPs-Get available by plan</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Retorna IPs disponíveis conforme o plano de faturamento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IPs-Add new dedicated</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona um novo IP dedicado à conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Pools-List pools</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista todos os pools de IP dedicados da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Pools-Add DIPP</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo pool de IP dedicado (DIPP).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Pools-Get details</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Verifica vínculos de domínios em um DIPP.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Pools-Delete DIPP</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Apaga um DIPP e gerencia a substituição de IPs.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Pools-Edit DIPP</strong></td>
+<td style="text-align: left;">PATCH</td>
+<td style="text-align: left;">Adiciona/remove IPs ou vincula/desvincula domínios.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Tracking-Update click</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Habilita ou desabilita o rastreamento de cliques.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages-Send MIME</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Envia um e-mail a partir de uma string no formato MIME.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages-Retrieve stored</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera um e-mail guardado via storage key.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages-Queue status</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Fornece informações das filas padrão e agendadas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages-Delete scheduled</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove e-mails agendados que ainda não foram entregues.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domains-Get domains</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera e filtra a lista de domínios da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domains-Create</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo domínio para envio de e-mails.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domains-Get details</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera o estado e configurações detalhadas de um domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domains-Update</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza parâmetros de segurança, rastreamento e spam.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domains-Verify</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Verifica os registros DNS para validar o domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domains-Delete</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Apaga um domínio da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Tracking-Get settings</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Verifica status de abertura, clique e cancelamento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Pools-Get linked domains</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Exibe domínios vinculados a um pool específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Tracking-Update open</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Ativa ou desativa o rastreamento de abertura.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Tracking-Update unsubscribe</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Gerencia o rastreamento de desinscrição e rodapés.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tracking Certificate-Get status</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém o certificado x509 e seu estado atual.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tracking Certificate-Regenerate</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Inicia a regeneração de certificado expirado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tracking Certificate-Generate</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Inicia a geração de novo certificado TLS.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Keys-List all</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista chaves de todos os domínios com filtros.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Keys-Create</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma chave de domínio importando ou gerando PEM.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Keys-Delete</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove uma chave de domínio permanentemente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Keys-Activate</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Ativa uma chave DKIM específica para assinatura.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Keys-List domain keys</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Exibe todas as chaves (ativas/inativas) de um domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Domain Keys-Deactivate</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Desativa uma chave de domínio para assinaturas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags-Delete tag</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir tag associada a um domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Logs-List logs</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Exibe logs de eventos da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stats-Total account</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém totais estatísticos de toda a conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stats-Total domain</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém totais estatísticos para um domínio específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stats-Resolution totals</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Totais de domínios para uma única resolução de tempo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stats-Filtered account</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Totais filtrados e agrupados para a conta inteira.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stats-Aggregate by ESP</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Contagem agregada por provedor de serviço (ESP).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stats-Aggregate by device</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Contagem agregada por tipo de dispositivo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stats-Aggregate by country</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Contagem agregada por país.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags-List all</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar todas as tags associadas a um domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags-Get a tag</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar metadados de uma tag específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags-Update tag</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza a descrição de uma tag.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Events-Retrieve list</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera lista paginada de eventos de mensagens.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags-Get aggregate types</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Tipos estatísticos agregados por tag (país, disp, etc).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags-Get stats</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera estatísticas detalhadas agrupadas por tag.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags-Get limits</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém limites de tags por domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags V2-Update account tag</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza a descrição da tag no nível da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags V2-Search/List</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Lista ou busca tags da conta via query.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags V2-Delete</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Deleta uma tag do nível da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tags V2-Get limit info</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém limites e contagem de tags únicas da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Metrics-Account metrics</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Recupera métricas filtradas de uma conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Metrics-Usage metrics</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Obtém métricas de uso (billing) para a conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Unsubscribe-Import list</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Importa arquivo CSV para a lista de desinscrição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Unsubscribe-View single</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Verifica se um endereço está desinscrito.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Update IPs</strong></td>
+<td style="text-align: left;">PATCH</td>
+<td style="text-align: left;">Adiciona ou remove IPs de um pool dinâmico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Pools-Add IP to DIPP</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Vincula IP dedicado a um pool específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Pools-Remove IP from DIPP</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Desvincula IP de um pool específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Pools-Add multiple IPs</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona múltiplos IPs a um DIPP de forma assíncrona.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Enroll domain</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Registra domínio no pool dinâmico conforme reputação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Remove domain</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove domínio do pool e define IP de substituição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-List assignable</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista domínios aptos a entrar em pools dinâmicos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Enroll all</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Vincula todos os domínios da conta aos pools dinâmicos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-List all</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Exibe a lista de IPs de cada pool dinâmico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Initialize/Set</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Substitui IPs em todos os pools dinâmicos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Remove all</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove todos os pools dinâmicos da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Add IP</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona um IP a um pool dinâmico nomeado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages-Send</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Envia e-mail via parâmetros estruturados (to, from, subject, body).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-List assigned</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista domínios atribuídos a pools dinâmicos (pai e subs).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Preview</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Verifica saúde e antecipa qual pool seria atribuído.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-List history</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém registros históricos de um domínio nos pools.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Override</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Sobrepõe alocação manual de pool IP.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Remove override</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Devolve a atribuição do pool aos health checks.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic IP Pools-Account history</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Histórico completo de domínios em pools (pai e subs).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Warmup-List statuses</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista status de aquecimento de IPs em processamento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Warmup-Get status</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Verifica status de aquecimento de um IP específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Warmup-Create plan</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um plano de aquecimento para um IP dedicado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IP Warmup-Cancel plan</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Cancela o plano de aquecimento de um IP dedicado.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Mailgun (SMTP) tem uma única operação que serve de uso flexível, você pode criar seus próprios templates de emails. Lembre-se de usar <strong>HTML</strong> no body.</p>
+</blockquote>
+<hr />
+<h2 id="exemplo-de-fluxo-utilizando-o-mailgun">Exemplo de Fluxo utilizando o Mailgun</h2>
+<p>Este exemplo demonstra como construir um fluxo básico usando o conector do Mailgun, recebendo dados de cadastro em um webhook e enviando um email de boas vindas.</p>
+<p><img alt="fluxo.png" src="../../img/mailgun/fluxo.png" /></p>
+<p><strong>Documentação Oficial da API:</strong> <a href="https://documentation.mailgun.com/docs/mailgun/api-reference/">Mailgun API Reference</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

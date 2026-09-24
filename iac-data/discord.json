@@ -1,0 +1,6298 @@
+{
+  "name": "Discord",
+  "id": "I3UBUc40EP",
+  "authorization": {
+    "groups": [
+      "default"
+    ]
+  },
+  "description": "Conector REST para interações automatizadas (Bot API)",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "header-auth"
+  },
+  "operations": [
+    {
+      "name": "Members - Modify Guild Member",
+      "id": "mVv8hRZhMN",
+      "description": "Modifica atributos de um membro do servidor (nick, cargos, mute, etc.)",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "b4ae10a2-46c3-4fd8-bdd8-b1a04d509762",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "176ef6ea-0f94-41b4-945b-1558e8445851",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "3b91f6c2-0edc-433e-8d53-4277d087521e",
+          "type": "string",
+          "description": "ID do membro a modificar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "0f8cf378-dbb1-44f0-acc0-9a29d4578051",
+          "type": "object",
+          "description": "Corpo com nick, roles, mute, deaf, channel_id a atualizar",
+          "sensitive": false,
+          "sample": "{\"nick\": \"NovaNick\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "members",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Guilds - Get Guild Member",
+      "id": "zalK8jrGWA",
+      "description": "Retorna informações de um membro específico do servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "782e1ff7-13eb-4c61-8d71-02dab0f5e57b",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "c9e8d95d-ac46-4862-8cb7-f03b69ff4f03",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "d4c060fa-0cd2-43a4-a86c-7858cad3284a",
+          "type": "string",
+          "description": "ID do usuário membro do servidor",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "members",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Guilds - Modify Guild",
+      "id": "_na8XhiGzO",
+      "description": "Modifica as configurações de um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "de963b07-f319-4cb5-be49-6fdc1e2a87fb",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "412497e5-52f7-4d9c-ba23-b5c9d51c4b48",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "f2ecb934-2bd7-4f07-89a6-01bd06c9eba6",
+          "type": "object",
+          "description": "Corpo da requisição com os campos a modificar no servidor",
+          "sensitive": false,
+          "sample": "{\"name\": \"Meu Servidor\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Guilds - Get Guild",
+      "id": "DmYmO9s3TF",
+      "description": "Retorna informações de um servidor pelo ID",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "92fff0cc-9acc-4af8-81d1-84073ab14470",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "688b207a-4519-42be-a991-ff923e1f1978",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Audit Log - Get Guild Audit Log",
+      "id": "h2VEHF4ud1",
+      "description": "Retorna o log de auditoria de ações no servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "ba2f678c-17b4-46a0-92f2-f585e855ad3f",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "3177b47d-d520-479a-b29c-ba3a9d387f0d",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "366926b9-d5fc-4aac-9e2b-f351acbd38b0",
+          "type": "string",
+          "description": "Filtra entradas pelo ID do usuário que executou a ação",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        },
+        {
+          "name": "action_type",
+          "id": "812cab68-bce8-4dcc-b6c3-a76a167cbaa8",
+          "type": "number",
+          "description": "Filtra por tipo de ação (número inteiro do enum AuditLogEvent)",
+          "sensitive": false,
+          "sample": "20",
+          "required": false
+        },
+        {
+          "name": "before",
+          "id": "e47fa74d-02fd-4f5c-b260-1be5eff08272",
+          "type": "string",
+          "description": "Retorna entradas antes deste ID",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        },
+        {
+          "name": "after",
+          "id": "076f1ab6-b200-492a-9745-fc7c59661f95",
+          "type": "string",
+          "description": "Retorna entradas depois deste ID",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "id": "18db4d8f-820d-42aa-9b06-f16d991d6843",
+          "type": "number",
+          "description": "Número máximo de entradas retornadas (1-100)",
+          "sensitive": false,
+          "sample": "50",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "audit-logs"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "action_type",
+            "value": "<>action_type</>",
+            "enabled": true
+          },
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "before",
+            "value": "<>before</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          },
+          {
+            "key": "user_id",
+            "value": "<>user_id</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Channels - Trigger Typing Indicator",
+      "id": "y8X7txv7FD",
+      "description": "Dispara o indicador de digitação no canal por 10 segundos",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "6cb3e14a-0806-4c77-8d1a-cdbd7e4b3490",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "6028e25e-1d86-4f2f-bacd-94bda9d6aa00",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "typing"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Scheduled Events - Get Users",
+      "id": "2yG5jnDKdt",
+      "description": "Lista usuários inscritos em um evento agendado",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "207dcb5f-d6d5-4668-b5bd-b6b2d41a6610",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "72641f83-8317-435f-8ebe-212a613ab15c",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "event_id",
+          "id": "91d10f02-969f-485d-95d2-17d1d5bf6288",
+          "type": "string",
+          "description": "ID do evento agendado",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "id": "4d999df5-1afc-4083-8445-e3e678e82e4c",
+          "type": "number",
+          "description": "Número máximo de usuários retornados",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        },
+        {
+          "name": "before",
+          "id": "a064a4e7-73da-4ab9-b636-dae0157790c3",
+          "type": "string",
+          "description": "Retorna usuários antes deste ID",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        },
+        {
+          "name": "after",
+          "id": "18f93a9b-774a-425f-bab6-f1361ee313cf",
+          "type": "string",
+          "description": "Retorna usuários depois deste ID",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "scheduled-events",
+            "<>event_id</>",
+            "users"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "before",
+            "value": "<>before</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Scheduled Events - Modify",
+      "id": "KXzQcSWWmU",
+      "description": "Modifica um evento agendado existente",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "7671747a-cafb-4823-a718-585121b6e084",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "9481b34f-d472-468c-b316-0efe30be65c2",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "event_id",
+          "id": "7bdb10c2-6672-4eb8-b04d-c55fbad14198",
+          "type": "string",
+          "description": "ID do evento agendado",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "7db1a7c4-27da-4e5e-a67e-f36fd6d1b4f9",
+          "type": "object",
+          "description": "Corpo com os campos do evento a atualizar",
+          "sensitive": false,
+          "sample": "{\"name\": \"Evento atualizado\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "scheduled-events",
+            "<>event_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Scheduled Events - Get",
+      "id": "_3XMt7t7SA",
+      "description": "Retorna informações de um evento agendado pelo ID",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "4910a3b9-1705-4168-9594-04b951e3763a",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "e995659e-a196-4e5f-9c50-dd209bae7e78",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "event_id",
+          "id": "ca696686-7784-407d-a087-b1756d16725b",
+          "type": "string",
+          "description": "ID do evento agendado",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "scheduled-events",
+            "<>event_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Interactions - Delete Followup Message",
+      "id": "dRyeRyWHid",
+      "description": "Deleta uma mensagem de followup de uma interação",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "a38cb028-587f-4aef-b430-fdd36f24903c",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "de1aa55a-caef-406b-bcaf-3d76644e0108",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "interaction_token",
+          "id": "16c0901c-378f-4f35-a15b-e62255bf32e1",
+          "type": "string",
+          "description": "Token da interação original",
+          "sensitive": true,
+          "sample": "meu-interaction-token",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "8eb60476-781e-4a02-b566-ce07c4e16ef1",
+          "type": "string",
+          "description": "ID da mensagem de followup a deletar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>application_id</>",
+            "<>interaction_token</>",
+            "messages",
+            "<>message_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Interactions - Delete Original Response",
+      "id": "XP4zA5rsJ4",
+      "description": "Deleta a mensagem de resposta original de uma interação",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "63c5ad64-0b64-48ca-a47e-405cc8b43ac4",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "ccfa61ac-707f-44cd-8e4a-b00db8221042",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "interaction_token",
+          "id": "22828657-6291-4cba-97ba-bb755c487a0c",
+          "type": "string",
+          "description": "Token da interação original",
+          "sensitive": true,
+          "sample": "meu-interaction-token",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>application_id</>",
+            "<>interaction_token</>",
+            "messages",
+            "@original"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Interactions - Edit Original Response",
+      "id": "m5Sa-dynTi",
+      "description": "Edita a mensagem de resposta original de uma interação",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "3e420fd9-7a95-4c69-bd9a-05e76a19392e",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "fb449455-4399-4379-a81c-6e2c96d6d3f3",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "interaction_token",
+          "id": "c80f280f-4349-43a9-a1fa-da9f1f38dc0d",
+          "type": "string",
+          "description": "Token da interação original",
+          "sensitive": true,
+          "sample": "meu-interaction-token",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "eaba3c10-bce8-4e07-8241-1fe3a2baa364",
+          "type": "object",
+          "description": "Corpo com os campos da mensagem a atualizar",
+          "sensitive": false,
+          "sample": "{\"content\": \"Resposta atualizada\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>application_id</>",
+            "<>interaction_token</>",
+            "messages",
+            "@original"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Interactions - Create Response",
+      "id": "lO-TKTfR3l",
+      "description": "Envia resposta a uma interação (slash command, button, etc.)",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "2a478343-9290-4d08-90e4-65128afcda11",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "interaction_id",
+          "id": "ff53feb2-be23-4e7f-925c-8567a327c7ad",
+          "type": "string",
+          "description": "ID da interação a responder",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "interaction_token",
+          "id": "d8a6dc58-55fb-451a-b60f-207182b50b97",
+          "type": "string",
+          "description": "Token da interação (recebido no payload da interação)",
+          "sensitive": true,
+          "sample": "meu-interaction-token",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "14d4dfc6-e1cf-4dab-9bef-25ab8327d0b9",
+          "type": "object",
+          "description": "Corpo com tipo de resposta (type) e dados (data)",
+          "sensitive": false,
+          "sample": "{\"type\": 4, \"data\": {\"content\": \"Pong!\"}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "interactions",
+            "<>interaction_id</>",
+            "<>interaction_token</>",
+            "callback"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Channels - Get Channel",
+      "id": "4XCqBo5ocY",
+      "description": "Retorna informações de um canal pelo ID",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "1845ee49-5030-44fb-a60f-4e4bde3b6719",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "60d4b28a-9ad9-4a98-86d6-b1ad5698f0cc",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bans - Get Guild Ban",
+      "id": "JzzLZ8UdWN",
+      "description": "Retorna informações do ban de um usuário específico",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "9b9778f4-57b4-40f0-9228-57addba7b632",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "9b2882fa-b306-472b-93dd-539e108702f9",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "9370e5cb-562e-4a76-b6c5-9bbde6528c2c",
+          "type": "string",
+          "description": "ID do usuário banido",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "bans",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - List Thread Members",
+      "id": "NEp6MHFl-c",
+      "description": "Lista todos os membros de uma thread",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "cb121f10-2550-4247-87f8-d62518a2bf1a",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "28fc1cb7-2945-44af-aba1-1e7d424b637d",
+          "type": "string",
+          "description": "ID da thread",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "thread-members"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - Get Thread Member",
+      "id": "oDYFVAGA67",
+      "description": "Retorna informações de um membro específico de uma thread",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "9ec4e035-cd0d-4313-93ea-5f8d84e695e8",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "b7199a9f-a7fb-4967-bb1a-bf1b9a14caf0",
+          "type": "string",
+          "description": "ID da thread",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "d871d347-9d5c-4ceb-a93c-2e0a1103cd34",
+          "type": "string",
+          "description": "ID do membro da thread",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "thread-members",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - Add Thread Member",
+      "id": "W3h8_eR-0y",
+      "description": "Adiciona um usuário como membro de uma thread",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "052253d8-58c7-401f-85a3-95a6dccb285e",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "24dbeb03-f2df-4c00-b2bd-162e3c3f880d",
+          "type": "string",
+          "description": "ID da thread",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "435d4532-9c29-407a-a937-9941dff6c5b7",
+          "type": "string",
+          "description": "ID do usuário a adicionar na thread",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "thread-members",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - Join Thread",
+      "id": "_UK419YQaf",
+      "description": "Adiciona o bot como membro de uma thread",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "0cfe48f2-42f9-4fc8-9adc-50cc94e660e7",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "e1d390c9-8083-4640-bdf7-f2fc989c7d91",
+          "type": "string",
+          "description": "ID da thread",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "thread-members",
+            "@me"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Application Commands - Create Global Command",
+      "id": "BWSZYwl_oV",
+      "description": "Cria ou sobrescreve um comando slash global",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "b57e65e5-f62f-4c4f-8ad1-b0312a3c480e",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "801d5ecd-7f63-4562-99e3-9fa41359195d",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "f1a5c304-5e4e-446b-a6e4-26256ce95903",
+          "type": "object",
+          "description": "Corpo com nome, descrição e opções do comando slash",
+          "sensitive": false,
+          "sample": "{\"name\": \"ping\", \"description\": \"Responde com pong\", \"type\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "applications",
+            "<>application_id</>",
+            "commands"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Webhooks - Get Webhook",
+      "id": "JCPqh1RWFn",
+      "description": "Retorna informações de um webhook pelo ID",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "0cd539ea-fe51-4e57-88fd-1b49d140e257",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "webhook_id",
+          "id": "21a885a2-8f62-48c6-898c-e955cc1bf735",
+          "type": "string",
+          "description": "ID do webhook",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>webhook_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Roles - Add Member Role",
+      "id": "NddzBDx_Ld",
+      "description": "Adiciona um cargo a um membro do servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "c8f61057-5c4e-4059-a729-956e787abffb",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "bbf160b7-bbfc-4bbd-94c9-1bc783f83a58",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "d608664d-d2d8-4f84-a09f-06ef789e342d",
+          "type": "string",
+          "description": "ID do usuário membro do servidor",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "role_id",
+          "id": "b9d8bf89-455c-45b7-b388-e546e94ec5df",
+          "type": "string",
+          "description": "ID do cargo a adicionar ao membro",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "members",
+            "<>user_id</>",
+            "roles",
+            "<>role_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pins - Unpin Message",
+      "id": "pIAiXe0FaR",
+      "description": "Remove o fixado de uma mensagem em um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "50f80f72-1825-4d1d-83b7-565c43e29ea3",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "9420f507-edce-4167-b69c-53e274034b81",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "4d248e9b-4b29-485d-8684-1ab1c816cf45",
+          "type": "string",
+          "description": "ID da mensagem a ser desafixada",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "pins",
+            "<>message_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pins - Get Pinned Messages",
+      "id": "Z0Bf3wYSht",
+      "description": "Lista todas as mensagens fixadas em um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "2ca71ddd-e47f-4e8e-b59a-e50de6498412",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "37b2d442-9be4-4d87-b174-c1913874c2f6",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "pins"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Reactions - Get Reactions",
+      "id": "_J-nVBMCeX",
+      "description": "Lista usuários que reagiram com um emoji a uma mensagem",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "526c3a2f-ad01-44dc-9749-a167c223e144",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "f0861c9a-eace-47c4-b24f-45fe5bf13200",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "cbe58f36-a5d0-4324-8713-f761f00ae89d",
+          "type": "string",
+          "description": "ID da mensagem",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "emoji",
+          "id": "da2dfa4f-8849-45b9-8831-6aa85b9a4d01",
+          "type": "string",
+          "description": "Emoji URL-encoded (unicode ou nome:id para custom)",
+          "sensitive": false,
+          "sample": "%F0%9F%91%8D",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "id": "ffca1d21-0451-4f26-b4d1-dd7aa71bfa54",
+          "type": "number",
+          "description": "Número máximo de usuários retornados (1-100)",
+          "sensitive": false,
+          "sample": "25",
+          "required": false
+        },
+        {
+          "name": "after",
+          "id": "a93ed95c-264c-43cf-9a60-8161adfeb9a6",
+          "type": "string",
+          "description": "Retorna usuários com ID maior que este valor",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages",
+            "<>message_id</>",
+            "reactions",
+            "<>emoji</>"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Reactions - Delete User Reaction",
+      "id": "9P3ElK_wIo",
+      "description": "Remove a reação de um usuário específico de uma mensagem",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "e12f435a-47fe-436b-9ad0-008f0950f8de",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "3d6fee7e-0315-4251-9846-b425bb7f0422",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "c4713648-0f92-4a49-a434-0a737d5672a2",
+          "type": "string",
+          "description": "ID da mensagem",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "emoji",
+          "id": "3ec46dd5-98f5-4806-adee-38c3035d8e4c",
+          "type": "string",
+          "description": "Emoji URL-encoded (unicode ou nome:id para custom)",
+          "sensitive": false,
+          "sample": "%F0%9F%91%8D",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "ea7e5818-de25-4bb9-ac6c-e70af6ee4bf7",
+          "type": "string",
+          "description": "ID do usuário cuja reação será removida",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages",
+            "<>message_id</>",
+            "reactions",
+            "<>emoji</>",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Members - Search Guild Members",
+      "id": "jE1_Ha1O7p",
+      "description": "Busca membros do servidor por username ou nickname",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "96681a92-9969-42f3-bfc6-48fe40313944",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "7e6a0b75-2e36-40b9-b01e-74084672ff74",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "query",
+          "id": "40e0b944-22f7-4b00-a3f9-9b9198c8d2bb",
+          "type": "string",
+          "description": "Texto de busca por username ou nickname (1-1000 chars)",
+          "sensitive": false,
+          "sample": "joao",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "id": "887fa070-74ca-45e0-918d-01392a617865",
+          "type": "number",
+          "description": "Número máximo de membros retornados (1-1000)",
+          "sensitive": false,
+          "sample": "10",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "members",
+            "search"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          },
+          {
+            "key": "query",
+            "value": "<>query</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Invites - Get Invite",
+      "id": "NqqL5ISXf3",
+      "description": "Retorna informações de um convite pelo código",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "c3631a92-c842-461e-8fe4-df95a095ecbf",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "invite_code",
+          "id": "e9ae27b2-8ae8-45c4-a16e-dc37de2071ff",
+          "type": "string",
+          "description": "Código do convite (ex: hreZsFkC)",
+          "sensitive": false,
+          "sample": "hreZsFkC",
+          "required": true
+        },
+        {
+          "name": "with_counts",
+          "id": "7aec1cdc-c13a-4c9f-b46a-7fdf568c49f6",
+          "type": "string",
+          "description": "Se true, inclui contagem de membros e presença online",
+          "sensitive": false,
+          "sample": "true",
+          "required": false
+        },
+        {
+          "name": "with_expiration",
+          "id": "b3694dbc-9f14-46ff-96f4-ab55d73c8762",
+          "type": "string",
+          "description": "Se true, inclui data de expiração do convite",
+          "sensitive": false,
+          "sample": "true",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "invites",
+            "<>invite_code</>"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "with_counts",
+            "value": "<>with_counts</>",
+            "enabled": true
+          },
+          {
+            "key": "with_expiration",
+            "value": "<>with_expiration</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stage Instances - Delete",
+      "id": "ArgShcPJQB",
+      "description": "Deleta (encerra) uma instância de palco ativa",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "c19f692d-1af8-43c8-b1f4-6a597d40d4de",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "9a921fce-314b-482e-a8e8-27d88b3ffead",
+          "type": "string",
+          "description": "ID do canal de palco a encerrar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "stage-instances",
+            "<>channel_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stage Instances - Modify",
+      "id": "lt8NivPFA1",
+      "description": "Modifica o tópico de uma instância de palco ativa",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "e88f8805-7ea5-4dd8-8b8f-c7117a33ec40",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "27227e3e-3314-46c6-b05f-5346ed6ba7a8",
+          "type": "string",
+          "description": "ID do canal de palco",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "6840c457-73d9-4dcc-b04a-f57490fcfd2e",
+          "type": "object",
+          "description": "Corpo com novo tópico do palco",
+          "sensitive": false,
+          "sample": "{\"topic\": \"Novo tópico\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "stage-instances",
+            "<>channel_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Scheduled Events - Create",
+      "id": "Rrl5lrvbxZ",
+      "description": "Cria um novo evento agendado no servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "78b7a3f6-6fa0-4338-a90c-12e0d1ff898b",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "fe337634-1ca8-4e3e-a4a0-efddc42284d6",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "42941cbb-6a21-420a-ab7a-460dfddcfd92",
+          "type": "object",
+          "description": "Corpo com nome, tipo de entidade, hora de início e canal do evento",
+          "sensitive": false,
+          "sample": "{\"name\": \"Evento\", \"entity_type\": 2, \"scheduled_start_time\": \"2026-06-01T18:00:00\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "scheduled-events"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Auto Moderation - List Rules",
+      "id": "JMMLW_MQb3",
+      "description": "Lista todas as regras de auto-moderação de um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "bf5779ff-cdc7-4201-bfac-624ef8704c6e",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "26fd34e9-ce57-4c04-b775-2f4c811330e8",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "auto-moderation",
+            "rules"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Interactions - Get Followup Message",
+      "id": "Hqy-da8_bN",
+      "description": "Retorna uma mensagem de followup de uma interação",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "ef526ad0-1ea6-4e63-b62a-1cd0429b8d24",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "aff7bd4f-6713-41e4-8a65-d0b3b95de14b",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "interaction_token",
+          "id": "194bda55-18c7-4b03-a7b9-d0aa5f70fd21",
+          "type": "string",
+          "description": "Token da interação original",
+          "sensitive": true,
+          "sample": "meu-interaction-token",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "d0040b38-1136-4fcf-aee8-42465996c85b",
+          "type": "string",
+          "description": "ID da mensagem de followup",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>application_id</>",
+            "<>interaction_token</>",
+            "messages",
+            "<>message_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Interactions - Create Followup Message",
+      "id": "LlyXAhpMfa",
+      "description": "Envia mensagem de followup após resposta inicial de interação",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "d40cf7f0-955c-4117-b724-49af22d42f20",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "910c3708-b824-4643-b62b-59bdabdd57b1",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "interaction_token",
+          "id": "9dd2bf20-7010-431c-b824-5fe4a16a0be8",
+          "type": "string",
+          "description": "Token da interação original",
+          "sensitive": true,
+          "sample": "meu-interaction-token",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "9eac4665-3559-467b-a81d-30b5070fb88c",
+          "type": "object",
+          "description": "Corpo da mensagem de followup",
+          "sensitive": false,
+          "sample": "{\"content\": \"Mensagem de followup\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>application_id</>",
+            "<>interaction_token</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Interactions - Get Original Response",
+      "id": "jKPk8Im9Ne",
+      "description": "Retorna a mensagem de resposta original de uma interação",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "5d74bd8a-6dfb-4ccf-858a-f3481a509f06",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "c9d41c8a-1e4b-4d0f-9476-037ae3b91ec9",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "interaction_token",
+          "id": "a8fdfd69-58fe-46ed-9490-6bd193f4a66d",
+          "type": "string",
+          "description": "Token da interação original",
+          "sensitive": true,
+          "sample": "meu-interaction-token",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>application_id</>",
+            "<>interaction_token</>",
+            "messages",
+            "@original"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Modify Guild Sticker",
+      "id": "KZS56mpDTb",
+      "description": "Modifica nome, descrição ou tags de um sticker do servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "2123ef74-799c-4dc6-84ba-fba0a7c2d504",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "b7fcf63b-991d-481c-8d4b-02ce21f74203",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "sticker_id",
+          "id": "cf44648a-a753-4d31-a566-7fcd7250662d",
+          "type": "string",
+          "description": "ID do sticker a modificar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "b4582217-61fb-44ad-b0ca-db84ce198658",
+          "type": "object",
+          "description": "Corpo com nome, descrição ou tags a atualizar",
+          "sensitive": false,
+          "sample": "{\"name\": \"novo_nome\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "stickers",
+            "<>sticker_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Emojis - Delete Guild Emoji",
+      "id": "ksgO9ImNyA",
+      "description": "Deleta um emoji customizado do servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "31a10c2d-ca68-4d65-918a-9e04db9dda1d",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "6e034237-d37f-478e-89cd-18386d1dbcb4",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "emoji_id",
+          "id": "3710e806-dc92-4b7b-8b4d-3ea5f4ca34b2",
+          "type": "string",
+          "description": "ID do emoji a deletar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "emojis",
+            "<>emoji_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Emojis - Modify Guild Emoji",
+      "id": "N9ZM3YMlke",
+      "description": "Modifica nome ou cargos permitidos de um emoji customizado",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "cb69c004-a165-4bb5-8269-151307b39ebe",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "d1038bc9-32ff-48ab-8484-e91726713740",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "emoji_id",
+          "id": "a0ad8bba-286a-4876-a9db-7b2f089722fe",
+          "type": "string",
+          "description": "ID do emoji a modificar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "73d96352-b456-44b4-8c48-d0c3d62d713c",
+          "type": "object",
+          "description": "Corpo com nome ou roles a atualizar no emoji",
+          "sensitive": false,
+          "sample": "{\"name\": \"novo_nome\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "emojis",
+            "<>emoji_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Emojis - Create Guild Emoji",
+      "id": "MEH-AZUD8T",
+      "description": "Cria um novo emoji customizado no servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "71dc9e8c-955d-4965-83da-c5ead8ebeaa6",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "c15c591f-3bcd-4a8c-aeb0-16fda5f9ab2a",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "13f44788-24eb-44fb-a158-539daee2219d",
+          "type": "object",
+          "description": "Corpo com nome, imagem (data URI) e roles permitidos",
+          "sensitive": false,
+          "sample": "{\"name\": \"emoji_nome\", \"image\": \"data:image/png;base64,...\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "emojis"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Channels - Delete Message",
+      "id": "xr9pCOZU69",
+      "description": "Deleta uma mensagem de um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "82774987-2fb4-43c4-ba25-2bd8ae5bd7a9",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "8c7805f3-335f-4806-87f1-18a77ab25962",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "96486d4d-3521-49bc-83ab-dd20a41db5de",
+          "type": "string",
+          "description": "ID da mensagem a deletar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages",
+            "<>message_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Members - Remove Guild Member",
+      "id": "Ei8uahVslR",
+      "description": "Expulsa (kick) um membro do servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "b5c67862-a127-49f8-9190-6c7704d71b94",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "c4844b0e-5782-4394-b1c0-bfb77aec681a",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "c0a8feb7-92d9-476e-bcce-d7ccf1d461d8",
+          "type": "string",
+          "description": "ID do membro a expulsar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "members",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - List Private Archived Threads",
+      "id": "miQjdT_Q3E",
+      "description": "Lista threads privadas arquivadas de um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "9cb7f5c8-05bf-4107-8a69-0ce9a80d9a9c",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "8e48267c-080d-4697-86f5-f2e3c8c8698f",
+          "type": "string",
+          "description": "ID do canal",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "before",
+          "id": "694d622c-869c-47cd-a218-87b97841f45b",
+          "type": "string",
+          "description": "Retorna threads arquivadas antes desta data ISO8601",
+          "sensitive": false,
+          "sample": "2021-01-01T00:00:00.000Z",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "id": "b659b6e6-cff6-441f-83dd-b5bd2e0ee98f",
+          "type": "number",
+          "description": "Número máximo de threads retornadas",
+          "sensitive": false,
+          "sample": "50",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "threads",
+            "archived",
+            "private"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "before",
+            "value": "<>before</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - Create without Message",
+      "id": "12CctAuLP7",
+      "description": "Cria uma thread sem mensagem associada (thread privada ou fórum)",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "cf707fd4-2ebf-44f8-b695-92ab104912cd",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "2a5f86db-0aa0-4f1c-a194-2ed00c6cfc57",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "c3c857f3-37a7-4aea-8a70-44c9b43937c1",
+          "type": "object",
+          "description": "Corpo com nome, tipo e configurações da thread",
+          "sensitive": false,
+          "sample": "{\"name\": \"minha-thread\", \"type\": 11}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "threads"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Application Commands - Get Guild Commands",
+      "id": "sa7mSf_WDs",
+      "description": "Lista todos os comandos slash de um servidor específico",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "f595bc9d-3b3e-4a56-8867-163628acb6d8",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "4886ed2f-8654-487e-8080-c1e68b54e706",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "57d9f9fd-e978-4525-adc2-447715b66c9d",
+          "type": "string",
+          "description": "ID do servidor para escopo do comando",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "applications",
+            "<>application_id</>",
+            "guilds",
+            "<>guild_id</>",
+            "commands"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Webhooks - Modify Webhook",
+      "id": "6iP7ZvcGo4",
+      "description": "Modifica as configurações de um webhook",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "99915ad6-ecbd-4277-8852-aafca9193a0e",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "webhook_id",
+          "id": "7cd8d9ed-b47e-44c6-8c73-63dc155052af",
+          "type": "string",
+          "description": "ID do webhook",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "b7c57d02-f35a-4184-801a-a03ba9941e13",
+          "type": "object",
+          "description": "Corpo com nome e canal do webhook a atualizar",
+          "sensitive": false,
+          "sample": "{\"name\": \"NovoNome\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>webhook_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Users - Get User",
+      "id": "1ybuJcCLx8",
+      "description": "Retorna informações de um usuário pelo ID",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "2d961407-8882-4391-ac58-4c0ca60b77c8",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "cf0ced06-9f71-4fb6-9fa5-f6594b08321f",
+          "type": "string",
+          "description": "ID do usuário Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "users",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Users - Get Current User",
+      "id": "JDpejwqt_u",
+      "description": "Retorna informações do bot autenticado",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "6927f027-5257-45b5-aa7a-f0f145481032",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "users",
+            "@me"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Roles - Remove Member Role",
+      "id": "gTArxi-iib",
+      "description": "Remove um cargo de um membro do servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "e85d8f8c-3433-4eab-a6a0-a5ccc5e069e7",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "36027240-cf64-463f-b860-3a5b55d716b3",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "feb9f9d0-4497-4899-b383-a09de7e50f3b",
+          "type": "string",
+          "description": "ID do usuário membro do servidor",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "role_id",
+          "id": "b147c9ef-6ebd-46df-9985-51d61e72e04d",
+          "type": "string",
+          "description": "ID do cargo a remover do membro",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "members",
+            "<>user_id</>",
+            "roles",
+            "<>role_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Reactions - Delete All Reactions",
+      "id": "IH1w1kcCGv",
+      "description": "Remove todas as reações de uma mensagem",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "d45da8f1-d6dc-43a2-bc75-b1ca1eefdb4a",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "7321a133-580a-4a50-9f69-435d2c624e14",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "f8a01e57-50d2-4120-bff1-5bc628a352a9",
+          "type": "string",
+          "description": "ID da mensagem",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages",
+            "<>message_id</>",
+            "reactions"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Reactions - Delete Own Reaction",
+      "id": "8P1v-z7oh7",
+      "description": "Remove a reação do próprio bot de uma mensagem",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "27a9ed4b-6a0b-4237-9e19-f00a871821aa",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "537d6764-8579-4914-97f6-d97d087cc7d6",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "1003b335-1da4-4884-a560-ab1cc8ac463b",
+          "type": "string",
+          "description": "ID da mensagem",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "emoji",
+          "id": "a3e7faca-c92a-407d-8fd0-1750485be8ef",
+          "type": "string",
+          "description": "Emoji URL-encoded (unicode ou nome:id para custom)",
+          "sensitive": false,
+          "sample": "%F0%9F%91%8D",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages",
+            "<>message_id</>",
+            "reactions",
+            "<>emoji</>",
+            "@me"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Channels - Get Channel Messages",
+      "id": "EDYXNQ8RaF",
+      "description": "Lista mensagens de um canal com filtros opcionais",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "3da16d76-fe19-49ec-aaa4-02a88beca2ba",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "4935f42b-a2d8-4752-9525-14a49cd68f1d",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "id": "9a708c78-88e3-41dc-91a2-0d65e8f792e4",
+          "type": "number",
+          "description": "Número máximo de mensagens retornadas (1-100)",
+          "sensitive": false,
+          "sample": "50",
+          "required": false
+        },
+        {
+          "name": "before",
+          "id": "1571397b-51a2-4c50-b51f-cf9243c62179",
+          "type": "string",
+          "description": "Retorna mensagens antes deste ID (para paginação)",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        },
+        {
+          "name": "after",
+          "id": "6b223b9c-7e0e-4b59-9907-470afde5ba38",
+          "type": "string",
+          "description": "Retorna mensagens depois deste ID (para paginação)",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        },
+        {
+          "name": "around",
+          "id": "06577161-c7c6-4494-8e86-8832fa4f640e",
+          "type": "string",
+          "description": "Retorna mensagens em torno deste ID",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "around",
+            "value": "<>around</>",
+            "enabled": true
+          },
+          {
+            "key": "before",
+            "value": "<>before</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - Create from Message",
+      "id": "gYGaWj29FO",
+      "description": "Cria uma thread a partir de uma mensagem existente no canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "c6b76314-8855-42de-b804-7d65c6c558b9",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "c2358a8c-b257-43f4-a4cd-63c6cf84dde8",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "6f38afb3-1182-41b6-b646-6ac5d9a98496",
+          "type": "string",
+          "description": "ID da mensagem de origem da thread",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "52f34bd5-97d5-4d0a-9fe4-d82838b21495",
+          "type": "object",
+          "description": "Corpo com nome e duração de arquivamento da thread",
+          "sensitive": false,
+          "sample": "{\"name\": \"minha-thread\", \"auto_archive_duration\": 1440}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages",
+            "<>message_id</>",
+            "threads"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Guilds - Create Guild Channel",
+      "id": "BcbwcAU2wY",
+      "description": "Cria um novo canal em um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "e829145e-0f74-4e5b-b2be-87fd6b7c5a97",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "f970a30b-b48f-484a-a9df-cdd6cd516072",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "dedb7613-a4f2-4079-a9f0-ff1194ccdcf9",
+          "type": "object",
+          "description": "Corpo da requisição com nome, tipo e configurações do canal",
+          "sensitive": false,
+          "sample": "{\"name\": \"geral\", \"type\": 0}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "channels"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stage Instances - Get",
+      "id": "eWeiLQVn0R",
+      "description": "Retorna a instância de palco ativa de um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "ffdf3ac8-44b9-43e8-8c28-919d1ceac3d3",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "1239535c-85d6-40ba-8286-2c064df1b320",
+          "type": "string",
+          "description": "ID do canal de palco",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "stage-instances",
+            "<>channel_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Interactions - Edit Followup Message",
+      "id": "Dco9O6bt1O",
+      "description": "Edita uma mensagem de followup de uma interação",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "2ca2091e-d17c-41de-9a5c-10b53d1787a4",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "9050111a-b676-456c-8801-7f979e2194ac",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "interaction_token",
+          "id": "e842bc39-0e59-4049-844d-07cde3c81332",
+          "type": "string",
+          "description": "Token da interação original",
+          "sensitive": true,
+          "sample": "meu-interaction-token",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "57ed69ef-1486-4918-bcb8-c92aacc8c757",
+          "type": "string",
+          "description": "ID da mensagem de followup",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "f898adfb-4e5f-436e-a50d-6033eac76a0f",
+          "type": "object",
+          "description": "Corpo com os campos da mensagem a atualizar",
+          "sensitive": false,
+          "sample": "{\"content\": \"Followup atualizado\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>application_id</>",
+            "<>interaction_token</>",
+            "messages",
+            "<>message_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Get Guild Sticker",
+      "id": "dVAHFmI1pF",
+      "description": "Retorna informações de um sticker do servidor pelo ID",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "b7caea4c-69ca-4702-8f35-6555dada5449",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "422f4778-a998-4073-adb7-fd198453b47c",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "sticker_id",
+          "id": "2bdb51ab-5e30-4897-99ea-65b20ebcc275",
+          "type": "string",
+          "description": "ID do sticker",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "stickers",
+            "<>sticker_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - List Guild Stickers",
+      "id": "QnXZELl7Is",
+      "description": "Lista todos os stickers customizados de um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "24562376-4531-4237-87f2-bcc8ed500470",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "f2dd11c3-c4ee-4118-97d3-080b2fa67a0c",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "stickers"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Emojis - List Guild Emojis",
+      "id": "7kbuzxBYIR",
+      "description": "Lista todos os emojis customizados de um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "daa5ad3f-121b-46d2-8e4f-5177051024fe",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "16ffba80-70e3-4d15-8198-0f06b4fad7e9",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "emojis"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bans - Remove Guild Ban",
+      "id": "85c3Iw6oc9",
+      "description": "Remove o ban de um usuário em um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "a7b5c840-77e1-4728-a60b-d86a2c7be22b",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "8a6f5b6b-5872-4002-acee-ad145dbf5ee0",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "6ae0d788-ef5f-4b20-a1a4-e6a03b91b20c",
+          "type": "string",
+          "description": "ID do usuário a desbanir",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "bans",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bans - Create Guild Ban",
+      "id": "Dof41TOiFS",
+      "description": "Bane um usuário de um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "45d440cd-6fa0-4792-98f8-92c977d527cf",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "f6d18ee7-02b6-430c-91ff-8113736f583e",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "ed91a92b-fef4-47ac-8640-6bf15f814d89",
+          "type": "string",
+          "description": "ID do usuário a banir",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "bans",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bans - Get Guild Bans",
+      "id": "lXK-CeYh-E",
+      "description": "Lista usuários banidos de um servidor com paginação",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "0cc84efe-fde9-4606-8076-30f48b25f8c2",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "72cbcc2f-3376-418b-8431-e7bb4dacfcdc",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "id": "2e77d912-f467-4975-b74e-5d199954969f",
+          "type": "number",
+          "description": "Número máximo de bans retornados (1-1000)",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        },
+        {
+          "name": "before",
+          "id": "a0ae17b7-7d04-49e0-a1ef-f7c97fc446ec",
+          "type": "string",
+          "description": "Retorna bans com user ID antes deste valor",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        },
+        {
+          "name": "after",
+          "id": "d4b1ed18-c52e-4a28-b02b-09a50e05a860",
+          "type": "string",
+          "description": "Retorna bans com user ID depois deste valor",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "bans"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "before",
+            "value": "<>before</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - List Joined Private Archived Threads",
+      "id": "RAesspz_SC",
+      "description": "Lista threads privadas arquivadas das quais o bot é membro",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "8e6b00d2-b24a-4003-8626-01353f123932",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "dcb08120-6efa-4060-9578-cfada83520f0",
+          "type": "string",
+          "description": "ID do canal",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "before",
+          "id": "15db65d6-8554-45ef-9282-f6c93fbae44c",
+          "type": "string",
+          "description": "Retorna threads antes desta data ISO8601",
+          "sensitive": false,
+          "sample": "2021-01-01T00:00:00.000Z",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "id": "7734992b-4b0a-4bfc-9d29-18930559e8c6",
+          "type": "number",
+          "description": "Número máximo de threads retornadas",
+          "sensitive": false,
+          "sample": "50",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "users",
+            "@me",
+            "threads",
+            "archived",
+            "private"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "before",
+            "value": "<>before</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - List Public Archived Threads",
+      "id": "JPbpWKbSZP",
+      "description": "Lista threads públicas arquivadas de um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "9da1b523-2c90-4484-8742-f5f14000d6b7",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "900d76e4-27d5-4792-912a-8703f15a8d7c",
+          "type": "string",
+          "description": "ID do canal",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "before",
+          "id": "8ff17934-6e4b-495d-8ec8-e0992114f977",
+          "type": "string",
+          "description": "Retorna threads arquivadas antes desta data ISO8601",
+          "sensitive": false,
+          "sample": "2021-01-01T00:00:00.000Z",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "id": "b59c7eea-8655-4370-b5c7-f869d32c2816",
+          "type": "number",
+          "description": "Número máximo de threads retornadas",
+          "sensitive": false,
+          "sample": "50",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "threads",
+            "archived",
+            "public"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "before",
+            "value": "<>before</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - Leave Thread",
+      "id": "b0pUgbmOXq",
+      "description": "Remove o bot como membro de uma thread",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "d0927ce2-b1b8-49b7-b354-b30c396478d7",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "dfc4c730-ba52-48a2-bae3-46d477454715",
+          "type": "string",
+          "description": "ID da thread",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "thread-members",
+            "@me"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Guilds - Get Guild Members",
+      "id": "9A3wHOp3TZ",
+      "description": "Lista membros de um servidor com paginação",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "ccdd0400-b542-4611-a2d5-5b4b1e8ec0dd",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "1c19386a-ea6a-4cef-9458-7dd6c59942d8",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "id": "70a97145-6ded-4e16-8b3b-bb6ec607dc3d",
+          "type": "number",
+          "description": "Número máximo de membros retornados (1-1000)",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        },
+        {
+          "name": "after",
+          "id": "928796f6-201e-4b9c-a114-fcb753a3e327",
+          "type": "string",
+          "description": "Retorna membros com ID maior que este valor (para paginação)",
+          "sensitive": false,
+          "sample": "0",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "members"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Application Commands - Delete Guild Command",
+      "id": "5NqpdnUR5A",
+      "description": "Deleta um comando slash de um servidor pelo ID",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "6f47e0a9-e120-41d7-af61-20294295c93c",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "2ec505d6-103b-4f8f-a6e7-761826cdd77c",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "d83e72f0-eb73-46ad-ac4e-402f6722474a",
+          "type": "string",
+          "description": "ID do servidor para escopo do comando",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "command_id",
+          "id": "8488c68d-93df-40a9-9d82-baa472b6182b",
+          "type": "string",
+          "description": "ID do comando de servidor a deletar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "applications",
+            "<>application_id</>",
+            "guilds",
+            "<>guild_id</>",
+            "commands",
+            "<>command_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Application Commands - Delete Global Command",
+      "id": "OF1KsdcasW",
+      "description": "Deleta um comando slash global pelo ID",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "6e496266-03f3-48c1-9f3a-4cb118d705ca",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "e9c48beb-b04c-458e-ad30-8d26ceeaae6c",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "command_id",
+          "id": "cee8e6b8-dcf1-42ac-8994-bf9f1ff470af",
+          "type": "string",
+          "description": "ID do comando global a deletar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "applications",
+            "<>application_id</>",
+            "commands",
+            "<>command_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Application Commands - Get Global Commands",
+      "id": "_60JYACQrD",
+      "description": "Lista todos os comandos globais da aplicação",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "273b9c2f-722e-4d40-8e87-ec0d430b4c15",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "77203e51-bb5e-42d8-a364-11ba249661dc",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "applications",
+            "<>application_id</>",
+            "commands"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Webhooks - Execute Webhook",
+      "id": "fXv5vhEJPo",
+      "description": "Dispara um webhook para enviar uma mensagem",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "d6138b03-d698-480f-abcf-0b430d129bcd",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "webhook_id",
+          "id": "7713fdf3-8365-4160-a6fd-fd00177fb527",
+          "type": "string",
+          "description": "ID do webhook",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "webhook_token",
+          "id": "8817f407-b1fa-4dfa-86bb-b14d7b27f71c",
+          "type": "string",
+          "description": "Token do webhook (gerado pelo Discord)",
+          "sensitive": true,
+          "sample": "meu-token-aqui",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "a14c54e4-7aca-469b-82ad-ca1d50f48864",
+          "type": "object",
+          "description": "Corpo com conteúdo, embeds ou arquivos da mensagem",
+          "sensitive": false,
+          "sample": "{\"content\": \"Mensagem via webhook!\"}",
+          "required": true
+        },
+        {
+          "name": "wait",
+          "id": "b952201e-556e-43c4-99f8-0c4259d3aef8",
+          "type": "string",
+          "description": "Se true, aguarda confirmação e retorna objeto da mensagem",
+          "sensitive": false,
+          "sample": "true",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>webhook_id</>",
+            "<>webhook_token</>"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "wait",
+            "value": "<>wait</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Webhooks - Delete Webhook",
+      "id": "bQvs8Oz1pH",
+      "description": "Deleta um webhook",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "05d4fed6-2970-4d77-b8ff-00670539f577",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "webhook_id",
+          "id": "1da38e5a-0216-478e-b315-b506586e30a3",
+          "type": "string",
+          "description": "ID do webhook a deletar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "webhooks",
+            "<>webhook_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Webhooks - Get Channel Webhooks",
+      "id": "Z1XrZkNyq1",
+      "description": "Lista todos os webhooks de um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "5eebeec0-fd1b-4f24-841f-23f5dd204476",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "6e430057-d306-42c6-a64c-2ae9bf15e28a",
+          "type": "string",
+          "description": "ID do canal para listar webhooks",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "webhooks"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Roles - Create Guild Role",
+      "id": "jwk1pFToUz",
+      "description": "Cria um novo cargo em um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "a89feaa7-1e27-499f-9947-381478992a31",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "e3e97ee0-7bcd-4656-b85a-462761334fa0",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "7482488a-6678-437b-bfb5-d9c54161797f",
+          "type": "object",
+          "description": "Corpo com nome, permissões e cor do cargo",
+          "sensitive": false,
+          "sample": "{\"name\": \"Moderador\", \"permissions\": \"8\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "roles"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Roles - Get Guild Roles",
+      "id": "RGBZKA4Ehy",
+      "description": "Lista todos os cargos de um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "7f8a1959-13d8-4e77-8b62-f98ae21595c7",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "c8c1e431-8e85-462d-88e4-9b142660a593",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "roles"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pins - Pin Message",
+      "id": "mBztFKhK4c",
+      "description": "Fixa uma mensagem em um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "5bd95cb7-2e5a-4add-a843-00161aa934c2",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "99c843cd-935f-42fe-8c33-088c9952f8f4",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "5443f9f3-91cf-412d-be56-b1da9d4b2721",
+          "type": "string",
+          "description": "ID da mensagem a ser fixada",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "pins",
+            "<>message_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Reactions - Create Reaction",
+      "id": "i2suA2V4sS",
+      "description": "Adiciona uma reação a uma mensagem",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "b1427ac6-3896-4f2f-a7a3-3780311ea8ea",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "9e067f68-62ce-4cad-a0bc-78f9c0b1247c",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "bb84be41-5d35-4018-813e-6441c16755d4",
+          "type": "string",
+          "description": "ID da mensagem",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "emoji",
+          "id": "4a420cef-a0ad-4581-80c7-fb5e9f83581a",
+          "type": "string",
+          "description": "Emoji URL-encoded (unicode ou nome:id para custom)",
+          "sensitive": false,
+          "sample": "%F0%9F%91%8D",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages",
+            "<>message_id</>",
+            "reactions",
+            "<>emoji</>",
+            "@me"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Channels - Bulk Delete Messages",
+      "id": "uzi-E0oAHV",
+      "description": "Deleta múltiplas mensagens de uma vez (2-100 mensagens)",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "55482280-2092-47cb-b80e-74ebcec43a1a",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "e78c3f64-7cb5-4b21-a61f-ef5618ad8d7c",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "da585044-2b30-45cd-8265-ef0a20aceb4f",
+          "type": "object",
+          "description": "Corpo com array de IDs de mensagens a deletar (2-100)",
+          "sensitive": false,
+          "sample": "{\"messages\": [\"1234567890123456789\", \"9876543210987654321\"]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages",
+            "bulk-delete"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Delete Guild Sticker",
+      "id": "0aGziStjDV",
+      "description": "Deleta um sticker customizado do servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "ed8baa9b-fb5a-4e1d-867e-089c30bfabef",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "34bfc512-54cb-4019-9182-6c69c357abf1",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "sticker_id",
+          "id": "54be03c3-cd17-4c9f-8abb-846cef72dfdd",
+          "type": "string",
+          "description": "ID do sticker a deletar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "stickers",
+            "<>sticker_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Channels - Edit Message",
+      "id": "nxC_rQEjbu",
+      "description": "Edita uma mensagem existente em um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "34543e59-c431-42bb-ba5c-4035cccdbf94",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "604ef4c3-b9bc-4ae2-8a91-781e04338a90",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "41c60c79-2302-4e0d-84a1-a8f8f1a6b9ef",
+          "type": "string",
+          "description": "ID da mensagem a editar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "79d97dcd-b110-4790-b1cf-1ba9ad0a6ac6",
+          "type": "object",
+          "description": "Corpo com os campos da mensagem a atualizar",
+          "sensitive": false,
+          "sample": "{\"content\": \"Texto atualizado\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages",
+            "<>message_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Channels - Modify Channel",
+      "id": "uzXhTOaBcI",
+      "description": "Modifica as configurações de um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "7162c90d-027b-4dc7-8b15-b1468db16213",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "cc0929d7-408d-489e-8153-673f8edf3ee3",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "edd785eb-2e96-4ce8-9e01-e3a93133300c",
+          "type": "object",
+          "description": "Corpo da requisição com os campos a modificar no canal",
+          "sensitive": false,
+          "sample": "{\"name\": \"novo-nome\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Invites - Create Channel Invite",
+      "id": "1K4jmZeN1X",
+      "description": "Cria um novo convite para um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "cee23865-2d4b-4b2f-88f4-faeba3003bb8",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "037f186b-6891-4669-8d73-7d7f3773a31d",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "c382c56f-bebe-49a2-b2a9-81d97c34f2c0",
+          "type": "object",
+          "description": "Corpo com max_age, max_uses, temporary e unique do convite",
+          "sensitive": false,
+          "sample": "{\"max_age\": 86400, \"max_uses\": 10}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "invites"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Invites - Get Channel Invites",
+      "id": "e02P9_RDik",
+      "description": "Lista todos os convites ativos de um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "7726cf12-34c8-4a14-aedc-b7674b78816e",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "ec52e251-5465-4b0e-ba61-bc57583570e8",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "invites"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Invites - Delete Invite",
+      "id": "YoCj83mWeO",
+      "description": "Deleta (invalida) um convite pelo código",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "4f10ab14-a263-4e3d-ab24-1bf65c280526",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "invite_code",
+          "id": "afe45ee1-4e13-448a-991f-41ff06398be1",
+          "type": "string",
+          "description": "Código do convite a deletar",
+          "sensitive": false,
+          "sample": "hreZsFkC",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "invites",
+            "<>invite_code</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stage Instances - Create",
+      "id": "baDEDPA5UH",
+      "description": "Cria uma instância de palco em um canal de voz de palco",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "880129f5-8ca7-4b79-be3f-e275aea457c6",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "37c7a856-4ef6-47c1-ad5a-825acc59bd73",
+          "type": "object",
+          "description": "Corpo com channel_id e topic do palco",
+          "sensitive": false,
+          "sample": "{\"channel_id\": \"1234567890123456789\", \"topic\": \"Tópico do palco\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "stage-instances"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Scheduled Events - Delete",
+      "id": "h1dcp8ztLc",
+      "description": "Deleta um evento agendado do servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "9f8b1e58-6337-4e47-96a9-9e7922740dac",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "2a273eef-c100-40c3-ade3-371d23213fcc",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "event_id",
+          "id": "a4d5751c-6dcc-49d0-80f8-2ded401d0e35",
+          "type": "string",
+          "description": "ID do evento agendado a deletar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "scheduled-events",
+            "<>event_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Scheduled Events - List",
+      "id": "eowFpXlhwA",
+      "description": "Lista todos os eventos agendados de um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "07504c08-9256-4c95-8389-f477e64eaa50",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "57021a34-7fb1-47a7-a79e-34ded945f5d9",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "with_user_count",
+          "id": "9b5e1011-1266-4f25-ade3-e136d876b7bb",
+          "type": "string",
+          "description": "Se true, inclui contagem de usuários inscritos nos eventos",
+          "sensitive": false,
+          "sample": "true",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "scheduled-events"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "with_user_count",
+            "value": "<>with_user_count</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Auto Moderation - Delete Rule",
+      "id": "fCrAF7P68q",
+      "description": "Deleta uma regra de auto-moderação do servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "9abf09f0-2f87-4fe8-821e-254a269e8c71",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "4aa5aa84-7cf0-419e-b92d-739fab0be360",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "rule_id",
+          "id": "3b9ff5ba-2a46-41b9-9b28-19c823a530c8",
+          "type": "string",
+          "description": "ID da regra de auto-moderação a deletar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "auto-moderation",
+            "rules",
+            "<>rule_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Auto Moderation - Modify Rule",
+      "id": "C8Zbzx5jdf",
+      "description": "Modifica uma regra de auto-moderação existente",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "9e999664-6685-49a1-88c7-f0c9bd892c86",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "7035e328-24e1-4e58-84f1-2be583743485",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "rule_id",
+          "id": "275e71d5-a9a9-403d-80d4-a012c43b4920",
+          "type": "string",
+          "description": "ID da regra de auto-moderação",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "5ccded23-291e-44c4-8c9d-4633a686ce36",
+          "type": "object",
+          "description": "Corpo com os campos da regra a atualizar",
+          "sensitive": false,
+          "sample": "{\"name\": \"Regra atualizada\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "auto-moderation",
+            "rules",
+            "<>rule_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Auto Moderation - Create Rule",
+      "id": "xqXpTVezCx",
+      "description": "Cria uma nova regra de auto-moderação no servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "6008aeb3-8cf0-4a68-9495-19ef7adfd68c",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "901a7953-9a37-4268-8371-236aab9cccca",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "b7f8b52f-8a3c-4e14-ae5d-2da5dd5fecc8",
+          "type": "object",
+          "description": "Corpo com trigger_type, actions e configurações da regra",
+          "sensitive": false,
+          "sample": "{\"name\": \"Filtro de palavrões\", \"event_type\": 1, \"trigger_type\": 1, \"actions\": []}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "auto-moderation",
+            "rules"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Auto Moderation - Get Rule",
+      "id": "3df7U0Z6W-",
+      "description": "Retorna uma regra de auto-moderação pelo ID",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "c8ab778f-0883-42af-ac8d-6d515c158ccd",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "fb8be476-5457-4e29-95e6-c434ad02cc39",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "rule_id",
+          "id": "e634d8cb-fa0d-4059-b1ce-92820c22754a",
+          "type": "string",
+          "description": "ID da regra de auto-moderação",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "auto-moderation",
+            "rules",
+            "<>rule_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Guilds - Get Guild Channels",
+      "id": "516_eub-WX",
+      "description": "Lista todos os canais de um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "c58cf83e-aeb6-4681-8f1d-2709bd5b6fb1",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "9f5374b8-7618-4940-8969-9152121e12ac",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "channels"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Create Guild Sticker",
+      "id": "1zakui14az",
+      "description": "Cria um novo sticker no servidor (requer multipart/form-data)",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "277fc7a8-cfaa-4e7a-b1d1-b9e330f4a023",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "d0ca9b86-6f05-4ef6-ad54-d14d71137674",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "457572bd-1c10-4a0f-a2ae-5c56a9c8044e",
+          "type": "object",
+          "description": "Corpo multipart com arquivo, nome, descrição e tags do sticker",
+          "sensitive": false,
+          "sample": "{\"name\": \"meu_sticker\", \"description\": \"descrição\", \"tags\": \"tag1\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "stickers"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Emojis - Get Guild Emoji",
+      "id": "ResUN7m8gS",
+      "description": "Retorna informações de um emoji customizado pelo ID",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "e1950562-7a2f-4c88-b20a-7d212ede2549",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "0fe368a4-6ad0-44e2-b39e-b840b6c88cbb",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "emoji_id",
+          "id": "7f896eb4-581d-427d-9f89-63528d6d45a6",
+          "type": "string",
+          "description": "ID do emoji customizado",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "emojis",
+            "<>emoji_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threads - Remove Thread Member",
+      "id": "evr4vFhysp",
+      "description": "Remove um usuário como membro de uma thread",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "aded84a9-df2a-494b-bf8e-5b8f4635f805",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "4f8e6b9c-ad8f-49a3-8552-1024225b922f",
+          "type": "string",
+          "description": "ID da thread",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "id": "5daa5f0a-9c2b-4084-b32b-6dd2c1ede01c",
+          "type": "string",
+          "description": "ID do usuário a remover da thread",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "thread-members",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Application Commands - Create Guild Command",
+      "id": "vLFH6IthCC",
+      "description": "Cria ou sobrescreve um comando slash em um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "a06e0fc2-39cb-4467-aafc-56320d54bd74",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "application_id",
+          "id": "276ce187-7bcc-45c6-b03a-f241defe3cd5",
+          "type": "string",
+          "description": "ID da aplicação Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "6a622c53-1d72-4c5f-9873-ad88cdf65ecd",
+          "type": "string",
+          "description": "ID do servidor para escopo do comando",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "9050d326-522a-4506-8d77-201cc1f16bf6",
+          "type": "object",
+          "description": "Corpo com nome, descrição e opções do comando slash",
+          "sensitive": false,
+          "sample": "{\"name\": \"ping\", \"description\": \"Responde com pong\", \"type\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "applications",
+            "<>application_id</>",
+            "guilds",
+            "<>guild_id</>",
+            "commands"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Webhooks - Create Webhook",
+      "id": "c33vb7dsyn",
+      "description": "Cria um webhook em um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "24431ad7-ea21-45f9-b829-2a2273c44989",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "acd69bae-abf1-49ea-a730-561151545ffc",
+          "type": "string",
+          "description": "ID do canal onde criar o webhook",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "e70b0ee8-b4f8-4151-8050-694261962a8f",
+          "type": "object",
+          "description": "Corpo com nome e avatar do webhook",
+          "sensitive": false,
+          "sample": "{\"name\": \"MeuWebhook\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "webhooks"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Users - Create DM",
+      "id": "b33TE70uYV",
+      "description": "Abre ou retorna um canal de mensagem direta com um usuário",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "2b79113c-097b-4550-98d5-d6beeda9faf2",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "recipient_id",
+          "id": "07cc7100-9239-4f08-90cd-57db9f96e16f",
+          "type": "string",
+          "description": "ID do usuário destinatário da DM",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "users",
+            "@me",
+            "channels"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"recipient_id\": \"<>recipient_id</>\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Roles - Delete Guild Role",
+      "id": "ojOLusEx8z",
+      "description": "Deleta um cargo de um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "90ac1ea9-06ff-4f54-a323-64a14a613a90",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "c335729a-a35b-4f64-9480-e67fea80641c",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "role_id",
+          "id": "904b0545-af5b-4789-b33b-362e9da34dc2",
+          "type": "string",
+          "description": "ID do cargo a deletar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "roles",
+            "<>role_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Roles - Modify Guild Role",
+      "id": "7LYiBC-RRV",
+      "description": "Modifica um cargo existente em um servidor",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "94fdb18e-e6e7-48be-bc85-ee6114d3f08b",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "guild_id",
+          "id": "a835a140-5a84-4cd2-a025-8b35baa8efed",
+          "type": "string",
+          "description": "ID do servidor Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "role_id",
+          "id": "5a1d090c-d5b7-4442-82bf-87fc09192339",
+          "type": "string",
+          "description": "ID do cargo a modificar",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "8296bd81-b94c-4782-9f3d-b3bce320937a",
+          "type": "object",
+          "description": "Corpo com os campos do cargo a atualizar",
+          "sensitive": false,
+          "sample": "{\"name\": \"Admin\", \"color\": 16711680}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "guilds",
+            "<>guild_id</>",
+            "roles",
+            "<>role_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Channels - Create Message",
+      "id": "UOCpL0wMbm",
+      "description": "Envia uma mensagem em um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "e7916bc8-cca5-4e0a-ad7b-aac4fe8c20b8",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "d1513d67-6f14-4c34-b145-e0e34b553ba5",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "5752bfb0-99ba-4439-8c7c-282c91ae6642",
+          "type": "object",
+          "description": "Corpo da mensagem com conteúdo, embeds e attachments",
+          "sensitive": false,
+          "sample": "{\"content\": \"Olá mundo!\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Channels - Get Channel Message",
+      "id": "TdEyqwTG1L",
+      "description": "Retorna uma mensagem específica de um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "c81ebeb8-2dcf-4c6e-83ce-f89ebb8bfebf",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "cfc225f0-bf6d-4c49-b79b-bd563da50102",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "id": "498b84c4-2506-4907-b7bb-cb82487f1dae",
+          "type": "string",
+          "description": "ID da mensagem",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>",
+            "messages",
+            "<>message_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Channels - Delete Channel",
+      "id": "byuY4AgCEL",
+      "description": "Deleta ou fecha um canal",
+      "parameters": [
+        {
+          "name": "version_number",
+          "id": "e2891718-5ee9-49dc-ad41-56cb8ef0ef3c",
+          "type": "string",
+          "description": "Versão da API do Discord",
+          "sensitive": false,
+          "sample": "6",
+          "required": true
+        },
+        {
+          "name": "channel_id",
+          "id": "aff8daea-da6f-4b04-a44d-0077083ddea8",
+          "type": "string",
+          "description": "ID do canal Discord",
+          "sensitive": false,
+          "sample": "1234567890123456789",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v<>version_number</>",
+            "channels",
+            "<>channel_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
