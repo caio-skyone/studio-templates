@@ -19,10 +19,10 @@ Este conector cobre os seguintes domínios: Checklist, Comment, Folder, Goal, Gr
 | -------- | ----- |
 | Host | {{host}} |
 | Porta | 443 |
-| token | {{token}} |
+| Header `Authorization` | {{token}} |
 
 - **Host:** `https://api.clickup.com/api` (fixo).
-- **token:** Personal API Key gerada em ClickUp em *Settings → Apps* (formato `pk_...`). O valor deve ser enviado inteiro (com o prefixo `pk_`) no header `Authorization` — a ClickUp não usa o prefixo `Bearer` para tokens pessoais.
+- **Header `Authorization`:** na conta conectada, cadastre um header com **nome** `Authorization` (exatamente assim — não `token`) e **valor** igual à Personal API Key gerada em ClickUp em *Settings → Apps → API Token* (formato `pk_...`). Envie a chave inteira, com o prefixo `pk_` e **sem** `Bearer` — a ClickUp não usa `Bearer` para tokens pessoais. Se o header tiver outro nome, a API responde `400` com `"err": "Authorization header required"` (`ECODE: OAUTH_017`).
 
 ---
 
