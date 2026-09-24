@@ -217,6 +217,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -435,6 +440,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -514,6 +524,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -595,6 +610,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -674,6 +694,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -764,6 +789,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -853,6 +883,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -931,6 +966,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -1021,6 +1061,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -1122,6 +1167,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -1221,6 +1271,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -1401,6 +1456,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -1491,6 +1551,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -1583,6 +1648,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -1673,6 +1743,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -1774,6 +1849,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -1874,6 +1954,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -1963,6 +2048,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -2266,6 +2356,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -2409,6 +2504,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -2497,6 +2597,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -2751,6 +2856,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -3071,6 +3181,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -3159,6 +3274,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -3621,6 +3741,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -3862,6 +3987,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -4106,6 +4236,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -4273,6 +4408,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -4439,6 +4579,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -4604,6 +4749,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -4693,6 +4843,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -4859,6 +5014,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -5100,6 +5260,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -5189,6 +5354,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -5580,6 +5750,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -5680,6 +5855,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -5831,6 +6011,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -5931,6 +6116,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -6030,6 +6220,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -6219,6 +6414,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data",
             "enabled": true
           }
         ],
@@ -7176,6 +7376,11 @@
             "key": "ZANALYTICS-DEST-ORGID",
             "value": "<>zanalytics_dest_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -7556,6 +7761,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -7634,6 +7844,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -7950,6 +8165,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -8017,6 +8237,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -8087,6 +8312,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -8156,6 +8386,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -8224,6 +8459,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -8423,6 +8663,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -8756,6 +9001,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -9355,6 +9605,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -9457,6 +9712,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -9550,6 +9810,11 @@
           {
             "key": "ZANALYTICS-DEST-ORGID",
             "value": "<>zanalytics_dest_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -9658,11 +9923,16 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data",
+            "enabled": true
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "FILE:<>file_content</>:mime:<>content_type</>:<>file_name</>",
+          "raw": "FILE:<>file_content</>:<>content_type</>:<>file_name</>",
           "options": {
             "raw": {
               "language": "json"
@@ -9766,11 +10036,16 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data",
+            "enabled": true
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "FILE:<>file_content</>:mime:<>content_type</>:<>file_name</>",
+          "raw": "FILE:<>file_content</>:<>content_type</>:<>file_name</>",
           "options": {
             "raw": {
               "language": "json"
@@ -10201,11 +10476,16 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data",
+            "enabled": true
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "FILE:<>file_content</>:mime:<>content_type</>:<>file_name</>",
+          "raw": "FILE:<>file_content</>:<>content_type</>:<>file_name</>",
           "options": {
             "raw": {
               "language": "json"
@@ -10320,11 +10600,16 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data",
+            "enabled": true
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "FILE:<>file_content</>:mime:<>content_type</>:<>file_name</>",
+          "raw": "FILE:<>file_content</>:<>content_type</>:<>file_name</>",
           "options": {
             "raw": {
               "language": "json"
@@ -10641,6 +10926,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -10730,6 +11020,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -11275,6 +11570,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -11353,6 +11653,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -11517,6 +11822,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -11595,6 +11905,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -11684,6 +11999,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -12109,6 +12429,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data",
+            "enabled": true
           }
         ],
         "body": {
@@ -12235,6 +12560,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -12312,6 +12642,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -12519,6 +12854,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -12597,6 +12937,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -12909,6 +13254,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],
@@ -13448,6 +13798,11 @@
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
             "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
           }
         ],
         "body": {
@@ -13536,6 +13891,11 @@
           {
             "key": "ZANALYTICS-ORGID",
             "value": "<>zanalytics_orgid</>",
+            "enabled": true
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
             "enabled": true
           }
         ],

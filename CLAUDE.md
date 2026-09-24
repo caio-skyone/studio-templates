@@ -1,5 +1,21 @@
 # Instruções do projeto studio-templates
 
+## Padrão de corpo multipart/form-data
+
+Referência: operação `Issues - Add attachment` do conector Jira publicado no
+Studio (`z8Zht5wExX`). Toda operação multipart deve ter:
+
+1. Header `{"key": "Content-Type", "value": "multipart/form-data", "enabled": true}`
+   explícito — sem ele o Studio não envia como multipart.
+2. Linha de arquivo no corpo raw no formato
+   `campo:<>param_arquivo</>:<>mime_type</>:<>file_name</>` — **sem** a palavra
+   literal `mime:` e sem mime/nome fixos (`file:<>file</>:mime:application/octet-stream:anexo.pdf`
+   está errado).
+3. Parâmetros `mime_type` e `file_name` opcionais (`required: false`), com
+   sample (ex.: `application/pdf`, `anexo.pdf`).
+
+Campos de texto do multipart ficam como linhas `campo:<>param</>`, uma por linha.
+
 ## Normalização de `query` no IAC exportado (workaround de bug do MCP)
 
 O `studio-connector-mcp` modela `request.query` dentro de `request.url.query`,
