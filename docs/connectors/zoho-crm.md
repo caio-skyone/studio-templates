@@ -108,13 +108,13 @@ Os escopos vão no parâmetro `scope` da URL de autorização, separados por ví
 
 | Nome da Operação | Método | Descrição da Função |
 | :--------------- | :----- | :------------------ |
-| **Appointments  S - GET /Appointments__s** | GET | Recupera os registros do módulo Appointments. |
-| **Appointments  S - POST /Appointments__s** | POST | Cria registros no módulo Appointments. |
-| **Appointments  S - PUT /Appointments__s** | PUT | Atualiza registros do módulo Appointments. |
-| **Appointments  S - DELETE /Appointments__s/{ids}** | DELETE | Exclui registros do módulo Appointments. |
-| **Appointments  S - GET /Appointments__s/{appointmentId}** | GET | Recupera um registro do módulo Appointments pelo seu identificador. |
-| **Appointments  S - PUT /Appointments__s/{id}** | PUT | Atualiza um registro do módulo Appointments pelo identificador do compromisso. |
-| **Appointments  S - DELETE /Appointments__s/id** | DELETE | Exclui um registro do módulo Appointments pelo seu identificador. |
+| **Appointments - List appointments** | GET | Recupera os registros do módulo Appointments. |
+| **Appointments - Create appointments** | POST | Cria registros no módulo Appointments. |
+| **Appointments - Update appointments** | PUT | Atualiza registros do módulo Appointments. |
+| **Appointments - Delete appointments** | DELETE | Exclui registros do módulo Appointments. Informe os identificadores no parâmetro `ids`. |
+| **Appointments - Get appointment** | GET | Recupera um registro do módulo Appointments pelo seu identificador. |
+| **Appointments - Update appointment** | PUT | Atualiza um registro do módulo Appointments pelo identificador do compromisso. |
+| **Appointments - Delete appointment** | DELETE | Exclui um registro do módulo Appointments pelo seu identificador. |
 | **Contacts - Link Emails to Deals** | POST | Vincula os e-mails aos negócios indicados no CRM. |
 | **Contacts - Unlink Emails from Records** | DELETE | Desvincula os e-mails dos registros indicados no CRM. |
 | **Contacts - Link Email to Record** | POST | Vincula um e-mail a um registro específico do CRM. |
@@ -131,13 +131,13 @@ Os escopos vão no parâmetro `scope` da URL de autorização, separados por ví
 | **Notes - Get a Specific Note** | GET | Recupera os detalhes de uma nota específica pelo seu ID. |
 | **Notes - Update a Specific Note** | PUT | Atualiza uma nota específica pelo seu ID. É obrigatório informar ao menos o conteúdo ou o título da nota. |
 | **Notes - Delete a Specific Note** | DELETE | Exclui permanentemente uma nota específica pelo seu ID. |
-| **Services  S - GET /services_s** | GET | Recupera os registros do módulo Services. |
-| **Services  S - POST /services_s** | POST | Cria registros no módulo Services. |
-| **Services  S - PUT /services_s** | PUT | Atualiza registros do módulo Services. |
-| **Services  S - DELETE /services_s** | DELETE | Exclui registros do módulo Services. |
-| **Services  S - GET /services_s/{id}** | GET | Recupera um registro do módulo Services pelo seu identificador. |
-| **Services  S - PUT /services_s/{id}** | PUT | Atualiza um registro do módulo Services pelo seu identificador. |
-| **Services  S - DELETE /services_s/{id}** | DELETE | Exclui um registro do módulo Services pelo seu identificador. |
+| **Services - List services** | GET | Recupera os registros do módulo Services. |
+| **Services - Create services** | POST | Cria registros no módulo Services. |
+| **Services - Update services** | PUT | Atualiza registros do módulo Services. |
+| **Services - Delete services** | DELETE | Exclui registros do módulo Services. Informe os identificadores no parâmetro `ids`. |
+| **Services - Get service** | GET | Recupera um registro do módulo Services pelo seu identificador. |
+| **Services - Update service** | PUT | Atualiza um registro do módulo Services pelo seu identificador. |
+| **Services - Delete service** | DELETE | Exclui um registro do módulo Services pelo seu identificador. |
 | **Actions - List active notification channels** | GET | Recupera a lista de todos os canais de notificação ativos do usuário. |
 | **Actions - Create notification channels** | POST | Cria um ou mais canais de notificação. |
 | **Actions - Update full notification details** | PUT | Substitui todos os detalhes de um canal de notificação existente, sobrescrevendo a configuração anterior. |
@@ -204,7 +204,7 @@ Os escopos vão no parâmetro `scope` da URL de autorização, separados por ví
 | **Actions - Fetch full data for multiple records** | GET | Recupera o conteúdo completo dos campos de texto rico de vários registros. O parâmetro "fields" é obrigatório e aceita no máximo 8 campos de texto rico. |
 | **Actions - Share Emails in Bulk** | POST | Compartilha os e-mails de vários registros com outros usuários da sua organização. |
 | **Actions - Unshare Emails in Bulk** | POST | Remove o compartilhamento dos e-mails de vários registros com outros usuários da sua organização. |
-| **  Emails Sharing Details - Get Email Shared Details** | GET | Recupera os detalhes dos usuários com quem os e-mails do registro podem ser compartilhados e o tipo de compartilhamento. |
+| **Emails Sharing Details - Get email sharing details** | GET | Recupera os detalhes dos usuários com quem os e-mails do registro podem ser compartilhados e o tipo de compartilhamento. |
 | **Actions - Convert an inventory record** | POST | Converte o registro em outro módulo de inventário conforme o módulo de origem: Quotes para Sales Orders ou Invoices, e Sales Orders para Invoices. |
 | **Actions - Fetch full data for a single record** | GET | Recupera o conteúdo completo dos campos de texto rico de um registro específico. Sem o parâmetro "fields", todos os campos de texto rico do módulo são retornados. |
 | **Actions - Share Emails of a record** | POST | Compartilha os e-mails de um registro específico com outros usuários da sua organização. |
@@ -215,10 +215,10 @@ Os escopos vão no parâmetro `scope` da URL de autorização, separados por ví
 | **Attachments - Delete Link Attachment** | DELETE | Exclui um anexo do tipo link associado a um registro de um módulo. |
 | **Actions - Get Related Records Count** | POST | Recupera a contagem de registros relacionados a um registro pai, com filtro por critérios como situação de aprovação, situação de conversão e campos customizados, sem trazer os registros em si. |
 | **Actions - Send an email to a record** | POST | Envia um e-mail para um registro de um módulo, usando modelos específicos ou conteúdo personalizado. |
-| **Locking Information  S - To retrieve the locking information details of locked records** | GET | Recupera os detalhes das informações de bloqueio de registros bloqueados em diferentes módulos. |
-| **Locking Information  S - To lock a record of a module** | POST | Bloqueia registros em diferentes módulos. |
-| **Locking Information  S - To update the locking reason of a locked record** | PUT | Altera as informações de bloqueio de registros bloqueados em diferentes módulos. |
-| **Locking Information  S - Remove Lock from Locked Records** | DELETE | Remove o bloqueio de registros bloqueados em diferentes módulos. |
+| **Locking Information - Get record locks** | GET | Recupera os detalhes das informações de bloqueio de registros bloqueados em diferentes módulos. |
+| **Locking Information - Lock record** | POST | Bloqueia registros em diferentes módulos. |
+| **Locking Information - Update lock reason** | PUT | Altera as informações de bloqueio de registros bloqueados em diferentes módulos. |
+| **Locking Information - Remove lock** | DELETE | Remove o bloqueio de registros bloqueados em diferentes módulos. |
 | **Actions - Asssign Territories To Records** | POST | Atribui territórios a vários registros do módulo. |
 | **Actions - Change owner for multiple records** | POST | Altera o proprietário de vários registros do módulo. |
 | **Actions - Enroll records into cadences** | POST | Inscreve registros em uma cadência manual. |
@@ -244,13 +244,13 @@ Os escopos vão no parâmetro `scope` da URL de autorização, separados por ví
 | **Actions - To clone a record in a module** | POST | Clona um registro de um módulo. |
 | **Emails - Get Download Attachments Details** | GET | Recupera o conteúdo binário de um anexo de e-mail de um registro específico. |
 | **Emails - Download inline images embedded in an email related to a record** | GET | Baixa as imagens embutidas em um e-mail relacionado a um registro. |
-| **  Timeline - Get Timelines** | GET | Recupera as linhas do tempo do registro. |
+| **Timeline - Get timelines** | GET | Recupera as linhas do tempo do registro. |
 | **Actions - Associate Email** | POST | Associa e-mails a um registro específico de um módulo. |
-| **  Email Drafts - Get email drafts for a record** | GET | Recupera a lista de rascunhos de e-mail associados ao registro informado no módulo indicado. |
-| **  Email Drafts - Create email drafts for a record** | POST | Cria um ou mais rascunhos de e-mail associados ao registro informado no módulo indicado. |
-| **  Email Drafts - Get email draft** | GET | Recupera o rascunho de e-mail indicado, do registro informado no módulo. |
-| **  Email Drafts - Update email draft** | PUT | Atualiza o rascunho de e-mail indicado, do registro informado no módulo. |
-| **  Email Drafts - Delete an email draft** | DELETE | Exclui o rascunho de e-mail indicado do registro informado. |
+| **Email Drafts - Get email drafts for a record** | GET | Recupera a lista de rascunhos de e-mail associados ao registro informado no módulo indicado. |
+| **Email Drafts - Create email drafts for a record** | POST | Cria um ou mais rascunhos de e-mail associados ao registro informado no módulo indicado. |
+| **Email Drafts - Get email draft** | GET | Recupera o rascunho de e-mail indicado, do registro informado no módulo. |
+| **Email Drafts - Update email draft** | PUT | Atualiza o rascunho de e-mail indicado, do registro informado no módulo. |
+| **Email Drafts - Delete an email draft** | DELETE | Exclui o rascunho de e-mail indicado do registro informado. |
 | **Actions - Asssign Territories To Record** | POST | Atribui territórios a um registro do módulo. |
 | **Actions - Change owner for a single record** | POST | Altera o proprietário de um registro específico do módulo. |
 | **Actions - Remove Territories To Record** | POST | Remove territórios de um registro do módulo. |
