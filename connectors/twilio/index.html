@@ -1,0 +1,3603 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://caio-skyone.github.io/studio-templates/connectors/twilio/">
+      
+      
+        <link rel="prev" href="../stripe/">
+      
+      
+        <link rel="next" href="../xero/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Twilio - Studio Templates</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#twilio" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Studio Templates" class="md-header__button md-logo" aria-label="Studio Templates" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Studio Templates
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Twilio
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Studio Templates" class="md-nav__button md-logo" aria-label="Studio Templates" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    Studio Templates
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conectores
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conectores
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databricks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databricks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ifood/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iFood
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jira/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mailgun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mailgun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-now/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service Now
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stripe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stripe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Twilio
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Twilio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-a-api-do-twilio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é a API do Twilio?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceitos-fundamentais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos Fundamentais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos Fundamentais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sid-o-identificador-universal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SID — o identificador universal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conta-e-subcontas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conta e subcontas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#um-produto-um-subdominio-uma-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Um produto, um subdomínio, uma versão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messaging-service-e-verify-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Messaging Service e Verify Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twiml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TwiML
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos-e-configuracao-no-twilio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pré-requisitos e Configuração no Twilio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pré-requisitos e Configuração no Twilio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-autenticacao-suportados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Autenticação suportados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtendo-as-credenciais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtendo as credenciais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-da-conta-no-skyone-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuração da conta no Skyone Studio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuração da conta no Skyone Studio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#twilio-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Messaging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-verify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Verify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-lookups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Lookups
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-preencher-os-parametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como preencher os parâmetros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Como preencher os parâmetros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#corpo-da-requisicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Corpo da requisição
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paginacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paginação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtros-por-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtros por data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sufixo-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sufixo .json
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes-disponiveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operações Disponíveis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operações Disponíveis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#twilio-api-197-operacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio API — 197 operações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-messaging-58-operacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Messaging — 58 operações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-verify-57-operacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Verify — 57 operações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-lookups-10-operacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Lookups — 10 operações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentacao-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentação oficial
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xero
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zendesk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zendesk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-crm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho CRM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-desk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Desk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zoho-workdrive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zoho WorkDrive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxo de Desenvolvimento
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fluxo de Desenvolvimento
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Callback OAuth2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Callback OAuth2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev-flow/callback/contexto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contexto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev-flow/callback/oauth2postman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Postman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iac-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-a-api-do-twilio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O que é a API do Twilio?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceitos-fundamentais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceitos Fundamentais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos Fundamentais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sid-o-identificador-universal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SID — o identificador universal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conta-e-subcontas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conta e subcontas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#um-produto-um-subdominio-uma-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Um produto, um subdomínio, uma versão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messaging-service-e-verify-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Messaging Service e Verify Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twiml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TwiML
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos-e-configuracao-no-twilio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pré-requisitos e Configuração no Twilio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pré-requisitos e Configuração no Twilio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-autenticacao-suportados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Autenticação suportados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtendo-as-credenciais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtendo as credenciais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-da-conta-no-skyone-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuração da conta no Skyone Studio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuração da conta no Skyone Studio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#twilio-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Messaging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-verify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Verify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-lookups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Lookups
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-preencher-os-parametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como preencher os parâmetros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Como preencher os parâmetros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#corpo-da-requisicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Corpo da requisição
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paginacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paginação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtros-por-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtros por data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sufixo-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sufixo .json
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes-disponiveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operações Disponíveis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operações Disponíveis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#twilio-api-197-operacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio API — 197 operações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-messaging-58-operacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Messaging — 58 operações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-verify-57-operacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Verify — 57 operações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#twilio-lookups-10-operacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Twilio Lookups — 10 operações
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentacao-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentação oficial
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="twilio">Twilio</h1>
+<h2 id="introducao">Introdução</h2>
+<p>Este artigo detalha como configurar, autenticar e integrar as APIs do <strong>Twilio</strong> no <strong>Skyone Studio</strong>. A cobertura do Twilio está dividida em <strong>quatro templates de conector</strong>, um por produto.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Template</th>
+<th style="text-align: left;">Host da conta conectada</th>
+<th style="text-align: right;">Operações</th>
+<th style="text-align: left;">O que cobre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Twilio API</strong></td>
+<td style="text-align: left;"><code>https://api.twilio.com</code></td>
+<td style="text-align: right;">197</td>
+<td style="text-align: left;">API principal (<code>2010-04-01</code>): mensagens SMS/MMS/WhatsApp, chamadas de voz, conferências, gravações, transcrições, números de telefone, filas, SIP, chaves, uso e saldo</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Twilio Messaging</strong></td>
+<td style="text-align: left;"><code>https://messaging.twilio.com</code></td>
+<td style="text-align: right;">58</td>
+<td style="text-align: left;">Messaging Services, remetentes alfanuméricos, short codes, encurtamento de link, registro A2P/brand e verificação toll-free</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Twilio Verify</strong></td>
+<td style="text-align: left;"><code>https://verify.twilio.com</code></td>
+<td style="text-align: right;">57</td>
+<td style="text-align: left;">Verificação de identidade e 2FA: verificações por SMS/voz/e-mail, factors, challenges, passkeys, rate limits e templates</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Twilio Lookups</strong></td>
+<td style="text-align: left;"><code>https://lookups.twilio.com</code></td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Validação e enriquecimento de números: line type, operadora, risco de fraude, consulta em lote</td>
+</tr>
+</tbody>
+</table>
+<p>Os quatro templates usam a mesma autenticação, porém o Host dos serviços são diferentes, portanto exigem credenciais diferentes.</p>
+<h2 id="o-que-e-a-api-do-twilio">O que é a API do Twilio?</h2>
+<p>O Twilio é uma plataforma de comunicação em nuvem que expõe suas capacidades por meio de APIs <strong>RESTful</strong> sobre HTTPS. Por meio delas é possível enviar e receber mensagens, originar e controlar chamadas de voz, provisionar e gerenciar números de telefone, verificar identidades e consultar dados de telefonia — tudo programaticamente, sem infraestrutura de telecom própria.</p>
+<p><strong>Principais capacidades:</strong></p>
+<p><strong>Mensagens:</strong> envio e consulta de SMS, MMS e mensagens de WhatsApp, com feedback de entrega, mídia anexada e agrupamento por Messaging Service.
+<strong>Voz:</strong> criação e controle de chamadas em tempo real, conferências, filas de espera, gravações, transcrições e streams de áudio.
+<strong>Números:</strong> busca de números disponíveis por país e tipo (local, móvel, toll-free, VoIP), compra, configuração de webhooks e liberação.
+<strong>Verificação:</strong> fluxos de OTP e 2FA por SMS, voz, e-mail, TOTP e passkeys, com controle de tentativas e rate limits.
+<strong>Inteligência de números:</strong> validação de formato, identificação de operadora e tipo de linha, checagem de portabilidade e sinais de risco.
+<strong>Administração:</strong> subcontas, chaves de API, chaves de assinatura, registros de uso, gatilhos de cobrança e saldo.</p>
+<h2 id="conceitos-fundamentais">Conceitos Fundamentais</h2>
+<h3 id="sid-o-identificador-universal">SID — o identificador universal</h3>
+<p>Praticamente todo recurso do Twilio é identificado por um <strong>SID</strong>: uma string de 34 caracteres cujo prefixo indica o tipo (<code>AC</code> conta, <code>SM</code> mensagem, <code>CA</code> chamada, <code>MG</code> Messaging Service, <code>VA</code> Verify Service, <code>RE</code> gravação). Nas operações, os SIDs aparecem como parâmetros de path (<code>account_sid</code>, <code>call_sid</code>, <code>service_sid</code>, <code>sid</code>).</p>
+<h3 id="conta-e-subcontas">Conta e subcontas</h3>
+<p>O <strong>Account SID</strong> identifica a conta e é, ao mesmo tempo, o usuário da autenticação e um segmento do caminho da maioria das operações da API principal. Subcontas permitem isolar tráfego, números e cobrança por cliente ou projeto — por isso o <code>account_sid</code> é um parâmetro de operação, e não um valor fixo da conta conectada: a mesma credencial pode operar sobre subcontas diferentes.</p>
+<h3 id="um-produto-um-subdominio-uma-versao">Um produto, um subdomínio, uma versão</h3>
+<p>O Twilio não versiona a plataforma inteira de uma vez. Cada produto tem seu próprio host e sua própria versão, embutidos no caminho: <code>api.twilio.com/2010-04-01/…</code>, <code>messaging.twilio.com/v1/…</code>, <code>verify.twilio.com/v2/…</code>, <code>lookups.twilio.com/v2/…</code>. Versões diferentes do mesmo produto quase nunca expõem as mesmas rotas — um "v2" costuma ser um produto novo, não uma casca nova sobre o "v1". Por isso a versão entra <strong>literal no caminho de cada operação</strong>, e não como parâmetro configurável.</p>
+<h3 id="messaging-service-e-verify-service">Messaging Service e Verify Service</h3>
+<p>Tanto o Messaging quanto o Verify organizam a configuração em um <strong>Service</strong>: um agrupador que carrega pool de números, regras de envio, webhooks e políticas. Na prática, a maioria das operações desses dois templates recebe um <code>service_sid</code> (ou <code>messaging_service_sid</code>) como primeiro parâmetro.</p>
+<h3 id="twiml">TwiML</h3>
+<p>Operações de voz que iniciam ou redirecionam uma chamada esperam uma <strong>URL</strong> que devolva <strong>TwiML</strong> — o XML que instrui o Twilio sobre o que fazer na chamada (falar, tocar áudio, discar, gravar). O conector envia a URL; o conteúdo TwiML fica hospedado no seu lado.</p>
+<hr />
+<h2 id="pre-requisitos-e-configuracao-no-twilio">Pré-requisitos e Configuração no Twilio</h2>
+<p>Para iniciar o desenvolvimento, são necessários:</p>
+<p><strong>Conta ativa</strong> no Twilio.</p>
+<p><strong>Credenciais</strong> (Account SID + Auth Token, ou API Key SID + Secret) obtidas no console.</p>
+<h3 id="tipos-de-autenticacao-suportados">Tipos de Autenticação suportados</h3>
+<p>Os quatro templates usam <strong>Basic Authentication (HTTP Basic)</strong>.</p>
+<p><strong>Tipo:</strong> Autenticação básica (HTTP Basic)</p>
+<table>
+<thead>
+<tr>
+<th>Variável</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>password</td>
+<td>Auth Token/API Key Secret</td>
+</tr>
+<tr>
+<td>username</td>
+<td>Account SID/API Key SID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="obtendo-as-credenciais">Obtendo as credenciais</h3>
+<p>Existem três tipos diferentes de credenciais do Twilio: credenciais de conta, credenciais de conta de teste e credenciais de API Key. A recomendação é usar API Keys para controle das permissões — observe que certas operações podem não funcionar a depender das permissões escolhidas.</p>
+<blockquote>
+<p><a href="https://www.twilio.com/docs/iam/credentials/api">Saiba mais sobre credenciais</a></p>
+</blockquote>
+<p>É possível usar os dados da conta (<strong>Account SID</strong> e <strong>Auth Token</strong>) como, respectivamente, usuário e senha na autenticação do Skyone Studio, permitindo utilizar qualquer operação da API que a conta tenha acesso. Em <strong>Go to API Keys</strong>, você terá acesso ao painel de criação de API Keys e às credenciais de teste.</p>
+<hr />
+<h2 id="configuracao-da-conta-no-skyone-studio">Configuração da conta no Skyone Studio</h2>
+<ol>
+<li>No template do conector, clique em <strong>Credencial</strong> e em <strong>Adicionar credencial</strong>.</li>
+<li>Preencha conforme o template — o <strong>Host muda de um template para o outro</strong>, o resto é idêntico.</li>
+</ol>
+<h3 id="twilio-api">Twilio API</h3>
+<table>
+<thead>
+<tr>
+<th>Nome da conta</th>
+<th>[Escolha um nome identificável]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Host</strong></td>
+<td>https://api.twilio.com</td>
+</tr>
+<tr>
+<td><strong>Porta</strong></td>
+<td>443</td>
+</tr>
+<tr>
+<td><strong>Usuário</strong></td>
+<td>[Account SID ou API Key SID]</td>
+</tr>
+<tr>
+<td><strong>Senha</strong></td>
+<td>[Auth Token ou API Key Secret]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="twilio-messaging">Twilio Messaging</h3>
+<table>
+<thead>
+<tr>
+<th>Nome da conta</th>
+<th>[Escolha um nome identificável]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Host</strong></td>
+<td>https://messaging.twilio.com</td>
+</tr>
+<tr>
+<td><strong>Porta</strong></td>
+<td>443</td>
+</tr>
+<tr>
+<td><strong>Usuário</strong></td>
+<td>[Account SID ou API Key SID]</td>
+</tr>
+<tr>
+<td><strong>Senha</strong></td>
+<td>[Auth Token ou API Key Secret]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="twilio-verify">Twilio Verify</h3>
+<table>
+<thead>
+<tr>
+<th>Nome da conta</th>
+<th>[Escolha um nome identificável]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Host</strong></td>
+<td>https://verify.twilio.com</td>
+</tr>
+<tr>
+<td><strong>Porta</strong></td>
+<td>443</td>
+</tr>
+<tr>
+<td><strong>Usuário</strong></td>
+<td>[Account SID ou API Key SID]</td>
+</tr>
+<tr>
+<td><strong>Senha</strong></td>
+<td>[Auth Token ou API Key Secret]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="twilio-lookups">Twilio Lookups</h3>
+<table>
+<thead>
+<tr>
+<th>Nome da conta</th>
+<th>[Escolha um nome identificável]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Host</strong></td>
+<td>https://lookups.twilio.com</td>
+</tr>
+<tr>
+<td><strong>Porta</strong></td>
+<td>443</td>
+</tr>
+<tr>
+<td><strong>Usuário</strong></td>
+<td>[Account SID ou API Key SID]</td>
+</tr>
+<tr>
+<td><strong>Senha</strong></td>
+<td>[Auth Token ou API Key Secret]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="como-preencher-os-parametros">Como preencher os parâmetros</h2>
+<h3 id="corpo-da-requisicao">Corpo da requisição</h3>
+<p>O Twilio <strong>não aceita JSON</strong> no corpo das operações da API principal, do Messaging e da maior parte do Verify: o corpo vai em <strong><code>application/x-www-form-urlencoded</code></strong>, ou seja, pares <code>chave=valor</code> separados por <code>&amp;</code>, com os valores percent-encoded. Os templates já enviam o cabeçalho <code>Content-Type</code> correto; ao configurar a operação, escreva o parâmetro <code>body</code> nesse formato.</p>
+<p>Exemplo, em <strong>Twilio API → <code>Messages - Create message</code></strong>:</p>
+<pre><code>To=%2B5511999999999&amp;From=%2B5511888888888&amp;Body=Mensagem+de+teste+do+Studio
+</code></pre>
+<p>As únicas exceções são as operações de <strong>Passkeys</strong> do Verify e as de <strong>Overrides</strong>/<strong>batch</strong> do Lookups, que usam JSON — nessas, o parâmetro <code>body</code> é um objeto.</p>
+<p>Cada operação traz no <code>sample</code> do parâmetro <code>body</code> um exemplo com os campos obrigatórios daquele endpoint. Campos opcionais não estão no exemplo: consulte a documentação oficial da operação e acrescente-os na mesma sintaxe.</p>
+<h3 id="paginacao">Paginação</h3>
+<p>As operações de listagem aceitam <code>PageSize</code> (padrão 50, máximo 1000), <code>Page</code> e <code>PageToken</code>. Para percorrer páginas, use o <code>PageToken</code> devolvido na resposta em vez de incrementar <code>Page</code>.</p>
+<h3 id="filtros-por-data">Filtros por data</h3>
+<p>Alguns filtros de data existem em três variantes: valor exato, "antes de" e "depois de". No Twilio, as duas últimas são as chaves <code>DateCreated&lt;</code> e <code>DateCreated&gt;</code>; nos templates elas aparecem como os parâmetros <code>date_created_before</code> e <code>date_created_after</code> (e equivalentes para <code>start_time</code>, <code>end_time</code>, <code>date_sent</code> e <code>message_date</code>). A chave enviada continua sendo a original com <code>&lt;</code> ou <code>&gt;</code>.</p>
+<h3 id="sufixo-json">Sufixo <code>.json</code></h3>
+<p>Todos os caminhos da API principal terminam em <code>.json</code> — é assim que o Twilio seleciona a resposta em JSON em vez de XML. Os templates já embutem esse sufixo; não o remova ao editar uma operação.</p>
+<hr />
+<h2 id="operacoes-disponiveis">Operações Disponíveis</h2>
+<p>Abaixo listamos as operações mapeadas em cada template.</p>
+<h3 id="twilio-api-197-operacoes">Twilio API — 197 operações</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome da Operação</th>
+<th style="text-align: left;">Método HTTP</th>
+<th style="text-align: left;">Descrição da Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Accounts - List account</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma coleção de contas pertencentes à conta usada para fazer a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Accounts - Create account</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma nova subconta Twilio a partir da conta fazendo a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Addresses - List address</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista endereços.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Addresses - Create address</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um endereço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Addresses - List dependent phone number</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone dependentes.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Addresses - Fetch address</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém um endereço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Addresses - Update address</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza um endereço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Addresses - Delete address</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui um endereço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Applications - List application</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de aplicativos que representam um aplicativo dentro da conta solicitante.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Applications - Create application</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo aplicativo em sua conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Applications - Fetch application</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém o aplicativo especificado pelo SID fornecido.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Applications - Update application</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza as propriedades do aplicativo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Applications - Delete application</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui o aplicativo especificado pelo SID fornecido.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Authorized Connect Apps - List authorized connect app</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de aplicativos de conexão autorizada pertencentes à conta usada para fazer a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Authorized Connect Apps - Fetch authorized connect app</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém uma instância de um aplicativo de conexão autorizada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Available Phone Numbers - List available phone number country</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista país com números de telefone disponíveis.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Available Phone Numbers - Fetch available phone number country</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém país com números de telefone disponíveis.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Available Phone Numbers - List available phone number local</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone disponíveis locais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Available Phone Numbers - List available phone number machine to machine</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone disponíveis máquina a máquina.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Available Phone Numbers - List available phone number mobile</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone disponíveis móveis.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Available Phone Numbers - List available phone number national</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone disponíveis nacionais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Available Phone Numbers - List available phone number shared cost</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone disponíveis de custo compartilhado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Available Phone Numbers - List available phone number toll free</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone disponíveis gratuitos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Available Phone Numbers - List available phone number voip</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone disponíveis VoIP.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Balance - Fetch balance</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém o saldo de uma conta com base no SID da conta. Alterações de saldo podem não ser refletidas imediatamente. Contas filhas não contêm informações de saldo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - List call</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma coleção de chamadas feitas para e da sua conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Create call</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma nova chamada sainte para telefones, pontos de extremidade habilitados para SIP ou conexões Twilio Client.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - List call event</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de todos os eventos de uma chamada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - List call notification</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista notificações de chamada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Fetch call notification</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca uma notificação de chamada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Create payments</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma instância de pagamentos. Inicia uma nova sessão de pagamentos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Update payments</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza uma instância de pagamentos com diferentes fases de fluxos de pagamento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - List call recording</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de gravações pertencentes à chamada usada para fazer a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Create call recording</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma gravação para a chamada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Fetch call recording</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca uma instância de gravação de uma chamada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Update call recording</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Altera o status da gravação para pausada, interrompida ou em andamento. Use <code>Twilio.CURRENT</code> em vez do SID da gravação para referenciar a gravação ativa atual.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Delete call recording</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma gravação da sua conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Create siprec</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um Siprec.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Update siprec</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Para um Siprec usando o SID do recurso Siprec ou o <code>name</code> usado ao criar o recurso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Create stream</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um Stream.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Update stream</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Para um Stream usando o SID do recurso Stream ou o <code>name</code> usado ao criar o recurso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Create realtime transcription</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma Transcrição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Update realtime transcription</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Para uma Transcrição usando o SID do recurso Transcrição ou o <code>name</code> usado ao criar o recurso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Create user defined message subscription</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Inscreve-se em Mensagens Definidas pelo Usuário para um determinado SID de Chamada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Delete user defined message subscription</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma inscrição específica de Mensagem Definida pelo Usuário.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Create user defined message</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma nova Mensagem Definida pelo Usuário para o determinado SID de Chamada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Fetch call</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca a chamada especificada pelo SID da Chamada fornecido.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Update call</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Inicia um redirecionamento de chamada ou encerra uma chamada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calls - Delete call</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui um registro de Chamada da sua conta. Não aparecerá mais nos logs da API e Portal da Conta após exclusão.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - List conference</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de conferências pertencentes à conta usada para fazer a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - List participant</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista todos os participantes da conta usada para fazer a requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - Create participant</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo participante.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - Fetch participant</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém um participante específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - Update participant</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza as propriedades do participante.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - Delete participant</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove um participante de uma conferência.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - List conference recording</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista todas as gravações associadas à chamada usada para fazer a requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - Fetch conference recording</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém uma gravação específica de uma chamada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - Update conference recording</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Altera o status da gravação para pausada, parada ou em progresso. Use <code>Twilio.CURRENT</code> como identificador da gravação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - Delete conference recording</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove uma gravação da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - Fetch conference</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém uma conferência específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Conferences - Update conference</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza uma conferência.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Connect Apps - List connect app</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista todos os Connect Apps da conta usada para fazer a requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Connect Apps - Fetch connect app</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém um Connect App específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Connect Apps - Update connect app</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza um Connect App com os parâmetros especificados.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Connect Apps - Delete connect app</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove um Connect App.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - List incoming phone number</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista todos os números de telefone recebidos da conta usada para fazer a requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Create incoming phone number</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Compra um número de telefone para a conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - List incoming phone number local</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone locais para recebimento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Create incoming phone number local</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um número de telefone local para recebimento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - List incoming phone number mobile</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone móvel para recebimento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Create incoming phone number mobile</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um número de telefone móvel para recebimento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - List incoming phone number toll free</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista números de telefone gratuito para recebimento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Create incoming phone number toll free</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um número de telefone gratuito para recebimento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - List incoming phone number assigned add on</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista os complementos atualmente atribuídos a este número.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Create incoming phone number assigned add on</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atribui um complemento ao número especificado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - List incoming phone number assigned add on extension</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de extensões para o complemento atribuído.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Fetch incoming phone number assigned add on extension</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma instância de uma extensão para o complemento atribuído.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Fetch incoming phone number assigned add on</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma instância de uma instalação de complemento atualmente atribuída a este número.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Delete incoming phone number assigned add on</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remover a atribuição de uma instalação de complemento do número especificado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Fetch incoming phone number</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter um número de telefone de entrada pertencente à conta usada para fazer a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Update incoming phone number</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar uma instância de número de telefone de entrada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Incoming Phone Numbers - Delete incoming phone number</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir um número de telefone pertencente à conta usada para fazer a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keys - List key</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar chaves.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keys - Create new key</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar nova chave.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keys - Fetch key</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter chave.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keys - Update key</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar chave.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keys - Delete key</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir chave.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages - List message</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de recursos de mensagem associados a uma conta Twilio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages - Create message</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Enviar uma mensagem.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages - Create message feedback</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar feedback de mensagem para confirmar que uma ação de usuário rastreada foi executada pelo destinatário da mensagem associada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages - List media</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Ler uma lista de recursos de mídia associados a um recurso de mensagem específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages - Fetch media</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter um único recurso de mídia associado a um recurso de mensagem específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages - Delete media</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir o recurso de mídia.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages - Fetch message</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma mensagem específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages - Update message</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar um recurso de mensagem (usado para remover o texto <code>body</code> da mensagem e cancelar mensagens não enviadas).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages - Delete message</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir um recurso de mensagem da sua conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Notifications - List notification</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de notificações pertencentes à conta usada para fazer a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Notifications - Fetch notification</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma notificação pertencente à conta usada para fazer a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Outgoing Caller IDs - List outgoing caller id</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de IDs de chamador de saída pertencentes à conta usada para fazer a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Outgoing Caller IDs - Create validation request</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar solicitação de validação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Outgoing Caller IDs - Fetch outgoing caller id</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca um ID de chamador de saída pertencente à conta usada para fazer a requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Outgoing Caller IDs - Update outgoing caller id</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza o ID do chamador.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Outgoing Caller IDs - Delete outgoing caller id</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui o ID do chamador especificado da conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Queues - List queue</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de filas pertencentes à conta usada para fazer a requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Queues - Create queue</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma fila.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Queues - List member</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera os membros da fila.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Queues - Fetch member</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca um membro específico da fila.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Queues - Update member</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Remove um membro de uma fila e inicia a execução do documento TwiML nessa URL para a chamada do membro.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Queues - Fetch queue</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca uma instância de fila identificada pelo QueueSid.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Queues - Update queue</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza a fila com os novos parâmetros.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Queues - Delete queue</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove uma fila vazia.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - List recording</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de gravações pertencentes à conta usada para fazer a requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - List recording transcription</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista as transcrições de gravação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - Fetch recording transcription</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca a transcrição de gravação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - Delete recording transcription</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui a transcrição de gravação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - List recording add on result</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de resultados pertencentes à gravação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - List recording add on result payload</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de cargas pertencentes ao AddOnResult.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - Fetch recording add on result payload data</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca uma instância de carga de resultado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - Fetch recording add on result payload</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca uma instância de carga de resultado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - Delete recording add on result payload</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma carga do resultado junto com todos os Dados associados.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - Fetch recording add on result</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca uma instância de AddOnResult.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - Delete recording add on result</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui um resultado e remove todas as Cargas associadas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - Fetch recording</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca uma instância de uma gravação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recordings - Delete recording</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma gravação da sua conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - List sip credential list</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém todas as listas de credenciais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Create sip credential list</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar uma lista de credenciais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - List sip credential</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de credenciais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Create sip credential</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo recurso de credencial.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Fetch sip credential</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma credencial única.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Update sip credential</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar um recurso de credencial.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Delete sip credential</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir um recurso de credencial.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Fetch sip credential list</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma lista de credenciais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Update sip credential list</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar uma lista de credenciais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Delete sip credential list</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir uma lista de credenciais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - List sip domain</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de domínios pertencentes à conta usada para fazer a requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Create sip domain</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - List sip auth calls credential list mapping</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de mapeamentos de lista de credenciais pertencentes ao domínio usado na requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Create sip auth calls credential list mapping</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo recurso de mapeamento de lista de credenciais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Fetch sip auth calls credential list mapping</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma instância específica de um mapeamento de lista de credenciais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Delete sip auth calls credential list mapping</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir um mapeamento de lista de credenciais do domínio solicitado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - List sip auth calls ip access control list mapping</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de mapeamentos de Lista de Controle de Acesso por IP pertencentes ao domínio usado na requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Create sip auth calls ip access control list mapping</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo mapeamento de Lista de Controle de Acesso por IP.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Fetch sip auth calls ip access control list mapping</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma instância específica de um mapeamento de Lista de Controle de Acesso por IP.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Delete sip auth calls ip access control list mapping</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir um mapeamento de Lista de Controle de Acesso por IP do domínio solicitado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - List sip auth registrations credential list mapping</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de mapeamentos de lista de credenciais pertencentes ao domínio usado na requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Create sip auth registrations credential list mapping</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo recurso de mapeamento de lista de credenciais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Fetch sip auth registrations credential list mapping</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma instância específica de um mapeamento de lista de credenciais.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Delete sip auth registrations credential list mapping</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir um mapeamento de lista de credenciais do domínio solicitado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - List sip credential list mapping</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Ler múltiplos recursos de mapeamento de lista de credenciais de uma conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Create sip credential list mapping</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um recurso de mapeamento de lista de credenciais para uma conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Fetch sip credential list mapping</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Buscar um único recurso CredentialListMapping de uma conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Delete sip credential list mapping</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Deletar um recurso CredentialListMapping de uma conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - List sip ip access control list mapping</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de recursos IpAccessControlListMapping.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Create sip ip access control list mapping</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo recurso IpAccessControlListMapping.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Fetch sip ip access control list mapping</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Buscar um recurso IpAccessControlListMapping.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Delete sip ip access control list mapping</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Deletar um recurso IpAccessControlListMapping.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Fetch sip domain</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Buscar uma instância de um Domain</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Update sip domain</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar os atributos de um domain</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Delete sip domain</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Deletar uma instância de um Domain</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - List sip ip access control list</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de IpAccessControlLists que pertencem à conta usada para fazer a solicitação</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Create sip ip access control list</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo recurso IpAccessControlList</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - List sip ip address</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Ler múltiplos recursos IpAddress.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Create sip ip address</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo recurso IpAddress.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Fetch sip ip address</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Ler um recurso IpAddress.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Update sip ip address</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar um recurso IpAddress.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Delete sip ip address</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Deletar um recurso IpAddress.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Fetch sip ip access control list</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Buscar uma instância específica de um IpAccessControlList</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Update sip ip access control list</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Renomear um IpAccessControlList</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIP - Delete sip ip access control list</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Deletar um IpAccessControlList da conta solicitada</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SMS - List short code</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de short-codes que pertencem à conta usada para fazer a solicitação</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SMS - Fetch short code</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Buscar uma instância de um short code</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SMS - Update short code</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar um short code com os seguintes parâmetros</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Signing Keys - List signing key</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar signing key</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Signing Keys - Create new signing key</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar uma nova Signing Key para a conta que faz a solicitação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Signing Keys - Fetch signing key</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Buscar signing key</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Signing Keys - Update signing key</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar chave de assinatura</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Signing Keys - Delete signing key</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir chave de assinatura</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tokens - Create token</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo token para servidores ICE</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Transcriptions - List transcription</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar transcrições da conta utilizada para fazer a solicitação</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Transcriptions - Fetch transcription</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Buscar uma transcrição específica</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Transcriptions - Delete transcription</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir uma transcrição da conta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - List usage record</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar registros de uso da conta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - List usage record all time</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar todos os registros de uso</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - List usage record daily</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar registros de uso diários</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - List usage record last month</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar registros de uso do mês anterior</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - List usage record monthly</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar registros de uso mensais</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - List usage record this month</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar registros de uso deste mês</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - List usage record today</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar registros de uso de hoje</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - List usage record yearly</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar registros de uso anuais</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - List usage record yesterday</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar registros de uso de ontem</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - List usage trigger</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar gatilhos de uso da conta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - Create usage trigger</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo gatilho de uso</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - Fetch usage trigger</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Buscar uma instância de um gatilho de uso</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - Update usage trigger</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar uma instância de um gatilho de uso</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usage - Delete usage trigger</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir gatilho de uso</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Accounts - Fetch account</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Buscar a conta pelo Account Sid fornecido</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Accounts - Update account</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Modificar as propriedades de uma conta</td>
+</tr>
+</tbody>
+</table>
+<h3 id="twilio-messaging-58-operacoes">Twilio Messaging — 58 operações</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome da Operação</th>
+<th style="text-align: left;">Método HTTP</th>
+<th style="text-align: left;">Descrição da Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Deactivations - Fetch deactivation</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de todos os números dos EUA que foram desativados em uma data específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Fetch domain cert v4</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar certificado de domínio v4.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Update domain cert v4</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar certificado de domínio v4.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Delete domain cert v4</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir certificado de domínio v4.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Fetch domain config</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar configuração de domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Update domain config</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar configuração de domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Create linkshortening messaging service</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar serviço de mensagens de encurtamento de link.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Delete linkshortening messaging service</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir serviço de mensagens de encurtamento de link.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Update request managed cert</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar solicitação de certificado gerenciado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Fetch domain dns validation</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar validação de DNS do domínio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Fetch domain config messaging service</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar configuração de domínio do serviço de mensagens.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Link Shortening - Fetch linkshortening messaging service domain association</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar associação de domínio do serviço de mensagens de encurtamento de link.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Services - List service</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Services - Create service</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Preregistered USA2P - Create external campaign</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar campanha externa.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usecases - Fetch usecase</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar caso de uso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Channel Senders - List channel sender</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar remetente de canal.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Channel Senders - Create channel sender</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar remetente de canal.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Channel Senders - Fetch channel sender</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar remetente de canal.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Channel Senders - Delete channel sender</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir remetente de canal.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Compliance - List us app to person</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar app-to-person americano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Compliance - Create us app to person</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar app-to-person americano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Compliance - Fetch us app to person usecase</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter caso de uso de app-to-person americano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Compliance - Fetch us app to person</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter app-to-person americano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Compliance - Update us app to person</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar app-to-person americano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Compliance - Delete us app to person</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir app-to-person americano.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Alpha Senders - List alpha sender</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar remetente alfanumérico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Alpha Senders - Create alpha sender</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar remetente alfanumérico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Alpha Senders - Fetch alpha sender</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter remetente alfanumérico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Alpha Senders - Delete alpha sender</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir remetente alfanumérico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Destination Alpha Senders - List destination alpha sender</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar remetente alfanumérico de destino.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Destination Alpha Senders - Create destination alpha sender</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar remetente alfanumérico de destino.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Destination Alpha Senders - Fetch destination alpha sender</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter remetente alfanumérico de destino.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Destination Alpha Senders - Delete destination alpha sender</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir remetente alfanumérico de destino.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phone Numbers - List phone number</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar número de telefone.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phone Numbers - Create phone number</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar número de telefone.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phone Numbers - Fetch phone number</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter número de telefone.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phone Numbers - Delete phone number</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir número de telefone.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Short Codes - List short code</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar código curto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Short Codes - Create short code</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar código curto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Short Codes - Fetch short code</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera um código curto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Short Codes - Delete short code</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui um código curto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Services - Fetch service</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera um serviço de mensageria.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Services - Update service</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza um serviço de mensageria.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Services - Delete service</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui um serviço de mensageria.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tollfree - List tollfree verification</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista verificações de números Tollfree.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tollfree - Create tollfree verification</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma verificação de número Tollfree.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tollfree - Fetch tollfree verification</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma verificação de número Tollfree.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tollfree - Update tollfree verification</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Edita uma verificação de número Tollfree.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tollfree - Delete tollfree verification</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma verificação de número Tollfree.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A2P - List brand registrations</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista registros de marcas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A2P - Create brand registrations</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria registros de marcas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A2P - Create brand registration otp</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria OTP de registro de marca.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A2P - List brand vetting</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista verificações de marca.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A2P - Create brand vetting</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma verificação de marca.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A2P - Fetch brand vetting</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma verificação de marca.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A2P - Fetch brand registrations</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera registros de marcas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>A2P - Update brand registrations</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza registros de marcas.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="twilio-verify-57-operacoes">Twilio Verify — 57 operações</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome da Operação</th>
+<th style="text-align: left;">Método HTTP</th>
+<th style="text-align: left;">Descrição da Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Attempts - List verification attempt</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Lista todas as tentativas de verificação de uma conta específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Attempts - Fetch verification attempts summary</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém um resumo de quantas tentativas foram feitas e quantas foram convertidas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Attempts - Fetch verification attempt</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém uma tentativa de verificação específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forms - Fetch form</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém os formulários de um tipo de formulário específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Safe List - Create safelist</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Adiciona um novo número de telefone à lista de segurança.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Safe List - Fetch safelist</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Verifica se um número de telefone existe na lista de segurança.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Safe List - Delete safelist</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Remove um número de telefone da lista de segurança.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Services - List service</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de todos os serviços de verificação de uma conta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Services - Create service</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo serviço de verificação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Access Tokens - Create access token</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo token de acesso de inscrição para a entidade.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Access Tokens - Fetch access token</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém um token de acesso para a entidade.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Entities - List entity</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de todas as entidades de um serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Entities - Create entity</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma nova entidade para o serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Entities - Fetch entity</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém uma entidade específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Entities - Delete entity</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Deleta uma entidade específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Challenges - List challenge</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de todos os desafios de um fator.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Challenges - Create challenge</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo desafio para o fator.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Challenges - Create notification</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma nova notificação para o desafio correspondente.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Challenges - Fetch challenge</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obtém um desafio específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Challenges - Update challenge</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Verifica um Desafio específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Factors - List factor</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de todos os Fatores para uma Entidade.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Factors - Create new factor</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo Fator para a Entidade.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Factors - Fetch factor</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca um Fator específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Factors - Update factor</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza um Fator específico. Este endpoint pode ser usado para Verificar um Fator se passado um parâmetro <code>AuthPayload</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Factors - Delete factor</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui um Fator específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messaging Configurations - List messaging configuration</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de todas as Configurações de Mensagens para um Serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messaging Configurations - Create messaging configuration</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria uma nova Configuração de Mensagens para um serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messaging Configurations - Fetch messaging configuration</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Busca uma Configuração de Mensagens específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messaging Configurations - Update messaging configuration</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualiza uma Configuração de Mensagens específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messaging Configurations - Delete messaging configuration</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui uma Configuração de Mensagens específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passkeys - Update challenge passkeys</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Aprova um desafio de Chaves de Acesso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passkeys - Create challenge passkeys</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um Desafio de Chaves de Acesso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passkeys - Create new factor passkey</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo Fator de Chaves de Acesso para a Entidade.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Passkeys - Update passkeys factor</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Verifica um Fator de Chaves de Acesso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - List rate limit</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de todos os Limites de Taxa para um serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Create rate limit</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo Limite de Taxa para um Serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - List bucket</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera uma lista de todos os Buckets para um Limite de Taxa.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Create bucket</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um novo Bucket para um Limite de Taxa.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Fetch bucket</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter um Bucket específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Update bucket</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar um Bucket específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Delete bucket</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir um Bucket específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Fetch rate limit</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter um Limite de Taxa específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Update rate limit</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar um Limite de Taxa específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Delete rate limit</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir um Limite de Taxa específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Verification Check - Create verification check</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Desafiar uma Verificação de Verificação específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Verifications - Create verification</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar uma nova Verificação usando um Serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Verifications - Fetch verification</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma Verificação específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Verifications - Update verification</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar o status de uma Verificação.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Webhooks - List webhook</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recuperar uma lista de todos os Webhooks para um Serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Webhooks - Create webhook</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Criar um novo Webhook para o Serviço.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Webhooks - Fetch webhook</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter um Webhook específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Webhooks - Update webhook</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar webhook.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Webhooks - Delete webhook</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir um Webhook específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Services - Fetch service</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Obter uma Instância de Serviço de Verificação específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Services - Update service</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Atualizar um Serviço de Verificação específico.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Services - Delete service</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Excluir uma Instância de Serviço de Verificação específica.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Templates - List verification template</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Listar todos os templates disponíveis para uma Conta fornecida.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="twilio-lookups-10-operacoes">Twilio Lookups — 10 operações</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nome da Operação</th>
+<th style="text-align: left;">Método HTTP</th>
+<th style="text-align: left;">Descrição da Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Phone Numbers - Fetch phone number</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">A API de Lookup permite consultar informações de um número de telefone para fazer uma interação confiável com seu usuário.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phone Numbers - Fetch lookup phone number overrides</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera um Override para um pacote e número de telefone específicos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phone Numbers - Create lookup phone number overrides</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Cria um Override para um pacote e número de telefone específicos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phone Numbers - Update lookup phone number overrides</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza um Override para um pacote e número de telefone específicos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Phone Numbers - Delete lookup phone number overrides</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui um Override para um pacote e número de telefone específicos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Fetch lookup account rate limits</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera a lista de limites de taxa para todos os campos e os limites de taxa do Twilio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Fetch lookup rate limit</strong></td>
+<td style="text-align: left;">GET</td>
+<td style="text-align: left;">Recupera o limite de taxa de lookup.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Update lookup rate limit</strong></td>
+<td style="text-align: left;">PUT</td>
+<td style="text-align: left;">Atualiza o limite de taxa de lookup.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rate Limits - Delete lookup rate limit</strong></td>
+<td style="text-align: left;">DELETE</td>
+<td style="text-align: left;">Exclui o limite de taxa de lookup.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Batch - Create bulk lookup</strong></td>
+<td style="text-align: left;">POST</td>
+<td style="text-align: left;">Envia um lote de números de telefone em uma única solicitação e recebe resultados de lookup para todos.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="documentacao-oficial">Documentação oficial</h2>
+<p><strong>Documentação Oficial da API:</strong> <a href="https://www.twilio.com/docs">Twilio Docs</a></p>
+<ul>
+<li><a href="https://www.twilio.com/docs/usage/api">API principal (2010-04-01)</a></li>
+<li><a href="https://www.twilio.com/docs/messaging/api">Messaging</a></li>
+<li><a href="https://www.twilio.com/docs/verify/api">Verify</a></li>
+<li><a href="https://www.twilio.com/docs/lookup/v2-api">Lookup</a></li>
+<li><a href="https://github.com/twilio/twilio-oai/tree/main/spec/json">Especificações OpenAPI oficiais</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

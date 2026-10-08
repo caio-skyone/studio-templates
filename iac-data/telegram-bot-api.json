@@ -1,0 +1,4538 @@
+{
+  "name": "Telegram Bot API",
+  "id": "qvWsL1UT9u",
+  "authorization": {
+    "groups": [
+      "default"
+    ]
+  },
+  "description": "Conector para a Telegram Bot API. Configure a URL base da conta como https://api.telegram.org/bot{SEU_TOKEN}",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "no-auth"
+  },
+  "operations": [
+    {
+      "name": "Bot Settings - Set name",
+      "id": "rQ7VaXdw_D",
+      "description": "Altera o nome do bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "24c202df-77b9-452a-bdd8-fa7da1e5a2d5",
+          "type": "object",
+          "description": "name (novo nome, máx 64 chars) e language_code opcionais. Omitir name reseta para padrão",
+          "sensitive": false,
+          "sample": "{\"name\": \"Meu Bot\", \"language_code\": \"pt\"}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setMyName"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Get sticker set",
+      "id": "P8L1Pak4I7",
+      "description": "Retorna informações de um sticker set",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "44f98bb8-433f-4174-b14b-8735bad216a2",
+          "type": "object",
+          "description": "name do sticker set (obrigatório). Retorna objeto StickerSet com todos os stickers",
+          "sensitive": false,
+          "sample": "{\"name\": \"nome_do_set\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getStickerSet"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Delete message",
+      "id": "rSahURdvSm",
+      "description": "Deleta uma mensagem do chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "535416f0-11e9-4a48-8f79-18947f9eea71",
+          "type": "object",
+          "description": "chat_id e message_id (obrigatórios). Bot pode deletar mensagens suas ou de qualquer usuário se for admin",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "deleteMessage"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Edit reply markup",
+      "id": "JNBGYqS3xB",
+      "description": "Edita o teclado inline (reply markup) de uma mensagem",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "f015053e-4063-4c77-86c8-c21e80f9eee7",
+          "type": "object",
+          "description": "chat_id+message_id ou inline_message_id (obrigatórios). reply_markup com novo teclado inline",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1, \"reply_markup\": {\"inline_keyboard\": [[{\"text\": \"Botão\", \"callback_data\": \"data\"}]]}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "editMessageReplyMarkup"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Edit caption",
+      "id": "QcLuULsj5a",
+      "description": "Edita legenda de mensagem com mídia",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "8e313d97-603e-4f94-85f5-67688c41db6b",
+          "type": "object",
+          "description": "chat_id+message_id ou inline_message_id (obrigatórios). caption, parse_mode, reply_markup opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1, \"caption\": \"Nova legenda\", \"parse_mode\": \"HTML\", \"reply_markup\": {}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "editMessageCaption"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Get default admin rights",
+      "id": "R5ajXK0Es4",
+      "description": "Retorna direitos padrão de administrador do bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "356d9f28-e1bf-43e1-afbe-209235a7e086",
+          "type": "object",
+          "description": "for_channels opcional. Retorna ChatAdministratorRights com direitos padrão do bot",
+          "sensitive": false,
+          "sample": "{\"for_channels\": false}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getMyDefaultAdministratorRights"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Get chat menu button",
+      "id": "Izs9ewPQ78",
+      "description": "Retorna o botão do menu configurado para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "33c6f987-a99b-41d2-aebf-c936168acfc8",
+          "type": "object",
+          "description": "chat_id opcional (0 ou omitir = padrão global). Retorna objeto MenuButton",
+          "sensitive": false,
+          "sample": "{\"chat_id\": 0}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getChatMenuButton"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Get short description",
+      "id": "BPigafXlnv",
+      "description": "Retorna descrição curta atual do bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "253a2a00-69d7-49f3-93e2-fbc83a558e2c",
+          "type": "object",
+          "description": "language_code opcional. Retorna BotShortDescription com a descrição curta atual",
+          "sensitive": false,
+          "sample": "{\"language_code\": \"pt\"}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getMyShortDescription"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Set description",
+      "id": "FdSObylWgk",
+      "description": "Define a descrição do bot (exibida ao iniciar conversa)",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "22cd1058-aa2a-4162-a57e-67825b517678",
+          "type": "object",
+          "description": "description (máx 512 chars) e language_code opcionais. Omitir description limpa a descrição",
+          "sensitive": false,
+          "sample": "{\"description\": \"Bot de suporte ao cliente\", \"language_code\": \"pt\"}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setMyDescription"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Get custom emoji stickers",
+      "id": "HkVrXUFr8J",
+      "description": "Retorna informações de emojis customizados por IDs",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "29818154-8bee-448d-923a-23eeb56a212e",
+          "type": "object",
+          "description": "custom_emoji_ids (array de strings, obrigatório). Retorna array de Sticker com informações dos emojis",
+          "sensitive": false,
+          "sample": "{\"custom_emoji_ids\": [\"emoji_id_1\", \"emoji_id_2\"]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getCustomEmojiStickers"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Games - Send game",
+      "id": "CqxuB2zACx",
+      "description": "Envia jogo para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "a5750fb6-88b9-4a83-81c8-9b3b4ce503f2",
+          "type": "object",
+          "description": "chat_id e game_short_name (obrigatórios). reply_markup com botão de URL do jogo opcional",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"game_short_name\": \"mygame\", \"reply_markup\": {}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendGame"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Delete sticker set",
+      "id": "8AnjNSzb2M",
+      "description": "Deleta sticker set criado pelo bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "3dd78560-e974-438d-b9c1-db916e00d009",
+          "type": "object",
+          "description": "name do sticker set a deletar (obrigatório). Apenas sets criados pelo bot podem ser deletados",
+          "sensitive": false,
+          "sample": "{\"name\": \"nome_do_set\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "deleteStickerSet"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Delete from set",
+      "id": "zOUp78MBGZ",
+      "description": "Remove sticker de um sticker set",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "24476e98-c9f8-4dc3-90dd-54a67816a07e",
+          "type": "object",
+          "description": "sticker (file_id do sticker a remover, obrigatório)",
+          "sensitive": false,
+          "sample": "{\"sticker\": \"file_id_do_sticker\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "deleteStickerFromSet"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Set position in set",
+      "id": "49IYPvKzGf",
+      "description": "Move sticker para nova posição no sticker set",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "4dc27825-ec2b-4d68-a996-300927a95339",
+          "type": "object",
+          "description": "sticker (file_id) e position (nova posição base 0, obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"sticker\": \"file_id_do_sticker\", \"position\": 0}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setStickerPositionInSet"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Create new sticker set",
+      "id": "3EN7mTO8mS",
+      "description": "Cria novo sticker set pertencente ao bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "a0a62bc2-cebc-4e43-9923-b8d1ac4666c1",
+          "type": "object",
+          "description": "user_id, name, title, stickers (obrigatórios). name deve terminar com _by_{bot_username}. format vai dentro de cada item do array stickers (static|animated|video)",
+          "sensitive": false,
+          "sample": "{\"user_id\": 123456789, \"name\": \"nome_by_bot\", \"title\": \"Título do Set\", \"stickers\": [{\"sticker\": \"file_id\", \"emoji_list\": [\"😀\"], \"format\": \"static\"}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "createNewStickerSet"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Upload sticker file",
+      "id": "pszxyNZI3d",
+      "description": "Envia arquivo de sticker para uso em sticker sets",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "3d0967b5-61f0-4584-8438-92bd140e24fc",
+          "type": "object",
+          "description": "user_id, sticker (InputFile), format (obrigatórios). format: static, animated, video",
+          "sensitive": false,
+          "sample": "{\"user_id\": 123456789, \"sticker\": \"file_upload\", \"format\": \"static\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "uploadStickerFile"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Stop live location",
+      "id": "ut_2nA4orf",
+      "description": "Para o compartilhamento de localização ao vivo",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "85f41cbb-a51c-462f-8e38-c1548f84ae14",
+          "type": "object",
+          "description": "chat_id+message_id ou inline_message_id (obrigatórios). reply_markup opcional",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "stopMessageLiveLocation"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Get description",
+      "id": "2BLsZSxSkL",
+      "description": "Retorna descrição atual do bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "40b485e1-49d3-44fe-9564-695d36efe6e0",
+          "type": "object",
+          "description": "language_code opcional. Retorna BotDescription com a descrição atual",
+          "sensitive": false,
+          "sample": "{\"language_code\": \"pt\"}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getMyDescription"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Set keywords",
+      "id": "pZVVDuW2Rq",
+      "description": "Define palavras-chave de pesquisa de um sticker",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "a07771cc-a04b-4ca8-85be-a62ca93ffdaf",
+          "type": "object",
+          "description": "sticker (file_id) e keywords (array de strings, 0-20 palavras, obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"sticker\": \"file_id_do_sticker\", \"keywords\": [\"feliz\", \"sorrindo\"]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setStickerKeywords"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Games - Get high scores",
+      "id": "sUtuos0_mP",
+      "description": "Retorna placar de líderes de um jogo",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "f459fd30-0c68-42aa-bfdf-07a3fac25985",
+          "type": "object",
+          "description": "user_id (obrigatório). chat_id+message_id ou inline_message_id para identificar o jogo",
+          "sensitive": false,
+          "sample": "{\"user_id\": 123456789, \"chat_id\": \"123456789\", \"message_id\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getGameHighScores"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Passport - Set passport data errors",
+      "id": "xYa4EgpmfW",
+      "description": "Informa erros em dados do Telegram Passport para o usuário corrigir",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "f77dd158-5a88-4d07-ab2a-dc628d675b2b",
+          "type": "object",
+          "description": "user_id e errors (array de PassportElementError, obrigatórios). Informa erros para o usuário corrigir dados do Passport",
+          "sensitive": false,
+          "sample": "{\"user_id\": 123456789, \"errors\": [{\"source\": \"personal_details\", \"type\": \"data\", \"field_name\": \"first_name\", \"data_hash\": \"hash\", \"message\": \"Nome inválido\"}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setPassportDataErrors"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Payments - Refund star payment",
+      "id": "RD3jsuSdgq",
+      "description": "Estorna pagamento em Stars para o usuário",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "589132f3-b716-4121-adcc-ea405f1ab653",
+          "type": "object",
+          "description": "user_id e telegram_payment_charge_id (obrigatórios). Estorna pagamento em Stars",
+          "sensitive": false,
+          "sample": "{\"user_id\": 123456789, \"telegram_payment_charge_id\": \"charge_id_aqui\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "refundStarPayment"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Payments - Answer shipping query",
+      "id": "GngIKSVk_f",
+      "description": "Responde a uma shipping query (opções de frete)",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "e7e210c2-2b41-4f03-9838-c3682fe94f89",
+          "type": "object",
+          "description": "shipping_query_id, ok (obrigatórios). Se ok=false, error_message obrigatório. Se ok=true, shipping_options obrigatório",
+          "sensitive": false,
+          "sample": "{\"shipping_query_id\": \"abc123\", \"ok\": true, \"shipping_options\": [{\"id\": \"express\", \"title\": \"Express\", \"prices\": [{\"label\": \"Frete\", \"amount\": 500}]}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "answerShippingQuery"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Payments - Create invoice link",
+      "id": "4RX8kaVIzC",
+      "description": "Cria link de pagamento para uma fatura",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "ecc7ebe9-2d04-4a00-bed7-ad7fdca02eb5",
+          "type": "object",
+          "description": "title, description, payload, currency, prices (obrigatórios). Mesmos parâmetros de sendInvoice sem chat_id",
+          "sensitive": false,
+          "sample": "{\"title\": \"Produto X\", \"description\": \"Descrição\", \"payload\": \"payload_unico\", \"currency\": \"BRL\", \"prices\": [{\"label\": \"Produto\", \"amount\": 1000}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "createInvoiceLink"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Inline - Save prepared inline message",
+      "id": "ykh4nfA-zn",
+      "description": "Salva mensagem inline preparada para envio futuro pelo usuário",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "2d12ae36-d6b9-4141-bf04-1b63328f6f49",
+          "type": "object",
+          "description": "user_id e result (InlineQueryResultsButton, obrigatórios). allow_user/bot/group/channel_chats opcionais",
+          "sensitive": false,
+          "sample": "{\"user_id\": 123456789, \"result\": {\"type\": \"article\", \"id\": \"1\", \"title\": \"Resultado\", \"input_message_content\": {\"message_text\": \"Texto\"}}, \"allow_user_chats\": true, \"allow_bot_chats\": false, \"allow_group_chats\": false, \"allow_channel_chats\": false}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "savePreparedInlineMessage"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Inline - Answer inline query",
+      "id": "31Ok3aAq4r",
+      "description": "Responde a uma inline query com resultados de conteúdo",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "fe0fd488-4743-4df3-8d1e-c938abc05d9b",
+          "type": "object",
+          "description": "inline_query_id e results (obrigatórios). cache_time, is_personal, next_offset opcionais",
+          "sensitive": false,
+          "sample": "{\"inline_query_id\": \"abc123\", \"results\": [{\"type\": \"article\", \"id\": \"1\", \"title\": \"Resultado\", \"input_message_content\": {\"message_text\": \"Texto\"}}], \"cache_time\": 300, \"is_personal\": false, \"next_offset\": \"\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "answerInlineQuery"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Set custom emoji thumbnail",
+      "id": "U1zNvbiRMk",
+      "description": "Define thumbnail de sticker set de emoji customizado",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "de6ae5ad-096a-4c53-bd18-ac06e27634ed",
+          "type": "object",
+          "description": "name (do set) obrigatório. custom_emoji_id opcional (omitir remove thumbnail)",
+          "sensitive": false,
+          "sample": "{\"name\": \"nome_do_set\", \"custom_emoji_id\": \"emoji_id_aqui\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setCustomEmojiStickerSetThumbnail"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Payments - Answer pre-checkout query",
+      "id": "8_cAnY5SK2",
+      "description": "Responde a uma pre-checkout query (confirma ou cancela pagamento)",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "5f5e3706-5f4d-4a24-afaf-598616f3afd3",
+          "type": "object",
+          "description": "pre_checkout_query_id, ok (obrigatórios). Se ok=false, error_message obrigatório. Deve ser respondido em 10 segundos",
+          "sensitive": false,
+          "sample": "{\"pre_checkout_query_id\": \"abc123\", \"ok\": true}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "answerPreCheckoutQuery"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Delete messages",
+      "id": "Wh138-wwLM",
+      "description": "Deleta múltiplas mensagens do chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "62a0e708-3ec5-4eb9-bc71-978686b75b7d",
+          "type": "object",
+          "description": "chat_id e message_ids (array de até 100 ids, obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_ids\": [1, 2, 3]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "deleteMessages"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Edit live location",
+      "id": "PvQIjKzB4E",
+      "description": "Edita localização ao vivo de uma mensagem",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "6df47de8-73d9-4ba0-9dd6-80edf4d6803f",
+          "type": "object",
+          "description": "chat_id+message_id e latitude+longitude (obrigatórios). horizontal_accuracy, heading, proximity_alert_radius opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1, \"latitude\": -23.5505, \"longitude\": -46.6333, \"horizontal_accuracy\": 0, \"heading\": 0}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "editMessageLiveLocation"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Edit media",
+      "id": "jM5EFq47XZ",
+      "description": "Edita mídia (foto/vídeo/documento) de uma mensagem",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "205622e0-5717-4f6d-92ba-a9835f6be048",
+          "type": "object",
+          "description": "chat_id+message_id e media (obrigatórios). media types: photo, video, animation, audio, document",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1, \"media\": {\"type\": \"photo\", \"media\": \"file_id_or_url\", \"caption\": \"\"}, \"reply_markup\": {}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "editMessageMedia"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Set default admin rights",
+      "id": "E_OzY4Caei",
+      "description": "Define direitos padrão de administrador para o bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "0b601279-defc-4ea7-b6bf-5b7a46e1025f",
+          "type": "object",
+          "description": "rights (ChatAdministratorRights) e for_channels opcionais. Omitir rights reseta para padrão",
+          "sensitive": false,
+          "sample": "{\"rights\": {\"is_anonymous\": false, \"can_manage_chat\": true, \"can_delete_messages\": true, \"can_manage_video_chats\": true, \"can_restrict_members\": true, \"can_promote_members\": false, \"can_change_info\": true, \"can_invite_users\": true}, \"for_channels\": false}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setMyDefaultAdministratorRights"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Set chat menu button",
+      "id": "sJxfNy9uff",
+      "description": "Define o botão do menu para um chat ou padrão global",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "da968325-3f8c-4ec9-a75e-cc1aa90bdcb8",
+          "type": "object",
+          "description": "chat_id (0 para padrão global) e menu_button opcionais. menu_button types: default, commands, web_app",
+          "sensitive": false,
+          "sample": "{\"chat_id\": 0, \"menu_button\": {\"type\": \"default\"}}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setChatMenuButton"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Set short description",
+      "id": "VWbvqafAbp",
+      "description": "Define descrição curta do bot (exibida em listas)",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "2f32bae0-4b81-4519-b6a6-302967ed23e4",
+          "type": "object",
+          "description": "short_description (máx 120 chars) e language_code opcionais",
+          "sensitive": false,
+          "sample": "{\"short_description\": \"Bot de suporte\", \"language_code\": \"pt\"}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setMyShortDescription"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Set mask position",
+      "id": "yt5wQlrjnD",
+      "description": "Define posição da máscara de um sticker do tipo mask",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "ab885741-4c2f-47af-9a30-34b6a094c52c",
+          "type": "object",
+          "description": "sticker (file_id) e mask_position (obrigatórios). Omitir mask_position remove posição",
+          "sensitive": false,
+          "sample": "{\"sticker\": \"file_id_do_sticker\", \"mask_position\": {\"point\": \"forehead\", \"x_shift\": 0, \"y_shift\": 0, \"scale\": 1}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setStickerMaskPosition"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Replace in set",
+      "id": "uh9Dv4jdcL",
+      "description": "Substitui sticker em um sticker set pelo bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "e41d2ec7-7c1b-4a58-9272-82d83b528113",
+          "type": "object",
+          "description": "name, old_sticker (file_id), sticker (InputSticker novo, obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"name\": \"nome_do_set\", \"old_sticker\": \"file_id_antigo\", \"sticker\": {\"sticker\": \"file_id_novo\", \"emoji_list\": [\"😀\"], \"format\": \"static\"}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "replaceStickerInSet"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Payments - Send invoice",
+      "id": "njbxYvoTC-",
+      "description": "Envia fatura de pagamento para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "7b46ad04-b46b-4185-8cca-c207b02f916a",
+          "type": "object",
+          "description": "chat_id, title, description, payload, currency, prices (obrigatórios). provider_token, photo_url, need_name, need_phone_number opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"title\": \"Produto X\", \"description\": \"Descrição\", \"payload\": \"payload_unico\", \"currency\": \"BRL\", \"prices\": [{\"label\": \"Produto\", \"amount\": 1000}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendInvoice"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Edit text",
+      "id": "wwxLmuBjND",
+      "description": "Edita texto de uma mensagem enviada pelo bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "e2680ce2-4a2a-40e9-ba60-ab6ed3985403",
+          "type": "object",
+          "description": "chat_id e message_id (ou inline_message_id), text (obrigatórios). parse_mode, reply_markup opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1, \"text\": \"Novo texto\", \"parse_mode\": \"HTML\", \"reply_markup\": {}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "editMessageText"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Send sticker",
+      "id": "naQg7KvmBc",
+      "description": "Envia sticker para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "853a659e-520f-45ee-a4cb-1b8c7cc4a1c6",
+          "type": "object",
+          "description": "chat_id e sticker (obrigatórios). emoji opcional para stickers customizados",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"sticker\": \"file_id_or_url\", \"emoji\": \"\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendSticker"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Add to set",
+      "id": "65oUB8a2fH",
+      "description": "Adiciona sticker a um sticker set existente",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "d686f40b-0e8d-4947-b9bd-d44400ecd359",
+          "type": "object",
+          "description": "user_id, name (do set), sticker (InputSticker, obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"user_id\": 123456789, \"name\": \"nome_by_bot\", \"sticker\": {\"sticker\": \"file_id\", \"emoji_list\": [\"😀\"], \"format\": \"static\"}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "addStickerToSet"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Set emoji list",
+      "id": "V1JlBF3cOZ",
+      "description": "Define lista de emojis de um sticker",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "41156ff4-8e99-487c-b6a2-06e5501f12c0",
+          "type": "object",
+          "description": "sticker (file_id) e emoji_list (1-20 emojis, obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"sticker\": \"file_id_do_sticker\", \"emoji_list\": [\"😀\", \"🙏\"]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setStickerEmojiList"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Set sticker set title",
+      "id": "Q6ztph4yg-",
+      "description": "Define o título de um sticker set criado pelo bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "8dee6924-3e0a-467c-9c79-5cb1e9a83e0a",
+          "type": "object",
+          "description": "name (do set) e title (novo título, obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"name\": \"nome_do_set\", \"title\": \"Novo Título\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setStickerSetTitle"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Get name",
+      "id": "JovCLIJ3X2",
+      "description": "Retorna o nome atual do bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "d9e08b32-df87-4244-9dac-7dc8e9f2ad47",
+          "type": "object",
+          "description": "language_code opcional. Retorna BotName com o nome atual do bot",
+          "sensitive": false,
+          "sample": "{\"language_code\": \"pt\"}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getMyName"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Stickers - Set sticker set thumbnail",
+      "id": "wtl_uYhK3z",
+      "description": "Define thumbnail de um sticker set regular ou máscara",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "710fa4a4-7a3f-4b04-a22d-dbc2c49f2967",
+          "type": "object",
+          "description": "user_id, name, format (obrigatórios). thumbnail opcional (omitir remove thumbnail)",
+          "sensitive": false,
+          "sample": "{\"user_id\": 123456789, \"name\": \"nome_do_set\", \"thumbnail\": \"file_id_or_upload\", \"format\": \"static\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setStickerSetThumbnail"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Inline - Answer web app query",
+      "id": "Ok_tunflV6",
+      "description": "Responde a uma web app query com resultado de mensagem",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "e921ad10-77c2-4de5-b7e0-cd3b1041a693",
+          "type": "object",
+          "description": "web_app_query_id e result (InlineQueryResult, obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"web_app_query_id\": \"abc123\", \"result\": {\"type\": \"article\", \"id\": \"1\", \"title\": \"Resultado\", \"input_message_content\": {\"message_text\": \"Texto\"}}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "answerWebAppQuery"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Payments - Get star transactions",
+      "id": "Zba3mw2FyD",
+      "description": "Retorna transações de Stars do bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "0aaafe38-cedf-44f2-8353-5844e12712ed",
+          "type": "object",
+          "description": "offset e limit (máx 100) opcionais para paginação de transações de Stars",
+          "sensitive": false,
+          "sample": "{\"offset\": 0, \"limit\": 100}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getStarTransactions"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Games - Set game score",
+      "id": "aqYC6Nr5Ou",
+      "description": "Define pontuação de um usuário em um jogo",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "2cbee5ab-b6d9-4a6f-b420-a8b7fc5ff891",
+          "type": "object",
+          "description": "user_id e score (obrigatórios). chat_id+message_id ou inline_message_id para identificar a mensagem do jogo",
+          "sensitive": false,
+          "sample": "{\"user_id\": 123456789, \"score\": 1000, \"chat_id\": \"123456789\", \"message_id\": 1, \"force\": false, \"disable_edit_message\": false}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setGameScore"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Info - Get business connection",
+      "id": "CB7JS0PQr0",
+      "description": "Retorna informações sobre conexão com conta business",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "61891d2e-dc31-4dfb-87d3-7ce18da2cf46",
+          "type": "object",
+          "description": "business_connection_id (obrigatório). Retorna objeto BusinessConnection",
+          "sensitive": false,
+          "sample": "{\"business_connection_id\": \"abc123\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getBusinessConnection"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Files - Get file",
+      "id": "QdrSJF_jRh",
+      "description": "Retorna informações e link de download de um arquivo",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "24bd8c6a-e839-4c3c-87a9-81d40dd9ab83",
+          "type": "object",
+          "description": "file_id do arquivo no Telegram (obrigatório). Retorna file_path para download via https://api.telegram.org/file/bot{token}/{file_path}",
+          "sensitive": false,
+          "sample": "{\"file_id\": \"BQACAgIAAxkBAAIBZGSabc\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getFile"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Media - Send paid media",
+      "id": "Kl_kfiNkPy",
+      "description": "Envia mídia paga para um chat ou canal",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "be65cd92-2bca-457c-aea8-f1ded3b5f54a",
+          "type": "object",
+          "description": "chat_id, star_count e media (obrigatórios). Mídia paga requer star_count de 1 a 2500",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"star_count\": 1, \"media\": [{\"type\": \"photo\", \"media\": \"file_id_or_url\"}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendPaidMedia"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Media - Send video note",
+      "id": "y0Rn-zMumA",
+      "description": "Envia nota de vídeo (vídeo circular) para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "8cb2ecb6-69e6-4a5b-9e44-cb55564f57cc",
+          "type": "object",
+          "description": "chat_id e video_note (obrigatórios). duration, length (diâmetro) opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"video_note\": \"file_id_or_url\", \"duration\": 0, \"length\": 0}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendVideoNote"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Media - Send video",
+      "id": "hfwnnr235v",
+      "description": "Envia vídeo para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "01130be7-8cd9-42d0-97d4-ad5829092111",
+          "type": "object",
+          "description": "chat_id e video (obrigatórios). width, height, duration, supports_streaming, caption opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"video\": \"file_id_or_url\", \"caption\": \"\", \"width\": 0, \"height\": 0, \"duration\": 0, \"supports_streaming\": true}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendVideo"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Set message reaction",
+      "id": "CGo48htoio",
+      "description": "Define uma reação em uma mensagem",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "c7c424d9-5dcb-4a7c-ab88-3543d3b9bb16",
+          "type": "object",
+          "description": "chat_id, message_id, reaction (array de ReactionType), is_big opcional",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1, \"reaction\": [{\"type\": \"emoji\", \"emoji\": \"👍\"}], \"is_big\": false}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setMessageReaction"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Updates - Get webhook info",
+      "id": "TNDqaWNfO4",
+      "description": "Retorna informações sobre o webhook atual",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getWebhookInfo"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Updates - Set webhook",
+      "id": "8YOYrwE5_z",
+      "description": "Configura URL de webhook para receber atualizações",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "b38b156c-15d3-47a2-acb5-731df4227301",
+          "type": "object",
+          "description": "Configuração do webhook: url (obrigatório), max_connections, allowed_updates, secret_token",
+          "sensitive": false,
+          "sample": "{\"url\": \"https://yourdomain.com/webhook\", \"max_connections\": 40, \"allowed_updates\": [], \"drop_pending_updates\": false, \"secret_token\": \"\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setWebhook"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Info - Get administrators",
+      "id": "wUGCzg3_O3",
+      "description": "Retorna lista de administradores do chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "076664ed-3201-403a-88e8-4c5c1a6c985f",
+          "type": "object",
+          "description": "chat_id (obrigatório). Retorna array de ChatMember com todos os admins",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getChatAdministrators"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Info - Get user chat boosts",
+      "id": "FoRtNzdVIn",
+      "description": "Retorna lista de boosts de um usuário no chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "a124ce2f-8c2a-41d5-b61e-ea2b27d58c0b",
+          "type": "object",
+          "description": "chat_id e user_id (obrigatórios). Retorna UserChatBoosts com lista de boosts ativos",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"user_id\": 987654321}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getUserChatBoosts"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Set permissions",
+      "id": "uOTasioZne",
+      "description": "Define permissões padrão dos membros de um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "a0ed8603-9c34-47fa-85ca-119424d9a316",
+          "type": "object",
+          "description": "chat_id e permissions (obrigatórios). use_independent_chat_permissions opcional",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"permissions\": {\"can_send_messages\": true, \"can_send_audios\": true, \"can_send_documents\": true, \"can_send_photos\": true, \"can_send_videos\": true, \"can_send_polls\": true, \"can_add_web_page_previews\": true, \"can_change_info\": false, \"can_invite_users\": true, \"can_pin_messages\": false}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setChatPermissions"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Get icon stickers",
+      "id": "siec8fxFTq",
+      "description": "Retorna stickers de ícone disponíveis para tópicos de fórum",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getForumTopicIconStickers"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Edit topic",
+      "id": "wb2QTjquqv",
+      "description": "Edita nome e ícone de um tópico de fórum",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "83dbaf06-8590-4895-84cb-d8e9aa189605",
+          "type": "object",
+          "description": "chat_id e message_thread_id (obrigatórios). name e icon_custom_emoji_id opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_thread_id\": 1, \"name\": \"Nome Editado\", \"icon_custom_emoji_id\": \"\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "editForumTopic"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Unhide general topic",
+      "id": "QdfjpSCs9i",
+      "description": "Exibe novamente o tópico geral do fórum",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "cce0ba91-9615-45fb-b106-d2c23e91639d",
+          "type": "object",
+          "description": "chat_id (obrigatório)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "unhideGeneralForumTopic"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Media - Send document",
+      "id": "2X9ow_HISg",
+      "description": "Envia arquivo/documento para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "6102a3ec-a018-4e6a-badf-166d02c24f86",
+          "type": "object",
+          "description": "chat_id e document (obrigatórios). caption, parse_mode, disable_content_type_detection, reply_markup opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"document\": \"file_id_or_url\", \"caption\": \"\", \"parse_mode\": \"HTML\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendDocument"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Media - Send audio",
+      "id": "gORvortTCC",
+      "description": "Envia arquivo de áudio para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "61ec9e6f-7f1d-421d-99b5-0c254710c5e1",
+          "type": "object",
+          "description": "chat_id e audio (obrigatórios). duration, performer, title, caption, reply_markup opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"audio\": \"file_id_or_url\", \"caption\": \"\", \"duration\": 0, \"performer\": \"\", \"title\": \"\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendAudio"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Media - Send photo",
+      "id": "_g-AJFbQkD",
+      "description": "Envia foto para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "a44398bb-9edb-40c6-945a-3ef766ef7c4f",
+          "type": "object",
+          "description": "chat_id e photo (obrigatórios). photo pode ser file_id, URL ou arquivo. caption, parse_mode, reply_markup opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"photo\": \"file_id_or_url\", \"caption\": \"\", \"parse_mode\": \"HTML\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendPhoto"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Copy message",
+      "id": "yG_eMDAONh",
+      "description": "Copia uma mensagem (sem o link de encaminhamento)",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "5a170b0a-c134-469c-b29b-8c6140263d69",
+          "type": "object",
+          "description": "chat_id, from_chat_id, message_id (obrigatórios); caption, parse_mode, reply_markup opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"from_chat_id\": \"987654321\", \"message_id\": 1, \"caption\": \"\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "copyMessage"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Forward messages",
+      "id": "3VRcEoJIZI",
+      "description": "Encaminha múltiplas mensagens de outro chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "0c6c0256-9b32-4453-bc34-29c288097eb2",
+          "type": "object",
+          "description": "chat_id (destino), from_chat_id (origem), message_ids (array de ids, obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"from_chat_id\": \"987654321\", \"message_ids\": [1, 2, 3]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "forwardMessages"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Updates - Delete webhook",
+      "id": "XjCAvOHw4e",
+      "description": "Remove o webhook configurado",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "72a0838a-b866-4848-a7d4-e879dac8e2dc",
+          "type": "object",
+          "description": "drop_pending_updates: se true, descarta atualizações pendentes",
+          "sensitive": false,
+          "sample": "{\"drop_pending_updates\": false}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "deleteWebhook"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Pin message",
+      "id": "cIofjPllA4",
+      "description": "Fixa uma mensagem no chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "52711295-2022-4323-b572-f27bf48caad0",
+          "type": "object",
+          "description": "chat_id, message_id (obrigatórios). disable_notification opcional",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1, \"disable_notification\": false}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "pinChatMessage"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Edit invite link",
+      "id": "_bC1InvE5L",
+      "description": "Edita link de convite criado pelo bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "a9f02581-dc80-4724-8420-5eb8c21c7791",
+          "type": "object",
+          "description": "chat_id e invite_link (obrigatórios). name, expire_date, member_limit, creates_join_request opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"invite_link\": \"https://t.me/+abc123\", \"name\": \"\", \"expire_date\": 0, \"member_limit\": 0, \"creates_join_request\": false}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "editChatInviteLink"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Set photo",
+      "id": "42gO3Kh62P",
+      "description": "Define foto de perfil do chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "67150a13-9060-4c0b-a464-5b8c8329947d",
+          "type": "object",
+          "description": "chat_id e photo (obrigatórios). Enviar arquivo de imagem como InputFile",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"photo\": \"file_id_or_upload\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setChatPhoto"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Set title",
+      "id": "ywzzQ8mK_g",
+      "description": "Altera título do grupo ou supergrupo",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "621d1540-1193-49d0-bfab-40c11df0ac9a",
+          "type": "object",
+          "description": "chat_id e title (obrigatórios). Título máx 255 caracteres",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"title\": \"Novo Título\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setChatTitle"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Leave",
+      "id": "wkMjP7nqbT",
+      "description": "Faz o bot sair de um grupo, supergrupo ou canal",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "58595284-cd7c-4875-a709-83b08b8b8820",
+          "type": "object",
+          "description": "chat_id (obrigatório). Bot sai do grupo/canal especificado",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "leaveChat"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Delete commands",
+      "id": "h25AiPRBRD",
+      "description": "Remove lista de comandos do bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "3244d4d2-da34-495b-9a76-84b7a946a081",
+          "type": "object",
+          "description": "scope e language_code opcionais. Omitir remove comandos de todos os escopos",
+          "sensitive": false,
+          "sample": "{\"scope\": {\"type\": \"default\"}, \"language_code\": \"pt\"}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "deleteMyCommands"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Reopen general topic",
+      "id": "wQdBDvcrEa",
+      "description": "Reabre o tópico geral do fórum",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "3e9d8d19-9203-4dbe-9489-ae1c69f24ffd",
+          "type": "object",
+          "description": "chat_id (obrigatório)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "reopenGeneralForumTopic"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Delete topic",
+      "id": "F2xHgC444U",
+      "description": "Deleta um tópico de fórum e todas suas mensagens",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "b0fb525b-9e29-4430-bb02-f4423037e35b",
+          "type": "object",
+          "description": "chat_id e message_thread_id (obrigatórios). Deleta tópico e todas suas mensagens permanentemente",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_thread_id\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "deleteForumTopic"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Callbacks - Answer callback query",
+      "id": "5ePwM9gTw6",
+      "description": "Responde a um callback query de botão inline ou de teclado",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "f5879802-f4aa-4814-ac72-df356a7e99df",
+          "type": "object",
+          "description": "callback_query_id (obrigatório). text, show_alert, url, cache_time opcionais",
+          "sensitive": false,
+          "sample": "{\"callback_query_id\": \"abc123\", \"text\": \"Mensagem para o usuário\", \"show_alert\": false, \"url\": \"\", \"cache_time\": 0}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "answerCallbackQuery"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Info - Get chat",
+      "id": "cp0K3OefKC",
+      "description": "Retorna informações detalhadas sobre o chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "398366af-8459-43eb-85f7-effe9d6627a8",
+          "type": "object",
+          "description": "chat_id (obrigatório). Retorna objeto Chat com detalhes completos",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getChat"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Members - Unban sender chat",
+      "id": "kQKBBzpK3l",
+      "description": "Remove o banimento de um canal remetente",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "af652e78-011d-4d34-ad72-fb34d6a29328",
+          "type": "object",
+          "description": "chat_id e sender_chat_id (canal remetente) obrigatórios",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"sender_chat_id\": 987654321}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "unbanChatSenderChat"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Decline join request",
+      "id": "ugoGP0QMnp",
+      "description": "Recusa solicitação de ingresso no chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "8777426d-b2fc-4e96-b992-c4dfd1d9609f",
+          "type": "object",
+          "description": "chat_id e user_id (obrigatórios). Recusa solicitação pendente de ingresso",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"user_id\": 987654321}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "declineChatJoinRequest"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Members - Restrict member",
+      "id": "EaMX_fNR3F",
+      "description": "Restringe permissões de um membro do chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "54e295ca-0c19-4baa-bf41-d450cbb0eb95",
+          "type": "object",
+          "description": "chat_id, user_id, permissions (obrigatórios). until_date opcional",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"user_id\": 987654321, \"permissions\": {\"can_send_messages\": true, \"can_send_polls\": true, \"can_send_other_messages\": true, \"can_add_web_page_previews\": true}, \"until_date\": 0}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "restrictChatMember"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Files - Get user profile photos",
+      "id": "gqJhcQxcCq",
+      "description": "Retorna fotos do perfil de um usuário",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "95dd39f9-9779-43e4-9e25-4207c4cf1e91",
+          "type": "object",
+          "description": "user_id (obrigatório). offset e limit para paginação (máx 100)",
+          "sensitive": false,
+          "sample": "{\"user_id\": 123456789, \"offset\": 0, \"limit\": 100}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getUserProfilePhotos"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Get commands",
+      "id": "GdAQ7LI2fq",
+      "description": "Retorna lista de comandos registrados do bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "cd220a96-3f40-4cb2-ac85-6f374cec1736",
+          "type": "object",
+          "description": "scope e language_code opcionais. Retorna array de BotCommand",
+          "sensitive": false,
+          "sample": "{\"scope\": {\"type\": \"default\"}, \"language_code\": \"pt\"}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getMyCommands"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Poll - Send poll",
+      "id": "dbjdP9yrTb",
+      "description": "Envia enquete para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "8138c41a-352f-4ebb-95d3-73d777e547f4",
+          "type": "object",
+          "description": "chat_id, question, options (obrigatórios). type: regular|quiz. is_anonymous, allows_multiple_answers, correct_option_id opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"question\": \"Qual sua cor favorita?\", \"options\": [{\"text\": \"Azul\"}, {\"text\": \"Verde\"}], \"is_anonymous\": true, \"type\": \"regular\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendPoll"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Create subscription invite link",
+      "id": "qW0sJMCJBD",
+      "description": "Cria link de convite para assinatura do canal",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "e181c4ee-facd-406f-ad28-c1476ae9ecff",
+          "type": "object",
+          "description": "chat_id, subscription_period (2592000=30 dias), subscription_price em Stars (obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"subscription_period\": 2592000, \"subscription_price\": 100, \"name\": \"\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "createChatSubscriptionInviteLink"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Location - Send location",
+      "id": "YDUQ7cCI_w",
+      "description": "Envia localização geográfica para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "267e2f8b-cf7b-462d-9db3-997bdd0d7513",
+          "type": "object",
+          "description": "chat_id, latitude, longitude (obrigatórios). horizontal_accuracy, live_period, heading, proximity_alert_radius opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"latitude\": -23.5505, \"longitude\": -46.6333, \"horizontal_accuracy\": 0, \"live_period\": 0}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendLocation"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Create invite link",
+      "id": "hxIaZef1DB",
+      "description": "Cria link de convite adicional com configurações customizadas",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "0927d041-583e-4aaa-b6d1-f45af56cad9b",
+          "type": "object",
+          "description": "chat_id (obrigatório). name, expire_date, member_limit, creates_join_request opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"name\": \"\", \"expire_date\": 0, \"member_limit\": 0, \"creates_join_request\": false}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "createChatInviteLink"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Export invite link",
+      "id": "eUN7g2FPtA",
+      "description": "Gera novo link de convite para o chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "537783c3-82b3-4958-a517-f5182bdac606",
+          "type": "object",
+          "description": "chat_id (obrigatório). Gera novo link primário de convite (revoga o anterior)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "exportChatInviteLink"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Unpin message",
+      "id": "YAK7fA4StB",
+      "description": "Desfixa uma mensagem específica do chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "96749d2c-ee38-498d-b146-1befbf3b406f",
+          "type": "object",
+          "description": "chat_id (obrigatório). message_id opcional (omitir desfixa a mensagem mais recente)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "unpinChatMessage"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot Settings - Set commands",
+      "id": "vSU9l2q9sl",
+      "description": "Define lista de comandos do bot para interface de comandos",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "155aaf24-dc3e-414d-a466-2f785e116623",
+          "type": "object",
+          "description": "commands (array de BotCommand, obrigatório). scope e language_code opcionais",
+          "sensitive": false,
+          "sample": "{\"commands\": [{\"command\": \"start\", \"description\": \"Iniciar bot\"}, {\"command\": \"help\", \"description\": \"Ajuda\"}], \"scope\": {\"type\": \"default\"}, \"language_code\": \"pt\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setMyCommands"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Unpin all general topic messages",
+      "id": "OqCZzrX254",
+      "description": "Desfixa todas as mensagens do tópico geral",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "b166a611-1bad-493f-bb87-9555a059e342",
+          "type": "object",
+          "description": "chat_id (obrigatório). Desfixa todas as msgs do tópico geral",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "unpinAllGeneralForumTopicMessages"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Close general topic",
+      "id": "ELjcDJBOOU",
+      "description": "Fecha o tópico geral do fórum",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "f03d51e1-09a7-4504-8b21-a3bfd9032b79",
+          "type": "object",
+          "description": "chat_id (obrigatório). Fecha o tópico geral do fórum",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "closeGeneralForumTopic"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Unpin all topic messages",
+      "id": "l52SsDcu5J",
+      "description": "Desfixa todas as mensagens fixadas em um tópico",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "3c146cdd-3b66-47e0-8836-fd9a1124ef37",
+          "type": "object",
+          "description": "chat_id e message_thread_id (obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_thread_id\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "unpinAllForumTopicMessages"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Reopen topic",
+      "id": "y9CT7EEOK6",
+      "description": "Reabre um tópico fechado de fórum",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "f07f5510-3b1e-4e0a-95c2-72876220e10c",
+          "type": "object",
+          "description": "chat_id e message_thread_id (obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_thread_id\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "reopenForumTopic"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Close topic",
+      "id": "ftgnmQk_68",
+      "description": "Fecha um tópico de fórum (impede novas mensagens)",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "d66c083c-b563-41c6-af22-d35b5f2591d4",
+          "type": "object",
+          "description": "chat_id e message_thread_id (obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_thread_id\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "closeForumTopic"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Delete sticker set",
+      "id": "NNAMi5H0xp",
+      "description": "Remove o sticker set do supergrupo",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "d1d49d2a-12f9-4a94-b21c-009309a6c41c",
+          "type": "object",
+          "description": "chat_id (obrigatório). Remove sticker set customizado do supergrupo",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "deleteChatStickerSet"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Set sticker set",
+      "id": "aO1mvOKC3i",
+      "description": "Define o sticker set do supergrupo",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "405f6ecd-fcf7-432e-8400-a3f6e5ad174b",
+          "type": "object",
+          "description": "chat_id e sticker_set_name (obrigatórios). Define sticker set do supergrupo",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"sticker_set_name\": \"nome_do_set\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setChatStickerSet"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Unpin all messages",
+      "id": "6yxKraNUyn",
+      "description": "Desfixa todas as mensagens fixadas do chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "47fc8ee1-469d-4c19-94f0-42c1ae5cd218",
+          "type": "object",
+          "description": "chat_id (obrigatório). Remove todas as mensagens fixadas do chat",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "unpinAllChatMessages"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Send message",
+      "id": "k1QgF7bzMY",
+      "description": "Envia mensagem de texto para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "46d49d59-e0b7-43c5-ae55-585c0f20c7fb",
+          "type": "object",
+          "description": "Dados da mensagem: chat_id, text (obrigatórios), parse_mode, reply_markup, disable_notification, etc.",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"text\": \"Olá!\", \"parse_mode\": \"HTML\", \"reply_markup\": {}, \"disable_notification\": false}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendMessage"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Set description",
+      "id": "jDDcjCf5Jg",
+      "description": "Altera descrição do chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "1440dfd9-c196-4ddd-a22e-651339868e7c",
+          "type": "object",
+          "description": "chat_id (obrigatório). description opcional (omitir remove a descrição)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"description\": \"Nova descrição do grupo\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setChatDescription"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Approve join request",
+      "id": "JZWU7Tfpg4",
+      "description": "Aprova solicitação de ingresso no chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "bee255d0-5b69-4d44-861a-037dd55b58ad",
+          "type": "object",
+          "description": "chat_id e user_id (obrigatórios). Aprova solicitação pendente de ingresso",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"user_id\": 987654321}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "approveChatJoinRequest"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Revoke invite link",
+      "id": "B3EIDTc3XI",
+      "description": "Revoga link de convite criado pelo bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "6890d216-8328-4f87-a112-af7fa9b0214d",
+          "type": "object",
+          "description": "chat_id e invite_link (obrigatórios). Revoga link criado pelo bot, retorna o link revogado",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"invite_link\": \"https://t.me/+abc123\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "revokeChatInviteLink"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Members - Ban sender chat",
+      "id": "9IJ7W6NBpV",
+      "description": "Bane um canal de enviar mensagens no supergrupo",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "cfeaaacb-6c7c-494b-ab42-05be58c5f49a",
+          "type": "object",
+          "description": "chat_id e sender_chat_id (canal remetente) obrigatórios",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"sender_chat_id\": 987654321}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "banChatSenderChat"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Members - Set admin custom title",
+      "id": "ULxuwOafS2",
+      "description": "Define título personalizado de administrador",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "cbb493fa-5174-432b-9c00-5ff47c1a4447",
+          "type": "object",
+          "description": "chat_id, user_id, custom_title (obrigatórios). Título máx 16 caracteres, apenas emojis e texto",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"user_id\": 987654321, \"custom_title\": \"Fundador\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "setChatAdministratorCustomTitle"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Send dice",
+      "id": "DZdXxyWvrb",
+      "description": "Envia emoji animado com valor aleatório (dado, dardo, etc.)",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "aaea12e3-197d-4f8d-8192-d1b59f8dbd54",
+          "type": "object",
+          "description": "chat_id (obrigatório). emoji: 🎲 dado, 🎯 dardo, 🏀 basquete, ⚽ futebol, 🎳 bowling, 🎰 slot. Default: 🎲",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"emoji\": \"🎲\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendDice"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Location - Send venue",
+      "id": "VpH9I6O-m6",
+      "description": "Envia informações de um local/estabelecimento",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "c1f907f4-3c22-44c4-9f70-444fcf6da914",
+          "type": "object",
+          "description": "chat_id, latitude, longitude, title, address (obrigatórios). foursquare_id, foursquare_type, google_place_id opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"latitude\": -23.5505, \"longitude\": -46.6333, \"title\": \"Restaurante X\", \"address\": \"Rua Y, 123\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendVenue"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Media - Send voice",
+      "id": "nm0Tul05Zf",
+      "description": "Envia mensagem de voz (.ogg) para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "611077c6-3c15-49e0-9159-125281563c92",
+          "type": "object",
+          "description": "chat_id e voice (obrigatórios). Arquivo deve ser .ogg com OPUS. caption, duration opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"voice\": \"file_id_or_url\", \"caption\": \"\", \"duration\": 0}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendVoice"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Copy messages",
+      "id": "cfG_QlknB4",
+      "description": "Copia múltiplas mensagens sem link de encaminhamento",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "130cc221-2546-4759-9287-2fae3b7ae15a",
+          "type": "object",
+          "description": "chat_id, from_chat_id, message_ids (obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"from_chat_id\": \"987654321\", \"message_ids\": [1, 2, 3]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "copyMessages"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Members - Ban member",
+      "id": "KNWzujdG6g",
+      "description": "Bane um membro de um grupo ou supergrupo",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "544d2ebb-6afa-4232-a632-51c694fbab9d",
+          "type": "object",
+          "description": "chat_id e user_id (obrigatórios). until_date (timestamp Unix, 0=permanente), revoke_messages opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"user_id\": 987654321, \"until_date\": 0, \"revoke_messages\": true}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "banChatMember"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Hide general topic",
+      "id": "xr-O-5QrG8",
+      "description": "Oculta o tópico geral do fórum",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "9546aaf4-e7a1-47dc-aefa-7f5c8146dcd0",
+          "type": "object",
+          "description": "chat_id (obrigatório). Oculta tópico geral, exige outros tópicos",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "hideGeneralForumTopic"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Edit general topic",
+      "id": "Idmp2eUAe_",
+      "description": "Edita nome do tópico geral do fórum",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "882e609c-a85f-4dff-9606-3079e231ddcf",
+          "type": "object",
+          "description": "chat_id e name (obrigatórios). Renomeia o tópico geral do fórum",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"name\": \"Geral\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "editGeneralForumTopic"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Forum - Create topic",
+      "id": "EqFcZvt3mU",
+      "description": "Cria um tópico em um fórum (supergrupo)",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "2393d2c6-5baf-4690-b32b-5ee66394a9f4",
+          "type": "object",
+          "description": "chat_id e name (obrigatórios). icon_color (int), icon_custom_emoji_id opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"name\": \"Novo Tópico\", \"icon_color\": 7322096, \"icon_custom_emoji_id\": \"\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "createForumTopic"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Info - Get member",
+      "id": "YhRNi7sFmT",
+      "description": "Retorna informações sobre um membro específico",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "bc245423-e5dc-43d7-8989-b410f37e9ac4",
+          "type": "object",
+          "description": "chat_id e user_id (obrigatórios). Retorna objeto ChatMember com status e permissões",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"user_id\": 987654321}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getChatMember"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Info - Get member count",
+      "id": "n1CCQoVi7e",
+      "description": "Retorna número de membros no chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "e959c8c2-7d77-4d4e-bc69-f3887bc51df3",
+          "type": "object",
+          "description": "chat_id (obrigatório). Retorna número inteiro de membros",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getChatMemberCount"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Delete photo",
+      "id": "IJ3UCoqyFx",
+      "description": "Remove foto de perfil do chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "e0608cbc-8ec0-401b-83e3-b01bc2268daa",
+          "type": "object",
+          "description": "chat_id (obrigatório). Remove a foto atual do chat",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "deleteChatPhoto"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat - Edit subscription invite link",
+      "id": "8fXVi7RkCN",
+      "description": "Edita link de convite de assinatura criado pelo bot",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "926c5e6e-0aea-4880-bc8c-dffdaf029f28",
+          "type": "object",
+          "description": "chat_id e invite_link (obrigatórios). name opcional. Edita link de assinatura criado pelo bot",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"invite_link\": \"https://t.me/+abc123\", \"name\": \"\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "editChatSubscriptionInviteLink"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Members - Promote member",
+      "id": "URLk-apyTP",
+      "description": "Promove ou rebaixa um administrador do chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "32480c26-11b0-4946-9206-059c3542988e",
+          "type": "object",
+          "description": "chat_id, user_id (obrigatórios). Flags de permissão de admin são opcionais (false remove permissão)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"user_id\": 987654321, \"can_manage_chat\": true, \"can_delete_messages\": true, \"can_manage_video_chats\": true, \"can_restrict_members\": true, \"can_promote_members\": false, \"can_change_info\": true, \"can_invite_users\": true, \"can_pin_messages\": true}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "promoteChatMember"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chat Members - Unban member",
+      "id": "A2Nf8t0iMf",
+      "description": "Remove o banimento de um membro",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "328958f5-d4c0-473c-b7dc-1c1509a6061e",
+          "type": "object",
+          "description": "chat_id, user_id (obrigatórios). only_if_banned: true para garantir que não bane usuário não banido",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"user_id\": 987654321, \"only_if_banned\": true}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "unbanChatMember"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Forward message",
+      "id": "D_0sQd6nWF",
+      "description": "Encaminha uma mensagem de outro chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "d5f6a61a-1d03-4fa0-9b03-97bcb454f53b",
+          "type": "object",
+          "description": "chat_id (destino), from_chat_id (origem), message_id (obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"from_chat_id\": \"987654321\", \"message_id\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "forwardMessage"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Poll - Stop poll",
+      "id": "kvcoBd9VAb",
+      "description": "Encerra uma enquete e retorna o resultado final",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "0f44f18b-adca-40ac-a35d-196a7699c1ed",
+          "type": "object",
+          "description": "chat_id e message_id (obrigatórios). reply_markup opcional",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"message_id\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "stopPoll"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Location - Send contact",
+      "id": "iTiUOfIV0q",
+      "description": "Envia contato telefônico para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "59c6be5d-de47-414f-8531-23ea457af635",
+          "type": "object",
+          "description": "chat_id, phone_number, first_name (obrigatórios). last_name, vcard opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"phone_number\": \"+5511999999999\", \"first_name\": \"João\", \"last_name\": \"\", \"vcard\": \"\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendContact"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Media - Send media group",
+      "id": "33fK-QKL4G",
+      "description": "Envia grupo de mídias (album) para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "298f5b8b-d085-4bd2-8b9c-a0e787b8fa3a",
+          "type": "object",
+          "description": "chat_id e media (array de InputMediaPhoto/Video, 2-10 itens, obrigatórios)",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"media\": [{\"type\": \"photo\", \"media\": \"file_id_or_url\", \"caption\": \"\"}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendMediaGroup"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Media - Send animation",
+      "id": "dQ-NOZ9rsL",
+      "description": "Envia GIF ou vídeo sem áudio (animação) para um chat",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "b1f98867-c372-4f66-893e-be741fef3209",
+          "type": "object",
+          "description": "chat_id e animation (obrigatórios). width, height, duration, caption opcionais",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"animation\": \"file_id_or_url\", \"caption\": \"\", \"width\": 0, \"height\": 0, \"duration\": 0}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendAnimation"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Messages - Send chat action",
+      "id": "FYECrORzBr",
+      "description": "Exibe status de ação no chat (digitando, enviando foto, etc.)",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "c81486eb-e23e-41df-9ff4-d74bdc67e5d8",
+          "type": "object",
+          "description": "chat_id e action (obrigatórios). Actions: typing, upload_photo, record_video, upload_video, record_voice, upload_voice, upload_document, choose_sticker, find_location, record_video_note, upload_video_note",
+          "sensitive": false,
+          "sample": "{\"chat_id\": \"123456789\", \"action\": \"typing\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "sendChatAction"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Updates - Get updates",
+      "id": "xy1N_5wxet",
+      "description": "Recebe atualizações via long polling",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "c99cb92c-578a-4c38-9579-a017377a81e9",
+          "type": "object",
+          "description": "Parâmetros para getUpdates: offset, limit, timeout, allowed_updates",
+          "sensitive": false,
+          "sample": "{\"offset\": 0, \"limit\": 100, \"timeout\": 0, \"allowed_updates\": []}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getUpdates"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot - Log out",
+      "id": "3ZmVosJJKc",
+      "description": "Faz logout do bot do servidor de API na nuvem",
+      "parameters": [],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "logOut"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot - Get me",
+      "id": "dZoAoXkt2P",
+      "description": "Retorna informações básicas sobre o bot",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "getMe"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Bot - Close",
+      "id": "r3OXdFDe3_",
+      "description": "Fecha a instância do bot para mover entre servidores",
+      "parameters": [],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "close"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

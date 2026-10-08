@@ -1,0 +1,4405 @@
+{
+  "name": "QuickBooks Online",
+  "description": "Conector REST para a API de Contabilidade do QuickBooks Online v3. Cobre o ciclo financeiro completo: contas, clientes, fornecedores, faturas, pagamentos, lançamentos e relatórios.",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "oauth-2"
+  },
+  "operations": [
+    {
+      "name": "Account - Account-Create",
+      "description": "Cria uma nova conta contábil no QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "b8d2bd91-81d1-4e0e-913a-7cfc448a80b9"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados da conta contábil a ser criada",
+          "id": "39146638-64a0-4ae0-82ec-925580578099"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "account"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "8b3dafa9-9c22-42ec-ba36-57fdf52907aa"
+    },
+    {
+      "name": "Account - Account-ReadById",
+      "description": "Retorna os dados da conta contábil com o ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "baeebe3c-6874-47ea-80e2-f866dc9110ed"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID da conta contábil",
+          "id": "cc6fa8f0-fb69-42d8-be2c-2dd40c686f12"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "account",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "c6ea6e0b-209e-4bdc-aa17-2c925eb49799"
+    },
+    {
+      "name": "Attachable - Attachable-Create",
+      "description": "Cria um objeto anexável associado a uma transação ou entidade do QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "490383cd-b97d-4cce-92f1-3e7967d25091"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do objeto anexável a ser criado",
+          "id": "ec083e4b-89eb-4ece-befb-7424f4f80083"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "attachable"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "5bc2368d-ab80-4f79-9230-ae0745af4e43"
+    },
+    {
+      "name": "Attachable - Attachable-ReadById",
+      "description": "Retorna um objeto anexável pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "7404b09e-be1e-43bc-81a7-a56caf5925a6"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do objeto anexável",
+          "id": "0bfa8fd6-3828-4a56-a1ba-4aa0021f347c"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "attachable",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "0249eaa9-702f-4fe9-8ba2-585a3329794e"
+    },
+    {
+      "name": "Batch - Batch",
+      "description": "Executa múltiplas operações em lote em uma única requisição.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "75ad2000-a288-4375-b644-e57b56b5fd1f"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Objeto com array BatchItemRequest contendo as operações em lote",
+          "id": "28e43857-3036-4760-bf62-15740e8ae510"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "batch"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "e53da26d-c693-451f-8a13-9e98d264e1d5"
+    },
+    {
+      "name": "Bill - Bill-Create",
+      "description": "Cria uma nova fatura de fornecedor no QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "2b94acbe-37f9-4785-9669-a868707ebd38"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados da fatura de fornecedor a ser criada",
+          "id": "6c8e7461-a674-4379-9f88-5ef364d09597"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "bill"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "a73bd537-65d1-4004-be80-5ca0700a8f18"
+    },
+    {
+      "name": "Bill - Bill-GetById",
+      "description": "Retorna os dados de uma fatura de fornecedor pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "1bfe47a9-bc17-4995-90de-8995ebdc3cf4"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID da fatura de fornecedor",
+          "id": "5c2a2aaf-4fa8-40ff-97aa-f971780699f2"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "bill",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "80bd0303-1a81-4c14-8299-0ac362009349"
+    },
+    {
+      "name": "Billpayment - BillPayment-Update",
+      "description": "Atualiza os dados de um pagamento de fatura existente no QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "40e0d48d-f9f4-4429-a646-9e794fb5c248"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do pagamento de fatura com Id e SyncToken obrigatórios",
+          "id": "c2447d8b-147f-475c-9bbf-6ad7754faaa2"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "billpayment"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "437927b5-c939-45a1-a5dc-41fae6edcc7c"
+    },
+    {
+      "name": "Billpayment - BillPayment-ReadById",
+      "description": "Retorna os dados de um pagamento de fatura pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "6e00f9a8-bc99-45d9-98df-5ac7828599ff"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do pagamento de fatura",
+          "id": "9f69fb57-0994-43ab-a8b2-03114a8079bc"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "billpayment",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "df830df0-fcf1-4e2b-80f2-436196d30485"
+    },
+    {
+      "name": "Cdc - CDC-Read",
+      "description": "Retorna objetos alterados desde a data especificada, para as entidades informadas.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "0eea2e9f-3dd1-4247-a3bb-d2b006b680e2"
+        },
+        {
+          "name": "entities",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "Customer,Invoice",
+          "description": "Lista de entidades separadas por vírgula para monitorar mudanças",
+          "id": "9a116707-03ea-4f6e-be69-4acc7144e647"
+        },
+        {
+          "name": "changed_since",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "2023-01-01T00:00:00Z",
+          "description": "Data e hora a partir da qual retornar objetos alterados (ISO 8601)",
+          "id": "371c8f67-a5a9-4899-b0a8-a6d9f14ddaa5"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "cdc"
+          ],
+          "query": [
+            {
+              "key": "entities",
+              "value": "<>entities</>"
+            },
+            {
+              "key": "changedSince",
+              "value": "<>changed_since</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "2361b02f-67bc-4c4e-bce9-0e40dbe069f9"
+    },
+    {
+      "name": "Class - Class-Create",
+      "description": "Cria um novo objeto de classe para segmentação de transações no QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "af25e86b-cba4-4c9b-881a-28c0c905dd88"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados da classe a ser criada",
+          "id": "dbfd6140-76ff-42d7-87d7-eb35f2728a2d"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "class"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "70396f8f-1a1b-481f-9c05-2eaa8d7db4a3"
+    },
+    {
+      "name": "Class - Class-ReadById",
+      "description": "Retorna os dados de uma classe pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "c7c1b34e-7b82-44d1-a8e6-ab4a2d0ee91b"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID da classe",
+          "id": "28ba9a82-e776-41cd-bcc0-263ed19af971"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "class",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "dbd835bc-3d76-4549-9a7d-e20219a400e5"
+    },
+    {
+      "name": "Companyinfo - CompanyInfo-ReadById",
+      "description": "Retorna as informações da empresa cadastrada no QuickBooks pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "2c5fbc74-6b71-4dae-aa7c-fe51193c4112"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa (geralmente igual ao realm_id)",
+          "id": "363a8e88-1d58-4ae7-aaf8-8aaf1946eb8f"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "companyinfo",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "13ee38ef-966e-4699-abd6-e80679fe7e66"
+    },
+    {
+      "name": "Creditmemo - CreditMemo-Update",
+      "description": "Atualiza os dados de um memorando de crédito existente no QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "a31643d3-be1f-437c-a734-ca520607d244"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do memorando de crédito com Id e SyncToken obrigatórios",
+          "id": "3ceb80e7-3209-435f-b1c8-c07145dcb3ca"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "creditmemo"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "26300975-42e7-4a89-8cce-d5a82c64d671"
+    },
+    {
+      "name": "Creditmemo - CreditMemo-ReadById",
+      "description": "Retorna os dados de um memorando de crédito pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "661fb63b-cf33-4975-88ed-0c2ae44b3558"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do memorando de crédito",
+          "id": "73dcda6a-7f25-4fb4-8a58-6e87a8be3e30"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "creditmemo",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "4133a6fe-d260-4080-a955-97e73fdb3097"
+    },
+    {
+      "name": "Customer - Customer-Create",
+      "description": "Cria um novo cliente no QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "b0cf94d5-a53a-4130-b508-3fda34f7d4bb"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do cliente a ser criado",
+          "id": "96e0e742-2928-413c-9d1a-ee6d55efa2f4"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "customer"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "25e72fc9-08eb-4762-b203-23ee7555a137"
+    },
+    {
+      "name": "Customer - Customer-ReadById",
+      "description": "Retorna os dados de um cliente pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "ebc71ff0-90e0-43c3-85b8-fc99c9d8b01e"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do cliente",
+          "id": "432c57da-dd06-4fc4-9f52-17d1ca833695"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "customer",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "6e2fbc61-8edc-4cea-962e-52db8a1d86b3"
+    },
+    {
+      "name": "Department - Department-Create",
+      "description": "Cria um novo departamento para organização de transações no QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "34ddff3e-5474-4b26-9fb9-8a07abfabaf8"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do departamento a ser criado",
+          "id": "362917f8-2f6e-4333-82ed-de693d4c3ceb"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "department"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "79b801d9-bc25-4238-8e5c-0ea2d1bfac18"
+    },
+    {
+      "name": "Department - Department-ReadById",
+      "description": "Retorna os dados de um departamento pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "48e1348a-f6ca-4501-8b46-2354084f163c"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do departamento",
+          "id": "aa1c1a10-e852-4aa0-900f-54159be17f1a"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "department",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "325ad660-3166-4774-af31-1ee920f23ac0"
+    },
+    {
+      "name": "Deposit - Deposit-Update",
+      "description": "Atualiza os dados de um depósito existente no QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "5d089e15-18db-42c8-b091-becd7fb42114"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do depósito com Id e SyncToken obrigatórios",
+          "id": "9cdbc8c9-1bde-4822-beed-6f367547c692"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "deposit"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "8bf117eb-64ae-4ffe-bcb0-af2c43633afc"
+    },
+    {
+      "name": "Deposit - Deposit-ReadById",
+      "description": "Retorna os dados de um depósito pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "84ce52d4-5678-4f10-a881-24ae698a5695"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do depósito",
+          "id": "a8c87783-3ac2-4a51-a39d-a650062ed74f"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "deposit",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "eb730a76-33de-42ad-a8ff-37edf5c63aba"
+    },
+    {
+      "name": "Employee - Employee-Delete",
+      "description": "Desativa um funcionário no QuickBooks definindo o campo Active como false.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "6f329a21-ec40-41b2-9529-aae61ad2d0c9"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Objeto com Id, SyncToken e Active: false para desativar o funcionário",
+          "id": "73aeea25-5941-4b1c-a90d-7ea6c606a16a"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "employee"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "39066701-c10c-4fc2-acff-212c2c90fe34"
+    },
+    {
+      "name": "Employee - Employee-ReadById",
+      "description": "Retorna os dados de um funcionário pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "94d8238e-3781-40b9-ac7b-85d40da053e2"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do funcionário",
+          "id": "75bf46eb-aafe-4ae9-bc74-23159f9f037a"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "employee",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "6a06ae64-9268-478b-8cc3-08a6f67c6c8a"
+    },
+    {
+      "name": "Estimate - Estimate-Update",
+      "description": "Atualiza os dados de um orçamento existente no QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "9ee40397-e439-4c4d-9fcb-4569d75c4670"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do orçamento com Id e SyncToken obrigatórios",
+          "id": "4539434e-ff1f-4d8a-9b33-9f40dc3f69b3"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "estimate"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "40511118-9427-4b3f-afd0-d7745e740b69"
+    },
+    {
+      "name": "Estimate - Estimate-ReadById",
+      "description": "Retorna os dados de um orçamento pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "4b501b62-c3ab-48a5-91f1-35840400fa8f"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do orçamento",
+          "id": "fdf9f7b7-8251-4a05-8245-049ea96f2aa1"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "estimate",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "263e0f5f-aea2-48d5-bbd2-139fef2bcc83"
+    },
+    {
+      "name": "Exchangerate - ExchangeRate - GetDetails",
+      "description": "Retorna a taxa de câmbio para a moeda de origem e data de referência informadas.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "23de6ca5-94cf-41ee-b75b-2eb6d7240503"
+        },
+        {
+          "name": "sourcecurrencycode",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "USD",
+          "description": "Código ISO 4217 da moeda de origem",
+          "id": "6eed793f-764d-405d-b0d2-95152e4de00f"
+        },
+        {
+          "name": "asofdate",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data de referência para a taxa de câmbio (YYYY-MM-DD)",
+          "id": "f7883fa6-24ab-4c43-93f8-dc2585a256db"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "exchangerate"
+          ],
+          "query": [
+            {
+              "key": "sourcecurrencycode",
+              "value": "<>sourcecurrencycode</>"
+            },
+            {
+              "key": "asofdate",
+              "value": "<>asofdate</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "8acd9faf-db97-4544-bda9-c0617e93c388"
+    },
+    {
+      "name": "Invoice - Invoice-Create",
+      "description": "Cria uma nova fatura de venda no QuickBooks.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "0caf0c33-f0a4-4930-9d14-4021860dcebb"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados da fatura de venda a ser criada",
+          "id": "1d992bd5-9714-4ccc-a81e-9ac247b2353f"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "invoice"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "929d8fe7-7428-4b06-8981-5e5d4b7f99ae"
+    },
+    {
+      "name": "Invoice - Invoice-ReadById",
+      "description": "Retorna os dados de uma fatura de venda pelo ID informado.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "d58174d1-3bb3-47f0-a0ad-3c824ae877b0"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID da fatura de venda",
+          "id": "f8ad64e4-515d-4fa0-91b1-c19417ae64f5"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "invoice",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "825052b2-dbd1-49c4-957f-5cbedb39396e"
+    },
+    {
+      "name": "Item - Item-Create",
+      "description": "Cria um objeto de item no QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "69e95f35-ee31-4e61-aeaf-c48f5c6ccb7a"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do item a ser criado",
+          "id": "8be08bf7-f9c0-44c4-91bc-62cc6f8ae3d5"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "item"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "d91c3b99-c11d-4fd3-b511-c99f072ba9ea"
+    },
+    {
+      "name": "Item - Item-ReadById",
+      "description": "Lê um item pelo seu identificador único.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "bd424c3c-a191-442e-a8e7-729029991da3"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do item",
+          "id": "842b0ff5-29b5-4715-93a5-20dc22f1d979"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "item",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "7454958f-bc05-489f-a020-3a36825878cd"
+    },
+    {
+      "name": "Journalentry - JournalEntry-Create",
+      "description": "Cria um objeto de lançamento contábil no QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "f930fe9d-6cdf-4908-8b7a-0554625ba619"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do lançamento contábil a ser criado",
+          "id": "1fb7a9bf-d8d3-449c-8e26-7ecfa6323be6"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "journalentry"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "79e97e87-4c92-41ed-b7a0-b182f78d76f3"
+    },
+    {
+      "name": "Journalentry - JournalEntry-ReadById",
+      "description": "Lê um objeto de lançamento contábil pelo seu identificador único.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "90449316-4930-4e36-81dc-fa82e2b179b7"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do lançamento contábil",
+          "id": "d6a44ebd-096b-414b-8eeb-4d00b9707023"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "journalentry",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "c260cb9d-c04d-440b-8b15-0ebdcde16e5a"
+    },
+    {
+      "name": "Payment - Payment-Create",
+      "description": "Cria um objeto de pagamento no QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "ab2069dd-e41e-4931-be80-947c9589f3e0"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do pagamento a ser criado",
+          "id": "799ec997-06e9-484a-bce3-c47ab8ec98f2"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "payment"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "f440e72d-2a6c-4680-8a84-469c09870f0c"
+    },
+    {
+      "name": "Payment - Payment-ReadByID",
+      "description": "Lê um objeto de pagamento pelo seu identificador único.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "092c2369-9a17-4762-968c-ac9100c73dd3"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do pagamento",
+          "id": "3cab1cf0-81af-4182-950a-01b86c23ec92"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "payment",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "20c1aaf2-e936-4875-828c-f5243ba7cfa6"
+    },
+    {
+      "name": "Paymentmethod - PaymentMethod-Update",
+      "description": "Atualiza um método de pagamento no QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "8f191ed9-b7c8-4dc5-af60-d16b41255812"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do método de pagamento com Id e SyncToken obrigatórios",
+          "id": "31a56c2f-d2ce-46b0-9f7c-2f46c0b650ca"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "paymentmethod"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "6a621a7f-e4c4-4964-b475-7fcef1329abc"
+    },
+    {
+      "name": "Paymentmethod - PaymentMethod-ReadById",
+      "description": "Lê um método de pagamento pelo seu identificador único.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "45fd7563-b08e-4a8f-8352-0134b0c483d0"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do método de pagamento",
+          "id": "1adb04b9-8d3b-491a-b3e5-f6b4d6c0f69a"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "paymentmethod",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "328357fa-5f82-465a-9ff1-47af0b98fd87"
+    },
+    {
+      "name": "Preferences - Preference-Read",
+      "description": "Lê o objeto de preferências da empresa no QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "8f87918e-29c1-46fc-ba11-93576498bab8"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "preferences"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "53d81201-cebe-426d-bcca-57a0441e5774"
+    },
+    {
+      "name": "Preferences - Preference-Update",
+      "description": "Atualiza o objeto de preferências da empresa no QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "1940c2dc-d7f4-43ef-8ba2-6e09d578b994"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados das preferências a serem atualizadas",
+          "id": "56a4dcc1-90f2-47e2-9017-b5b07c93d2fc"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "preferences"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "0d3367eb-c3a6-46c9-8d3a-e55a0466abb0"
+    },
+    {
+      "name": "Purchase - Purchase-Update",
+      "description": "Atualiza um objeto de compra no QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "29042c6e-342b-4758-9de7-ad3d67a78c9b"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados da compra com Id e SyncToken obrigatórios",
+          "id": "e441aded-c52b-4f09-832f-5576082ec8c0"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "purchase"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "50ae1a3b-0263-4172-8331-6cf498fd07e8"
+    },
+    {
+      "name": "Purchase - Purchase-ReadById",
+      "description": "Lê um objeto de compra pelo seu identificador único.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "2c672571-1067-4389-b5af-832e86ec2e21"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID da compra",
+          "id": "a7d41a8b-3d40-4fd3-a041-76f48ecce671"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "purchase",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "37fe7af1-72bd-46e4-92ec-8b57fc53caa4"
+    },
+    {
+      "name": "Purchaseorder - PurchaseOrder-Create",
+      "description": "Cria um objeto de ordem de compra no QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "40e62779-5b6b-4d23-8f41-b7017ce5312a"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados da ordem de compra a ser criada",
+          "id": "3be372d7-6cb9-439d-bc2f-ec522ee3bdf8"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "purchaseorder"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "998452d0-5378-4fec-9aaa-631f5116d636"
+    },
+    {
+      "name": "Purchaseorder - PurchaseOrder-ReadById",
+      "description": "Lê um objeto de ordem de compra pelo seu identificador único.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "adb26e15-1872-4d94-a66f-bf74c3f0a7be"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID da ordem de compra",
+          "id": "8a330df7-5d8e-4da2-89da-f652aa136a8a"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "purchaseorder",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "d701168b-f179-49fc-9ed3-14fe4524d915"
+    },
+    {
+      "name": "Query - Transfer-ReadAll",
+      "description": "Lê todos os objetos de transferência utilizando o endpoint de consulta (Query).",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "30c089a0-6534-40e7-8f06-1a98d9048222"
+        },
+        {
+          "name": "query",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "SELECT * FROM Transfer",
+          "description": "Consulta SQL-like para filtrar objetos de transferência",
+          "id": "3e8c5eaf-6f77-440b-ad65-911fe387cc09"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "query"
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "<>query</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "b096a922-ac94-4496-bb95-be97c88a91a6"
+    },
+    {
+      "name": "Refundreceipt - RefundReceipt-Update",
+      "description": "Atualiza um objeto de recibo de reembolso no QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "b2995289-6af8-4e56-8a19-f19a4d781ad3"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do recibo de reembolso com Id e SyncToken obrigatórios",
+          "id": "4d7628fe-07ea-42a7-9653-5b950ce41ac3"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "refundreceipt"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "a64d81dd-28c1-46c4-a6e8-ebdaeca4c78e"
+    },
+    {
+      "name": "Refundreceipt - RefundReceipt-ReadById",
+      "description": "Lê um objeto de recibo de reembolso pelo seu identificador único.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "46072b3e-e223-4ae8-b173-e47ce2b143af"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do recibo de reembolso",
+          "id": "889d5bcd-a308-45f1-86f9-2d1619bf415a"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "refundreceipt",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "b022cdc2-f822-4302-9644-b6afe85e627e"
+    },
+    {
+      "name": "Reports - Report-AccountList",
+      "description": "Retorna o relatório de lista de contas detalhada do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "13a795fb-6dc9-4f71-9e79-77efe50ed827"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período do relatório (YYYY-MM-DD)",
+          "id": "6268495b-c4e9-4abd-ac89-f8857a2bfadf"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período do relatório (YYYY-MM-DD)",
+          "id": "544e41a3-9ed1-4be7-9d7f-96ad5d15780e"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "AccountList"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "57a61cc4-32d2-4fde-801f-09e62d675d20"
+    },
+    {
+      "name": "Reports - Report-AgedPayableDetail",
+      "description": "Retorna o relatório detalhado de envelhecimento de contas a pagar do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "bd5f1be3-883d-454f-b965-083bf2d0076a"
+        },
+        {
+          "name": "report_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data de referência do relatório (YYYY-MM-DD)",
+          "id": "feda628b-a06e-408c-82aa-873c1e5e39e3"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "AgedPayableDetail"
+          ],
+          "query": [
+            {
+              "key": "report_date",
+              "value": "<>report_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "3f6b0ba6-a922-4bfe-8280-9ee62b0709e3"
+    },
+    {
+      "name": "Reports - Report-AgedPayables",
+      "description": "Retorna o relatório resumido de envelhecimento de contas a pagar do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "9e5dea9f-d0d6-40d5-80ed-ad25cfa1845d"
+        },
+        {
+          "name": "report_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data de referência do relatório (YYYY-MM-DD)",
+          "id": "96a9db59-b210-4f6f-9e62-1127c71fae87"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "AgedPayables"
+          ],
+          "query": [
+            {
+              "key": "report_date",
+              "value": "<>report_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "bdf6f6c1-c04b-4459-a1a8-fa466bf71ae3"
+    },
+    {
+      "name": "Reports - Report-AgedReceivableDetail",
+      "description": "Retorna o relatório detalhado de envelhecimento de contas a receber do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "dce6168d-55a7-4dc9-987b-78667ce808dc"
+        },
+        {
+          "name": "report_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data de referência do relatório (YYYY-MM-DD)",
+          "id": "43d1493f-ce6b-4bb2-8eb2-f502ead4fdec"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "AgedReceivableDetail"
+          ],
+          "query": [
+            {
+              "key": "report_date",
+              "value": "<>report_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "729c75f9-0db5-413c-8f8d-7f95f39ca5dd"
+    },
+    {
+      "name": "Reports - Report-AgedReceivables",
+      "description": "Retorna o relatório resumido de envelhecimento de contas a receber do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "ad564100-2284-4a1c-8b10-d5c448d78b8a"
+        },
+        {
+          "name": "report_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data de referência do relatório (YYYY-MM-DD)",
+          "id": "2720572f-113f-48ad-b447-fe10334e5108"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "AgedReceivables"
+          ],
+          "query": [
+            {
+              "key": "report_date",
+              "value": "<>report_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "85dac39a-e957-4e1c-8c7e-ff2c9885f01c"
+    },
+    {
+      "name": "Reports - Report-BalanceSheet",
+      "description": "Retorna o relatório de balanço patrimonial do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "e154665f-e276-40ba-bfcf-3d7dab46c4e4"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "6cebb6c4-c171-4b5e-8889-a273b43bbcc7"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "3689696b-6845-418f-abbe-0e1f83b504a8"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "BalanceSheet"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "9164b8d0-f852-4f04-9513-bb9f33510921"
+    },
+    {
+      "name": "Reports - Report-CashFlow",
+      "description": "Retorna o relatório de fluxo de caixa do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "803a94c1-e4e5-4da9-a020-b81e800c31c9"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "751b37ac-cf78-49ba-9e81-cd71e006780c"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "7b980abc-058e-4853-bdc8-bdd9dcbab5eb"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "CashFlow"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "0855a443-04ce-4a26-acf3-c426f1a96f6f"
+    },
+    {
+      "name": "Reports - Report-CashSales",
+      "description": "Retorna o relatório de vendas à vista do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "e21a2768-e9f5-43f7-af5f-72a98afb9f7d"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "47d5cdce-afcf-46af-8f84-d1fa5ebd07d7"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "089c95a5-6576-4607-a5f1-eabed3fae204"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "CashSales"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "ce1e2994-ba38-4871-8973-97ef1d119f45"
+    },
+    {
+      "name": "Reports - Report-CustomerBalance",
+      "description": "Retorna o relatório de saldo de clientes do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "9600c5f2-56f7-4d21-9379-8f2806985cb5"
+        },
+        {
+          "name": "report_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data de referência do relatório (YYYY-MM-DD)",
+          "id": "0ac6df5d-145d-4e26-8e74-3e68268a0c6d"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "CustomerBalance"
+          ],
+          "query": [
+            {
+              "key": "report_date",
+              "value": "<>report_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "cb56a422-b02c-4e3e-a43e-9f081f85db3c"
+    },
+    {
+      "name": "Reports - Report-CustomerBalanceDetail",
+      "description": "Retorna o relatório detalhado de saldo de clientes do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "cb8568d2-d3a2-47c1-80f1-843af32a895a"
+        },
+        {
+          "name": "report_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data de referência do relatório (YYYY-MM-DD)",
+          "id": "7a852524-1924-4e24-9ef5-af05a2f56f34"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "CustomerBalanceDetail"
+          ],
+          "query": [
+            {
+              "key": "report_date",
+              "value": "<>report_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "4a40694b-2708-4027-89ba-5647558d29b6"
+    },
+    {
+      "name": "Reports - Report-CustomerIncome",
+      "description": "Retorna o relatório de receita por cliente do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "d0c1c437-c708-4031-bec9-743a6e0efa3c"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "bb7da3eb-30a4-461a-b3f9-a8a3796071cb"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "e9ccb41a-8519-4ca6-846e-04fa9f9d81a0"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "CustomerIncome"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "45f9a752-e11f-4190-beaa-cac033f837a2"
+    },
+    {
+      "name": "Reports - Report-CustomerSales",
+      "description": "Retorna o relatório de vendas por cliente do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "45cc2018-e66c-4116-a8f5-f268990d4d47"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "352340b0-72bd-4981-a7e6-ce86a813a3d8"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "2d48e6d6-7dd1-4c91-ba71-0e0df08ae80b"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "CustomerSales"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "b35244f9-f599-4c8f-8a57-4dcffc52f7a9"
+    },
+    {
+      "name": "Reports - Report-DepartmentSales",
+      "description": "Retorna o relatório de vendas por departamento do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "dac35e76-9e95-4c3e-b5a6-91d40e448527"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "ba4fe235-8893-48c9-a755-f71a9a3e9410"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "bf8517fb-6dd3-49c5-9d9f-9d2989bce9cc"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "DepartmentSales"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "832639aa-2bd9-4920-ade1-2e4e139ccc22"
+    },
+    {
+      "name": "Reports - Report-GeneralLedger",
+      "description": "Retorna o relatório de Razão Geral do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "9c7de9d5-a7df-4537-a919-464de98c0c7b"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "800df53d-c185-4599-babc-bdae07b760d3"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "cb3c817f-245a-4042-a32c-1040a905d552"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "GeneralLedger"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "784e3e90-bc16-4efb-b465-355a810cfe2a"
+    },
+    {
+      "name": "Reports - Report-InventoryValuationSummary",
+      "description": "Retorna o relatório de resumo de avaliação de estoque do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "d67eb486-c796-4220-995a-e3ce5b78d16c"
+        },
+        {
+          "name": "report_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data de referência do relatório (YYYY-MM-DD)",
+          "id": "45c910a6-07d3-4332-b77a-006b0bf6a25b"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "InventoryValuationSummary"
+          ],
+          "query": [
+            {
+              "key": "report_date",
+              "value": "<>report_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "ec0e168c-fe0d-4902-acf3-142127ef187d"
+    },
+    {
+      "name": "Reports - Report-ItemSales",
+      "description": "Retorna o relatório de vendas por item do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "8f52559c-367e-41e3-a4a9-68f54a9b8689"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "0e4046c2-3d94-4859-bd89-dd63c4d90866"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "f171f053-a3ef-450c-b4fe-42caefd642a9"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "ItemSales"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "25773db4-3053-4e4f-bfa5-b08dc23b8d2e"
+    },
+    {
+      "name": "Reports - Report-ProfitAndLoss",
+      "description": "Retorna o relatório de lucros e perdas do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "91fd7529-32ae-4f67-bdc5-6df8ce9aef73"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "35827634-9ba1-4499-994b-9cc87b0ea423"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "78df3e17-e3ae-4959-87d9-d801a534620f"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "ProfitAndLoss"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "51f424c9-bc01-4bb4-9eb9-b303b9cb5f56"
+    },
+    {
+      "name": "Reports - Report-ProfitAndLossDetail",
+      "description": "Retorna o relatório detalhado de lucros e perdas do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "dc75117f-6897-4d75-96f8-15dcdebbffcd"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "c72d1350-f281-4b87-9db9-7a290686cb7c"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "a9d05258-9ebb-4a4d-908c-d0962740bd6f"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "ProfitAndLossDetail"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "da8138da-ff99-4e6b-8ae8-b54be1a3e45b"
+    },
+    {
+      "name": "Reports - Report-TransactionList",
+      "description": "Retorna o relatório de lista de transações do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "7097b20b-7678-4362-939f-22a566baadfc"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "40d01283-8bfc-4180-9351-5273d072e4fe"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "1a486e22-4532-4860-8173-849769f19347"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "TransactionList"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "ac49248e-266b-43a3-88cc-563eee71fea5"
+    },
+    {
+      "name": "Reports - Report-TrialBalance",
+      "description": "Retorna o relatório de balancete de verificação do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "c5311758-d6fe-4c8d-aa3f-325ac0b52612"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "aadc5f03-02a8-49fa-9fa2-271768ea59e4"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "cf5b0648-8402-4b36-931a-6e5cab493fe6"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "TrialBalance"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "a21defc6-b783-47d3-a75e-ce53da2d59b0"
+    },
+    {
+      "name": "Reports - Report-VendorBalance",
+      "description": "Retorna o relatório de saldo por fornecedor do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "ca613dbe-6415-486d-bf4a-9b5b9a7951cd"
+        },
+        {
+          "name": "report_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data de referência do relatório (YYYY-MM-DD)",
+          "id": "621dcac4-0dfc-493d-9085-2a77b204c3d6"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "VendorBalance"
+          ],
+          "query": [
+            {
+              "key": "report_date",
+              "value": "<>report_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "81b1270b-5f7a-42bd-9e3a-66a68d907fdc"
+    },
+    {
+      "name": "Reports - Report-VendorBalanceDetail",
+      "description": "Retorna o relatório detalhado de saldo por fornecedor do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "c609e946-5490-4e9e-91e0-cbc0ef3ec097"
+        },
+        {
+          "name": "report_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data de referência do relatório (YYYY-MM-DD)",
+          "id": "a848d382-e75c-4b3a-82ab-977083777eac"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "VendorBalanceDetail"
+          ],
+          "query": [
+            {
+              "key": "report_date",
+              "value": "<>report_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "8280f16a-4788-4e9a-a744-0abdc06eeba1"
+    },
+    {
+      "name": "Reports - Report-VendorExpense",
+      "description": "Retorna o relatório de despesas por fornecedor do QuickBooks Online.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "319a4291-9a7a-4ad7-8c3f-d22a97d45d52"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-01-01",
+          "description": "Data inicial do período (YYYY-MM-DD)",
+          "id": "03f22bd0-1c1d-4817-a0d3-13be4527e00a"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "required": false,
+          "sensitive": false,
+          "sample": "2023-12-31",
+          "description": "Data final do período (YYYY-MM-DD)",
+          "id": "5e12561a-86fa-4515-bc51-9b7f17d6ed5e"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "reports",
+            "VendorExpenses"
+          ],
+          "query": [
+            {
+              "key": "start_date",
+              "value": "<>start_date</>"
+            },
+            {
+              "key": "end_date",
+              "value": "<>end_date</>"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "2e8131d1-f9c6-4d9e-85f3-72da6aea0917"
+    },
+    {
+      "name": "Salesreceipt - SalesReceipt-Create",
+      "description": "Cria um objeto de recibo de venda via POST.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "5bfc2cc3-689b-4707-8326-ea28ec4fb18d"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do recibo de venda a ser criado",
+          "id": "1d54b15e-6d2f-4803-81b1-8c7a4ca0e685"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "salesreceipt"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "e098fe1e-68f2-4d4c-8116-f0a15624901a"
+    },
+    {
+      "name": "Salesreceipt - SalesReceipt-ReadByID",
+      "description": "Retorna um objeto de recibo de venda pelo ID.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "8fc1c8a8-8dc9-4774-a0c7-152b208d6067"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do recibo de venda",
+          "id": "5212b929-6107-4282-a07d-0c0510e1428d"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "salesreceipt",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "2a8bcd31-4fd8-49dc-add9-812e8203b0e2"
+    },
+    {
+      "name": "Taxagency - TaxAgency-Create",
+      "description": "Cria um objeto de agência fiscal via POST.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "25fa390d-a704-4081-9cec-8725e6f28ea0"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados da agência fiscal a ser criada",
+          "id": "0922b096-9bab-4a9b-a9a2-2fb78011c40d"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "taxagency"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "83cdde54-1e5e-43f7-b457-dd72e4919a64"
+    },
+    {
+      "name": "Taxagency - TaxAgency-ReadByID",
+      "description": "Retorna um objeto de agência fiscal pelo ID.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "5760a49e-e0f2-48f1-a96b-22c6857cc34b"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID da agência fiscal",
+          "id": "39e5b59d-8be4-4d12-be01-68c21d43aca5"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "taxagency",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "3f4b96a2-17b6-4d49-9e4b-dc04ae451002"
+    },
+    {
+      "name": "Taxcode - TaxCode-ReadById",
+      "description": "Retorna um objeto de código fiscal pelo ID.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "432349bc-5b46-4cd8-b888-2ea85861b605"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do código fiscal",
+          "id": "75798c38-e2d9-4ab4-af68-adeb611467dd"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "taxcode",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "531648da-c05d-4bbe-a212-f22ae22b3b2e"
+    },
+    {
+      "name": "Taxrate - TaxRate-ReadById",
+      "description": "Retorna um objeto de alíquota fiscal pelo ID.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "8098477d-f138-44b7-b368-5a00202e3218"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID da alíquota fiscal",
+          "id": "66aabb2a-c787-43df-86a9-6f3a896a3b1f"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "taxrate",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "1e4d2c61-01ae-4879-bf06-942c4580931f"
+    },
+    {
+      "name": "Taxservice - TaxService-Create",
+      "description": "Cria um código fiscal e suas alíquotas correspondentes usando o TaxService.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "8b13aa4f-0916-4e76-9cb5-2eeff6fe7ec4"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do serviço fiscal com TaxCode e TaxRateDetails",
+          "id": "2929890a-e291-44ae-9f67-335c3f8d1325"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "taxservice",
+            "taxcode"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "883ed097-efd9-4485-a753-e9936b54a042"
+    },
+    {
+      "name": "Term - Term-Delete",
+      "description": "Desativa um prazo no QuickBooks; exclusão permanente não é suportada — defina Active como false.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "067fc50b-8037-4049-b661-2e1adef2c391"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Objeto com Id, SyncToken e Active: false para desativar o prazo",
+          "id": "717ac14d-2793-41b7-a506-5281d9e443f9"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "term"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "74d8107e-90cb-4ba5-a65f-b5ee9d5869a0"
+    },
+    {
+      "name": "Term - Term-ReadById",
+      "description": "Retorna um objeto de prazo pelo ID.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "ec6162f4-7e3b-40d1-87bb-cf1c8b9850df"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do prazo",
+          "id": "030333c0-ae1e-4880-8d42-082af6dcb97f"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "term",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "0ace72e1-9d50-437e-b31a-f8a5db4f0a4c"
+    },
+    {
+      "name": "Timeactivity - TimeActivity-Create",
+      "description": "Cria um objeto de registro de atividade de tempo via POST.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "7a97a29a-00e1-45bc-a705-bbd4788f0f75"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados da atividade de tempo a ser registrada",
+          "id": "2a8fc495-350b-4373-b292-79973ccee2ef"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "timeactivity"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "b49110f2-6eb8-451e-a9c6-b8847bb48954"
+    },
+    {
+      "name": "Transfer - Transfer-Create",
+      "description": "Cria um objeto de transferência via POST.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "faf28611-803b-4634-82ad-881d57084479"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados da transferência a ser criada",
+          "id": "6b467594-8ab2-4815-aeb4-425248a4dfea"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "transfer"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "05141a74-ce72-4349-8e88-3a48d0fcede7"
+    },
+    {
+      "name": "Transfer - Transfer-ReadById",
+      "description": "Retorna um objeto de transferência pelo ID.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "d826e0b5-9c18-4fda-ad80-f117607a650c"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID da transferência",
+          "id": "cf974da2-8021-4daf-90cf-0cadd6b12b74"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "transfer",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "eac60081-d495-45e0-8354-55bf6d1a4c9e"
+    },
+    {
+      "name": "Upload - Upload-Attachments",
+      "description": "Envia e vincula novos anexos a um objeto do QuickBooks Online via multipart/form-data.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "91478b29-fe52-4db9-8778-1668ff22889f"
+        },
+        {
+          "name": "file_metadata",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"AttachableRef\":[{\"EntityRef\":{\"type\":\"Invoice\",\"value\":\"1\"}}],\"FileName\":\"file.pdf\",\"ContentType\":\"application/pdf\"}",
+          "description": "Metadados do anexo em JSON (AttachableRef, FileName, ContentType)",
+          "id": "684958f5-3821-4624-bb43-52159134a41d"
+        },
+        {
+          "name": "file_content",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "<binary content>",
+          "description": "Conteúdo binário do arquivo a ser enviado",
+          "id": "cef4dfb9-24d4-4944-9bf1-ce4c065a712e"
+        },
+        {
+          "name": "file_name",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "file.pdf",
+          "description": "Nome do arquivo para o upload",
+          "id": "d352dea3-ace5-4bd1-8dab-1adc80930750"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "upload"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "file_metadata_01:<>file_metadata</>:application/json\nfile_content_01:<>file_content</>:application/octet-stream:<>file_name</>"
+        }
+      },
+      "id": "8dcfac70-1bc2-4841-8867-548213f8e197"
+    },
+    {
+      "name": "Vendor - Vendor-Update",
+      "description": "Atualiza um objeto de fornecedor via POST.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "81b68481-0f06-45d4-bacd-d49c02ec2b01"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Dados do fornecedor com Id e SyncToken obrigatórios",
+          "id": "559550dd-ba86-44c0-b0f4-1419a31b7c50"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "vendor"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "4be67a46-145e-4115-a664-d5375c1ddb45"
+    },
+    {
+      "name": "Vendor - Vendor-ReadById",
+      "description": "Retorna um objeto de fornecedor pelo ID.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "68a4b3e5-3bad-4e33-aa60-1d8a285c78fd"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do fornecedor",
+          "id": "026208c3-7ca3-44e1-8be8-9c4c88aec4ed"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "vendor",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "ce3becc4-8199-470e-95df-4baa82f7c49b"
+    },
+    {
+      "name": "Vendorcredit - VendorCredit-Delete",
+      "description": "Exclui um objeto de crédito de fornecedor pelo ID via POST.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "3e69a781-1d8c-494c-bbdf-bc63196dc301"
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "required": true,
+          "sensitive": false,
+          "sample": "{}",
+          "description": "Objeto com Id e SyncToken para exclusão do crédito de fornecedor",
+          "id": "f1937e0a-a67f-4caf-9d94-874370dfd130"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "vendorcredit"
+          ],
+          "query": [
+            {
+              "key": "operation",
+              "value": "delete"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "4421942c-f9d7-4d92-8fa8-75fe0e34b468"
+    },
+    {
+      "name": "Vendorcredit - VendorCredit-ReadById",
+      "description": "Retorna um objeto de crédito de fornecedor pelo ID.",
+      "parameters": [
+        {
+          "name": "realm_id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "123456789",
+          "description": "ID da empresa no QuickBooks Online",
+          "id": "650e873a-fcb5-45f5-833b-1fa35b9aa09a"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "sensitive": false,
+          "sample": "1",
+          "description": "ID do crédito de fornecedor",
+          "id": "80b3ee73-3239-44f4-b5af-580aa21098b7"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v3",
+            "company",
+            "<>realm_id</>",
+            "vendorcredit",
+            "<>id</>"
+          ],
+          "query": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "id": "2a5c0477-04b4-48fa-a15d-e37d2b89bbda"
+    }
+  ],
+  "id": "519def1c-9533-4375-9823-16ce848c25bb"
+}

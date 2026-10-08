@@ -1,0 +1,3896 @@
+{
+  "id": "4fa9b845-a3a2-47fc-87f6-271c7de07c2b",
+  "name": "Convenia",
+  "description": "Conector REST para a API pública da Convenia (v3): colaboradores, admissão e desligamento, férias, faltas e afastamentos, benefícios, folha de pagamento, estrutura organizacional e tabelas de domínio.",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "header-auth"
+  },
+  "operations": [
+    {
+      "id": "be76aa48-8cac-4260-a0db-cb25029430d3",
+      "name": "Lookups - Get ethnicities",
+      "description": "Retorna todas as etnias disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "ethnicities"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "0b108f31-134c-4e21-96d0-b5f31c0fe265",
+      "name": "Lookups - Get nationalities",
+      "description": "Retorna todas as nacionalidades disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "nationalities"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "18557680-15ba-4f95-a5bd-91709712af04",
+      "name": "Lookups - Get employment relationships",
+      "description": "Retorna todos os tipos de vínculo empregatício disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "relationships"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a4b9005f-cac8-44b0-9de3-d97c5e197984",
+      "name": "Lookups - Get marital statuses",
+      "description": "Retorna todos os estados civis disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "marital-status"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "0c8da273-7701-4900-a4ce-42a1858c0332",
+      "name": "Lookups - Get education types",
+      "description": "Retorna todos os tipos de escolaridade disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "educations"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "cb24cd3b-a107-46a9-bc52-930e9eea7791",
+      "name": "Lookups - Get bank account types",
+      "description": "Retorna todos os tipos de conta bancária disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "bank-accounts"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "f336901d-b893-4e6b-99bf-c20d32ba547a",
+      "name": "Lookups - Get banks",
+      "description": "Retorna a listagem de bancos disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "banks"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "4a5cba45-0bc8-4ef6-bed8-82fdd341f16c",
+      "name": "Lookups - Get states",
+      "description": "Retorna todos os estados disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "states"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "f795ebe1-2f95-4317-a48c-a283e4ebf968",
+      "name": "Lookups - Get cities",
+      "description": "Retorna as cidades disponíveis na Convenia, opcionalmente filtradas por estado.",
+      "parameters": [
+        {
+          "id": "f3c3d325-4034-4dc5-90bd-eb76d29f70d1",
+          "name": "state_id",
+          "type": "number",
+          "description": "Retorna as cidades do estado com este id. Tem prioridade sobre state_abbreviation e state_name.",
+          "required": false,
+          "sensitive": false,
+          "sample": "26"
+        },
+        {
+          "id": "28a75c91-be37-42e1-8d26-73eed23d7a6f",
+          "name": "state_abbreviation",
+          "type": "string",
+          "description": "Retorna as cidades do estado com esta UF. Tem prioridade sobre state_name.",
+          "required": false,
+          "sensitive": false,
+          "sample": "SP"
+        },
+        {
+          "id": "dfd1b786-d43c-4191-82fd-82a2e6665ccd",
+          "name": "state_name",
+          "type": "string",
+          "description": "Retorna as cidades do estado com este nome.",
+          "required": false,
+          "sensitive": false,
+          "sample": "São Paulo"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "cities"
+          ]
+        },
+        "query": [
+          {
+            "key": "state_id",
+            "value": "<>state_id</>",
+            "enabled": true
+          },
+          {
+            "key": "state_abbreviation",
+            "value": "<>state_abbreviation</>",
+            "enabled": true
+          },
+          {
+            "key": "state_name",
+            "value": "<>state_name</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "f722cf6d-e7f4-43d4-b943-89c0a1f2f36d",
+      "name": "Lookups - Get dismissal types",
+      "description": "Retorna todos os tipos de desligamento disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "dismissal-types"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "d202d6c5-7d9d-42b5-ac08-7bef48f2556c",
+      "name": "Lookups - Get termination notice types",
+      "description": "Retorna todos os tipos de aviso prévio disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "termination-types"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "b9ec52fb-6b55-4bf9-b6f1-350b99d61a5f",
+      "name": "Lookups - Get gender identities",
+      "description": "Retorna todas as identidades de gênero disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "gender-identities"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "26da52c6-e240-4d14-94b6-d92858831c90",
+      "name": "Lookups - Get emergency contact relations",
+      "description": "Retorna os tipos de relacionamento de contatos de emergência disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "relation-emergency-contacts"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "d0de6dc5-875b-4f28-a6c7-fe9091ac324a",
+      "name": "Lookups - Get admission types",
+      "description": "Retorna todos os tipos de admissão disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "admission-types"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "78674c00-14e0-46d9-9e5c-fe6e8049f74a",
+      "name": "Lookups - Get disability types",
+      "description": "Retorna todos os tipos de deficiência disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "disabilities"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "fdf1adf4-c284-40b5-8a71-08c5ce8b7a03",
+      "name": "Lookups - Get payment methods",
+      "description": "Retorna todos os tipos de pagamento disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "payment-methods"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a06fe4e4-8601-4dc5-85f1-80a9d710224c",
+      "name": "Lookups - Get salary types",
+      "description": "Retorna todos os tipos de salário disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "salary-types"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "7bc3f906-54d2-4878-baae-d784ba8c14bf",
+      "name": "Lookups - Get stability types",
+      "description": "Retorna todos os tipos de estabilidade disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "stability-types"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "977fbaf5-eab7-45b4-86fc-b703e89d4447",
+      "name": "Lookups - Get dependent relations",
+      "description": "Retorna os tipos de relacionamento de dependentes disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "dependent-relations"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "136c61ec-074e-4ed1-b762-464d86250a08",
+      "name": "Lookups - Get document genders",
+      "description": "Retorna as opções de gênero no documento disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "genders"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "3a21fdf4-ef38-406c-9369-6aa3e50233a1",
+      "name": "Lookups - Get visa types",
+      "description": "Retorna os tipos de visto para estrangeiros disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "visa"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "28b3dede-938f-4ac8-91c4-fc0d538ff503",
+      "name": "Lookups - Get entry conditions",
+      "description": "Retorna as condições de ingresso de estrangeiros disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "entry-conditions"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "b983a6db-fe7c-4fe6-8232-eb13e485a4a0",
+      "name": "Lookups - Get residence times",
+      "description": "Retorna as opções de tempo de residência no Brasil para estrangeiros.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "residence-time"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "bca4336d-783e-4c66-927e-88c8aafaac7c",
+      "name": "Lookups - Get address descriptions",
+      "description": "Retorna as opções de descrição do logradouro para endereços no exterior.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "address-description"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "29900e46-4c9e-4097-b5c7-aed280f0249a",
+      "name": "Lookups - Get countries",
+      "description": "Retorna a listagem de países disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "countries"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "95e13929-bb6e-4722-9487-173e4da9e45d",
+      "name": "Lookups - Get worker categories",
+      "description": "Retorna as categorias de trabalhadores disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "worker-categories"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "44af0488-dc4f-4dbf-ad1b-0a3c380cc8fe",
+      "name": "Tokens - Get token permissions",
+      "description": "Retorna o detalhe do token de integração e as permissões associadas a ele.",
+      "parameters": [
+        {
+          "id": "657863ea-70b3-4929-a249-4f088930bc69",
+          "name": "match",
+          "type": "string",
+          "description": "Filtra por valor exato. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "companies.get.company.cost.centers"
+        },
+        {
+          "id": "49abcb53-df50-4986-a509-12bc517060d6",
+          "name": "different",
+          "type": "string",
+          "description": "Filtra excluindo valores exatos. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "companies.get.company.cost.centers"
+        },
+        {
+          "id": "f238c9e4-f904-4592-a159-cf14e8c0c14b",
+          "name": "like",
+          "type": "string",
+          "description": "Filtra por valor contido. Troque campo na chave da operação pelo campo desejado.",
+          "required": false,
+          "sensitive": false,
+          "sample": "companies"
+        },
+        {
+          "id": "3f6c9e3b-3a62-406a-aa98-cef4f6bcbdc2",
+          "name": "paginate",
+          "type": "number",
+          "description": "Quantidade de registros por página. Máximo de 1000.",
+          "required": false,
+          "sensitive": false,
+          "sample": "200"
+        },
+        {
+          "id": "23a138b6-948e-4e64-8d91-8d094ee7f880",
+          "name": "page",
+          "type": "number",
+          "description": "Página desejada dentre as disponíveis. Use junto com paginate.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "tokens",
+            "permissions"
+          ]
+        },
+        "query": [
+          {
+            "key": "match[campo]",
+            "value": "<>match</>",
+            "enabled": true
+          },
+          {
+            "key": "different[campo]",
+            "value": "<>different</>",
+            "enabled": true
+          },
+          {
+            "key": "like[campo]",
+            "value": "<>like</>",
+            "enabled": true
+          },
+          {
+            "key": "paginate",
+            "value": "<>paginate</>",
+            "enabled": true
+          },
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "b6eb15b0-89ad-46f2-adc5-258ce0293e76",
+      "name": "Employees - Get all employees",
+      "description": "Retorna todos os colaboradores da empresa, com filtros e paginação opcionais.",
+      "parameters": [
+        {
+          "id": "ba34d95b-e119-44d9-92cf-cc7d56347e63",
+          "name": "match",
+          "type": "string",
+          "description": "Filtra por valor exato. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09,2020-09-10"
+        },
+        {
+          "id": "0b33d481-2bc0-4e8d-a984-3b662d08bddc",
+          "name": "different",
+          "type": "string",
+          "description": "Filtra excluindo valores exatos. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09,2020-09-10"
+        },
+        {
+          "id": "e1f66c09-5988-4281-8d85-9af8a532c1d5",
+          "name": "like",
+          "type": "string",
+          "description": "Filtra por valor contido. Troque campo na chave da operação pelo campo desejado.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09"
+        },
+        {
+          "id": "ae57dbc0-a99e-41d9-a63e-4c793ac1ab62",
+          "name": "paginate",
+          "type": "number",
+          "description": "Quantidade de registros por página. Máximo de 1000.",
+          "required": false,
+          "sensitive": false,
+          "sample": "200"
+        },
+        {
+          "id": "5a860b71-b4e7-44ec-a898-34895677e2f8",
+          "name": "page",
+          "type": "number",
+          "description": "Página desejada dentre as disponíveis. Use junto com paginate.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees"
+          ]
+        },
+        "query": [
+          {
+            "key": "match[campo]",
+            "value": "<>match</>",
+            "enabled": true
+          },
+          {
+            "key": "different[campo]",
+            "value": "<>different</>",
+            "enabled": true
+          },
+          {
+            "key": "like[campo]",
+            "value": "<>like</>",
+            "enabled": true
+          },
+          {
+            "key": "paginate",
+            "value": "<>paginate</>",
+            "enabled": true
+          },
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "f6aeeb27-3d20-4b9e-ba2b-a92808d5a3a4",
+      "name": "Employees - Get dismissed employees",
+      "description": "Retorna os colaboradores desligados, opcionalmente limitados a um intervalo de datas.",
+      "parameters": [
+        {
+          "id": "f2e9f96b-db33-41fa-8388-b2ebedd7b4d5",
+          "name": "from_date",
+          "type": "string",
+          "description": "Retorna os colaboradores desligados a partir desta data, no formato AAAA-MM-DD.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2024-01-01"
+        },
+        {
+          "id": "bb8d1695-08f5-4336-b1e6-0bb58211f4fb",
+          "name": "to_date",
+          "type": "string",
+          "description": "Retorna os colaboradores desligados até esta data, no formato AAAA-MM-DD.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2024-12-31"
+        },
+        {
+          "id": "3c7bce94-8f0b-474b-abb0-e428e1fd47d5",
+          "name": "paginate",
+          "type": "number",
+          "description": "Quantidade de registros por página. Máximo de 1000.",
+          "required": false,
+          "sensitive": false,
+          "sample": "200"
+        },
+        {
+          "id": "ffc8e88c-35eb-4bcc-b88b-3cb79d8f7c46",
+          "name": "page",
+          "type": "number",
+          "description": "Página desejada dentre as disponíveis. Use junto com paginate.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "dismissed"
+          ]
+        },
+        "query": [
+          {
+            "key": "from_date",
+            "value": "<>from_date</>",
+            "enabled": true
+          },
+          {
+            "key": "to_date",
+            "value": "<>to_date</>",
+            "enabled": true
+          },
+          {
+            "key": "paginate",
+            "value": "<>paginate</>",
+            "enabled": true
+          },
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "7af8ffd4-37ad-4200-9bd8-d8347d2b292a",
+      "name": "Employees - Get employee",
+      "description": "Retorna os dados de um colaborador específico.",
+      "parameters": [
+        {
+          "id": "a5182ed2-409e-4f01-9b37-42d5445824b8",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "1f2a7b9a-b661-4b9f-8951-037b67b3be5c",
+      "name": "Employees - Get salary history",
+      "description": "Retorna o histórico salarial de um colaborador.",
+      "parameters": [
+        {
+          "id": "a91e36ef-88a3-4562-b242-796e10b255e9",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "salaries-historic"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "82b58645-894a-4abb-9b17-829fad9b193a",
+      "name": "Employees - Get dependents",
+      "description": "Retorna os dependentes vinculados a um colaborador.",
+      "parameters": [
+        {
+          "id": "461ef160-807c-4634-9a51-0f1b59ee8455",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "dependents"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "36806438-ba48-43e7-b3ef-a3d160afbf53",
+      "name": "Employees - Get benefits",
+      "description": "Retorna os benefícios vinculados a um colaborador específico.",
+      "parameters": [
+        {
+          "id": "2cf4ae99-d321-4297-95fc-593648cdeb5a",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "benefits"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "7ff56e08-0d37-49aa-8f5c-7bc057f61fbf",
+      "name": "Employees - Get change histories",
+      "description": "Retorna as alterações registradas para um colaborador, com filtros e paginação opcionais.",
+      "parameters": [
+        {
+          "id": "c42bb98e-6d77-4e64-98bc-1c9eae6850db",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "fa8a3e0b-f579-4803-935f-b542dd7daca6",
+          "name": "match",
+          "type": "string",
+          "description": "Filtra por valor exato. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09T23:00:00"
+        },
+        {
+          "id": "33be2c9d-0268-4d8a-b763-8d4da929dd56",
+          "name": "different",
+          "type": "string",
+          "description": "Filtra excluindo valores exatos. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09T23:00:00"
+        },
+        {
+          "id": "af790580-39ae-4d6f-a7f8-249919257ac1",
+          "name": "like",
+          "type": "string",
+          "description": "Filtra por valor contido. Troque campo na chave da operação pelo campo desejado.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09"
+        },
+        {
+          "id": "a2f25c82-aa01-4a1c-b7cb-0fdbb5aea8d0",
+          "name": "paginate",
+          "type": "number",
+          "description": "Quantidade de registros por página. Máximo de 1000.",
+          "required": false,
+          "sensitive": false,
+          "sample": "200"
+        },
+        {
+          "id": "38142168-57ff-4918-9daf-17ba69f99c00",
+          "name": "page",
+          "type": "number",
+          "description": "Página desejada dentre as disponíveis. Use junto com paginate.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "change-histories"
+          ]
+        },
+        "query": [
+          {
+            "key": "match[campo]",
+            "value": "<>match</>",
+            "enabled": true
+          },
+          {
+            "key": "different[campo]",
+            "value": "<>different</>",
+            "enabled": true
+          },
+          {
+            "key": "like[campo]",
+            "value": "<>like</>",
+            "enabled": true
+          },
+          {
+            "key": "paginate",
+            "value": "<>paginate</>",
+            "enabled": true
+          },
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "c8f34f4e-e2c3-4928-a288-36119c0d5538",
+      "name": "Employees - Get change history",
+      "description": "Retorna uma alteração específica registrada para um colaborador.",
+      "parameters": [
+        {
+          "id": "9ea021f4-7cb3-4304-bda8-e8ad9652a5dd",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "17d39d95-f279-448b-828b-bf08d7142194",
+          "name": "change_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da alteração no histórico do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "change-histories",
+            "<>change_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "b219ed6e-475e-4b8a-a008-c42cb7a03e26",
+      "name": "Employees - Get vacation solicitations",
+      "description": "Retorna as solicitações de férias de um colaborador, com filtros e paginação opcionais.",
+      "parameters": [
+        {
+          "id": "d51dab3b-92f8-4fcd-a319-7cc4099d757b",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "ec139248-93ad-41cc-a032-b0cf7bb83c33",
+          "name": "match",
+          "type": "string",
+          "description": "Filtra por valor exato. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09T23:00:00"
+        },
+        {
+          "id": "1f3a93cd-f425-4063-8673-2fff72367fa6",
+          "name": "different",
+          "type": "string",
+          "description": "Filtra excluindo valores exatos. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09T23:00:00"
+        },
+        {
+          "id": "4d7d10a7-066f-4bfd-82e6-371b1101a239",
+          "name": "like",
+          "type": "string",
+          "description": "Filtra por valor contido. Troque campo na chave da operação pelo campo desejado.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09"
+        },
+        {
+          "id": "baa17718-6e8d-46bd-84a4-c7aaeb28d539",
+          "name": "paginate",
+          "type": "number",
+          "description": "Quantidade de registros por página. Máximo de 1000.",
+          "required": false,
+          "sensitive": false,
+          "sample": "200"
+        },
+        {
+          "id": "439a041a-8bde-4682-908f-20e9ec1d96f5",
+          "name": "page",
+          "type": "number",
+          "description": "Página desejada dentre as disponíveis. Use junto com paginate.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "vacations",
+            "solicitations"
+          ]
+        },
+        "query": [
+          {
+            "key": "match[campo]",
+            "value": "<>match</>",
+            "enabled": true
+          },
+          {
+            "key": "different[campo]",
+            "value": "<>different</>",
+            "enabled": true
+          },
+          {
+            "key": "like[campo]",
+            "value": "<>like</>",
+            "enabled": true
+          },
+          {
+            "key": "paginate",
+            "value": "<>paginate</>",
+            "enabled": true
+          },
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "53fd0a24-cf1f-4e41-a259-6e666cb36005",
+      "name": "Employees - Get vacation solicitation",
+      "description": "Retorna uma solicitação de férias específica de um colaborador.",
+      "parameters": [
+        {
+          "id": "bc13337e-32dc-41ca-99a8-d80f80295d2d",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "ec54b06c-be92-470a-aed1-c1ceb9c04785",
+          "name": "solicitation_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da solicitação de férias.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "vacations",
+            "solicitations",
+            "<>solicitation_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "0aa2368b-3ea5-466b-b722-05730af62fab",
+      "name": "Employees - Get vacation solicitation file",
+      "description": "Retorna um arquivo anexado a uma solicitação de férias de um colaborador.",
+      "parameters": [
+        {
+          "id": "364c3f9f-b04c-4b47-8030-eff084a6f658",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "e0dff22a-b7d6-458f-a312-6c50c02a3d03",
+          "name": "solicitation_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da solicitação de férias.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "01c4518d-9fc2-4e6c-8522-584d083ba631",
+          "name": "file_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do arquivo da solicitação de férias.",
+          "required": true,
+          "sensitive": false,
+          "sample": "a3f1c2d4-5b6e-7890-abcd-ef1234567890"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "vacations",
+            "solicitations",
+            "<>solicitation_id</>",
+            "files",
+            "<>file_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "998549f9-e31c-424f-aa0f-709280b32a16",
+      "name": "Employees - Get vacation periods",
+      "description": "Retorna os períodos aquisitivos de férias de um colaborador, com filtros e paginação opcionais.",
+      "parameters": [
+        {
+          "id": "efd2a592-04fa-41f4-ad64-828676d9b6fa",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "eba5aba3-0234-4941-a463-671505905557",
+          "name": "match",
+          "type": "string",
+          "description": "Filtra por valor exato. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09T23:00:00"
+        },
+        {
+          "id": "8c24e775-bf8d-41ac-b295-a191623d67a2",
+          "name": "different",
+          "type": "string",
+          "description": "Filtra excluindo valores exatos. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09T23:00:00"
+        },
+        {
+          "id": "f57ff4fa-10b9-4cfc-8da5-bcf0375ef40d",
+          "name": "like",
+          "type": "string",
+          "description": "Filtra por valor contido. Troque campo na chave da operação pelo campo desejado.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09"
+        },
+        {
+          "id": "607d941f-ffb5-4038-a031-9cfedabaf558",
+          "name": "paginate",
+          "type": "number",
+          "description": "Quantidade de registros por página. Máximo de 1000.",
+          "required": false,
+          "sensitive": false,
+          "sample": "200"
+        },
+        {
+          "id": "fb4d18c1-4922-4985-b1e0-a31be45939d5",
+          "name": "page",
+          "type": "number",
+          "description": "Página desejada dentre as disponíveis. Use junto com paginate.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "vacations",
+            "periods"
+          ]
+        },
+        "query": [
+          {
+            "key": "match[campo]",
+            "value": "<>match</>",
+            "enabled": true
+          },
+          {
+            "key": "different[campo]",
+            "value": "<>different</>",
+            "enabled": true
+          },
+          {
+            "key": "like[campo]",
+            "value": "<>like</>",
+            "enabled": true
+          },
+          {
+            "key": "paginate",
+            "value": "<>paginate</>",
+            "enabled": true
+          },
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "36205eb4-b8b1-43c2-9510-b966193997ea",
+      "name": "Employees - Get vacation period",
+      "description": "Retorna um período aquisitivo de férias específico de um colaborador.",
+      "parameters": [
+        {
+          "id": "aedd86f5-c1cf-4109-9433-ed23d548c860",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "da0d22da-b22a-4e06-a1e0-01c29b54bcb6",
+          "name": "period_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do período aquisitivo de férias.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "vacations",
+            "periods",
+            "<>period_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "b64a56c1-3c88-411f-81e1-5db56f73abc0",
+      "name": "Employees - Start admission",
+      "description": "Inicia o processo de admissão de um colaborador na Convenia.",
+      "parameters": [
+        {
+          "id": "d02af465-1cd7-4a50-9a9d-9e2936a37fec",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\":\"Maria\",\"last_name\":\"Silva\",\"relationship_id\":1,\"hiring_date\":\"2024-03-01\",\"documents\":{\"cpf\":\"12345678901\"}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "admission"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "70e3a954-c28f-4138-b4e1-9352b700bed5",
+      "name": "Employees - Start dismissal",
+      "description": "Inicia o processo de desligamento de um colaborador.",
+      "parameters": [
+        {
+          "id": "c1cb40c8-e669-4367-a1cc-5a186a012a63",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "a5affd81-01e5-40e1-8595-298b29274567",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"dismissal_date\":\"2024-06-30\",\"dismissal_type_id\":1,\"remove_access_date\":\"2024-06-30\",\"termination_notice_type_id\":1}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "dismissal"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "95569aa7-8e8f-40cb-912c-efac466e8bb5",
+      "name": "Employees - Set custom field values",
+      "description": "Atribui valores aos campos customizados de um colaborador.",
+      "parameters": [
+        {
+          "id": "a8e74ad8-8b42-4e14-93ff-f41d927dd780",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "654287b8-0544-4a21-99fb-79be7a2191ee",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"custom_fields\":[{\"custom_field_id\":\"521260c6-3433-49d2-800a-48e614958183\",\"value\":\"Exemplo\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "custom-field-value"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "2bd0928c-0018-40eb-ae1c-5b369cf2a656",
+      "name": "Employees - Upload document file",
+      "description": "Envia um anexo para um documento pessoal do colaborador.",
+      "parameters": [
+        {
+          "id": "3d823544-59a9-4435-af17-c1892f2dfef4",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "116dbae3-7348-4e5e-9ef3-3c32fce6db3d",
+          "name": "document_type",
+          "type": "string",
+          "description": "Tipo do documento que recebe o anexo. Valores aceitos: cpf, ctps, rg, driver-license, reservist e electoral-card.",
+          "required": true,
+          "sensitive": false,
+          "sample": "electoral-card"
+        },
+        {
+          "id": "b4eb40dc-2907-4130-a83f-b64660900da8",
+          "name": "document_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do documento que recebe o anexo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "d3756e1a-3c29-438b-9f0e-3544122783b5",
+          "name": "file",
+          "type": "string",
+          "description": "Conteúdo do arquivo anexado. Formatos aceitos: pdf, doc, docx, xls, xlsx, ppt, pptx, txt, gif, jpeg, jpg, png, zip, rar e gz.",
+          "required": true,
+          "sensitive": false,
+          "sample": "conteudo-binario-do-arquivo"
+        },
+        {
+          "id": "55a5ee2e-56ff-44f8-892a-ceafbf76daad",
+          "name": "mime_type",
+          "type": "string",
+          "description": "Tipo MIME do arquivo enviado.",
+          "required": true,
+          "sensitive": false,
+          "sample": "application/pdf"
+        },
+        {
+          "id": "6bbe90fa-554a-4b24-ab36-830271751e50",
+          "name": "file_name",
+          "type": "string",
+          "description": "Nome do arquivo enviado, com extensão.",
+          "required": true,
+          "sensitive": false,
+          "sample": "comprovante.pdf"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "<>document_type</>",
+            "<>document_id</>",
+            "document-files"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "file:<>file</>:mime:<>mime_type</>:filename:<>file_name</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "75e65714-d815-4329-b6da-261f86114949",
+      "name": "Employees - Update employee",
+      "description": "Atualiza os dados cadastrais de um colaborador.",
+      "parameters": [
+        {
+          "id": "d522500a-6acf-4de9-99bb-28e66ea646fd",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "24bf69d2-9658-41e2-81e7-01cf395eb4be",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"employee\":{\"name\":\"Maria\"},\"contact_information\":{\"personal_email\":\"maria@exemplo.com.br\"}}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "ffd678c3-1682-4f0c-b82b-e12a6d529226",
+      "name": "Dependents - Update dependent",
+      "description": "Atualiza os dados de um dependente de um colaborador.",
+      "parameters": [
+        {
+          "id": "20c934d0-1db3-4d52-8d40-24debc6b7742",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "49322c5f-f6a9-42d2-992d-ffe19ed144b9",
+          "name": "dependent_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do dependente.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "9822aba0-7eb6-46aa-826e-99f04786238d",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\":\"João\",\"last_name\":\"Silva\",\"birth_date\":\"2015-04-10\",\"ir\":true}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "dependents",
+            "<>dependent_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "16db8193-4cd7-4f63-bf73-df0b80823eec",
+      "name": "Emergency Contacts - Update contact",
+      "description": "Atualiza os dados de um contato de emergência de um colaborador.",
+      "parameters": [
+        {
+          "id": "ba818f0c-1515-4a48-b127-86fbe459c727",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "2104f220-8c58-40a9-bf1b-2416b9ed5cec",
+          "name": "emergency_contact_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do contato de emergência.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "47ee31f6-dba4-4e7c-8597-a18736b8588b",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\":\"Ana Souza\",\"emergency_contact_relation_id\":1,\"cellphone\":\"11999998888\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "emergency-contacts",
+            "<>emergency_contact_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "37a17cda-2404-4438-81bd-789fd4b0c1e0",
+      "name": "Bank Accounts - Update bank account",
+      "description": "Atualiza os dados bancários de um colaborador.",
+      "parameters": [
+        {
+          "id": "7e9b75a2-5e98-4445-b8d4-49811d4f9598",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "0bc659d7-235f-4624-8f00-293fe32ddcc8",
+          "name": "bank_account_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da conta bancária.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "4d5c25ed-39eb-4acc-b241-daf029ec75ff",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"account\":\"123456\",\"agency\":\"0001\",\"digit\":\"9\",\"bank_id\":1,\"modality\":\"PF\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "bank-accounts",
+            "<>bank_account_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "8f63d826-b8a7-4d17-b303-e639a10f6eb4",
+      "name": "Educations - Create education",
+      "description": "Cria um registro de formação acadêmica para um colaborador.",
+      "parameters": [
+        {
+          "id": "b6f98d13-1575-4b08-9a9d-2d3605b2e8c4",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "20295bce-aec3-4493-8017-824e29e00368",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"education_type_id\":1,\"course\":\"Administração\",\"institution\":\"USP\",\"graduation_year\":2020}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "educations"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "0b3f1398-19b6-4b83-a93c-5503b9f0ecbb",
+      "name": "Educations - Update education",
+      "description": "Atualiza um registro de formação acadêmica de um colaborador.",
+      "parameters": [
+        {
+          "id": "36c8cb03-1e1f-4760-a445-e5db87ac5b7a",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "bf46a986-2355-4a64-a99c-d478c1008c5a",
+          "name": "education_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da formação acadêmica.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "807ebc01-8280-4c4a-80af-c82383bbc429",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"education_type_id\":1,\"course\":\"Administração\",\"institution\":\"USP\",\"graduation_year\":2020}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "educations",
+            "<>education_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "8cdda68b-7bad-4507-92de-1b329221d1ec",
+      "name": "Educations - Delete education",
+      "description": "Exclui um registro de formação acadêmica de um colaborador.",
+      "parameters": [
+        {
+          "id": "2cbb14f0-7269-48d5-853d-d1671ae374af",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "a5f17b35-3ad9-45d0-8e47-bc94b5340cc7",
+          "name": "education_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da formação acadêmica.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "educations",
+            "<>education_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "58d9ef15-345e-4b10-9e3b-32b7f9ed83a2",
+      "name": "Salaries History - Create salary record",
+      "description": "Cria um registro de vínculo e salário para um colaborador.",
+      "parameters": [
+        {
+          "id": "f7e1a3b8-f6ae-4741-a347-97017204f550",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "78d51073-cb1d-4d1b-8af9-2da4cdc8eb2d",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"salary\":5000.00,\"relationship_id\":1,\"department_id\":\"521260c6-3433-49d2-800a-48e614958183\",\"motive_id\":1,\"date_from\":\"2024-01-01\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "salaries-history"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "56bd497b-c0cb-44d3-ab1f-758400af81f2",
+      "name": "Salaries History - Update salary record",
+      "description": "Atualiza um registro de vínculo e salário de um colaborador.",
+      "parameters": [
+        {
+          "id": "912cc34a-ec94-4532-a582-c59730b16ed2",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "cff9c500-c156-489a-b237-ee9e5487f6e0",
+          "name": "salary_record_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do registro de vínculo e salário.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "4aa9797f-2f55-4a97-9894-4b35329f08eb",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"salary\":5500.00,\"motive_id\":1,\"date_from\":\"2024-07-01\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "salaries-history",
+            "<>salary_record_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "edad5629-8060-4e9a-81d7-371f7eada890",
+      "name": "Absences - Get absence motives",
+      "description": "Retorna os motivos de faltas e afastamentos disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "absences",
+            "motives"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "0844d1eb-505d-43a5-9a2a-7b17d5e45d87",
+      "name": "Absences - Get absence types",
+      "description": "Retorna os tipos de faltas e afastamentos disponíveis na Convenia.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "absences",
+            "types"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "9c69578b-e74b-4c2f-a07a-aa7e00cf8271",
+      "name": "Absences - Get all absences",
+      "description": "Retorna todas as faltas e afastamentos de um colaborador.",
+      "parameters": [
+        {
+          "id": "b2a66412-aa85-46d5-a746-002814b451ae",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "absences"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "69473ddd-d29a-4c22-9b0c-c19b0aff7d3b",
+      "name": "Absences - Get absence",
+      "description": "Retorna uma falta ou afastamento específico de um colaborador.",
+      "parameters": [
+        {
+          "id": "373dcbf6-8b9d-4ab8-a39a-d86767de2117",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "dcfe114a-a235-4eaa-9a52-c01108e64100",
+          "name": "absence_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da falta ou afastamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "absences",
+            "<>absence_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "98ef0261-572a-487b-a972-9b8869b053a7",
+      "name": "Absences - Create absence",
+      "description": "Cria uma falta ou afastamento para um colaborador.",
+      "parameters": [
+        {
+          "id": "28e97a0e-14be-41a4-82c6-0eac7f8ca87d",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "0200ebe9-e14a-4c9f-9de8-0ab5636d55b2",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"date_from\":\"2024-05-10\",\"date_to\":\"2024-05-12\",\"absence_type_id\":1,\"justification\":\"Atestado médico\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "absences"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "b9db3976-99d0-4e44-9ae4-7d1be0557f3b",
+      "name": "Absences - Update absence",
+      "description": "Atualiza uma falta ou afastamento de um colaborador.",
+      "parameters": [
+        {
+          "id": "ac20b697-29bb-4e46-b9d7-094935ab8671",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "20002d38-494d-4749-a452-ecd39f16da95",
+          "name": "absence_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da falta ou afastamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "5c9e46b6-8821-4d99-8e2a-c7a91b44aa17",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"date_from\":\"2024-05-10\",\"date_to\":\"2024-05-13\",\"justification\":\"Atestado médico\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "absences",
+            "<>absence_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "e800dc66-6151-4b20-bf7f-de055650f11e",
+      "name": "Absences - Delete absence",
+      "description": "Exclui uma falta ou afastamento de um colaborador.",
+      "parameters": [
+        {
+          "id": "403ca2fb-2563-4f8d-89e0-9fc1caddb9bb",
+          "name": "employee_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86"
+        },
+        {
+          "id": "0a0e68c4-1ea7-4f85-8002-636bca50365f",
+          "name": "absence_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da falta ou afastamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "employees",
+            "<>employee_id</>",
+            "absences",
+            "<>absence_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "423349a5-fd67-4b0d-b308-bc3b27082293",
+      "name": "Company - Get custom fields",
+      "description": "Retorna todos os campos customizados configurados na empresa.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "custom-fields"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "c519ee89-78d6-4b95-b363-9278d17adab3",
+      "name": "Company - Get collective vacations",
+      "description": "Retorna as solicitações de férias coletivas da empresa, com filtros e paginação opcionais.",
+      "parameters": [
+        {
+          "id": "4b150e8a-ee9a-44a8-b0ad-4b164a4e776f",
+          "name": "match",
+          "type": "string",
+          "description": "Filtra por valor exato. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09T23:00:00"
+        },
+        {
+          "id": "df1b40e9-bc0e-4662-839b-8ae66f217945",
+          "name": "different",
+          "type": "string",
+          "description": "Filtra excluindo valores exatos. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09T23:00:00"
+        },
+        {
+          "id": "61e72bcf-78eb-4880-8d03-0c6ffcb39875",
+          "name": "like",
+          "type": "string",
+          "description": "Filtra por valor contido. Troque campo na chave da operação pelo campo desejado.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09"
+        },
+        {
+          "id": "02d32f7c-713c-4dd6-b24c-b99357644939",
+          "name": "paginate",
+          "type": "number",
+          "description": "Quantidade de registros por página. Máximo de 1000.",
+          "required": false,
+          "sensitive": false,
+          "sample": "200"
+        },
+        {
+          "id": "3ac11076-8a56-4288-81b8-a135b6603c84",
+          "name": "page",
+          "type": "number",
+          "description": "Página desejada dentre as disponíveis. Use junto com paginate.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "collective-vacations"
+          ]
+        },
+        "query": [
+          {
+            "key": "match[campo]",
+            "value": "<>match</>",
+            "enabled": true
+          },
+          {
+            "key": "different[campo]",
+            "value": "<>different</>",
+            "enabled": true
+          },
+          {
+            "key": "like[campo]",
+            "value": "<>like</>",
+            "enabled": true
+          },
+          {
+            "key": "paginate",
+            "value": "<>paginate</>",
+            "enabled": true
+          },
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "41f68910-7c29-4f6a-a884-46318a612bc1",
+      "name": "Company - Get collective vacation",
+      "description": "Retorna uma solicitação de férias coletivas específica da empresa.",
+      "parameters": [
+        {
+          "id": "ff4ef6f1-d29a-4989-9da5-dfb80dab0b66",
+          "name": "collective_vacation_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da solicitação de férias coletivas.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "collective-vacations",
+            "<>collective_vacation_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "110397e9-f9e6-4862-8cf9-c54ccbf29f8f",
+      "name": "Benefits - Get all benefits",
+      "description": "Retorna todos os benefícios cadastrados na empresa.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "benefits"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "24bb8477-a653-4e9f-85cd-a653c4e416d9",
+      "name": "Benefits - Get benefit",
+      "description": "Retorna um benefício específico da empresa.",
+      "parameters": [
+        {
+          "id": "e34b9de2-c2c8-4c71-a173-ed40546d0078",
+          "name": "benefit_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do benefício.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "benefits",
+            "<>benefit_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "2affc637-222f-4b1e-af99-a58377cf1325",
+      "name": "Benefits - Get benefit employees",
+      "description": "Retorna os colaboradores vinculados a um benefício da empresa.",
+      "parameters": [
+        {
+          "id": "7ef6d5c5-1902-464f-b594-92a57a049957",
+          "name": "benefit_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do benefício.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "benefits",
+            "<>benefit_id</>",
+            "employees"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "0d47439c-49db-4530-a93d-b177b14834ac",
+      "name": "Benefits - Upsert benefit employees",
+      "description": "Vincula ou desvincula colaboradores de um benefício, conforme o campo is_active de cada item.",
+      "parameters": [
+        {
+          "id": "6f4e4a90-56bf-4e46-8362-158f0053f803",
+          "name": "benefit_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do benefício.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "8a4fc2f1-8119-4c69-9ff5-6193727e5b53",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"employees\":[{\"employee_id\":\"1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86\",\"is_active\":true,\"company_cost_value\":100,\"employee_cost_value\":50}]}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "benefits",
+            "<>benefit_id</>",
+            "upsert-employees"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "8b8ef9fe-e4ba-474e-8974-f652f48142be",
+      "name": "Benefits - Upsert benefit dependents",
+      "description": "Vincula ou desvincula dependentes de um benefício, conforme o campo is_active de cada item.",
+      "parameters": [
+        {
+          "id": "103fc0c8-f14a-4c76-b719-9c17155c193c",
+          "name": "benefit_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do benefício.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "caff047c-89a2-43a0-8ca4-7e3a416efe79",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"dependentes\":[{\"employee_id\":\"1d93b0b1-6b93-4670-b8ae-7f4df7f3ff86\",\"dependent_id\":\"521260c6-3433-49d2-800a-48e614958183\",\"is_active\":true}]}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "benefits",
+            "<>benefit_id</>",
+            "upsert-dependents"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "64367a07-8d00-46b8-bcce-38c09e973bfb",
+      "name": "Teams - Get all teams",
+      "description": "Retorna todos os times cadastrados na empresa.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "teams"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "1b69779f-4224-4744-84ea-a06eb972d108",
+      "name": "Departments - Get all departments",
+      "description": "Retorna todos os departamentos cadastrados na empresa.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "departments"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "c01fc005-e74d-44a2-bfbb-adff335df047",
+      "name": "Departments - Create department",
+      "description": "Cria um departamento na empresa.",
+      "parameters": [
+        {
+          "id": "18c543c1-51eb-4bd0-98d3-2d75bfb2b0b8",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\":\"Tecnologia\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "departments"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "afbdd1c8-a166-4fd0-91bb-996f278c7ac7",
+      "name": "Departments - Update department",
+      "description": "Atualiza o nome de um departamento da empresa.",
+      "parameters": [
+        {
+          "id": "63c0514d-a4ad-4fa2-a694-4e166e83c609",
+          "name": "department_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do departamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "c1423065-da9e-40c9-b1d7-f8edcaf89f43",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\":\"Tecnologia e Produto\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "departments",
+            "<>department_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "0abcd0ed-9111-48c8-81a9-60c3946286fc",
+      "name": "Departments - Delete department",
+      "description": "Exclui um departamento e transfere seus colaboradores para o departamento indicado em transfer_to.",
+      "parameters": [
+        {
+          "id": "106f9a2c-7b8b-4c12-a8cf-75f88caf5174",
+          "name": "department_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do departamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "40bfb191-7519-4b72-9f89-c95448e34b5b",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"transfer_to\":\"a3f1c2d4-5b6e-7890-abcd-ef1234567890\"}"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "departments",
+            "<>department_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "9fb211ad-4f3c-4b2a-bd48-b6d2d723829e",
+      "name": "Cost Centers - Get all cost centers",
+      "description": "Retorna todos os centros de custo cadastrados na empresa.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "cost-centers"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "6db7ca0a-7be4-44e7-acee-99f2f371f48a",
+      "name": "Cost Centers - Create cost center",
+      "description": "Cria um centro de custo na empresa. A documentação usa o caminho no singular nesta operação.",
+      "parameters": [
+        {
+          "id": "237a97d3-6ce7-4f51-83b8-329be19615da",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\":\"Comercial\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "cost-center"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "5e11ef33-adb3-45c2-bbb8-6b46a1a83e29",
+      "name": "Cost Centers - Update cost center",
+      "description": "Atualiza o nome de um centro de custo da empresa.",
+      "parameters": [
+        {
+          "id": "4f8595fc-1511-457b-894b-03916619cd11",
+          "name": "cost_center_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do centro de custo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "b686abd0-2277-4ca3-8f63-2cf0af015477",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\":\"Comercial Interno\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "cost-centers",
+            "<>cost_center_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "d60a957e-5c0e-4fb4-b24d-7bf0d3436e02",
+      "name": "Cost Centers - Delete cost center",
+      "description": "Exclui um centro de custo e transfere seus vínculos para o centro de custo informado no corpo.",
+      "parameters": [
+        {
+          "id": "fea39bf6-a47d-43aa-b8bb-649d817c1482",
+          "name": "cost_center_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do centro de custo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "3dc51d67-fc30-4f7f-9c87-0654418420ca",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\":\"a3f1c2d4-5b6e-7890-abcd-ef1234567890\"}"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "cost-centers",
+            "<>cost_center_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "e9f65d20-1267-47b0-9fea-7812c38893b7",
+      "name": "Jobs - Get all jobs",
+      "description": "Retorna todos os cargos cadastrados na empresa.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "jobs"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "24987a17-7b6c-4536-88af-744a2daf5288",
+      "name": "Jobs - Create job",
+      "description": "Cria um cargo na empresa.",
+      "parameters": [
+        {
+          "id": "30a7b6b8-f7b5-4926-a6f3-3dc25a47b523",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\":\"Analista de Sistemas\",\"cbo_code\":\"212405\",\"apprentice_quota\":false}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "jobs"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "c118819d-d8d9-4134-9eac-041b940aeecb",
+      "name": "Jobs - Update job",
+      "description": "Atualiza os dados de um cargo da empresa.",
+      "parameters": [
+        {
+          "id": "6181eef9-70d8-460c-bf3b-489f00bf9051",
+          "name": "job_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do cargo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "fc64d56d-7a8f-4637-aaba-eb6ff0914ac3",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\":\"Analista de Sistemas Sênior\",\"cbo_code\":\"212405\"}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "jobs",
+            "<>job_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "d2be706a-4f99-4dfc-9b7f-b90a70f6b716",
+      "name": "Jobs - Delete job",
+      "description": "Exclui um cargo e transfere seus colaboradores para o cargo indicado em transfer_to.",
+      "parameters": [
+        {
+          "id": "54a5c4b7-cac9-42f6-a73f-3601ac4cde71",
+          "name": "job_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do cargo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "736d1ff6-1eb4-41f9-85f3-ec4bf5b7517f",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da requisição em formato JSON. Informe o objeto completo na sintaxe da API da Convenia; campos com colchetes na documentação, como documents[cpf], vão como objetos aninhados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"transfer_to\":\"a3f1c2d4-5b6e-7890-abcd-ef1234567890\"}"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "companies",
+            "jobs",
+            "<>job_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "bab71465-abb2-4365-a18d-14fc4796d0d2",
+      "name": "Payrolls - Get all payrolls",
+      "description": "Retorna todas as folhas de pagamento da empresa, com filtros e paginação opcionais.",
+      "parameters": [
+        {
+          "id": "c29792e7-89fe-45a0-b0fa-6f0966a98c35",
+          "name": "match",
+          "type": "string",
+          "description": "Filtra por valor exato. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09T23:00:00"
+        },
+        {
+          "id": "76102b37-0aca-4898-8684-56d1f84f4939",
+          "name": "different",
+          "type": "string",
+          "description": "Filtra excluindo valores exatos. Troque campo na chave da operação pelo campo desejado; vários valores separados por vírgula.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09-09T23:00:00"
+        },
+        {
+          "id": "1c27f648-450c-4482-9f8a-948966e1b2b6",
+          "name": "like",
+          "type": "string",
+          "description": "Filtra por valor contido. Troque campo na chave da operação pelo campo desejado.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2020-09"
+        },
+        {
+          "id": "0928d759-ca34-467c-be80-d73e3807afcb",
+          "name": "paginate",
+          "type": "number",
+          "description": "Quantidade de registros por página. Máximo de 1000.",
+          "required": false,
+          "sensitive": false,
+          "sample": "200"
+        },
+        {
+          "id": "74b0ae6f-23b5-4e97-a3e8-552dd4ba2428",
+          "name": "page",
+          "type": "number",
+          "description": "Página desejada dentre as disponíveis. Use junto com paginate.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "payrolls"
+          ]
+        },
+        "query": [
+          {
+            "key": "match[campo]",
+            "value": "<>match</>",
+            "enabled": true
+          },
+          {
+            "key": "different[campo]",
+            "value": "<>different</>",
+            "enabled": true
+          },
+          {
+            "key": "like[campo]",
+            "value": "<>like</>",
+            "enabled": true
+          },
+          {
+            "key": "paginate",
+            "value": "<>paginate</>",
+            "enabled": true
+          },
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "5e2d10c2-1846-400e-917b-e82fadda5d27",
+      "name": "Payrolls - Get payroll",
+      "description": "Retorna uma folha de pagamento específica da empresa.",
+      "parameters": [
+        {
+          "id": "15c618db-f90d-4a76-8165-21897fc0f945",
+          "name": "payroll_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da folha de pagamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "payrolls",
+            "<>payroll_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "595254fb-fcc7-4b06-9492-6d2e33253f9d",
+      "name": "Payrolls - Get payroll file",
+      "description": "Retorna um arquivo de uma folha de pagamento específica da empresa.",
+      "parameters": [
+        {
+          "id": "caa8b8d1-e19e-403c-bd46-0434b4c41c3f",
+          "name": "payroll_id",
+          "type": "string",
+          "description": "Identificador único (UUID) da folha de pagamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "521260c6-3433-49d2-800a-48e614958183"
+        },
+        {
+          "id": "ccfcad74-d2ab-46dd-a282-e48d68824f6b",
+          "name": "payroll_file_id",
+          "type": "string",
+          "description": "Identificador único (UUID) do arquivo da folha de pagamento.",
+          "required": true,
+          "sensitive": false,
+          "sample": "a3f1c2d4-5b6e-7890-abcd-ef1234567890"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "api",
+            "v3",
+            "payrolls",
+            "<>payroll_id</>",
+            "files",
+            "<>payroll_file_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "module": {
+    "name": "Mercado Pago",
+    "description": "Conector REST para a API do Mercado Pago: pagamentos, checkout, Orders API, assinaturas, clientes, contestacoes, relatorios, presencial e Wallet Connect.",
+    "authentication_type": "oauth-2",
+    "strip_path_prefix": [
+      "v1"
+    ]
+  },
+  "include_roots": [
+    "account",
+    "advanced_payments",
+    "authorized_payments",
+    "card_tokens",
+    "chargebacks",
+    "checkout",
+    "customers",
+    "identification_types",
+    "instore",
+    "merchant_orders",
+    "mpmobile",
+    "oauth",
+    "orders",
+    "payment_methods",
+    "payments",
+    "payouts",
+    "point",
+    "pos",
+    "post-purchase",
+    "preapproval",
+    "preapproval_plan",
+    "stores",
+    "terminals",
+    "transaction-intents",
+    "users",
+    "v2"
+  ],
+  "domains": {
+    "account.release_report": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.release_report.config": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.release_report.list": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.release_report.schedule": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.release_report.search": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.release_report.task": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.settlement_report": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.settlement_report.config": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.settlement_report.list": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.settlement_report.schedule": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.settlement_report.search": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "account.settlement_report.task": {
+      "domain": "Reports",
+      "block": "reports"
+    },
+    "advanced_payments": {
+      "domain": "Advanced Payments",
+      "block": "marketplace"
+    },
+    "authorized_payments": {
+      "domain": "Authorized Payments",
+      "block": "subscriptions"
+    },
+    "card_tokens": {
+      "domain": "Card Tokens",
+      "block": "payments"
+    },
+    "chargebacks": {
+      "domain": "Chargebacks",
+      "block": "disputes"
+    },
+    "checkout.preferences": {
+      "domain": "Checkout",
+      "block": "payments"
+    },
+    "checkout.preferences.search": {
+      "domain": "Checkout",
+      "block": "payments"
+    },
+    "customers": {
+      "domain": "Customers",
+      "block": "customers"
+    },
+    "customers.addresses": {
+      "domain": "Customers",
+      "block": "customers"
+    },
+    "customers.cards": {
+      "domain": "Customers",
+      "block": "customers"
+    },
+    "customers.delete": {
+      "domain": "Customers",
+      "block": "customers"
+    },
+    "customers.search": {
+      "domain": "Customers",
+      "block": "customers"
+    },
+    "identification_types": {
+      "domain": "Identification Types",
+      "block": "payments"
+    },
+    "instore.integrator": {
+      "domain": "Instore",
+      "block": "instore"
+    },
+    "instore.orders.confirmation": {
+      "domain": "Instore",
+      "block": "instore"
+    },
+    "instore.orders.qr.seller.collectors.pos.qrs": {
+      "domain": "Instore",
+      "block": "instore"
+    },
+    "instore.qr.seller.collectors.pos.orders": {
+      "domain": "Instore",
+      "block": "instore"
+    },
+    "instore.qr.seller.collectors.stores.pos.orders": {
+      "domain": "Instore",
+      "block": "instore"
+    },
+    "merchant_orders": {
+      "domain": "Merchant Orders",
+      "block": "payments"
+    },
+    "merchant_orders.search": {
+      "domain": "Merchant Orders",
+      "block": "payments"
+    },
+    "mpmobile.instore.qr": {
+      "domain": "MP Mobile",
+      "block": "instore"
+    },
+    "oauth.token": {
+      "domain": "OAuth",
+      "block": "marketplace"
+    },
+    "orders": {
+      "domain": "Orders",
+      "block": "orders"
+    },
+    "orders.cancel": {
+      "domain": "Orders",
+      "block": "orders"
+    },
+    "orders.capture": {
+      "domain": "Orders",
+      "block": "orders"
+    },
+    "orders.process": {
+      "domain": "Orders",
+      "block": "orders"
+    },
+    "orders.refund": {
+      "domain": "Orders",
+      "block": "orders"
+    },
+    "orders.transactions": {
+      "domain": "Orders",
+      "block": "orders"
+    },
+    "payment_methods": {
+      "domain": "Payment Methods",
+      "block": "payments"
+    },
+    "payment_methods.installments": {
+      "domain": "Payment Methods",
+      "block": "payments"
+    },
+    "payments": {
+      "domain": "Payments",
+      "block": "payments"
+    },
+    "payments.cancellations": {
+      "domain": "Payments",
+      "block": "payments"
+    },
+    "payments.refunds": {
+      "domain": "Payments",
+      "block": "payments"
+    },
+    "payments.search": {
+      "domain": "Payments",
+      "block": "payments"
+    },
+    "payouts": {
+      "domain": "Payouts",
+      "block": "marketplace"
+    },
+    "payouts.transactions": {
+      "domain": "Payouts",
+      "block": "marketplace"
+    },
+    "payouts.transactions.cancel": {
+      "domain": "Payouts",
+      "block": "marketplace"
+    },
+    "point.integration-api.devices": {
+      "domain": "Point",
+      "block": "instore"
+    },
+    "point.integration-api.devices.payment-intents": {
+      "domain": "Point",
+      "block": "instore"
+    },
+    "point.integration-api.devices.refund": {
+      "domain": "Point",
+      "block": "instore"
+    },
+    "point.integration-api.payment-intents": {
+      "domain": "Point",
+      "block": "instore"
+    },
+    "point.integration-api.refund": {
+      "domain": "Point",
+      "block": "instore"
+    },
+    "pos": {
+      "domain": "POS",
+      "block": "instore"
+    },
+    "post-purchase.v1.claims": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.actions.evidences": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.actions.open-dispute": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.actions.send-message": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.attachments": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.attachments.download": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.evidences": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.expected-resolutions": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.messages": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.reasons": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.search": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "post-purchase.v1.claims.status_history": {
+      "domain": "Claims",
+      "block": "disputes"
+    },
+    "preapproval": {
+      "domain": "Preapproval",
+      "block": "subscriptions"
+    },
+    "preapproval.export": {
+      "domain": "Preapproval",
+      "block": "subscriptions"
+    },
+    "preapproval.search": {
+      "domain": "Preapproval",
+      "block": "subscriptions"
+    },
+    "preapproval_plan": {
+      "domain": "Preapproval Plan",
+      "block": "subscriptions"
+    },
+    "preapproval_plan.search": {
+      "domain": "Preapproval Plan",
+      "block": "subscriptions"
+    },
+    "stores": {
+      "domain": "Stores",
+      "block": "instore"
+    },
+    "terminals.v1.actions": {
+      "domain": "Terminals",
+      "block": "instore"
+    },
+    "terminals.v1.actions.cancel": {
+      "domain": "Terminals",
+      "block": "instore"
+    },
+    "terminals.v1.list": {
+      "domain": "Terminals",
+      "block": "instore"
+    },
+    "terminals.v1.setup": {
+      "domain": "Terminals",
+      "block": "instore"
+    },
+    "transaction-intents": {
+      "domain": "Transaction Intents",
+      "block": "orders"
+    },
+    "transaction-intents.process": {
+      "domain": "Transaction Intents",
+      "block": "orders"
+    },
+    "users.pos": {
+      "domain": "Users",
+      "block": "instore"
+    },
+    "users.stores": {
+      "domain": "Users",
+      "block": "instore"
+    },
+    "users.stores.search": {
+      "domain": "Users",
+      "block": "instore"
+    },
+    "v2.wallet_connect.agreements": {
+      "domain": "Wallet Connect",
+      "block": "wallet-connect"
+    },
+    "v2.wallet_connect.agreements.payer_token": {
+      "domain": "Wallet Connect",
+      "block": "wallet-connect"
+    },
+    "v2.wallet_connect.coupons": {
+      "domain": "Wallet Connect",
+      "block": "wallet-connect"
+    },
+    "v2.wallet_connect.discounts": {
+      "domain": "Wallet Connect",
+      "block": "wallet-connect"
+    }
+  },
+  "overrides": {
+    "path_params": {
+      "pos:id": "pos_id",
+      "point.integration-api.devices.payment-intents:deviceid": "device_id",
+      "point.integration-api.devices.payment-intents:paymentintentid": "payment_intent_id",
+      "point.integration-api.devices.refund:deviceid": "device_id",
+      "point.integration-api.devices.refund:refundintentid": "refund_intent_id",
+      "point.integration-api.payment-intents:paymentintentid": "payment_intent_id",
+      "point.integration-api.refund:refundintentid": "refund_intent_id"
+    }
+  }
+}
