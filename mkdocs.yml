@@ -15,14 +15,22 @@ hooks:
 nav:
 - Início: index.md
 - Conectores:
+  - ClickUp: connectors/clickup.md
+  - Convenia: connectors/convenia.md
   - Databricks: connectors/databricks.md
   - GitHub: connectors/github.md
+  - HubSpot CRM: connectors/hubspot-crm.md
   - iFood: connectors/ifood.md
   - Jira: connectors/jira.md
   - Mailgun: connectors/mailgun.md
+  - Mercado Livre: connectors/mercado-livre.md
+  - Mercado Pago: connectors/mercado-pago.md
   - Notion: connectors/notion.md
+  - Pipedrive: connectors/pipedrive.md
+  - QuickBooks Online: connectors/quickbooks-online.md
   - Service Now: connectors/service-now.md
   - Stripe: connectors/stripe.md
+  - SurveyMonkey: connectors/surveymonkey.md
   - Twilio: connectors/twilio.md
   - Xero: connectors/xero.md
   - Zendesk: connectors/zendesk.md
@@ -36,4 +44,5 @@ nav:
   - Callback OAuth2:
     - Contexto: dev-flow/callback/contexto.md
     - Postman: dev-flow/callback/oauth2postman.md
+    - Webhook: dev-flow/callback/webhook.md
 - IAC: iac-viewer.md
