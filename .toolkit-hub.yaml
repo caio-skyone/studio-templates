@@ -4,7 +4,7 @@ toolkits:
     version: v0.6.0
     sha: 14e692870ee8ea84c66a5b8c342a5702384c6800
     scope: local
-    installed_at: '2026-09-10T12:10:43.917341Z'
+    installed_at: '2026-09-22T14:45:20.828428Z'
     files:
       - dst: .mcp.json
         sha256: 95ab99a74af30adf3bb3991c54e6a3658fec14e90d7db6f834af772f5299f46f
