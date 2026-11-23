@@ -89,56 +89,56 @@ refresh token, a aplica√ß√£o precisa ter o escopo `offline_access`.
 
 | Nome da Opera√ß√£o | M√©todo | Descri√ß√£o da Fun√ß√£o |
 | :--------------- | :----- | :------------------ |
-| **Sites - Get all sites** | **GET** | Lista os sites (paÌses) onde o Mercado Livre opera, com a moeda padr„o de cada um. |
-| **Sites - Get listing types** | **GET** | Lista os tipos de publicaÁ„o disponÌveis no site. |
-| **Sites - Get listing exposures** | **GET** | Lista os nÌveis de exposiÁ„o associados aos tipos de publicaÁ„o do site. |
-| **Sites - Get listing prices** | **GET** | Consulta as tarifas de venda e publicaÁ„o para um preÁo, tipo de publicaÁ„o e categoria. |
-| **Categories - Get site categories** | **GET** | Lista as categorias de primeiro nÌvel do site. |
-| **Categories - Get category by id** | **GET** | ObtÈm os detalhes de uma categoria, incluindo caminho na ·rvore, subcategorias e configuraÁıes. |
+| **Sites - Get all sites** | **GET** | Lista os sites (pa√≠ses) onde o Mercado Livre opera, com a moeda padr√£o de cada um. |
+| **Sites - Get listing types** | **GET** | Lista os tipos de publica√ß√£o dispon√≠veis no site. |
+| **Sites - Get listing exposures** | **GET** | Lista os n√≠veis de exposi√ß√£o associados aos tipos de publica√ß√£o do site. |
+| **Sites - Get listing prices** | **GET** | Consulta as tarifas de venda e publica√ß√£o para um pre√ßo, tipo de publica√ß√£o e categoria. |
+| **Categories - Get site categories** | **GET** | Lista as categorias de primeiro n√≠vel do site. |
+| **Categories - Get category by id** | **GET** | Obt√©m os detalhes de uma categoria, incluindo caminho na √°rvore, subcategorias e configura√ß√µes. |
 | **Categories - Get category attributes** | **GET** | Lista os atributos e regras usados para descrever os itens da categoria. |
-| **Categories - Get category sale terms** | **GET** | Lista os termos de venda aceitos pela categoria, como garantia e prazo de fabricaÁ„o. |
-| **Categories - Get promotion packs** | **GET** | Lista os pacotes promocionais de classificados disponÌveis para a categoria. |
-| **Categories - Predict category** | **GET** | Sugere domÌnio, categoria e atributos para um item a partir do tÌtulo informado. |
-| **Domains - Get technical specs** | **GET** | ObtÈm a ficha tÈcnica do domÌnio, com grupos e atributos de entrada e saÌda. |
-| **Users - Get authenticated user** | **GET** | ObtÈm os dados do usu·rio dono do token de acesso, incluindo o id usado como seller. |
-| **Items - Create item** | **POST** | Cria uma publicaÁ„o (item) com tÌtulo, categoria, preÁo, estoque, imagens e atributos. |
-| **Items - Get item by id** | **GET** | ObtÈm os dados completos de uma publicaÁ„o. |
-| **Items - Get multiple items** | **GET** | ObtÈm v·rias publicaÁıes de uma vez, com atÈ 20 ids, opcionalmente limitando os campos retornados. |
-| **Items - Update item** | **PUT** | Atualiza uma publicaÁ„o: preÁo, estoque, tÌtulo, imagens, atributos ou status (paused, active, closed). |
-| **Items - Relist item** | **POST** | Republica um item finalizado, criando uma nova publicaÁ„o com preÁo, quantidade e tipo informados. |
-| **Items - Search seller items** | **GET** | Busca os ids das publicaÁıes de um vendedor, com filtros por status, SKU e tipo de publicaÁ„o. |
-| **Items - Get item description** | **GET** | ObtÈm a descriÁ„o em texto plano de uma publicaÁ„o. |
-| **Items - Create item description** | **POST** | Adiciona a descriÁ„o em texto plano a uma publicaÁ„o que ainda n„o tem descriÁ„o. |
-| **Items - Update item description** | **PUT** | Substitui a descriÁ„o em texto plano de uma publicaÁ„o. |
-| **Orders - Search orders** | **GET** | Busca os pedidos de um vendedor, com filtros por status, perÌodo de criaÁ„o e texto livre. |
-| **Orders - Get order by id** | **GET** | ObtÈm os dados completos de um pedido: itens, pagamentos, comprador, envio e status. |
-| **Orders - Get order discounts** | **GET** | ObtÈm os descontos aplicados a um pedido, como cupons e campanhas. |
+| **Categories - Get category sale terms** | **GET** | Lista os termos de venda aceitos pela categoria, como garantia e prazo de fabrica√ß√£o. |
+| **Categories - Get promotion packs** | **GET** | Lista os pacotes promocionais de classificados dispon√≠veis para a categoria. |
+| **Categories - Predict category** | **GET** | Sugere dom√≠nio, categoria e atributos para um item a partir do t√≠tulo informado. |
+| **Domains - Get technical specs** | **GET** | Obt√©m a ficha t√©cnica do dom√≠nio, com grupos e atributos de entrada e sa√≠da. |
+| **Users - Get authenticated user** | **GET** | Obt√©m os dados do usu√°rio dono do token de acesso, incluindo o id usado como seller. |
+| **Items - Create item** | **POST** | Cria uma publica√ß√£o (item) com t√≠tulo, categoria, pre√ßo, estoque, imagens e atributos. |
+| **Items - Get item by id** | **GET** | Obt√©m os dados completos de uma publica√ß√£o. |
+| **Items - Get multiple items** | **GET** | Obt√©m v√°rias publica√ß√µes de uma vez, com at√© 20 ids, opcionalmente limitando os campos retornados. |
+| **Items - Update item** | **PUT** | Atualiza uma publica√ß√£o: pre√ßo, estoque, t√≠tulo, imagens, atributos ou status (paused, active, closed). |
+| **Items - Relist item** | **POST** | Republica um item finalizado, criando uma nova publica√ß√£o com pre√ßo, quantidade e tipo informados. |
+| **Items - Search seller items** | **GET** | Busca os ids das publica√ß√µes de um vendedor, com filtros por status, SKU e tipo de publica√ß√£o. |
+| **Items - Get item description** | **GET** | Obt√©m a descri√ß√£o em texto plano de uma publica√ß√£o. |
+| **Items - Create item description** | **POST** | Adiciona a descri√ß√£o em texto plano a uma publica√ß√£o que ainda n√£o tem descri√ß√£o. |
+| **Items - Update item description** | **PUT** | Substitui a descri√ß√£o em texto plano de uma publica√ß√£o. |
+| **Orders - Search orders** | **GET** | Busca os pedidos de um vendedor, com filtros por status, per√≠odo de cria√ß√£o e texto livre. |
+| **Orders - Get order by id** | **GET** | Obt√©m os dados completos de um pedido: itens, pagamentos, comprador, envio e status. |
+| **Orders - Get order discounts** | **GET** | Obt√©m os descontos aplicados a um pedido, como cupons e campanhas. |
 | **Order Notes - Get order notes** | **GET** | Lista as notas internas do vendedor registradas em um pedido. |
 | **Order Notes - Create order note** | **POST** | Registra uma nota interna do vendedor em um pedido. |
 | **Order Notes - Update order note** | **PUT** | Altera o texto de uma nota interna de um pedido. |
 | **Order Notes - Delete order note** | **DELETE** | Exclui uma nota interna de um pedido. |
-| **Packs - Get pack by id** | **GET** | ObtÈm um pacote (pack) que agrupa pedidos de um mesmo carrinho, com seus pedidos e envio. |
-| **Feedback - Get order feedback** | **GET** | ObtÈm as qualificaÁıes de comprador e vendedor de um pedido. |
-| **Feedback - Create order feedback** | **POST** | Qualifica a contraparte de um pedido, informando se a venda foi concluÌda e a avaliaÁ„o. |
-| **Feedback - Get feedback by id** | **GET** | ObtÈm os detalhes de uma qualificaÁ„o. |
-| **Feedback - Update feedback** | **PUT** | Altera uma qualificaÁ„o j· enviada, dentro do prazo permitido. |
-| **Feedback - Reply to feedback** | **POST** | Responde a uma qualificaÁ„o recebida. |
-| **Shipments - Get shipment by id** | **GET** | ObtÈm os dados de um envio: status, endereÁo, modalidade, rastreio e prazos. |
+| **Packs - Get pack by id** | **GET** | Obt√©m um pacote (pack) que agrupa pedidos de um mesmo carrinho, com seus pedidos e envio. |
+| **Feedback - Get order feedback** | **GET** | Obt√©m as qualifica√ß√µes de comprador e vendedor de um pedido. |
+| **Feedback - Create order feedback** | **POST** | Qualifica a contraparte de um pedido, informando se a venda foi conclu√≠da e a avalia√ß√£o. |
+| **Feedback - Get feedback by id** | **GET** | Obt√©m os detalhes de uma qualifica√ß√£o. |
+| **Feedback - Update feedback** | **PUT** | Altera uma qualifica√ß√£o j√° enviada, dentro do prazo permitido. |
+| **Feedback - Reply to feedback** | **POST** | Responde a uma qualifica√ß√£o recebida. |
+| **Shipments - Get shipment by id** | **GET** | Obt√©m os dados de um envio: status, endere√ßo, modalidade, rastreio e prazos. |
 | **Shipments - Get shipment items** | **GET** | Lista os itens contidos em um envio. |
-| **Shipments - Get shipment costs** | **GET** | ObtÈm os custos de um envio para comprador e vendedor, com descontos aplicados. |
-| **Shipments - Get shipment history** | **GET** | ObtÈm o histÛrico de status e subst·tus de um envio. |
-| **Shipments - Get shipment carrier** | **GET** | ObtÈm a transportadora respons·vel e a URL de rastreio de um envio. |
+| **Shipments - Get shipment costs** | **GET** | Obt√©m os custos de um envio para comprador e vendedor, com descontos aplicados. |
+| **Shipments - Get shipment history** | **GET** | Obt√©m o hist√≥rico de status e subst√°tus de um envio. |
+| **Shipments - Get shipment carrier** | **GET** | Obt√©m a transportadora respons√°vel e a URL de rastreio de um envio. |
 | **Shipments - Get shipment payments** | **GET** | Lista os pagamentos associados ao custo de um envio. |
-| **Shipments - Get shipment SLA** | **GET** | ObtÈm o prazo de despacho prometido ao vendedor para um envio. |
+| **Shipments - Get shipment SLA** | **GET** | Obt√©m o prazo de despacho prometido ao vendedor para um envio. |
 | **Shipments - Get shipment delays** | **GET** | Lista os atrasos registrados em um envio. |
-| **Shipments - Get shipment lead time** | **GET** | ObtÈm as estimativas de prazo de entrega e custo de um envio. |
+| **Shipments - Get shipment lead time** | **GET** | Obt√©m as estimativas de prazo de entrega e custo de um envio. |
 | **Shipments - Mark ready to ship** | **POST** | Marca um envio como pronto para despacho (ready_to_ship). |
-| **Shipments - Get shipment statuses** | **GET** | Lista todos os status e subst·tus possÌveis de um envio. |
-| **Questions - Search questions** | **GET** | Busca perguntas recebidas por item ou vendedor, com filtros de status e ordenaÁ„o. |
-| **Questions - Get question by id** | **GET** | ObtÈm uma pergunta com texto, status, autor e resposta. |
-| **Questions - Answer question** | **POST** | Responde a uma pergunta feita em uma publicaÁ„o do vendedor. |
-| **Questions - Delete question** | **DELETE** | Exclui uma pergunta feita em uma publicaÁ„o do vendedor. |
-| **Questions - Get response time** | **GET** | ObtÈm o tempo mÈdio de resposta do vendedor ‡s perguntas, total e por faixa de hor·rio. |
+| **Shipments - Get shipment statuses** | **GET** | Lista todos os status e subst√°tus poss√≠veis de um envio. |
+| **Questions - Search questions** | **GET** | Busca perguntas recebidas por item ou vendedor, com filtros de status e ordena√ß√£o. |
+| **Questions - Get question by id** | **GET** | Obt√©m uma pergunta com texto, status, autor e resposta. |
+| **Questions - Answer question** | **POST** | Responde a uma pergunta feita em uma publica√ß√£o do vendedor. |
+| **Questions - Delete question** | **DELETE** | Exclui uma pergunta feita em uma publica√ß√£o do vendedor. |
+| **Questions - Get response time** | **GET** | Obt√©m o tempo m√©dio de resposta do vendedor √†s perguntas, total e por faixa de hor√°rio. |
 
 ---
 
