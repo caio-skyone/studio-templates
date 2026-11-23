@@ -1,0 +1,2880 @@
+{
+  "name": "Notion Public",
+  "id": "FoyB0JeHOe",
+  "authorization": {
+    "groups": [
+      "default"
+    ]
+  },
+  "description": "Conector para a Notion API em Workspaces públicos — gerenciamento de páginas, bancos de dados, blocos, usuários, comentários e mais.",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "oauth-2"
+  },
+  "operations": [
+    {
+      "name": "Data Sources - Query a data source",
+      "id": "R6ouPusT4X",
+      "description": "Consulta entradas de um data source com filtros e ordenação.",
+      "parameters": [
+        {
+          "name": "data_source_id",
+          "id": "7a7f1265-70b8-424c-9002-6febb2ecbf47",
+          "type": "string",
+          "description": "ID do data source a consultar.",
+          "sensitive": false,
+          "sample": "668d797c-76fa-4934-9b05-ad288df2d136",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "07eb91b2-5112-49db-847d-6062733d18c4",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "a001a10a-e913-4086-9f48-1678927eb36e",
+          "type": "object",
+          "description": "Filtros, ordenação e cursor para a consulta.",
+          "sensitive": false,
+          "sample": "{\"filter\": {\"property\": \"Status\", \"select\": {\"equals\": \"Done\"}}, \"page_size\": 50}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "data_sources",
+            "<>data_source_id</>",
+            "query"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Blocks - Retrieve a block",
+      "id": "Px0k3CswNc",
+      "description": "Retorna um objeto Block pelo ID.",
+      "parameters": [
+        {
+          "name": "block_id",
+          "id": "98144a5b-1204-4d4f-a30c-fdef205327d7",
+          "type": "string",
+          "description": "ID do bloco a recuperar.",
+          "sensitive": false,
+          "sample": "9bc30ad4-8c1f-4a2e-a10e-4e7a3c5e7f1b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "4e48d114-04dc-4142-86d0-d71e220be382",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "blocks",
+            "<>block_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Databases - Retrieve a database",
+      "id": "JwKf-GVz8W",
+      "description": "Retorna um banco de dados pelo ID.",
+      "parameters": [
+        {
+          "name": "database_id",
+          "id": "797d1364-865b-4fe2-8c89-c63dabefa958",
+          "type": "string",
+          "description": "ID do banco de dados a recuperar.",
+          "sensitive": false,
+          "sample": "668d797c-76fa-4934-9b05-ad288df2d136",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "072e277d-9a47-4565-91a5-9c5300ad71e1",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "databases",
+            "<>database_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Data Sources - Update a data source",
+      "id": "s_npHvBMQ2",
+      "description": "Atualiza atributos de um data source.",
+      "parameters": [
+        {
+          "name": "data_source_id",
+          "id": "aa99ef43-7a2d-4ef0-b68a-8c3c05948462",
+          "type": "string",
+          "description": "ID do data source a atualizar.",
+          "sensitive": false,
+          "sample": "668d797c-76fa-4934-9b05-ad288df2d136",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "acab63d2-4f45-4e9f-9fc9-931daa73265e",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "21da9041-757d-4f3c-a3fc-34f8b654c91d",
+          "type": "object",
+          "description": "Campos a atualizar no data source (title, description, properties).",
+          "sensitive": false,
+          "sample": "{\"title\": [{\"text\": {\"content\": \"New Name\"}}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "data_sources",
+            "<>data_source_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Databases - Update a database",
+      "id": "xSrnmVCJH8",
+      "description": "Atualiza título, descrição, ícone, capa ou propriedades de um banco de dados.",
+      "parameters": [
+        {
+          "name": "database_id",
+          "id": "49f0409a-4371-4c56-bcda-e01e71575ee1",
+          "type": "string",
+          "description": "ID do banco de dados a atualizar.",
+          "sensitive": false,
+          "sample": "668d797c-76fa-4934-9b05-ad288df2d136",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "c6eb81c4-98d0-40d9-8705-a9f780eea378",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "bc71ea09-4ef3-481d-a386-2fa3fce17a15",
+          "type": "object",
+          "description": "Campos a atualizar no banco de dados (title, description, properties, icon, cover).",
+          "sensitive": false,
+          "sample": "{\"title\": [{\"text\": {\"content\": \"New DB Name\"}}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "databases",
+            "<>database_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Users - Retrieve a user",
+      "id": "T8zE2gtQCy",
+      "description": "Retorna um usuário pelo ID.",
+      "parameters": [
+        {
+          "name": "user_id",
+          "id": "d2b68762-27e8-495f-a3f1-bd3992cba4fb",
+          "type": "string",
+          "description": "ID do usuário a recuperar.",
+          "sensitive": false,
+          "sample": "d40e767c-d7af-4b18-a86d-55c61f1e39a4",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "90dae0ff-5030-4882-ab6d-f6b428742372",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "users",
+            "<>user_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "File Uploads - Send a file upload",
+      "id": "sIwnM_gtrC",
+      "description": "Transmite o conteúdo do arquivo para um file upload criado.",
+      "parameters": [
+        {
+          "name": "file_upload_id",
+          "id": "4843cb67-f1a9-43bb-875b-7521e3ba09fd",
+          "type": "string",
+          "description": "ID do file upload destino do conteúdo.",
+          "sensitive": false,
+          "sample": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "d04abecf-5bbb-4e0f-99f3-1b6993d572b4",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "0f7182ae-99f3-47ce-9edc-0c5f6d09d0d6",
+          "type": "object",
+          "description": "Conteúdo binário ou metadados da parte a transmitir.",
+          "sensitive": false,
+          "sample": "{\"part_number\": 1}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "file_uploads",
+            "<>file_upload_id</>",
+            "send"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "File Uploads - Complete a file upload",
+      "id": "_-MAzAiful",
+      "description": "Finaliza um upload multi-part após todos os chunks serem enviados.",
+      "parameters": [
+        {
+          "name": "file_upload_id",
+          "id": "da2ec18a-b7ff-4fcd-927b-0c6054f89a89",
+          "type": "string",
+          "description": "ID do file upload multi-part a finalizar.",
+          "sensitive": false,
+          "sample": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "790367d0-5c9a-40c9-ae66-fd7a0e64630a",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "file_uploads",
+            "<>file_upload_id</>",
+            "complete"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Comments - Delete a comment",
+      "id": "GI2pj9fs_H",
+      "description": "Remove um comentário pelo ID.",
+      "parameters": [
+        {
+          "name": "comment_id",
+          "id": "1b1fe334-7150-4736-84b6-39e7575ca920",
+          "type": "string",
+          "description": "ID do comentário a deletar.",
+          "sensitive": false,
+          "sample": "b3d9b7e8-2c1f-4a5e-9d0a-8e7b6c5d4e3f",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "af7a77c5-92fb-4105-a59b-4ad8e132aff3",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "comments",
+            "<>comment_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Users - Retrieve bot user",
+      "id": "L3-19k1kxQ",
+      "description": "Retorna o usuário bot associado ao token de API.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "9ece4a1a-a176-43ea-a734-7ca568f1aa0d",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "users",
+            "me"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Comments - Retrieve a comment",
+      "id": "-qLgux__9s",
+      "description": "Retorna um comentário pelo ID.",
+      "parameters": [
+        {
+          "name": "comment_id",
+          "id": "79c79d7c-cf14-4366-87a7-13146384cb14",
+          "type": "string",
+          "description": "ID do comentário a recuperar.",
+          "sensitive": false,
+          "sample": "b3d9b7e8-2c1f-4a5e-9d0a-8e7b6c5d4e3f",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "09c2b013-80bb-40d8-b09e-d2c33b49e3f7",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "comments",
+            "<>comment_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Data Sources - Create a data source",
+      "id": "p_1WMo6J9R",
+      "description": "Cria um data source no Notion.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "dfa2baa1-6608-49ff-a35d-780a2d742e1f",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "454b2b4b-f457-4428-aacf-24435215287f",
+          "type": "object",
+          "description": "Dados do data source (parent, title, properties).",
+          "sensitive": false,
+          "sample": "{\"parent\": {\"page_id\": \"PAGE_ID\"}, \"title\": [{\"text\": {\"content\": \"Tasks\"}}], \"properties\": {\"Name\": {\"title\": {}}}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "data_sources"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Views - List views",
+      "id": "nDGjxtc1AH",
+      "description": "Lista todas as views de um banco de dados.",
+      "parameters": [
+        {
+          "name": "database_id",
+          "id": "53fc71f1-ba90-4594-afaa-64dea831ca7a",
+          "type": "string",
+          "description": "ID do banco de dados cujas views serão listadas.",
+          "sensitive": false,
+          "sample": "668d797c-76fa-4934-9b05-ad288df2d136",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "b0e5810a-9d36-4e43-a8df-f258a9e7868b",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "start_cursor",
+          "id": "7d2d6c61-3fd1-4f1c-a4c9-ccba0d69bf14",
+          "type": "string",
+          "description": "Cursor de paginação.",
+          "sensitive": false,
+          "sample": "33e19cb9-751f-4993-b74d-234d67d0d534",
+          "required": false
+        },
+        {
+          "name": "page_size",
+          "id": "12bdc7bf-6160-4f1f-8012-8f94782f8882",
+          "type": "number",
+          "description": "Número máximo de itens retornados (1–100).",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "databases",
+            "<>database_id</>",
+            "views"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "start_cursor",
+            "value": "<>start_cursor</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pages - Create a page",
+      "id": "DMFN5u9nn_",
+      "description": "Cria uma nova página filha de uma página ou data source existente.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "69f9cf88-31bd-4711-bca2-87beef3cdc78",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "1638561e-7f44-4554-bddc-3a28433a7305",
+          "type": "object",
+          "description": "Dados da nova página (parent, properties, children, icon, cover).",
+          "sensitive": false,
+          "sample": "{\"parent\": {\"page_id\": \"PAGE_ID\"}, \"properties\": {\"title\": {\"title\": [{\"text\": {\"content\": \"My Page\"}}]}}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "pages"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Views - Get view query results",
+      "id": "2JIwA5qf6V",
+      "description": "Pagina pelos resultados em cache de uma view query.",
+      "parameters": [
+        {
+          "name": "view_id",
+          "id": "a7d98065-fd25-44a2-9731-145b005428e9",
+          "type": "string",
+          "description": "ID da view cujos resultados serão paginados.",
+          "sensitive": false,
+          "sample": "a9e1f3c7-b2d4-4e56-8f0a-1c2d3e4f5a6b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "05e97046-6546-4e10-938f-43c368c42442",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "start_cursor",
+          "id": "37ae915b-66e2-43b1-bce2-90f355fe806e",
+          "type": "string",
+          "description": "Cursor de paginação.",
+          "sensitive": false,
+          "sample": "33e19cb9-751f-4993-b74d-234d67d0d534",
+          "required": false
+        },
+        {
+          "name": "page_size",
+          "id": "1af2e1aa-a91d-47e6-bfad-04d7f249542c",
+          "type": "number",
+          "description": "Número máximo de itens retornados.",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "views",
+            "<>view_id</>",
+            "query"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "start_cursor",
+            "value": "<>start_cursor</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Views - Create a view",
+      "id": "C74qNgL67t",
+      "description": "Cria uma nova view em um banco de dados ou widget em dashboard.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "51eb519d-e179-4764-ae3f-a0e84f5c0a64",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "ff74432c-a2ad-4cb3-9b54-0dbdb28337b6",
+          "type": "object",
+          "description": "Dados da view (parent, type, name, filter, sorts).",
+          "sensitive": false,
+          "sample": "{\"parent\": {\"database_id\": \"DB_ID\"}, \"type\": \"table\", \"name\": \"My Table\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "views"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Comments - Create a comment",
+      "id": "ss63xuPWhs",
+      "description": "Cria um comentário em uma página, bloco ou thread de discussão.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "a39dd05c-8858-4213-ab5f-d07e1124dc3b",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "4bca3955-a650-4e36-ac39-6059bee70faf",
+          "type": "object",
+          "description": "Dados do comentário (parent ou discussion_id, rich_text).",
+          "sensitive": false,
+          "sample": "{\"parent\": {\"page_id\": \"PAGE_ID\"}, \"rich_text\": [{\"text\": {\"content\": \"Hello!\"}}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "comments"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "OAuth - Introspect a token",
+      "id": "l9XdDPJ2Qj",
+      "description": "Retorna status, escopo e hora de emissão de um token.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "1c19d043-4aac-4dcb-af05-f6f35ff927b0",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "60c2dfee-af2c-4e47-94f1-335cc5f90a67",
+          "type": "object",
+          "description": "Token a introspectar.",
+          "sensitive": false,
+          "sample": "{\"token\": \"ACCESS_TOKEN\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "oauth",
+            "token",
+            "introspect"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pages - Retrieve a page",
+      "id": "tgX68tuyyb",
+      "description": "Retorna os valores de propriedades de uma página pelo ID.",
+      "parameters": [
+        {
+          "name": "page_id",
+          "id": "1b3dd266-b7ec-4f6f-9403-45041346255f",
+          "type": "string",
+          "description": "ID da página a recuperar.",
+          "sensitive": false,
+          "sample": "b55c9c91-384d-452b-81db-d1ef79372b75",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "2890a315-20ec-42e3-9dad-c5b69ccc2f4e",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "filter_properties",
+          "id": "9e4046b1-87e9-4d1e-a42a-b28d7968b936",
+          "type": "string",
+          "description": "Lista de IDs de propriedades para filtrar os campos retornados.",
+          "sensitive": false,
+          "sample": "title,status",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "pages",
+            "<>page_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [
+          {
+            "key": "filter_properties",
+            "value": "<>filter_properties</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pages - Update a page",
+      "id": "9E35tC1eZM",
+      "description": "Modifica propriedades, ícone ou capa de uma página.",
+      "parameters": [
+        {
+          "name": "page_id",
+          "id": "79befb0e-f143-4b27-82f9-0f07505da013",
+          "type": "string",
+          "description": "ID da página a atualizar.",
+          "sensitive": false,
+          "sample": "b55c9c91-384d-452b-81db-d1ef79372b75",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "4060a69e-71ea-4bbf-8880-6858b2a75ac3",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "e722515a-d296-4bae-8d1e-c01990f5f025",
+          "type": "object",
+          "description": "Campos a atualizar na página (properties, icon, cover, archived).",
+          "sensitive": false,
+          "sample": "{\"properties\": {\"title\": {\"title\": [{\"text\": {\"content\": \"New Title\"}}]}}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "pages",
+            "<>page_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Views - Retrieve a view",
+      "id": "0iWB_H8dlf",
+      "description": "Retorna uma view pelo ID.",
+      "parameters": [
+        {
+          "name": "view_id",
+          "id": "95c728d4-cf17-4256-89e8-22184c708c2d",
+          "type": "string",
+          "description": "ID da view a recuperar.",
+          "sensitive": false,
+          "sample": "a9e1f3c7-b2d4-4e56-8f0a-1c2d3e4f5a6b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "9da87823-c603-466a-83aa-9cee004e711b",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "views",
+            "<>view_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Comments - Update a comment",
+      "id": "JNZBLYN_PB",
+      "description": "Atualiza o texto de um comentário.",
+      "parameters": [
+        {
+          "name": "comment_id",
+          "id": "d9561a80-785a-4265-a92c-985e34303b95",
+          "type": "string",
+          "description": "ID do comentário a atualizar.",
+          "sensitive": false,
+          "sample": "b3d9b7e8-2c1f-4a5e-9d0a-8e7b6c5d4e3f",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "192f048f-b170-4d06-a147-cede0b782d82",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "032e3f90-79d8-4b1f-98ae-dc95bff96fd6",
+          "type": "object",
+          "description": "Novo conteúdo rich_text do comentário.",
+          "sensitive": false,
+          "sample": "{\"rich_text\": [{\"text\": {\"content\": \"Updated comment\"}}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "comments",
+            "<>comment_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Blocks - Delete a block",
+      "id": "Kl--HYK82S",
+      "description": "Remove um bloco pelo ID.",
+      "parameters": [
+        {
+          "name": "block_id",
+          "id": "d4f70162-ebbc-4e21-bf4f-3bc9b79e7d88",
+          "type": "string",
+          "description": "ID do bloco a deletar.",
+          "sensitive": false,
+          "sample": "9bc30ad4-8c1f-4a2e-a10e-4e7a3c5e7f1b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "4435ac6f-e432-4172-91b3-89fbacfb5a1e",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "blocks",
+            "<>block_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pages - Retrieve a page property item",
+      "id": "5UN-ANxPUc",
+      "description": "Retorna o valor de uma propriedade de uma página.",
+      "parameters": [
+        {
+          "name": "page_id",
+          "id": "65d8c6a1-24c7-4a39-b719-2ba1874c87d6",
+          "type": "string",
+          "description": "ID da página dona da propriedade.",
+          "sensitive": false,
+          "sample": "b55c9c91-384d-452b-81db-d1ef79372b75",
+          "required": true
+        },
+        {
+          "name": "property_id",
+          "id": "ec766373-0821-4b9a-89b1-3d1d25787a26",
+          "type": "string",
+          "description": "ID da propriedade a recuperar.",
+          "sensitive": false,
+          "sample": "title",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "167c6f3a-b6de-4833-8736-dbee901af1ac",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "start_cursor",
+          "id": "8885c567-e5e5-4ed6-b82a-a75b0ba39798",
+          "type": "string",
+          "description": "Cursor de paginação.",
+          "sensitive": false,
+          "sample": "33e19cb9-751f-4993-b74d-234d67d0d534",
+          "required": false
+        },
+        {
+          "name": "page_size",
+          "id": "f5b06b9c-659c-4a04-aa6e-fb98244af61c",
+          "type": "number",
+          "description": "Número máximo de itens retornados (1–100).",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "pages",
+            "<>page_id</>",
+            "properties",
+            "<>property_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "start_cursor",
+            "value": "<>start_cursor</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Blocks - Append block children",
+      "id": "ImW3WhMep-",
+      "description": "Adiciona novos blocos filhos a um bloco pai.",
+      "parameters": [
+        {
+          "name": "block_id",
+          "id": "5498ea92-9997-474e-bb15-52b7c6de249b",
+          "type": "string",
+          "description": "ID do bloco pai onde os filhos serão adicionados.",
+          "sensitive": false,
+          "sample": "9bc30ad4-8c1f-4a2e-a10e-4e7a3c5e7f1b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "a1e5653f-1fa3-4a17-a5b2-378577c3545a",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "110ddefd-9f1e-4720-9733-54ab55751cd3",
+          "type": "object",
+          "description": "Objeto com lista de blocos filhos a adicionar.",
+          "sensitive": false,
+          "sample": "{\"children\": [{\"object\": \"block\", \"type\": \"paragraph\", \"paragraph\": {\"rich_text\": [{\"text\": {\"content\": \"Hello\"}}]}}]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "blocks",
+            "<>block_id</>",
+            "children"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pages - Move a page",
+      "id": "WC1RnkMqgu",
+      "description": "Move uma página existente para um novo pai.",
+      "parameters": [
+        {
+          "name": "page_id",
+          "id": "ed6bd017-168c-43b4-96e9-1b5990a03386",
+          "type": "string",
+          "description": "ID da página a mover.",
+          "sensitive": false,
+          "sample": "b55c9c91-384d-452b-81db-d1ef79372b75",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "16e01a58-743b-4970-bd3a-5997b54f278a",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "ddd72dce-54c1-4857-9c8d-3f45ce64c7c7",
+          "type": "object",
+          "description": "Objeto com o novo parent da página.",
+          "sensitive": false,
+          "sample": "{\"parent\": {\"page_id\": \"NEW_PARENT_ID\"}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "pages",
+            "<>page_id</>",
+            "move"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "OAuth - Revoke a token",
+      "id": "RhkZ69iiIh",
+      "description": "Revoga um access token.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "ed7486b8-aa76-4098-9899-c1fe7ab6d5bd",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "04e82eca-d600-4a9c-a9f0-94da8418a291",
+          "type": "object",
+          "description": "Token a revogar.",
+          "sensitive": false,
+          "sample": "{\"token\": \"ACCESS_TOKEN\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "oauth",
+            "token",
+            "revoke"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Data Sources - List data source templates",
+      "id": "57iKCDaeeU",
+      "description": "Lista os templates de página disponíveis para um data source.",
+      "parameters": [
+        {
+          "name": "data_source_id",
+          "id": "b6832aac-d965-4175-82c3-0e7f2331617c",
+          "type": "string",
+          "description": "ID do data source cujos templates serão listados.",
+          "sensitive": false,
+          "sample": "668d797c-76fa-4934-9b05-ad288df2d136",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "ff5bc717-9294-442b-838a-11009131f877",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "start_cursor",
+          "id": "e730e6ae-8414-43c6-ac83-30c31f13c0db",
+          "type": "string",
+          "description": "Cursor de paginação.",
+          "sensitive": false,
+          "sample": "33e19cb9-751f-4993-b74d-234d67d0d534",
+          "required": false
+        },
+        {
+          "name": "page_size",
+          "id": "c80372e1-854d-44e1-903a-7062199ff5bb",
+          "type": "number",
+          "description": "Número máximo de itens retornados (1–100).",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "data_sources",
+            "<>data_source_id</>",
+            "templates"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "start_cursor",
+            "value": "<>start_cursor</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Views - Delete a view",
+      "id": "Mu_yrZqTtz",
+      "description": "Remove uma view de um banco de dados.",
+      "parameters": [
+        {
+          "name": "view_id",
+          "id": "d30d3dc2-c92a-42ef-a74f-5fbb61e082b1",
+          "type": "string",
+          "description": "ID da view a deletar.",
+          "sensitive": false,
+          "sample": "a9e1f3c7-b2d4-4e56-8f0a-1c2d3e4f5a6b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "0326befb-e0b3-48c1-ba32-3ef00233d808",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "views",
+            "<>view_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pages - Trash a page",
+      "id": "k5qvCellKk",
+      "description": "Move uma página para a lixeira.",
+      "parameters": [
+        {
+          "name": "page_id",
+          "id": "77c6fe28-235f-4484-bcad-06705ddfc375",
+          "type": "string",
+          "description": "ID da página a mover para a lixeira.",
+          "sensitive": false,
+          "sample": "b55c9c91-384d-452b-81db-d1ef79372b75",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "9a3d42f4-3405-4c12-a614-3d91936e7e66",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "pages",
+            "<>page_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"in_trash\": true}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "OAuth - Create a token",
+      "id": "T6UXLP5UbY",
+      "description": "Cria um access token OAuth para autenticação de terceiros com o Notion.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "8238a7cc-db1e-4288-afc9-6d2516a446dc",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "530848de-b3c2-4f3f-9c0d-9b3260488f8b",
+          "type": "object",
+          "description": "Dados para criação do token (grant_type, code, redirect_uri).",
+          "sensitive": false,
+          "sample": "{\"grant_type\": \"authorization_code\", \"code\": \"AUTH_CODE\", \"redirect_uri\": \"https://example.com/callback\"}",
+          "required": true
+        },
+        {
+          "name": "encoded_credentials",
+          "id": "0f08eadd-389e-4d80-920a-246833779c44",
+          "type": "string",
+          "description": "Credenciais de cliente do Notion encodados como base64",
+          "sensitive": false,
+          "sample": "client_id:client_secret",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "oauth",
+            "token"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          },
+          {
+            "key": "Authorization",
+            "value": "Basic <>encoded_credentials</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Comments - List comments",
+      "id": "5Rl2KJpUjL",
+      "description": "Retorna comentários não resolvidos de uma página ou bloco.",
+      "parameters": [
+        {
+          "name": "block_id",
+          "id": "d4a4bbb3-9fcd-47da-879a-dd1aa9de256b",
+          "type": "string",
+          "description": "ID da página ou bloco cujos comentários serão listados.",
+          "sensitive": false,
+          "sample": "9bc30ad4-8c1f-4a2e-a10e-4e7a3c5e7f1b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "5f88cd2e-237d-4855-ba40-32bb6657ac87",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "start_cursor",
+          "id": "f28debee-fa37-4724-82ed-a98718a39b6e",
+          "type": "string",
+          "description": "Cursor de paginação.",
+          "sensitive": false,
+          "sample": "33e19cb9-751f-4993-b74d-234d67d0d534",
+          "required": false
+        },
+        {
+          "name": "page_size",
+          "id": "b444afd8-0e02-47eb-8181-6484afdd2dc4",
+          "type": "number",
+          "description": "Número máximo de itens retornados (1–100).",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "comments"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [
+          {
+            "key": "block_id",
+            "value": "<>block_id</>",
+            "enabled": true
+          },
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "start_cursor",
+            "value": "<>start_cursor</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Data Sources - Retrieve a data source",
+      "id": "VZT5ighh9l",
+      "description": "Retorna um data source pelo ID.",
+      "parameters": [
+        {
+          "name": "data_source_id",
+          "id": "00e504a2-9db5-4118-837d-c062eb78a90b",
+          "type": "string",
+          "description": "ID do data source a recuperar.",
+          "sensitive": false,
+          "sample": "668d797c-76fa-4934-9b05-ad288df2d136",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "5c52f037-0774-41d7-bc3d-92b7dd54933e",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "data_sources",
+            "<>data_source_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Views - Update a view",
+      "id": "iQqdIghL_T",
+      "description": "Atualiza nome, filtro, ordenação ou configuração de uma view.",
+      "parameters": [
+        {
+          "name": "view_id",
+          "id": "5bb2d568-c7a4-4315-8c5e-199365e2054d",
+          "type": "string",
+          "description": "ID da view a atualizar.",
+          "sensitive": false,
+          "sample": "a9e1f3c7-b2d4-4e56-8f0a-1c2d3e4f5a6b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "ef0ad6ad-dc89-4142-8895-241eb1d50da8",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "d081fedf-43a1-4b68-a8f4-7228694bc2a9",
+          "type": "object",
+          "description": "Campos a atualizar na view (name, filter, sorts, configuration).",
+          "sensitive": false,
+          "sample": "{\"name\": \"Updated View\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "views",
+            "<>view_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pages - Retrieve page as markdown",
+      "id": "hzfFIm4AFK",
+      "description": "Retorna o conteúdo de uma página renderizado em markdown.",
+      "parameters": [
+        {
+          "name": "page_id",
+          "id": "cc8b5c5a-c08e-4aae-aef0-82b0557a4c1e",
+          "type": "string",
+          "description": "ID da página a recuperar como markdown.",
+          "sensitive": false,
+          "sample": "b55c9c91-384d-452b-81db-d1ef79372b75",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "80259971-dc53-4932-9a13-cf01efec4561",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "pages",
+            "<>page_id</>",
+            "markdown"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Views - Delete a view query",
+      "id": "gMJQP0f6wB",
+      "description": "Remove uma view query em cache.",
+      "parameters": [
+        {
+          "name": "view_id",
+          "id": "1d55f232-b6cf-44f7-aa7a-08b69b112cb9",
+          "type": "string",
+          "description": "ID da view query em cache a deletar.",
+          "sensitive": false,
+          "sample": "a9e1f3c7-b2d4-4e56-8f0a-1c2d3e4f5a6b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "40addfea-2756-4e5f-9048-a157f1dc3791",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "views",
+            "<>view_id</>",
+            "query"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Pages - Update page markdown",
+      "id": "DnFowFUSv9",
+      "description": "Insere ou substitui conteúdo de uma página usando markdown.",
+      "parameters": [
+        {
+          "name": "page_id",
+          "id": "87045f81-ef81-4962-9174-97ec780639d1",
+          "type": "string",
+          "description": "ID da página a atualizar o conteúdo markdown.",
+          "sensitive": false,
+          "sample": "b55c9c91-384d-452b-81db-d1ef79372b75",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "cfb9b3b7-0e69-418b-97ee-8fd1a54d3eb4",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "ee0dfeab-db28-4d41-a815-d466d520497f",
+          "type": "object",
+          "description": "Objeto com o conteúdo markdown a inserir ou substituir.",
+          "sensitive": false,
+          "sample": "{\"markdown\": \"# Heading\\n\\nSome content.\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "pages",
+            "<>page_id</>",
+            "markdown"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Databases - Query a database",
+      "id": "3gdU-MvX3W",
+      "description": "Consulta entradas de um banco de dados com filtros e ordenação.",
+      "parameters": [
+        {
+          "name": "database_id",
+          "id": "af45a73c-77c4-4535-8347-700a2c59459e",
+          "type": "string",
+          "description": "ID do banco de dados a consultar.",
+          "sensitive": false,
+          "sample": "668d797c-76fa-4934-9b05-ad288df2d136",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "6db144e8-a8b8-4911-bf97-baeee108c3cd",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "18011e03-154b-4dec-b172-2d1c0d53df17",
+          "type": "object",
+          "description": "Filtros, ordenação e cursor de paginação para a consulta.",
+          "sensitive": false,
+          "sample": "{\"filter\": {\"property\": \"Status\", \"select\": {\"equals\": \"Active\"}}, \"page_size\": 100}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "databases",
+            "<>database_id</>",
+            "query"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Users - List all users",
+      "id": "28VbM_mMHV",
+      "description": "Retorna lista paginada de usuários do workspace.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "6a18cb9f-5d4f-4736-bc98-8612bd6a314f",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "start_cursor",
+          "id": "ec6818ab-fb23-4f8c-b270-512e4f2f024b",
+          "type": "string",
+          "description": "Cursor para paginação.",
+          "sensitive": false,
+          "sample": "33e19cb9-751f-4993-b74d-234d67d0d534",
+          "required": false
+        },
+        {
+          "name": "page_size",
+          "id": "a768682c-b106-4189-a327-dba7f24ab481",
+          "type": "number",
+          "description": "Número máximo de itens retornados (1–100).",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "users"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "start_cursor",
+            "value": "<>start_cursor</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Search - Search by title",
+      "id": "MMLlloBv4Y",
+      "description": "Busca páginas e data sources compartilhados com a conexão pelo título.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "e4c9e8c8-fad4-4e8c-9b69-713087d3589b",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "0a69eb36-335d-4509-83c3-08eceaf7d507",
+          "type": "object",
+          "description": "Critérios de busca (query, filter, sort, start_cursor, page_size).",
+          "sensitive": false,
+          "sample": "{\"query\": \"My Page\", \"filter\": {\"value\": \"page\", \"property\": \"object\"}}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "search"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "File Uploads - Create a file upload",
+      "id": "ZyVTPBfHOM",
+      "description": "Inicia o processo de upload de arquivo no workspace do Notion.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "31c5fd9c-096b-473c-bd0d-783dfe4535aa",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "e60bc730-56e3-40e6-9815-f747dc218af5",
+          "type": "object",
+          "description": "Metadados do arquivo (mode, filename, content_type, size).",
+          "sensitive": false,
+          "sample": "{\"mode\": \"single_part\", \"filename\": \"report.pdf\", \"content_type\": \"application/pdf\", \"size\": 204800}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "file_uploads"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "File Uploads - List file uploads",
+      "id": "pBFhDpJHe4",
+      "description": "Lista os uploads de arquivo da conexão bot atual.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "520dc12e-1ea6-485c-8fc9-9a7da284fce6",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "start_cursor",
+          "id": "ced519e5-c072-4ffc-a6db-b4a8e2678243",
+          "type": "string",
+          "description": "Cursor de paginação.",
+          "sensitive": false,
+          "sample": "33e19cb9-751f-4993-b74d-234d67d0d534",
+          "required": false
+        },
+        {
+          "name": "page_size",
+          "id": "9b545050-a64e-4579-af3c-9bc67f19849c",
+          "type": "number",
+          "description": "Número máximo de itens retornados (1–100).",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "file_uploads"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "start_cursor",
+            "value": "<>start_cursor</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Blocks - Retrieve block children",
+      "id": "JkqXrxAPqF",
+      "description": "Retorna filhos paginados de um bloco.",
+      "parameters": [
+        {
+          "name": "block_id",
+          "id": "fa9e0e99-e81e-4fb7-b45d-0c98b4eced5b",
+          "type": "string",
+          "description": "ID do bloco pai.",
+          "sensitive": false,
+          "sample": "9bc30ad4-8c1f-4a2e-a10e-4e7a3c5e7f1b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "880a27e8-2394-49e5-af34-823df08ece32",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "start_cursor",
+          "id": "eb1fe746-d932-490d-89f6-3d69e83a1626",
+          "type": "string",
+          "description": "Cursor para paginação (valor de next_cursor da resposta anterior).",
+          "sensitive": false,
+          "sample": "33e19cb9-751f-4993-b74d-234d67d0d534",
+          "required": false
+        },
+        {
+          "name": "page_size",
+          "id": "0ad12ee6-506f-4e8c-bb85-d09658750f0d",
+          "type": "number",
+          "description": "Número máximo de itens retornados (1–100).",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "blocks",
+            "<>block_id</>",
+            "children"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [
+          {
+            "key": "page_size",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "start_cursor",
+            "value": "<>start_cursor</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "File Uploads - Retrieve a file upload",
+      "id": "g6F1JKALly",
+      "description": "Retorna detalhes de um file upload pelo ID.",
+      "parameters": [
+        {
+          "name": "file_upload_id",
+          "id": "11a9fe57-8e57-453e-9e70-3bea3b29d95c",
+          "type": "string",
+          "description": "ID do file upload a recuperar.",
+          "sensitive": false,
+          "sample": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "acf48541-90c1-4458-ba4e-03d8765c4596",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "file_uploads",
+            "<>file_upload_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Blocks - Update a block",
+      "id": "uplcpSFb-0",
+      "description": "Atualiza o conteúdo de um bloco pelo ID.",
+      "parameters": [
+        {
+          "name": "block_id",
+          "id": "67cb1d6f-531e-4fe0-8af4-4597f77208c9",
+          "type": "string",
+          "description": "ID do bloco a atualizar.",
+          "sensitive": false,
+          "sample": "9bc30ad4-8c1f-4a2e-a10e-4e7a3c5e7f1b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "3628b3a7-a11e-42e1-bfd1-971ca49cc4fe",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "ad6c50f4-62a5-4f24-b2e4-26298c9f052f",
+          "type": "object",
+          "description": "Campos do bloco a atualizar (tipo e conteúdo).",
+          "sensitive": false,
+          "sample": "{\"paragraph\": {\"rich_text\": [{\"text\": {\"content\": \"Hello\"}}]}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "blocks",
+            "<>block_id</>"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Views - Create a view query",
+      "id": "jw3XSIpyHS",
+      "description": "Executa a query de uma view e retorna a primeira página de resultados.",
+      "parameters": [
+        {
+          "name": "view_id",
+          "id": "7627615e-81fb-417a-b31b-891514a1b5a5",
+          "type": "string",
+          "description": "ID da view a executar a query.",
+          "sensitive": false,
+          "sample": "a9e1f3c7-b2d4-4e56-8f0a-1c2d3e4f5a6b",
+          "required": true
+        },
+        {
+          "name": "notion_version",
+          "id": "b0df1140-eb15-4185-89ae-7db93c0f14dd",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "3f905fee-d1c4-419d-b0b4-4023c15b75ae",
+          "type": "object",
+          "description": "Parâmetros opcionais da query (start_cursor, page_size).",
+          "sensitive": false,
+          "sample": "{\"page_size\": 100}",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "views",
+            "<>view_id</>",
+            "query"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Databases - Create a database",
+      "id": "1ic1u53U9a",
+      "description": "Cria um banco de dados (e data source inicial) no Notion.",
+      "parameters": [
+        {
+          "name": "notion_version",
+          "id": "0695faf9-ddb1-456e-9b2f-0a53937cbeb1",
+          "type": "string",
+          "description": "Versão da API Notion (ex: 2026-03-11).",
+          "sensitive": false,
+          "sample": "2026-03-11",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "9bf99f31-3c76-46a0-a54e-327d3bd784f3",
+          "type": "object",
+          "description": "Dados do banco de dados (parent, title, properties).",
+          "sensitive": false,
+          "sample": "{\"parent\": {\"page_id\": \"PAGE_ID\"}, \"title\": [{\"text\": {\"content\": \"My DB\"}}], \"properties\": {\"Name\": {\"title\": {}}}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v1",
+            "databases"
+          ]
+        },
+        "header": [
+          {
+            "key": "Notion-Version",
+            "value": "<>notion_version</>",
+            "enabled": true
+          }
+        ],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

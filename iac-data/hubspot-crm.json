@@ -1,0 +1,5252 @@
+{
+  "id": "88443237-06e7-4558-ab91-d09171b7bc23",
+  "name": "HubSpot CRM",
+  "description": "Operações de CRM do HubSpot: contatos, empresas, negócios, tickets, associações, pipelines e proprietários.",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "bearer-token"
+  },
+  "operations": [
+    {
+      "id": "e9a19228-327e-40c5-ba3a-c90353a12eff",
+      "name": "Association Definitions - Read All",
+      "description": "Retorna todas as configurações de usuário disponíveis em um portal.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "definitions",
+            "configurations",
+            "all"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "55b0b2ea-02e8-4c94-82f3-1b2f32e96107",
+      "name": "Association Definitions - Read",
+      "description": "Retorna configurações de usuário em todas as definições de associação entre dois tipos de objetos.",
+      "parameters": [
+        {
+          "id": "e120e61d-b8d9-4ed6-b784-e3b7b56efa04",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "68ef4f23-e740-4e34-b604-20ad51476d0a",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "definitions",
+            "configurations",
+            "<>from_object_type</>",
+            "<>to_object_type</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a370949c-84d4-4426-b053-adb7b4c3ebc9",
+      "name": "Association Definitions - Create",
+      "description": "Cria em lote configurações de usuário entre dois tipos de objetos.",
+      "parameters": [
+        {
+          "id": "e9be3efb-463f-40e6-acc3-1c4eb7357050",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "61f3a6de-47e9-43ce-8be7-4d7a0d432d47",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "2109716c-717c-4ac0-b034-058ec3bdd9c1",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"fromObjectTypeId\": \"obj_type_1\", \"toObjectTypeId\": \"obj_type_2\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "definitions",
+            "configurations",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "batch",
+            "create"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "9876ad4b-5943-4fc6-96cc-cf29a1502a97",
+      "name": "Association Definitions - Delete",
+      "description": "Exclui em lote configurações de usuário entre dois tipos de objetos.",
+      "parameters": [
+        {
+          "id": "4174ade5-a673-4982-a350-539ad1459cf4",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "a70beba4-2a9b-42ca-a67a-29db39ae80d9",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "5505a733-3b31-4c41-94e1-8b93259686cd",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"fromObjectTypeId\": \"obj_type_1\", \"toObjectTypeId\": \"obj_type_2\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "definitions",
+            "configurations",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "batch",
+            "purge"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "38b7ba01-b9ae-4ebf-a1e8-47b28769e735",
+      "name": "Association Definitions - Update",
+      "description": "Atualiza em lote configurações de usuário entre dois tipos de objetos.",
+      "parameters": [
+        {
+          "id": "b979ab03-113a-4198-9cb6-2b2fa8602340",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "0d0881f7-e4f3-4885-b84d-88ffc03a8808",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "68427e1a-f54e-49cb-8663-90f32f663e4f",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"fromObjectTypeId\": \"obj_type_1\", \"toObjectTypeId\": \"obj_type_2\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "definitions",
+            "configurations",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "batch",
+            "update"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "4b5d56a8-c4b7-4e46-8705-36c558e21cca",
+      "name": "Association Batches - Report high usage",
+      "description": "Solicita um relatório de todos os objetos no portal que têm alta utilização de associações.",
+      "parameters": [
+        {
+          "id": "6439a706-712c-4b32-b66f-9193b97e0446",
+          "name": "user_id",
+          "type": "string",
+          "description": "Identificador do usuário.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "usage",
+            "high-usage-report",
+            "<>user_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "d29e6b93-f807-4d43-bafa-daa3bab045b5",
+      "name": "Association Batches - Remove associations",
+      "description": "Exclui em lote associações para objetos.",
+      "parameters": [
+        {
+          "id": "c69f7a20-a78f-4acc-9492-dc47f16b8120",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "c873988b-8cb4-4d3a-b0c3-02d4ec59b973",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "a7b29018-edeb-416d-bc36-023eca037757",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"id\": \"obj_123\", \"type\": \"company\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "batch",
+            "archive"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a2a8a6d0-40b6-41f3-bf2b-0d2ad9234768",
+      "name": "Association Batches - Create Default Associations",
+      "description": "Cria o tipo de associação padrão (mais genérico) entre dois tipos de objetos.",
+      "parameters": [
+        {
+          "id": "16966142-e32b-4b07-a45d-091a052699a7",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "d1e24c05-57c3-4149-88e2-892672d791c8",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "cf389e24-a407-419b-9173-cf11607f0118",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"from\": {\"id\": \"1\", \"type\": \"company\"}, \"to\": {\"id\": \"2\", \"type\": \"contact\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "batch",
+            "associate",
+            "default"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "aa561a13-922f-453f-b75a-db70d19960e1",
+      "name": "Association Batches - Associate records (labelled)",
+      "description": "Cria em lote associações para objetos.",
+      "parameters": [
+        {
+          "id": "0bb7e07a-ccc2-4cb8-b4dd-dd60d6e2dfb1",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "f185872e-b993-439e-ad0e-f7133a19238a",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "8015d592-64b2-4d24-81fb-08e72b0a4087",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"from\": {\"id\": \"1\", \"type\": \"company\"}, \"to\": {\"id\": \"2\", \"type\": \"contact\"}, \"associationTypeId\": 1}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "batch",
+            "create"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "e12a8b08-51b6-496a-9339-710837ca5487",
+      "name": "Association Labels - Delete Specific Labels",
+      "description": "Exclui em lote rótulos de associação específicos para objetos. Excluir uma associação sem rótulo também excluirá todas as associações rotuladas entre esses dois objetos.",
+      "parameters": [
+        {
+          "id": "b6394506-3ffd-48f1-ba86-003ec62c296a",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "6cea6eec-29e3-4f47-92b7-39bbbf302691",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "caa4270c-8962-491e-aa6a-88a15923d8ee",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"from\": {\"id\": \"1\", \"type\": \"company\"}, \"to\": {\"id\": \"2\", \"type\": \"contact\"}, \"associationTypeId\": 1}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "batch",
+            "labels",
+            "archive"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "1541a7d8-6172-40fa-82ec-0c5ae94f729d",
+      "name": "Association Batches - Retrieve associations",
+      "description": "Lê em lote associações de objetos para um tipo de objeto específico. Use o campo 'after' retornado para recuperar páginas adicionais.",
+      "parameters": [
+        {
+          "id": "6933e2e3-d168-4471-9f77-b2cb83057bc1",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "616da0ea-7a34-4f65-b989-b58dfe2fe537",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "8ecc5bd7-543f-4614-8ee4-a380fb8109ae",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"id\": \"obj_123\", \"types\": [\"contact\"]}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "batch",
+            "read"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "4370da5c-eeae-4882-bdc7-5aa3569e673b",
+      "name": "Association Labels - Read",
+      "description": "Retorna todos os tipos de associação entre dois tipos de objetos.",
+      "parameters": [
+        {
+          "id": "d29817ef-631a-40e8-84ad-8e3f30975ada",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "b18045ab-376a-47eb-9668-38e0a90c036f",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "labels"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "214461ca-9e1b-4450-88c4-b84c4af0ea67",
+      "name": "Association Labels - Create",
+      "description": "Cria uma definição de associação definida pelo usuário.",
+      "parameters": [
+        {
+          "id": "72e388de-df6f-4a64-b30e-3a961ba8b68a",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "4ec2ad4f-9381-42e8-a590-9c3cd552dd10",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "cf592d83-922d-47e3-a45a-7c70ab9be4ac",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"label\": \"custom_association\", \"portalId\": 123456}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "labels"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "95e5b936-7974-4876-a1b0-3420f826396d",
+      "name": "Association Labels - Update",
+      "description": "Atualiza uma definição de associação definida pelo usuário.",
+      "parameters": [
+        {
+          "id": "f78de168-6996-4e1d-9445-7572a18c0d8f",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "4354dbe7-56e9-4c22-a1a0-fdb943596d58",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "bab8a558-c160-4d47-9a58-1303e7bee1b3",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"label\": \"custom_association\", \"portalId\": 123456}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "labels"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b2465cf4-72ed-4b41-bdaa-558d94a7b48c",
+      "name": "Association Labels - Delete",
+      "description": "Exclui uma definição de associação.",
+      "parameters": [
+        {
+          "id": "b6b1b905-ff4f-4165-a4ba-9d507d5152ea",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "38b5ea9c-56b5-410d-9959-11eafc684313",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "6621445d-78d6-4453-a6e9-c7d2052b3a89",
+          "name": "association_type_id",
+          "type": "string",
+          "description": "Identificador do tipo de associação.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "associations",
+            "2026-09",
+            "<>from_object_type</>",
+            "<>to_object_type</>",
+            "labels",
+            "<>association_type_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "27eb7d84-26b9-4902-86d5-247d5275d1c0",
+      "name": "Companies - Retrieve companies",
+      "description": "Recupera todas as empresas, usando parâmetros de consulta para controlar as informações retornadas.",
+      "parameters": [
+        {
+          "id": "d90f25cc-cf49-429f-b5b1-c8a75261c2e5",
+          "name": "after",
+          "type": "string",
+          "description": "O token de cursor de paginação do último recurso lido com sucesso será retornado como a propriedade JSON `paging.next.after` de uma resposta paginada contendo mais resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "b35f26d5-42fa-4ac6-a0e5-73f826a5396d",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "9c5f5ffb-1acc-4a9e-b2fb-b262f4bc0c06",
+          "name": "associations",
+          "type": "array",
+          "description": "Lista separada por vírgula de tipos de objetos para os quais recuperar IDs associados. Se alguma das associações especificadas não existir, será ignorada.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "a1a8a2aa-1922-4597-a432-3dab3dbf66e6",
+          "name": "limit",
+          "type": "number",
+          "description": "O número máximo de resultados a serem exibidos por página",
+          "required": false,
+          "sensitive": false,
+          "sample": "10"
+        },
+        {
+          "id": "c5f27979-e534-4d13-ab31-0cf2f8d3d931",
+          "name": "properties",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades a retornar. Propriedades não presentes nos objetos solicitados serão ignoradas.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "59432795-347d-4882-9c92-b21872f5b7b9",
+          "name": "properties_with_history",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades com histórico de valores anteriores. Propriedades não presentes serão ignoradas. Reduz o número máximo de registros por requisição.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          },
+          {
+            "key": "associations[]",
+            "value": "<>associations</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          },
+          {
+            "key": "properties[]",
+            "value": "<>properties</>",
+            "enabled": true
+          },
+          {
+            "key": "propertiesWithHistory[]",
+            "value": "<>properties_with_history</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "ef41239b-37a6-44b0-8776-b8a0c4ee8a2e",
+      "name": "Companies - Create a company",
+      "description": "Cria uma única empresa. Inclua um objeto `properties` para definir valores de propriedade da empresa, juntamente com um array `associations` para definir associações com outros registros do CRM.",
+      "parameters": [
+        {
+          "id": "abcae1e2-f580-4f5b-a8a8-7f583a94b79f",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"properties\": {\"name\": \"Acme Corp\", \"industry\": \"technology\"}, \"associations\": []}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "50d3ab5d-d59e-42b2-8815-26fbcad2b204",
+      "name": "Companies - Archive a batch of companies",
+      "description": "Exclui um lote de empresas por ID. Empresas excluídas podem ser restauradas dentro de 90 dias da exclusão.",
+      "parameters": [
+        {
+          "id": "d50f864f-bac1-4cd8-9124-dafa2d4945fe",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"id\": \"123456789\"}, {\"id\": \"987654321\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "batch",
+            "archive"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "dab4c67a-5581-4d09-a7e7-7d25c94bf99d",
+      "name": "Companies - Create a batch of companies",
+      "description": "Cria um lote de empresas. O array `inputs` pode conter um objeto `properties` para definir valores de propriedade de cada empresa, juntamente com um array `associations` para definir associações com outros registros do CRM.",
+      "parameters": [
+        {
+          "id": "b6f8db62-52c6-426b-866c-761c25f5b1bc",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"properties\": {\"name\": \"Company A\", \"industry\": \"finance\"}}, {\"properties\": {\"name\": \"Company B\", \"industry\": \"retail\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "batch",
+            "create"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "db293d55-8743-4c64-a8fe-b88547c6d489",
+      "name": "Companies - Retrieve a batch of companies",
+      "description": "Recupera um lote de empresas por ID (`companyId`) ou por uma propriedade única (`idProperty`). Especifique o que é retornado usando o parâmetro de consulta `properties`.",
+      "parameters": [
+        {
+          "id": "7c0a4ca7-9439-4cb7-9845-e916f881f57e",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "e7cd94e1-791a-45f1-9200-79533a8a44df",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"id\": \"123456789\"}, {\"id\": \"987654321\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "batch",
+            "read"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "9b6f76ac-5da8-40b3-92e6-72d44875dff2",
+      "name": "Companies - Update a batch of companies",
+      "description": "Atualiza um lote de empresas por ID.",
+      "parameters": [
+        {
+          "id": "1a36a9e8-ca7d-47ea-bbfd-781347e8a458",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"id\": \"123456789\", \"properties\": {\"industry\": \"technology\"}}, {\"id\": \"987654321\", \"properties\": {\"industry\": \"finance\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "batch",
+            "update"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c39ffb2a-04e3-46f0-b887-7250f89e17f8",
+      "name": "Companies - Create or update a batch of companies by unique property values",
+      "description": "Cria ou atualiza empresas identificadas por um valor de propriedade única conforme especificado pelo parâmetro de consulta `idProperty`. O parâmetro refere-se a uma propriedade cujos valores são únicos para o objeto.",
+      "parameters": [
+        {
+          "id": "94d805fd-80e0-4383-a5af-d1ecd6596125",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"properties\": {\"hs_lead_status\": \"qualified\", \"name\": \"Corp X\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "batch",
+            "upsert"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "d312fd4a-c443-43ac-a904-07ab0f48a501",
+      "name": "Companies - GDPR Delete",
+      "description": "Exclui permanentemente um contato e todo conteúdo associado em conformidade com regulamentos GDPR. Permite especificar 'idProperty' como 'email' para identificar o contato.",
+      "parameters": [
+        {
+          "id": "97f20d13-6f1d-44f4-b212-e8636bd40953",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"idProperty\": \"email\", \"inputs\": [{\"value\": \"example@test.invalid\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "gdpr-delete"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5ad038d3-21a1-45a1-a50c-dd20895ef893",
+      "name": "Companies - Merge two companies",
+      "description": "Mesclar dois registros de empresa. Saiba mais sobre como mesclar registros.",
+      "parameters": [
+        {
+          "id": "d2a53f24-cf27-49a8-9264-10888fa3a000",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"primaryCompanyId\": 123456789, \"companyIdToMerge\": 987654321}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "merge"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "4f3c0877-98d0-4dd7-a459-7fa6f66b2090",
+      "name": "Companies - Search for companies",
+      "description": "Pesquisar empresas filtrando por propriedades, pesquisando associações e classificando resultados.",
+      "parameters": [
+        {
+          "id": "3d2ffd9f-524e-4efc-97ec-d2613bdc1d46",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"filterGroups\": [{\"filters\": [{\"propertyName\": \"name\", \"operator\": \"CONTAINS_TOKEN\", \"value\": \"fake_company\"}]}], \"limit\": 10}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "search"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "3af77e9e-c839-4972-b5ea-758af5efae0c",
+      "name": "Companies - Retrieve a company",
+      "description": "Recuperar uma empresa pelo seu ID (companyId) ou por uma propriedade única (idProperty). Você pode especificar o que é retornado usando o parâmetro de consulta properties.",
+      "parameters": [
+        {
+          "id": "c3e9ba4f-e3ae-4a0f-9d98-3d8d1a4926aa",
+          "name": "company_id",
+          "type": "string",
+          "description": "Identificador da empresa.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "12aaf2bf-6e6f-4bac-9872-93aa3422d0b8",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "91504106-5f43-4355-89b1-8765873dda48",
+          "name": "associations",
+          "type": "array",
+          "description": "Lista separada por vírgula de tipos de objetos para os quais recuperar IDs associados. Se alguma das associações especificadas não existir, será ignorada.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "278a9f13-f988-44cf-8894-fe5771876587",
+          "name": "id_property",
+          "type": "string",
+          "description": "O nome de uma propriedade cujos valores são únicos para este tipo de objeto",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "5ea8c013-5661-4a68-b8ab-8a1a8047bd37",
+          "name": "properties",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades a retornar. Propriedades não presentes nos objetos solicitados serão ignoradas.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "bd524f30-570c-4909-9efd-12f41c7bf524",
+          "name": "properties_with_history",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades com histórico de valores anteriores. Propriedades não presentes serão ignoradas. Reduz o número máximo de registros por requisição.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "<>company_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          },
+          {
+            "key": "associations[]",
+            "value": "<>associations</>",
+            "enabled": true
+          },
+          {
+            "key": "idProperty",
+            "value": "<>id_property</>",
+            "enabled": true
+          },
+          {
+            "key": "properties[]",
+            "value": "<>properties</>",
+            "enabled": true
+          },
+          {
+            "key": "propertiesWithHistory[]",
+            "value": "<>properties_with_history</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "d834988a-fcf3-4c24-820f-00b0764f70e3",
+      "name": "Companies - Update a company",
+      "description": "Atualizar uma empresa pelo ID (companyId) ou valor de propriedade única (idProperty). Os valores fornecidos serão sobrescritos. Propriedades somente leitura e inexistentes resultarão em erro.",
+      "parameters": [
+        {
+          "id": "dcadf824-50c4-4eaa-8f4c-86f26ac8b59f",
+          "name": "company_id",
+          "type": "string",
+          "description": "Identificador da empresa.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "7fbea17d-12e3-4ac8-83cd-86b86771bc40",
+          "name": "id_property",
+          "type": "string",
+          "description": "O nome de uma propriedade cujos valores são únicos para este tipo de objeto",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "69a5276b-6a7f-4ffc-8808-f7b9bd17d85c",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"properties\": {\"name\": \"Updated Company Name\", \"industry\": \"Technology\"}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "<>company_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "idProperty",
+            "value": "<>id_property</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "9b523693-07e2-4697-8f5d-076a2a198a30",
+      "name": "Companies - Archive a company",
+      "description": "Excluir uma empresa por ID. Empresas excluídas podem ser restauradas dentro de 90 dias da exclusão.",
+      "parameters": [
+        {
+          "id": "e1e02dbc-d40e-4ef2-84d0-e946013f2164",
+          "name": "company_id",
+          "type": "string",
+          "description": "Identificador da empresa.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "<>company_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "581f0dd8-3798-447f-a4aa-2611fd2348aa",
+      "name": "Companies - List associations",
+      "description": "Listar todas as associações de um objeto (identificado por objectType e objectId) com outro tipo de objeto especificado por toObjectType. Suporta recuperação de até 500 associações por chamada.",
+      "parameters": [
+        {
+          "id": "3b58e7f6-6080-4a69-999f-b16d6e046056",
+          "name": "company_id",
+          "type": "string",
+          "description": "Identificador da empresa.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "a71657dd-db17-4d6c-8c1a-90999b53c3e8",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "f676eda5-2b84-4945-8859-d0b741fa60f6",
+          "name": "after",
+          "type": "string",
+          "description": "O token de cursor de paginação do último recurso lido com sucesso será retornado como a propriedade JSON `paging.next.after` de uma resposta paginada contendo mais resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "870e5f92-e3a4-43a5-badd-05cd180d2f4b",
+          "name": "limit",
+          "type": "number",
+          "description": "O número máximo de resultados a serem exibidos por página",
+          "required": false,
+          "sensitive": false,
+          "sample": "500"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "companies",
+            "<>company_id</>",
+            "associations",
+            "<>to_object_type</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "64af433c-483f-4680-9534-c50213e07db5",
+      "name": "Contacts - Retrieve contacts",
+      "description": "Recuperar todos os contatos, usando parâmetros de consulta para especificar as informações retornadas.",
+      "parameters": [
+        {
+          "id": "0e31b527-40d2-472b-a1ea-cfe0f1d31efc",
+          "name": "after",
+          "type": "string",
+          "description": "O token de cursor de paginação do último recurso lido com sucesso será retornado como a propriedade JSON `paging.next.after` de uma resposta paginada contendo mais resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "e96c06a6-6f60-41fb-998f-dc052e0d6784",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "759da1a8-ffbc-44ca-a091-cceea75ed95a",
+          "name": "associations",
+          "type": "array",
+          "description": "Lista separada por vírgula de tipos de objetos para os quais recuperar IDs associados. Se alguma das associações especificadas não existir, será ignorada.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "907d3fac-a7e5-4c4a-ac1f-f451772ae330",
+          "name": "limit",
+          "type": "number",
+          "description": "O número máximo de resultados a serem exibidos por página",
+          "required": false,
+          "sensitive": false,
+          "sample": "10"
+        },
+        {
+          "id": "e86ccf04-6460-45f6-81c3-45a1e0d0f623",
+          "name": "properties",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades a retornar. Propriedades não presentes nos objetos solicitados serão ignoradas.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "919a052b-556c-4ee0-be3f-426e21372406",
+          "name": "properties_with_history",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades com histórico de valores anteriores. Propriedades não presentes serão ignoradas. Reduz o número máximo de registros por requisição.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          },
+          {
+            "key": "associations[]",
+            "value": "<>associations</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          },
+          {
+            "key": "properties[]",
+            "value": "<>properties</>",
+            "enabled": true
+          },
+          {
+            "key": "propertiesWithHistory[]",
+            "value": "<>properties_with_history</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "15b29afb-c5bc-4851-b88c-d93d28857f80",
+      "name": "Contacts - Create a contact",
+      "description": "Criar um único contato. Incluir um objeto properties para definir valores de propriedade e uma matriz associations para definir associações com outros registros do CRM.",
+      "parameters": [
+        {
+          "id": "c05d61dd-4d68-488a-bac9-607a8947d9d5",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"properties\": {\"firstname\": \"John\", \"lastname\": \"Doe\", \"email\": \"john.doe@example.com\"}, \"associations\": []}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "fb9e994e-b545-4b53-bf48-62ced87c6d04",
+      "name": "Contacts - Archive a batch of contacts",
+      "description": "Arquivar um lote de contatos por ID. Contatos arquivados podem ser restaurados dentro de 90 dias da exclusão.",
+      "parameters": [
+        {
+          "id": "b1348e6c-f8dc-433f-b341-5246a14d31d2",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"id\": \"123456789\"}, {\"id\": \"987654321\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "batch",
+            "archive"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "eca0b1bc-5949-42b5-8089-ae86b52245b3",
+      "name": "Contacts - Create a batch of contacts",
+      "description": "Criar um lote de contatos. A matriz inputs pode conter um objeto properties para definir valores e uma matriz associations para definir associações com outros registros.",
+      "parameters": [
+        {
+          "id": "87575c77-b3d0-43b7-ae73-eb83bcadf970",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"properties\": {\"firstname\": \"Jane\", \"lastname\": \"Smith\", \"email\": \"jane.smith@example.com\"}}, {\"properties\": {\"firstname\": \"John\", \"lastname\": \"Doe\", \"email\": \"john.doe@example.com\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "batch",
+            "create"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "261352ea-8dc2-44e7-b204-54b47119e0d8",
+      "name": "Contacts - Retrieve a batch of contacts",
+      "description": "Recuperar um lote de contatos por ID (contactId) ou valor de propriedade única (idProperty).",
+      "parameters": [
+        {
+          "id": "70630772-ce74-44ed-8ad2-ec4c62524fae",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "dd23176e-0573-4aa2-8e2c-848e0099eb67",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"id\": \"123456789\"}, {\"id\": \"987654321\"}], \"properties\": [\"firstname\", \"lastname\", \"email\"]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "batch",
+            "read"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "1f05c147-6dfb-4c20-9eaa-542693fede38",
+      "name": "Contacts - Update a batch of contacts",
+      "description": "Atualizar um lote de contatos por ID (contactId) ou valor de propriedade única (idProperty). Os valores fornecidos serão sobrescritos. Propriedades somente leitura e inexistentes resultarão em erro.",
+      "parameters": [
+        {
+          "id": "0adc0860-d186-43a5-8c1c-864bf3f48d37",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"id\": \"123456789\", \"properties\": {\"firstname\": \"Jane\", \"lastname\": \"Smith\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "batch",
+            "update"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "329cc428-9219-4afe-9073-7ab27360de7f",
+      "name": "Contacts - Create or update a batch of contacts",
+      "description": "Fazer upsert em um lote de contatos. A matriz inputs pode conter um objeto properties para definir valores de propriedade para cada registro.",
+      "parameters": [
+        {
+          "id": "4a767f67-e8ef-4504-95d9-89a4f53b6854",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"properties\": {\"email\": \"contact@example.com\", \"firstname\": \"Test\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "batch",
+            "upsert"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "2784f547-b37c-4326-b66a-c26f4db6081c",
+      "name": "Contacts - Permanently delete a contact (GDPR-compliant)",
+      "description": "Excluir permanentemente um contato e todo o conteúdo associado para cumprir o GDPR. Use a propriedade opcional idProperty definida como email para identificar o contato. Se não encontrado, será adicionado a uma lista de bloqueio.",
+      "parameters": [
+        {
+          "id": "0418353e-4c57-494e-b885-c5163cc69ee2",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"idProperty\": \"email\", \"value\": \"contact@example.com\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "gdpr-delete"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "9a4c0d9c-d0e0-4c11-a05d-d9db6f5f7a0c",
+      "name": "Contacts - Merge two contacts",
+      "description": "Mesclar dois registros de contato. Saiba mais sobre como mesclar registros.",
+      "parameters": [
+        {
+          "id": "fdd7ae68-3296-430e-9fba-54cf5f90426a",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"primaryContactId\": \"123456789\", \"contactIdToMerge\": \"987654321\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "merge"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "bb64fb62-d8d5-4d65-b653-d39124c36b3a",
+      "name": "Contacts - Search for contacts",
+      "description": "Pesquisar contatos filtrando por propriedades, pesquisando associações e classificando resultados.",
+      "parameters": [
+        {
+          "id": "e9847011-b1d8-4185-a90c-e1cfab77b5c2",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"filterGroups\": [{\"filters\": [{\"propertyName\": \"email\", \"operator\": \"CONTAINS_TOKEN\", \"value\": \"example.com\"}]}], \"limit\": 10}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "search"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "c5c682a7-1fd9-4e43-b752-a20ab5664106",
+      "name": "Contacts - Retrieve a contact",
+      "description": "Recuperar um contato pelo seu ID (contactId) ou por uma propriedade única (idProperty). Você pode especificar o que é retornado usando o parâmetro de consulta properties.",
+      "parameters": [
+        {
+          "id": "7be80bc8-06fa-4350-899a-affc997f751e",
+          "name": "contact_id",
+          "type": "string",
+          "description": "Identificador do contato.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "2279bcc3-d918-4798-8343-9d90800d5ad0",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "4911f30e-51c8-4068-a21a-07a514622c04",
+          "name": "associations",
+          "type": "array",
+          "description": "Lista separada por vírgula de tipos de objetos para os quais recuperar IDs associados. Se alguma das associações especificadas não existir, será ignorada.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "271ccc24-ead5-45e3-b132-f3c6f67e986f",
+          "name": "id_property",
+          "type": "string",
+          "description": "O nome de uma propriedade cujos valores são únicos para este tipo de objeto",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "6cd84ef1-05d9-436c-8bfd-ca18f66e3da6",
+          "name": "properties",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades a retornar. Propriedades não presentes nos objetos solicitados serão ignoradas.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "0d3f9070-797c-4ff9-94c4-23665f7d7bf5",
+          "name": "properties_with_history",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades com histórico de valores anteriores. Propriedades não presentes serão ignoradas. Reduz o número máximo de registros por requisição.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "<>contact_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          },
+          {
+            "key": "associations[]",
+            "value": "<>associations</>",
+            "enabled": true
+          },
+          {
+            "key": "idProperty",
+            "value": "<>id_property</>",
+            "enabled": true
+          },
+          {
+            "key": "properties[]",
+            "value": "<>properties</>",
+            "enabled": true
+          },
+          {
+            "key": "propertiesWithHistory[]",
+            "value": "<>properties_with_history</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "96c8e34a-f52a-4f48-8ea9-d6026d3eeb92",
+      "name": "Contacts - Update a contact",
+      "description": "Atualizar um contato existente identificado por ID ou propriedade única. Os valores fornecidos serão sobrescritos. Propriedades somente leitura e inexistentes resultarão em erro.",
+      "parameters": [
+        {
+          "id": "757f710b-97b1-4f97-9b19-79f7aed36873",
+          "name": "contact_id",
+          "type": "string",
+          "description": "Identificador do contato.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "aa74f383-a363-4776-ad2a-6a94da359f63",
+          "name": "id_property",
+          "type": "string",
+          "description": "O nome de uma propriedade cujos valores são únicos para este tipo de objeto",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "382bce93-f1bd-4307-902d-104b38862362",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"properties\": {\"firstname\": \"Updated\", \"lastname\": \"Name\"}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "<>contact_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "idProperty",
+            "value": "<>id_property</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "37e05c13-7cf7-4920-8206-1e6ed3124156",
+      "name": "Contacts - Archive a contact",
+      "description": "Excluir um contato por ID. Contatos excluídos podem ser restaurados dentro de 90 dias da exclusão.",
+      "parameters": [
+        {
+          "id": "5ff5b2a8-13b3-4d8f-8b52-0780ac7fed8d",
+          "name": "contact_id",
+          "type": "string",
+          "description": "Identificador do contato.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "<>contact_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "bb500053-dcdf-4235-a2fa-638057a6fd4d",
+      "name": "Contacts - List associations",
+      "description": "Listar todas as associações de um objeto específico (identificado por tipo e ID) com outro tipo de objeto especificado. Suporta paginação com até 500 resultados por chamada.",
+      "parameters": [
+        {
+          "id": "12167bf0-6745-4262-b87b-e679f2fc783c",
+          "name": "contact_id",
+          "type": "string",
+          "description": "Identificador do contato.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "b25d4881-f8de-4706-bdd0-df450fceb9b0",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "3ec9de29-756c-48b9-8f1f-c01f37e72cf5",
+          "name": "after",
+          "type": "string",
+          "description": "O token de cursor de paginação do último recurso lido com sucesso será retornado como a propriedade JSON `paging.next.after` de uma resposta paginada contendo mais resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "a74973db-2555-4c7d-abe5-a44017936946",
+          "name": "limit",
+          "type": "number",
+          "description": "O número máximo de resultados a serem exibidos por página",
+          "required": false,
+          "sensitive": false,
+          "sample": "500"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "contacts",
+            "<>contact_id</>",
+            "associations",
+            "<>to_object_type</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "33c0a37c-12a5-4de9-9d59-697db4ad1974",
+      "name": "Deals - List",
+      "description": "Ler uma página de negócios. Controlar o que é retornado por meio do parâmetro de consulta properties.",
+      "parameters": [
+        {
+          "id": "948d0718-a9af-4c04-9760-114a32567847",
+          "name": "after",
+          "type": "string",
+          "description": "O token de cursor de paginação do último recurso lido com sucesso será retornado como a propriedade JSON `paging.next.after` de uma resposta paginada contendo mais resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "3f018d41-f8ae-4f9b-af98-661acb2c592b",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "7a190e44-79b2-479c-824d-8857fb7d8f2e",
+          "name": "associations",
+          "type": "array",
+          "description": "Lista separada por vírgula de tipos de objetos para os quais recuperar IDs associados. Se alguma das associações especificadas não existir, será ignorada.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "c81ad48e-8a91-4840-a953-2c33ed7dd5dc",
+          "name": "limit",
+          "type": "number",
+          "description": "O número máximo de resultados a serem exibidos por página",
+          "required": false,
+          "sensitive": false,
+          "sample": "10"
+        },
+        {
+          "id": "ec4e0ea4-a729-458f-b499-0fc3e9667ede",
+          "name": "properties",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades a retornar. Propriedades não presentes nos objetos solicitados serão ignoradas.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "1c93cbdb-bb42-4fab-a90b-3f8043883b9e",
+          "name": "properties_with_history",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades com histórico de valores anteriores. Propriedades não presentes serão ignoradas. Reduz o número máximo de registros por requisição.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          },
+          {
+            "key": "associations[]",
+            "value": "<>associations</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          },
+          {
+            "key": "properties[]",
+            "value": "<>properties</>",
+            "enabled": true
+          },
+          {
+            "key": "propertiesWithHistory[]",
+            "value": "<>properties_with_history</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "6d89e2cc-d3db-4636-b7df-08af1158bbfc",
+      "name": "Deals - Create",
+      "description": "Criar um negócio com as propriedades fornecidas e retornar uma cópia do objeto, incluindo o ID.",
+      "parameters": [
+        {
+          "id": "69235690-aeee-4df1-a993-6d8fb4d9f21a",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"properties\": {\"dealname\": \"New Deal\", \"dealstage\": \"negotiation\"}, \"associations\": []}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "3ec9ada4-9032-4aa4-87b2-62c7b18e3bb8",
+      "name": "Deals - Archive a batch of deals by ID",
+      "description": "Arquivar vários negócios usando seus IDs.",
+      "parameters": [
+        {
+          "id": "faad97d5-88cb-4bd6-ab61-227a86525a02",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\": [{\"id\": \"123456789\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "batch",
+            "archive"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "e6d53842-0405-496d-8630-f247a12b77ca",
+      "name": "Deals - Create a batch of deals",
+      "description": "Criar múltiplos negócios em uma única solicitação.",
+      "parameters": [
+        {
+          "id": "a98d979b-3957-4183-9db1-d96347208b52",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\":[{\"properties\":{\"dealname\":\"Example Deal\",\"dealstage\":\"negotiation\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "batch",
+            "create"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "5c124d67-db02-4920-a7d7-b239f0f19012",
+      "name": "Deals - Read a batch of deals by internal ID, or unique property values",
+      "description": "Recuperar registros por ID ou usar o parâmetro idProperty para recuperar registros por um valor de propriedade único personalizado.",
+      "parameters": [
+        {
+          "id": "a3ac0823-39be-429d-889f-1e4748d893e4",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "5919bf88-17ab-4b37-8d01-cfac22838ac6",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\":[{\"id\":\"deal_123\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "batch",
+            "read"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "54fd6987-e6ce-41bc-a513-0bfa00f6712d",
+      "name": "Deals - Update a batch of deals by internal ID, or unique property values",
+      "description": "Atualizar múltiplos negócios usando seus IDs internos ou valores de propriedade únicos.",
+      "parameters": [
+        {
+          "id": "b1b983de-14f7-4b60-b2fb-ac5349cd2b2e",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\":[{\"id\":\"deal_123\",\"properties\":{\"dealstage\":\"closedwon\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "batch",
+            "update"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f521d6aa-b5a6-4e7e-a07e-2d065356251d",
+      "name": "Deals - Create or update a batch of deals by unique property values",
+      "description": "Criar ou atualizar registros identificados por um valor de propriedade única especificado por idProperty. Parâmetro refere-se a propriedade com valores únicos para o objeto.",
+      "parameters": [
+        {
+          "id": "dc59fa6f-5ad1-4d1e-99f0-ce252f4c8cc7",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\":[{\"id\":\"deal_456\",\"idProperty\":\"hs_unique_id\",\"properties\":{\"dealname\":\"Upserted Deal\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "batch",
+            "upsert"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "3ec32ee3-0480-439c-9e8d-e89c5ca19e82",
+      "name": "Deals - GDPR Delete",
+      "description": "Excluir permanentemente um negócio e conteúdo associado em conformidade com GDPR. Use idProperty definido como 'email' para identificar por email. Se não encontrado, será adicionado a uma lista de bloqueio.",
+      "parameters": [
+        {
+          "id": "f94eb2e9-6ad0-4c85-a465-0aef959d525e",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"idProperty\":\"email\",\"inputs\":[{\"id\":\"test@example.com\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "gdpr-delete"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "50802043-e913-439a-9991-1c981620cb33",
+      "name": "Deals - Merge two deals with same type",
+      "description": "Combinar dois negócios do mesmo tipo em um único negócio.",
+      "parameters": [
+        {
+          "id": "e88c340f-da7c-4448-b695-c0c42f53b48b",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"objectIdToMerge\":\"deal_old\",\"primaryObjectId\":\"deal_new\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "merge"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "70e9eeed-9cd7-414c-9714-fc918cb360f8",
+      "name": "Deals - Search for deals using various filters and criteria to retrieve specific records.",
+      "description": "Pesquisar negócios usando critérios e filtros especificados.",
+      "parameters": [
+        {
+          "id": "0e40f543-6044-4cd5-b97b-f5dafb168f32",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"filterGroups\":[{\"filters\":[{\"propertyName\":\"dealstage\",\"operator\":\"EQ\",\"value\":\"closedwon\"}]}],\"limit\":10}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "search"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "f8e7fa23-d082-4b4a-a652-6032e7145a15",
+      "name": "Deals - Read",
+      "description": "Ler um negócio identificado por dealId (ID interno) ou valor único de idProperty. Controle o retorno via parâmetro properties.",
+      "parameters": [
+        {
+          "id": "9171a795-7616-42c8-9f1e-e247c2ab91e6",
+          "name": "deal_id",
+          "type": "string",
+          "description": "Identificador do negócio",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "1164a287-5b36-4325-a76c-ae56d91d0452",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "194148d3-7f3f-4e3c-9e6a-5e6f36e6b662",
+          "name": "associations",
+          "type": "array",
+          "description": "Lista separada por vírgula de tipos de objetos para os quais recuperar IDs associados. Se alguma das associações especificadas não existir, será ignorada.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "7538a732-e84b-4620-b340-d7bb29f6212c",
+          "name": "id_property",
+          "type": "string",
+          "description": "O nome de uma propriedade cujos valores são únicos para este tipo de objeto",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "7433d05d-95d6-4b7f-b60a-b4f3f8d88008",
+          "name": "properties",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades a retornar. Propriedades não presentes nos objetos solicitados serão ignoradas.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "89924973-9867-4579-bcb4-e85294a8bc90",
+          "name": "properties_with_history",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades com histórico de valores anteriores. Propriedades não presentes serão ignoradas. Reduz o número máximo de registros por requisição.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "<>deal_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          },
+          {
+            "key": "associations[]",
+            "value": "<>associations</>",
+            "enabled": true
+          },
+          {
+            "key": "idProperty",
+            "value": "<>id_property</>",
+            "enabled": true
+          },
+          {
+            "key": "properties[]",
+            "value": "<>properties</>",
+            "enabled": true
+          },
+          {
+            "key": "propertiesWithHistory[]",
+            "value": "<>properties_with_history</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "8e1a0c7e-b96a-4194-81d5-d7c59a4fd093",
+      "name": "Deals - Update",
+      "description": "Atualizar parcialmente um negócio identificado por dealId ou valor único de idProperty. Valores serão sobrescritos. Propriedades somente leitura causam erro. Limpe passando string vazia.",
+      "parameters": [
+        {
+          "id": "807e665c-d690-4ee7-96c3-ed1c70a3853c",
+          "name": "deal_id",
+          "type": "string",
+          "description": "Identificador do negócio",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "12cf54f3-3ce1-4923-853b-9c3f358a8054",
+          "name": "id_property",
+          "type": "string",
+          "description": "O nome de uma propriedade cujos valores são únicos para este tipo de objeto",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "9fb8a630-3f94-4092-b933-2c0b77218490",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"properties\":{\"dealstage\":\"proposal\"}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "<>deal_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "idProperty",
+            "value": "<>id_property</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "4b68bd0f-3275-4dc0-91f8-e0d6515443e1",
+      "name": "Deals - Archive",
+      "description": "Mover um negócio identificado por dealId para a lixeira.",
+      "parameters": [
+        {
+          "id": "b16d9d96-b1df-4423-97fb-afef42ea4e04",
+          "name": "deal_id",
+          "type": "string",
+          "description": "Identificador do negócio",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "<>deal_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "23d2e52d-9990-4b9e-8767-33ffdbe6f349",
+      "name": "Deals - List associations",
+      "description": "Listar todas as associações de um objeto especificado por tipo. Máximo de 500 associações retornadas por chamada.",
+      "parameters": [
+        {
+          "id": "e8255ace-ced1-49f3-a03a-4c01e7476c32",
+          "name": "deal_id",
+          "type": "string",
+          "description": "Identificador do negócio",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "f48092a3-ac3c-44df-a40f-e7b9254df479",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "0046f7a0-2909-41a1-a04b-8217b8e1dc61",
+          "name": "after",
+          "type": "string",
+          "description": "O token de cursor de paginação do último recurso lido com sucesso será retornado como a propriedade JSON `paging.next.after` de uma resposta paginada contendo mais resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "66a53112-b355-4ac3-bd0a-6686e269068a",
+          "name": "limit",
+          "type": "number",
+          "description": "O número máximo de resultados a serem exibidos por página",
+          "required": false,
+          "sensitive": false,
+          "sample": "500"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "deals",
+            "<>deal_id</>",
+            "associations",
+            "<>to_object_type</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "14144584-3b8f-46d9-8840-97be3a29321c",
+      "name": "Tickets - List",
+      "description": "Listar tickets com suporte a paginação. Controle os dados retornados especificando propriedades e incluindo IDs de objetos associados e registros arquivados.",
+      "parameters": [
+        {
+          "id": "a0692a94-fb55-4cb8-8735-f7adf1a7eaf0",
+          "name": "after",
+          "type": "string",
+          "description": "O token de cursor de paginação do último recurso lido com sucesso será retornado como a propriedade JSON `paging.next.after` de uma resposta paginada contendo mais resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "62fbd08b-685c-4a5a-a9c8-44ddf87207d8",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "8bec0715-d87f-494a-96c7-575b9103062f",
+          "name": "associations",
+          "type": "array",
+          "description": "Lista separada por vírgula de tipos de objetos para os quais recuperar IDs associados. Se alguma das associações especificadas não existir, será ignorada.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "ce2bdd85-3e4d-460b-b1f4-43d3b2bdc352",
+          "name": "limit",
+          "type": "number",
+          "description": "O número máximo de resultados a serem exibidos por página",
+          "required": false,
+          "sensitive": false,
+          "sample": "10"
+        },
+        {
+          "id": "693a9fa0-25c2-416d-888c-8b46f3a0ad19",
+          "name": "properties",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades a retornar. Propriedades não presentes nos objetos solicitados serão ignoradas.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "86530379-4520-4444-a065-f49cb0b2591c",
+          "name": "properties_with_history",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades com histórico de valores anteriores. Propriedades não presentes serão ignoradas. Reduz o número máximo de registros por requisição.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          },
+          {
+            "key": "associations[]",
+            "value": "<>associations</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          },
+          {
+            "key": "properties[]",
+            "value": "<>properties</>",
+            "enabled": true
+          },
+          {
+            "key": "propertiesWithHistory[]",
+            "value": "<>properties_with_history</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "28fe0314-b78d-4c77-8120-67e180d66103",
+      "name": "Tickets - Create",
+      "description": "Criar um ticket com propriedades especificadas. Retorna uma cópia do objeto criado, incluindo seu ID.",
+      "parameters": [
+        {
+          "id": "e27ea8f6-9c01-49c9-8229-79eb15050772",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"properties\":{\"subject\":\"Test Ticket\",\"hs_pipeline_stage\":\"1\"}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "e4b752cb-837c-45e0-afdd-4bbecc5e387f",
+      "name": "Tickets - Batch archive objects",
+      "description": "Arquivar um lote de tickets identificados por seus IDs, movendo-os para a lixeira em uma única solicitação.",
+      "parameters": [
+        {
+          "id": "bf01af34-f960-492a-8387-a0e4efc140ee",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\":[{\"id\":\"ticket_123\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "batch",
+            "archive"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "70961a50-132d-47d3-858e-72fe6b3d5240",
+      "name": "Tickets - Batch create objects",
+      "description": "Criar um lote de tickets com propriedades especificadas. Retorna uma cópia de cada objeto criado, incluindo seus IDs.",
+      "parameters": [
+        {
+          "id": "5135d641-8bd9-4824-a85d-3558ecd88ed5",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\":[{\"properties\":{\"subject\":\"Batch Ticket\",\"hs_pipeline\":\"0\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "batch",
+            "create"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "6515446e-e781-472c-baf2-89489df07cef",
+      "name": "Tickets - Read batch objects",
+      "description": "Recuperar um lote de tickets por IDs internos ou valores únicos de propriedades. Opcionalmente inclua objetos arquivados nos resultados.",
+      "parameters": [
+        {
+          "id": "4574e4a2-5e99-4ce3-817c-bf1f66d9974a",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "c8ff103d-636d-4f17-af3d-72e4164c2ae2",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\":[{\"id\":\"ticket_456\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "batch",
+            "read"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "21478fab-f230-417b-80f0-61d2c8bf5650",
+      "name": "Tickets - Update batch objects",
+      "description": "Atualizar um lote de tickets fornecendo seus detalhes no corpo da solicitação. Útil para atualizações em massa de múltiplos objetos simultaneamente.",
+      "parameters": [
+        {
+          "id": "5c41b18a-e6d4-4c7e-bb8c-d07b205ffb5c",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\":[{\"id\":\"ticket_789\",\"properties\":{\"subject\":\"Updated\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "batch",
+            "update"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "79c287f0-aff1-4c0d-b2a4-ea0eefe31a66",
+      "name": "Tickets - Upsert batch objects",
+      "description": "Criar ou atualizar um lote de tickets por valores de propriedade únicos. Objetos existentes são atualizados; novos são criados em uma única solicitação.",
+      "parameters": [
+        {
+          "id": "951c0b89-5183-4f8e-b6f2-31235fb8265d",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inputs\":[{\"id\":\"ticket_new\",\"idProperty\":\"hs_unique_id\",\"properties\":{\"subject\":\"Upserted Ticket\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "batch",
+            "upsert"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "2788fab9-8682-4dc0-a91a-9e8868a26c93",
+      "name": "Tickets - GDPR Delete",
+      "description": "Excluir permanentemente um ticket e conteúdo associado em conformidade com GDPR. Use idProperty definido como 'email' para identificar por endereço de email. Se não encontrado, será adicionado a uma lista de bloqueio.",
+      "parameters": [
+        {
+          "id": "2e975822-cb7e-4bbd-89fb-6021b6d56a36",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"idProperty\":\"email\",\"inputs\":[{\"id\":\"contact@example.com\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "gdpr-delete"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "771acd17-676f-4edb-b53f-0390688d3adf",
+      "name": "Tickets - Merge objects",
+      "description": "Combinar dois tickets do mesmo tipo em um único objeto, consolidando suas propriedades e associações.",
+      "parameters": [
+        {
+          "id": "183ac823-2473-49de-bbf8-86ecca900063",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"objectIdToMerge\":\"ticket_old\",\"primaryObjectId\":\"ticket_new\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "merge"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b4e538f7-1cc4-4722-bf52-90ebb422c723",
+      "name": "Tickets - Search objects",
+      "description": "Pesquisar tickets usando filtros, critérios, grupos de filtros e opções de classificação especificados.",
+      "parameters": [
+        {
+          "id": "968b1478-c924-4024-bb8a-418e67a8284b",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"filterGroups\":[{\"filters\":[{\"propertyName\":\"hs_ticket_priority\",\"operator\":\"EQ\",\"value\":\"high\"}]}],\"limit\":10}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "search"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "6298b3c9-d7a5-42a6-9b71-abba9674e812",
+      "name": "Tickets - Read",
+      "description": "Ler um ticket identificado por objectId (ID interno) ou valor único de idProperty. Controle o retorno via parâmetro properties. Inclui propriedades, associações e histórico.",
+      "parameters": [
+        {
+          "id": "1bbba25c-fc6d-40d0-8359-dd63763cee0e",
+          "name": "ticket_id",
+          "type": "string",
+          "description": "Identificador do ticket.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "c7dacb9d-6b26-469e-810e-026c9c3fd493",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "42ccfd1e-180c-46c3-9703-4f4f200a8865",
+          "name": "associations",
+          "type": "array",
+          "description": "Lista separada por vírgula de tipos de objetos para os quais recuperar IDs associados. Se alguma das associações especificadas não existir, será ignorada.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "cd55ef5c-d9a0-4f21-b10d-0a131463faf7",
+          "name": "id_property",
+          "type": "string",
+          "description": "O nome de uma propriedade cujos valores são únicos para este tipo de objeto",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "dbc6ecb7-5368-481b-b6e1-e1a0c064546d",
+          "name": "properties",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades a retornar. Propriedades não presentes nos objetos solicitados serão ignoradas.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "aaed8352-d93b-44bc-b8ec-88a2ab0d2b07",
+          "name": "properties_with_history",
+          "type": "array",
+          "description": "Lista separada por vírgula de propriedades com histórico de valores anteriores. Propriedades não presentes serão ignoradas. Reduz o número máximo de registros por requisição.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "<>ticket_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          },
+          {
+            "key": "associations[]",
+            "value": "<>associations</>",
+            "enabled": true
+          },
+          {
+            "key": "idProperty",
+            "value": "<>id_property</>",
+            "enabled": true
+          },
+          {
+            "key": "properties[]",
+            "value": "<>properties</>",
+            "enabled": true
+          },
+          {
+            "key": "propertiesWithHistory[]",
+            "value": "<>properties_with_history</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b6479d7d-83ff-4162-8a89-9639be36aacf",
+      "name": "Tickets - Update",
+      "description": "Atualizar parcialmente um ticket identificado por objectId ou valor único de idProperty. Valores serão sobrescritos. Propriedades somente leitura são ignoradas. Limpe passando string vazia.",
+      "parameters": [
+        {
+          "id": "2a5150b5-eb88-41fa-911d-15689cd1e93a",
+          "name": "ticket_id",
+          "type": "string",
+          "description": "Identificador do ticket.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "8b64ee6a-bfa3-4220-b0df-f8b7eda1e338",
+          "name": "id_property",
+          "type": "string",
+          "description": "O nome de uma propriedade cujos valores são únicos para este tipo de objeto",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "ee71804e-8eee-4a95-904a-bc146d2d1e7c",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"properties\":{\"subject\":\"Updated Subject\"}}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "<>ticket_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "idProperty",
+            "value": "<>id_property</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "8ce89114-3566-436a-93c0-5f643c19fd95",
+      "name": "Tickets - Archive",
+      "description": "Mover um objeto identificado por `{objectId}` para a lixeira. Esta operação permite arquivar um objeto CRM específico por ID, removendo-o do uso ativo enquanto o retém no sistema para potencial restauração futura.",
+      "parameters": [
+        {
+          "id": "021bd1bb-5df2-4902-be41-32491dacdd02",
+          "name": "ticket_id",
+          "type": "string",
+          "description": "Identificador do ticket.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "<>ticket_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "afe42a1d-7538-486d-a5e3-2808f4c2de7a",
+      "name": "Tickets - List associations",
+      "description": "Listar todas as associações de um objeto especificado pelo seu tipo. Este endpoint permite recuperar associações entre objetos, com limite de 500 associações por chamada. É útil para entender as relações entre diferentes objetos CRM.",
+      "parameters": [
+        {
+          "id": "a297c3ab-be24-41ec-aeb5-3378c50add48",
+          "name": "ticket_id",
+          "type": "string",
+          "description": "Identificador do ticket.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "ddf7ad29-1b78-48b6-94cd-291801d729c4",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "87bb6ac7-5dff-4608-92a8-5a7d0a5c729d",
+          "name": "after",
+          "type": "string",
+          "description": "O token de cursor de paginação do último recurso lido com sucesso será retornado como a propriedade JSON `paging.next.after` de uma resposta paginada contendo mais resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "41aa16ba-d2be-40d2-9ed0-5171d7f8083d",
+          "name": "limit",
+          "type": "number",
+          "description": "O número máximo de resultados a serem exibidos por página",
+          "required": false,
+          "sensitive": false,
+          "sample": "500"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "tickets",
+            "<>ticket_id</>",
+            "associations",
+            "<>to_object_type</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "67067fef-87a6-4b4b-aafc-4c850ad851da",
+      "name": "Associations - Create Association",
+      "description": "Criar o tipo de associação padrão entre dois tipos de objeto especificados no HubSpot. Este endpoint é usado para estabelecer uma relação genérica entre dois objetos, identificados por seus tipos e IDs respectivos.",
+      "parameters": [
+        {
+          "id": "5d4b12ad-8bea-4e17-bba7-9b7ca22b3435",
+          "name": "from_object_type",
+          "type": "string",
+          "description": "Tipo de objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "93101bcf-5544-41e4-97e5-e1fcf8d3ab30",
+          "name": "from_object_id",
+          "type": "string",
+          "description": "Identificador do objeto de origem",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "95fdbbbe-6578-48bb-9dc6-640a56d2cc4f",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "74b1cab1-0619-4657-8b06-9ce548f09c5e",
+          "name": "to_object_id",
+          "type": "string",
+          "description": "Identificador do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "<>from_object_type</>",
+            "<>from_object_id</>",
+            "associations",
+            "default",
+            "<>to_object_type</>",
+            "<>to_object_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "d0069151-070d-4172-a3c8-0e22231aba50",
+      "name": "Associations - Create",
+      "description": "Definir rótulos de associação entre dois registros no CRM, especificando a relação entre os tipos de objeto, para organizar as conexões entre registros na conta HubSpot.",
+      "parameters": [
+        {
+          "id": "a69e3f1e-775f-41c1-a0df-dffe61ffb268",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "5c28b0db-3322-4f9f-9b10-1e4704c134b4",
+          "name": "object_id",
+          "type": "string",
+          "description": "Identificador do objeto",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "6fe106ef-ead1-4b17-a600-eed3023f718b",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "17fd3a92-8614-4b98-b686-4ad524c5eb8e",
+          "name": "to_object_id",
+          "type": "string",
+          "description": "Identificador do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "<>object_type</>",
+            "<>object_id</>",
+            "associations",
+            "<>to_object_type</>",
+            "<>to_object_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "ed5540b6-7c62-47fd-9233-e5885e088331",
+      "name": "Associations - Delete",
+      "description": "Deletar todas as associações entre dois registros especificados na sua conta HubSpot. Esta operação remove a ligação entre os dois objetos identificados pelos seus IDs respectivos.",
+      "parameters": [
+        {
+          "id": "ee35b21e-053d-4ed9-ba76-284dafdc2e3e",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "d8263b4e-3679-46c7-a55d-8665f1c7c3cd",
+          "name": "object_id",
+          "type": "string",
+          "description": "Identificador do objeto",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "86bf5603-18bf-43f0-baeb-c07aab268f68",
+          "name": "to_object_type",
+          "type": "string",
+          "description": "Tipo do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "62e1b89b-e895-4c64-9189-bac7674b89e7",
+          "name": "to_object_id",
+          "type": "string",
+          "description": "Identificador do objeto de destino.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "objects",
+            "2026-09",
+            "<>object_type</>",
+            "<>object_id</>",
+            "associations",
+            "<>to_object_type</>",
+            "<>to_object_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "a69df2ef-eb12-4fa0-932f-fc9e934e55e8",
+      "name": "Owners - List owners",
+      "description": "Recuperar proprietários da sua conta HubSpot com filtro por email e paginação. Suporta especificar o número máximo de resultados por página e inclua proprietários arquivados na resposta.",
+      "parameters": [
+        {
+          "id": "e57f0029-2d04-42e2-97a4-1408427050a4",
+          "name": "after",
+          "type": "string",
+          "description": "O token de cursor de paginação do último recurso lido com sucesso será retornado como a propriedade JSON `paging.next.after` de uma resposta paginada contendo mais resultados.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "9d99f16f-81a5-4321-825d-f1770f375a62",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "18240920-ade8-4a42-8ae7-f76afc788883",
+          "name": "email",
+          "type": "string",
+          "description": "Filtrar por endereço de email (opcional)",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "af77fd0e-25a3-45a7-b2a0-6c29f183065e",
+          "name": "limit",
+          "type": "number",
+          "description": "O número máximo de resultados a serem exibidos por página",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "owners",
+            "2026-09"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "after",
+            "value": "<>after</>",
+            "enabled": true
+          },
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          },
+          {
+            "key": "email",
+            "value": "<>email</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "859eaeae-45a5-4f42-b07f-3a7dd4c9c535",
+      "name": "Owners - Retrieve a specific owner by ID",
+      "description": "Recuperar detalhes de um proprietário específico usando seu 'id' ou 'userId'.",
+      "parameters": [
+        {
+          "id": "7d13e744-1883-4547-a028-dd4aa98d951d",
+          "name": "owner_id",
+          "type": "string",
+          "description": "Identificador do proprietário.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "eb43a3a7-5009-4010-9274-cf590454f940",
+          "name": "archived",
+          "type": "string",
+          "description": "Se deve retornar apenas resultados que foram arquivados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "False"
+        },
+        {
+          "id": "5f2476c5-ed85-452f-b920-c34e9ad2f877",
+          "name": "id_property",
+          "type": "string",
+          "description": "O nome de uma propriedade cujos valores são únicos para este tipo de objeto",
+          "required": false,
+          "sensitive": false,
+          "sample": "id"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "owners",
+            "2026-09",
+            "<>owner_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "archived",
+            "value": "<>archived</>",
+            "enabled": true
+          },
+          {
+            "key": "idProperty",
+            "value": "<>id_property</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "82466ac1-cb48-4a53-8536-ea0853959e63",
+      "name": "Pipelines - Retrieve pipelines",
+      "description": "Recupera pipelines de um tipo de objeto do CRM: sem informar o ID do pipeline, retorna a lista completa; informando o ID, retorna os dados detalhados de um pipeline específico, incluindo seus estágios.",
+      "parameters": [
+        {
+          "id": "5622dabf-55a1-4dae-9777-ca5a13d6d64a",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "992b63d0-c72a-41ec-8845-7b43c2f3fde8",
+      "name": "Pipelines - Create pipeline",
+      "description": "Criar um novo pipeline para um tipo de objeto na sua conta HubSpot. Requer corpo JSON com rótulo, ordem de exibição e estágios.",
+      "parameters": [
+        {
+          "id": "33a9120f-6040-4efe-b47c-d9c9e8b43002",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "870035c8-8985-42cc-981a-cb5d0d3243f8",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"label\": \"Sample Pipeline\", \"displayOrder\": 1, \"stages\": []}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b7cb875d-4a56-49f8-bb44-7a70c4cf06de",
+      "name": "Pipelines - Retrieve pipeline",
+      "description": "Recupera pipelines de um tipo de objeto do CRM: sem informar o ID do pipeline, retorna a lista completa; informando o ID, retorna os dados detalhados de um pipeline específico, incluindo seus estágios.",
+      "parameters": [
+        {
+          "id": "887f2db3-c2be-4850-970d-f1b621311de6",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "c9d12285-d73e-465a-94e8-8528820921c8",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "3b370be4-b45b-48dd-bce2-42c8b1fe31ce",
+      "name": "Pipelines - Update pipeline (Replace)",
+      "description": "Atualizar um pipeline existente especificando seu ID e tipo de objeto. Modifique propriedades como rótulo, ordem e estágios.",
+      "parameters": [
+        {
+          "id": "70e2523a-1a79-4cd4-8e12-572d100bf80d",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "c859eada-f288-4641-9c35-74e7379c15cb",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "eceeacec-ba78-4ee4-a0e8-09bbbef3b03c",
+          "name": "validate_deal_stage_usages_before_delete",
+          "type": "string",
+          "description": "Um booleano indicando se deve validar o uso de estágios de negócio antes da exclusão. O padrão é verdadeiro.",
+          "required": false,
+          "sensitive": false,
+          "sample": "True"
+        },
+        {
+          "id": "90ab1943-945a-485d-b8a7-df3477b70c5d",
+          "name": "validate_references_before_delete",
+          "type": "string",
+          "description": "Um booleano indicando se deve validar referências antes da exclusão. O padrão é verdadeiro.",
+          "required": false,
+          "sensitive": false,
+          "sample": "True"
+        },
+        {
+          "id": "1b42e394-0f46-4ac6-bd4d-0ccee273c805",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"label\": \"Updated Pipeline\", \"displayOrder\": 1, \"stages\": []}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "validateDealStageUsagesBeforeDelete",
+            "value": "<>validate_deal_stage_usages_before_delete</>",
+            "enabled": true
+          },
+          {
+            "key": "validateReferencesBeforeDelete",
+            "value": "<>validate_references_before_delete</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "11bb9d24-f5bb-47dd-bc65-ca8354d17a00",
+      "name": "Pipelines - Update pipeline (Partial)",
+      "description": "Atualizar propriedades específicas de um pipeline existente, como rótulo, ordem de exibição ou status de arquivo, mantendo os dados de pipeline atualizados na conta HubSpot.",
+      "parameters": [
+        {
+          "id": "079d38e4-9e20-45b3-8e6e-152d09e0196b",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "43353363-29bf-419f-a82d-094b6d308ad5",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "28fbd266-9f01-4dcd-86b3-86f084b8e2d4",
+          "name": "validate_deal_stage_usages_before_delete",
+          "type": "string",
+          "description": "Um booleano indicando se deve validar o uso de estágios de negócio antes da exclusão. O padrão é verdadeiro.",
+          "required": false,
+          "sensitive": false,
+          "sample": "True"
+        },
+        {
+          "id": "8f072dbf-e3e5-4da4-9de7-3eb2e23dccb8",
+          "name": "validate_references_before_delete",
+          "type": "string",
+          "description": "Um booleano indicando se deve validar referências antes da exclusão. O padrão é verdadeiro.",
+          "required": false,
+          "sensitive": false,
+          "sample": "True"
+        },
+        {
+          "id": "9d4910b4-f667-446f-8a0a-41057402b1de",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"label\": \"Updated Pipeline\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "validateDealStageUsagesBeforeDelete",
+            "value": "<>validate_deal_stage_usages_before_delete</>",
+            "enabled": true
+          },
+          {
+            "key": "validateReferencesBeforeDelete",
+            "value": "<>validate_references_before_delete</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "9901b0bb-d83b-4b36-961e-3d167ecdbeb6",
+      "name": "Pipelines - Delete pipeline",
+      "description": "Deletar um pipeline específico na sua conta HubSpot identificado por seu tipo de objeto e ID. Esta operação pode validar opcionalmente referências e uso de estágios de negócio antes da exclusão para garantir a integridade dos dados.",
+      "parameters": [
+        {
+          "id": "4743a92a-b6bc-4595-8d9b-e637e905ea14",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "3971cd68-84f0-49ad-b0af-969042d6899c",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "43f84967-d18d-438d-8b46-f9014e8f93c8",
+          "name": "validate_deal_stage_usages_before_delete",
+          "type": "string",
+          "description": "Um booleano indicando se deve validar o uso de estágios de negócio antes da exclusão. O padrão é verdadeiro.",
+          "required": false,
+          "sensitive": false,
+          "sample": "True"
+        },
+        {
+          "id": "50aff5cc-51cd-4131-9d3f-ae56ab9decb2",
+          "name": "validate_references_before_delete",
+          "type": "string",
+          "description": "Um booleano indicando se deve validar referências antes da exclusão. O padrão é verdadeiro.",
+          "required": false,
+          "sensitive": false,
+          "sample": "True"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "validateDealStageUsagesBeforeDelete",
+            "value": "<>validate_deal_stage_usages_before_delete</>",
+            "enabled": true
+          },
+          {
+            "key": "validateReferencesBeforeDelete",
+            "value": "<>validate_references_before_delete</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "c501d84f-b63b-4f6d-bba9-50bdc4b7e6f8",
+      "name": "Pipelines - Retrieve audit logs",
+      "description": "Recuperar registros de auditoria de um pipeline específico na sua conta HubSpot. Fornece detalhes sobre alterações feitas no pipeline para rastrear modificações e entender seu histórico.",
+      "parameters": [
+        {
+          "id": "8a6d6404-6872-4dba-8377-a16c11bf86d6",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "6612138e-c189-4f5b-a091-37c6547c78e8",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>",
+            "audit"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "b913aed1-01f9-433f-9477-1058037e0e81",
+      "name": "Pipelines - List stages",
+      "description": "Recuperar todos os estágios de um pipeline específico. Útil para obter informações detalhadas sobre cada estágio, que podem ser usadas para análise ou integração com outros sistemas.",
+      "parameters": [
+        {
+          "id": "41f295b4-f992-42ca-94a2-34cb2ef0d02f",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "cee956ed-a6e8-493a-b479-cae4dd1873c6",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>",
+            "stages"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "06284f60-f58d-42da-ab24-23d1f6205761",
+      "name": "Pipelines - Create Stage",
+      "description": "Criar um novo estágio dentro de um pipeline especificado. Permite rastreamento e gerenciamento mais granular de objetos através de diferentes estágios de um processo.",
+      "parameters": [
+        {
+          "id": "5029666e-09e0-488e-9d08-de7e7bc23911",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "6cb7431d-cd0d-4d10-82c0-298ecc045790",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "a5303693-fe74-4ab8-b258-00646fdfb7da",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"label\": \"Sample Stage\", \"displayOrder\": 1}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>",
+            "stages"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "96554b20-affe-486e-8d98-b91774d8f4fc",
+      "name": "Pipelines - Retrieve stage",
+      "description": "Recuperar detalhes de um estágio específico dentro de um pipeline incluindo seu rótulo, ordem de exibição e metadados.",
+      "parameters": [
+        {
+          "id": "a3811cde-49d2-4179-95d2-3fd685ec558a",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "272c7ffc-3d1b-4081-b751-6cf70c3df808",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "239599e6-e01e-44a4-bf64-a2f41acd3f86",
+          "name": "stage_id",
+          "type": "string",
+          "description": "Identificador do estágio do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>",
+            "stages",
+            "<>stage_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "865e1677-aec1-4c24-9e10-74f911ba2e46",
+      "name": "Pipelines - Update stage",
+      "description": "Atualizar um estágio específico dentro de um pipeline modificando seu rótulo, ordem e metadados.",
+      "parameters": [
+        {
+          "id": "3ba12eb3-024d-4740-af07-fd620ff5a8f3",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "33de6ef2-02cf-479e-8353-841bf8298e6b",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "8583cada-a4b6-411f-9528-c0577157a7a1",
+          "name": "stage_id",
+          "type": "string",
+          "description": "Identificador do estágio do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "ea673e45-8b0b-4a34-ada8-3ed0887c4de8",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"label\": \"Updated Stage\", \"displayOrder\": 1}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>",
+            "stages",
+            "<>stage_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "1626c6aa-5b3d-42a0-9200-ad3ad2e46e07",
+      "name": "Pipelines - Update stage (Partial)",
+      "description": "Atualizar um estágio específico dentro de um pipeline modificando suas propriedades como rótulo, ordem e metadados.",
+      "parameters": [
+        {
+          "id": "d979ba28-88ad-44db-bac2-46d5b196e41d",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "69b22e34-ac93-490b-bc2e-59c4a9ac17d2",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "3f7bd27e-8f8f-4c00-9db3-e25e31c1e3bc",
+          "name": "stage_id",
+          "type": "string",
+          "description": "Identificador do estágio do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "77ac6a1d-fcd4-4822-87b9-b065b35b170d",
+          "name": "body",
+          "type": "object",
+          "description": "Corpo da solicitação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"label\": \"Updated Stage\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>",
+            "stages",
+            "<>stage_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    },
+    {
+      "id": "1a35a1b6-fcb6-41dc-94b7-e5d28181cc96",
+      "name": "Pipelines - Delete stage",
+      "description": "Deletar um estágio específico de um pipeline na sua conta HubSpot. Útil para gerenciar e manter seus estágios de pipeline removendo os desnecessários.",
+      "parameters": [
+        {
+          "id": "9a087516-23f0-4410-95a5-1be872839f51",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "092e50aa-7047-4d8e-adf0-50a57a296b46",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "36cfde89-a4ab-4e1a-9831-58a8504ac4c6",
+          "name": "stage_id",
+          "type": "string",
+          "description": "Identificador do estágio do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "6cc47450-c342-4919-ab6e-f1eb58d3356b",
+          "name": "validate_references_before_delete",
+          "type": "string",
+          "description": "Um booleano indicando se deve validar referências antes da exclusão. O padrão é verdadeiro.",
+          "required": false,
+          "sensitive": false,
+          "sample": "True"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>",
+            "stages",
+            "<>stage_id</>"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": [
+          {
+            "key": "validateReferencesBeforeDelete",
+            "value": "<>validate_references_before_delete</>",
+            "enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "049ac03d-88dc-4518-b0a5-2fbdae8a9f00",
+      "name": "Pipelines - Retrieve stage audit",
+      "description": "Recuperar informações de auditoria para um estágio específico dentro de um pipeline. Fornece detalhes sobre ações tomadas para rastrear alterações e entender o histórico.",
+      "parameters": [
+        {
+          "id": "2917f7e5-9053-4390-a791-1fceb1feda5a",
+          "name": "object_type",
+          "type": "string",
+          "description": "Tipo de objeto a operação referencia.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "eaf90449-7371-4318-9e26-921c7671759e",
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Identificador do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "6b0b8148-99ad-475e-a471-c3f9f4194a7e",
+          "name": "stage_id",
+          "type": "string",
+          "description": "Identificador do estágio do pipeline.",
+          "required": true,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "crm",
+            "pipelines",
+            "2026-09",
+            "<>object_type</>",
+            "<>pipeline_id</>",
+            "stages",
+            "<>stage_id</>",
+            "audit"
+          ]
+        },
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "query": []
+      }
+    }
+  ]
+}

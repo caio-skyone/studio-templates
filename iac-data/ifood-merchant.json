@@ -1,0 +1,2113 @@
+{
+  "name": "iFood Merchant",
+  "id": "SJcl9J8K_b",
+  "authorization": {
+    "groups": [
+      "default"
+    ]
+  },
+  "description": "Conector para a API de Merchant do iFood — lojas, status, eventos, catálogo e pedidos.",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "oauth-2"
+  },
+  "operations": [
+    {
+      "name": "Order - Validate pickup code",
+      "id": "wZQvCWUqXm",
+      "description": "Valida o código de coleta fornecido pelo entregador.",
+      "parameters": [
+        {
+          "name": "order_id",
+          "id": "9ef7016d-2bb0-4fec-b0ed-7e75e72c32bb",
+          "type": "string",
+          "description": "ID do pedido (UUID)",
+          "sensitive": false,
+          "sample": "123e4567-e89b-12d3-a456-426614174000",
+          "required": true
+        },
+        {
+          "name": "pickup_code",
+          "id": "13057249-0d2b-4b75-a25a-5ba9ff83d124",
+          "type": "string",
+          "description": "Código de coleta fornecido pelo entregador",
+          "sensitive": false,
+          "sample": "123456",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders",
+            "<>order_id</>",
+            "validatePickupCode"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"code\": \"<>pickup_code</>\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Notify order ready",
+      "id": "ja42lk4ghv",
+      "description": "Notifica que o pedido está pronto para retirada ou entrega.",
+      "parameters": [
+        {
+          "name": "order_id",
+          "id": "8ebb72ae-56c9-4ac4-aa85-a3268ccecd3d",
+          "type": "string",
+          "description": "ID do pedido (UUID)",
+          "sensitive": false,
+          "sample": "123e4567-e89b-12d3-a456-426614174000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders",
+            "<>order_id</>",
+            "readyToPickup"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Get order details",
+      "id": "GfAi228bQx",
+      "description": "Retorna informações completas de um pedido.",
+      "parameters": [
+        {
+          "name": "order_id",
+          "id": "682fe4ac-4112-452b-b97d-e605613a700c",
+          "type": "string",
+          "description": "ID do pedido (UUID)",
+          "sensitive": false,
+          "sample": "123e4567-e89b-12d3-a456-426614174000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders",
+            "<>order_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Get events polling",
+      "id": "rTvbnDN47E",
+      "description": "Consulta novos eventos de pedidos via polling.",
+      "parameters": [
+        {
+          "name": "limit",
+          "id": "04770cf5-6992-4fe0-9584-0fd6a3c09be0",
+          "type": "number",
+          "description": "Número máximo de eventos retornados (padrão: 100)",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders:polling"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Request cancellation",
+      "id": "5WHmZGOuvD",
+      "description": "Solicita o cancelamento de um pedido com motivo válido.",
+      "parameters": [
+        {
+          "name": "order_id",
+          "id": "be962253-401a-46a5-8d88-330998dfc4c0",
+          "type": "string",
+          "description": "ID do pedido (UUID)",
+          "sensitive": false,
+          "sample": "123e4567-e89b-12d3-a456-426614174000",
+          "required": true
+        },
+        {
+          "name": "cancellation_reason",
+          "id": "8435b5d0-7ef5-446f-ab6c-da18dbb17997",
+          "type": "string",
+          "description": "Código do motivo de cancelamento (ex: 501, 502, 503)",
+          "sensitive": false,
+          "sample": "501",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders",
+            "<>order_id</>",
+            "requestCancellation"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"reason\": \"<>cancellation_reason</>\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Get cancellation reasons",
+      "id": "jR6SQRvGpm",
+      "description": "Retorna os motivos de cancelamento válidos para um pedido.",
+      "parameters": [
+        {
+          "name": "order_id",
+          "id": "1cd6da0e-4267-4e34-914f-ff98541e3122",
+          "type": "string",
+          "description": "ID do pedido (UUID)",
+          "sensitive": false,
+          "sample": "123e4567-e89b-12d3-a456-426614174000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders",
+            "<>order_id</>",
+            "cancellationReasons"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Dispatch order",
+      "id": "WbR-YK1WZH",
+      "description": "Notifica que o pedido saiu para entrega própria (deliveredBy MERCHANT).",
+      "parameters": [
+        {
+          "name": "order_id",
+          "id": "1c0b2bef-c26e-408f-8cd3-f2fc8b45c172",
+          "type": "string",
+          "description": "ID do pedido (UUID)",
+          "sensitive": false,
+          "sample": "123e4567-e89b-12d3-a456-426614174000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders",
+            "<>order_id</>",
+            "dispatch"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"deliveredBy\": \"MERCHANT\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Upload image",
+      "id": "jdfOwlBXk5",
+      "description": "Envia uma imagem em base64 para uso em itens do catálogo.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "51bea046-20be-4ba1-9da6-9dac46409a48",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "c8c8af8c-584d-4d0e-8497-0b614a34ae77",
+          "type": "object",
+          "description": "Imagem em base64 (jpg/jpeg/png, máximo 5MB)",
+          "sensitive": false,
+          "sample": "{\"image\": \"data:image/png;base64,iVBORw0KGgo...\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "image",
+            "upload"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Acknowledge events",
+      "id": "U8Yox98BLy",
+      "description": "Confirma o processamento de eventos de pedidos.",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "9841f7c6-3000-45fe-bd9a-7399260b494f",
+          "type": "object",
+          "description": "Lista de IDs de eventos confirmados (acknowledgedEventIds)",
+          "sensitive": false,
+          "sample": "{\"acknowledgedEventIds\": [\"evt_123\"]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders:acknowledgment"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Verify delivery code",
+      "id": "YzMFuRPo22",
+      "description": "Valida e confirma a entrega ou retirada do pedido.",
+      "parameters": [
+        {
+          "name": "order_id",
+          "id": "3c5e9ffd-3a72-4053-a794-870aad45ef2e",
+          "type": "string",
+          "description": "ID do pedido (UUID)",
+          "sensitive": false,
+          "sample": "123e4567-e89b-12d3-a456-426614174000",
+          "required": true
+        },
+        {
+          "name": "delivery_code",
+          "id": "22f5f176-85f9-4671-ab21-157fb49f2af3",
+          "type": "string",
+          "description": "Código de confirmação de entrega",
+          "sensitive": false,
+          "sample": "654321",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders",
+            "<>order_id</>",
+            "verifyDeliveryCode"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"code\": \"<>delivery_code</>\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Track driver",
+      "id": "EDxgti-mDU",
+      "description": "Retorna a localização em tempo real do entregador iFood.",
+      "parameters": [
+        {
+          "name": "order_id",
+          "id": "106f9a31-527c-464a-8080-d43e747486d3",
+          "type": "string",
+          "description": "ID do pedido (UUID)",
+          "sensitive": false,
+          "sample": "123e4567-e89b-12d3-a456-426614174000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders",
+            "<>order_id</>",
+            "tracking"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Start preparation",
+      "id": "XDb3Zw6sCD",
+      "description": "Inicia a preparação do pedido após confirmação.",
+      "parameters": [
+        {
+          "name": "order_id",
+          "id": "5503c71b-97e6-477e-860d-614279ddea4a",
+          "type": "string",
+          "description": "ID do pedido (UUID)",
+          "sensitive": false,
+          "sample": "123e4567-e89b-12d3-a456-426614174000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders",
+            "<>order_id</>",
+            "startPreparation"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Order - Confirm order",
+      "id": "ZaQUvbqZYA",
+      "description": "Confirma um pedido recebido (obrigatório em até 8 minutos).",
+      "parameters": [
+        {
+          "name": "order_id",
+          "id": "d52da3b9-aead-476d-babe-df7dd6033c80",
+          "type": "string",
+          "description": "ID do pedido (UUID)",
+          "sensitive": false,
+          "sample": "123e4567-e89b-12d3-a456-426614174000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "order",
+            "v1.0",
+            "orders",
+            "<>order_id</>",
+            "confirm"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Merchant - List opening hours",
+      "id": "1DVsZPMoon",
+      "description": "Retorna os horários de funcionamento configurados da loja.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "c5d6e7f8-9012-3456-ef01-345678901235",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "merchant",
+            "v1.0",
+            "merchants",
+            "<>merchant_id</>",
+            "opening-hours"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Merchant - Get operation status",
+      "id": "8Ebmuhk4Lu",
+      "description": "Retorna o status de uma operação específica da loja (DELIVERY, TAKEOUT, INDOOR).",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "f1a2b3c4-d5e6-7890-abcd-ef1234567891",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "operation",
+          "id": "f2a3b4c5-d6e7-8901-bcde-f12345678902",
+          "type": "string",
+          "description": "Tipo de operação: DELIVERY, TAKEOUT ou INDOOR",
+          "sensitive": false,
+          "sample": "DELIVERY",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "merchant",
+            "v1.0",
+            "merchants",
+            "<>merchant_id</>",
+            "status",
+            "<>operation</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Merchant - List interruptions",
+      "id": "rnSJ4jAtFu",
+      "description": "Lista as interrupções (pausas) ativas e futuras de uma loja.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "ff2f44b1-9f92-4062-be5f-db3d3c01ca3d",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "merchant",
+            "v1.0",
+            "merchants",
+            "<>merchant_id</>",
+            "interruptions"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Batch update prices",
+      "id": "m5eUxyLcRw",
+      "description": "Atualiza preços de itens e complementos em lote (assíncrono).",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "1d8b4667-cdaf-40db-b17b-b87cd39552d9",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "561d50e7-85ce-47cc-badc-0116d0aaf592",
+          "type": "array",
+          "description": "Lista de atualizações de preço com externalCode/productId, price e resources",
+          "sensitive": false,
+          "sample": "[{\"externalCode\": \"ITEM_001\", \"price\": {\"value\": 27.00}, \"resources\": [\"ITEM\"]}]",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "products",
+            "price"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Update option external code",
+      "id": "WqQj6OQu7k",
+      "description": "Atualiza o código externo (POS) de um complemento por contexto.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "da24df1b-a38e-4e69-b941-862e73e2edb0",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "2fa51cec-ba82-41d8-9a3b-e39c1d4910bc",
+          "type": "object",
+          "description": "optionId, externalCode e externalCodeByCatalog (opcional por contexto)",
+          "sensitive": false,
+          "sample": "{\"optionId\": \"opt-id\", \"externalCode\": \"OPT_001\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "options",
+            "externalCode"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Update item price",
+      "id": "ObBD6SrHWZ",
+      "description": "Altera o preço de um item globalmente ou por contexto de catálogo.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "9ba632e5-d0a0-4543-9969-184c0a307b45",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "4a64921e-7610-4239-ba58-4771ad10880b",
+          "type": "object",
+          "description": "itemId, price e priceByCatalog (opcional por contexto)",
+          "sensitive": false,
+          "sample": "{\"itemId\": \"uuid\", \"price\": {\"value\": 26.00}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "items",
+            "price"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Get item details",
+      "id": "EUuazBwaKi",
+      "description": "Retorna um item com todos seus componentes (produto, grupos, opções).",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "67b370b1-f078-431e-954e-016e80347662",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "item_id",
+          "id": "75fa58ae-75ec-45d7-9d93-48e567dffd94",
+          "type": "string",
+          "description": "ID do item do catálogo",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "items",
+            "<>item_id</>",
+            "flat"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Merchant - Generate checkin QR code",
+      "id": "HAGP6eOZt5",
+      "description": "Gera PDF com QR codes para check-in de entregadores (até 20 lojas).",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "f8901234-5678-9012-3456-678901234568",
+          "type": "object",
+          "description": "Lista de IDs das lojas (máximo 20)",
+          "sensitive": false,
+          "sample": "{\"merchantIds\": [\"550e8400-e29b-41d4-a716-446655440000\"]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "merchant",
+            "v1.0",
+            "merchants",
+            "checkin-qrcode"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Events - Acknowledge events",
+      "id": "XIwidaUeXx",
+      "description": "Confirma o recebimento e processamento de eventos.",
+      "parameters": [
+        {
+          "name": "body",
+          "id": "aa8c3731-2bba-43a1-82ce-ccdbee1003f6",
+          "type": "object",
+          "description": "Lista de IDs de eventos confirmados (acknowledgedEventIds)",
+          "sensitive": false,
+          "sample": "{\"acknowledgedEventIds\": [\"evt_123\"]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "events",
+            "v1.0",
+            "events",
+            "acknowledgment"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - List categories",
+      "id": "5UKWXK7q0T",
+      "description": "Lista as categorias do catálogo. Use include_items=true para incluir itens.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "8e8b5b33-b04a-4ed0-8a6d-cafe177c193a",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "catalog_id",
+          "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "type": "string",
+          "description": "ID do catálogo (DEFAULT ou INDOOR)",
+          "sensitive": false,
+          "sample": "10e0fbbe-7279-4ee3-9a2f-caf1f93f7b8e",
+          "required": true
+        },
+        {
+          "name": "include_items",
+          "id": "5591aba1-8447-4777-8e14-6b615cfd258c",
+          "type": "string",
+          "description": "Se true, retorna os itens dentro de cada categoria",
+          "sensitive": false,
+          "sample": "true",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "catalogs",
+            "<>catalog_id</>",
+            "categories"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "include_items",
+            "value": "<>include_items</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - List items by category",
+      "id": "OjXQZWkKSp",
+      "description": "Lista os itens de uma categoria com seus complementos.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "41c8e568-2721-46f2-a059-be92269fe116",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "category_id",
+          "id": "a46444c6-d730-4aa7-a820-ef62d4742a3b",
+          "type": "string",
+          "description": "ID da categoria",
+          "sensitive": false,
+          "sample": "cat-lanches-001",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "categories",
+            "<>category_id</>",
+            "items"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - List sellable items",
+      "id": "lBVbcJZxza",
+      "description": "Lista os itens ativos e disponíveis para venda em um catálogo.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "886307d4-c7e0-4938-8f02-db8d387a2f97",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "catalog_id",
+          "id": "712f48f1-93fb-4f5a-94e2-5b17437bd84c",
+          "type": "string",
+          "description": "ID do catálogo",
+          "sensitive": false,
+          "sample": "cat-main-001",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "catalogs",
+            "<>catalog_id</>",
+            "sellableItems"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - List unsellable items",
+      "id": "hdUSNlCcD9",
+      "description": "Lista os itens bloqueados e o motivo de cada bloqueio.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "62de9fb0-59aa-46ca-8e24-b94035194aca",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "catalog_id",
+          "id": "55c674ca-35e5-4fb3-9874-23967c1718e5",
+          "type": "string",
+          "description": "ID do catálogo",
+          "sensitive": false,
+          "sample": "cat-main-001",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "catalogs",
+            "<>catalog_id</>",
+            "unsellableItems"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - List catalogs",
+      "id": "Vw2qQakrTJ",
+      "description": "Lista todos os catálogos da loja e seus contextos.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "7c917cf5-1250-4dda-9b28-7fbe40182d53",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "catalogs"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Events - Get polling events",
+      "id": "QrVRDs8aWD",
+      "description": "Consulta novos eventos de pedidos via polling (recomendado a cada 30s).",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "events",
+            "v1.0",
+            "events:polling"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Merchant - Update opening hours",
+      "id": "dhL8H-GQVA",
+      "description": "Atualiza os horários de funcionamento da loja (substituição completa).",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "d6e7f890-1234-5678-f012-456789012346",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "e7f89012-3456-7890-0123-567890123457",
+          "type": "object",
+          "description": "Lista de horários por dia da semana",
+          "sensitive": false,
+          "sample": "[{\"dayOfWeek\": \"MONDAY\", \"start\": \"08:00\", \"end\": \"22:00\"}]",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "merchant",
+            "v1.0",
+            "merchants",
+            "<>merchant_id</>",
+            "opening-hours"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Update item status",
+      "id": "C63J_MG0ik",
+      "description": "Pausa ou reativa um item globalmente ou por contexto de catálogo.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "74ae600c-bba1-473a-8da5-2cf56e2e72a0",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "d095bcc4-a82c-4f92-98ef-c5bf7ea86ce6",
+          "type": "object",
+          "description": "itemId, status e statusByCatalog (opcional por contexto)",
+          "sensitive": false,
+          "sample": "{\"itemId\": \"uuid\", \"status\": \"AVAILABLE\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "items",
+            "status"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Merchant - Delete interruption",
+      "id": "pLuGnnHH8Z",
+      "description": "Remove uma interrupção e reabre a loja.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "ed4f6616-251f-4d30-b60a-7e323e993ce5",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "interruption_id",
+          "id": "5905567f-2676-467d-add1-406dcaeb5317",
+          "type": "string",
+          "description": "ID da interrupção a ser removida",
+          "sensitive": false,
+          "sample": "interrupt-001",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "merchant",
+            "v1.0",
+            "merchants",
+            "<>merchant_id</>",
+            "interruptions",
+            "<>interruption_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Merchant - Create interruption",
+      "id": "k9UWbdce5O",
+      "description": "Cria uma pausa no recebimento de pedidos.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "a3b4c5d6-e7f8-9012-cdef-123456789013",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "b4c5d6e7-f890-1234-def0-234567890124",
+          "type": "object",
+          "description": "Dados da interrupção: início, fim e motivo",
+          "sensitive": false,
+          "sample": "{\"start\": \"2026-05-28T12:00:00Z\", \"end\": \"2026-05-28T14:00:00Z\", \"reason\": \"MAINTENANCE\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "merchant",
+            "v1.0",
+            "merchants",
+            "<>merchant_id</>",
+            "interruptions"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Merchant - Get store status",
+      "id": "1Gm15Ro_l3",
+      "description": "Retorna o status operacional de uma loja.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "0a669bff-b80b-4791-803e-528b3020cfc4",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "merchant",
+            "v1.0",
+            "merchants",
+            "<>merchant_id</>",
+            "status"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Merchant - List stores",
+      "id": "L76Yjo061w",
+      "description": "Lista todas as lojas vinculadas ao token de acesso.",
+      "parameters": [
+        {
+          "name": "page",
+          "id": "de1cdfd1-0c5a-491b-a609-80e8087bdb9d",
+          "type": "number",
+          "description": "Número da página (começa em 1)",
+          "sensitive": false,
+          "sample": "1",
+          "required": false
+        },
+        {
+          "name": "size",
+          "id": "518dfddd-2936-40af-ad05-1ed2b28dd01e",
+          "type": "number",
+          "description": "Quantidade de lojas por página (padrão: 100)",
+          "sensitive": false,
+          "sample": "100",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "merchant",
+            "v1.0",
+            "merchants"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "page",
+            "value": "<>page</>",
+            "enabled": true
+          },
+          {
+            "key": "size",
+            "value": "<>size</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Batch update status",
+      "id": "QP7hkjwd6D",
+      "description": "Atualiza status de itens e complementos em lote (assíncrono).",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "7f72b510-357c-4597-829c-003fb736bb41",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "b8f17d3e-e42a-4a15-b2de-94cfa487974d",
+          "type": "array",
+          "description": "Lista de atualizações de status com externalCode/productId, status e resources",
+          "sensitive": false,
+          "sample": "[{\"externalCode\": \"ITEM_001\", \"status\": \"UNAVAILABLE\", \"resources\": [\"ITEM\"]}]",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "products",
+            "status"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Get batch operation status",
+      "id": "pz8aHQruK2",
+      "description": "Consulta o progresso de uma operação em lote assíncrona.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "46375f8b-ee57-4b62-9cde-55768b1ca79c",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "batch_id",
+          "id": "a5ba3312-6ede-4237-b396-52ed636c9625",
+          "type": "string",
+          "description": "ID da operação em lote retornado na requisição batch",
+          "sensitive": false,
+          "sample": "batch-id-001",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "batch",
+            "<>batch_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Merchant - Get store details",
+      "id": "O3NvhCzstO",
+      "description": "Retorna detalhes completos de uma loja específica.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "894b78c2-26fb-4d5a-b969-b6159c161fa9",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "merchant",
+            "v1.0",
+            "merchants",
+            "<>merchant_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Delete inventory",
+      "id": "nGEF96fYcU",
+      "description": "Remove o limite de inventário de um ou mais produtos.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "072e1cfa-0fd4-4112-b65b-1f111297b095",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "40a05c2c-f6ff-472c-975d-2ca1a42288bc",
+          "type": "object",
+          "description": "Array de productIds para remover limite de inventário",
+          "sensitive": false,
+          "sample": "{\"productIds\": [\"prod-cake-001\"]}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "inventory",
+            "batchDelete"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Create category",
+      "id": "g0SC8I16MR",
+      "description": "Cria uma categoria para agrupar itens no catálogo.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "b763db13-8b22-41ba-a791-8a94ad559384",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "catalog_id",
+          "id": "c2d3e4f5-a6b7-8901-cdef-234567890abc",
+          "type": "string",
+          "description": "ID do catálogo (DEFAULT ou INDOOR)",
+          "sensitive": false,
+          "sample": "10e0fbbe-7279-4ee3-9a2f-caf1f93f7b8e",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "7b157712-41c5-46b6-aae1-fd3fdcc80299",
+          "type": "object",
+          "description": "Dados da categoria: name, status (AVAILABLE/UNAVAILABLE) e template",
+          "sensitive": false,
+          "sample": "{\"name\": \"Lanches\", \"status\": \"AVAILABLE\", \"template\": \"DEFAULT\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "catalogs",
+            "<>catalog_id</>",
+            "categories"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Create or update item",
+      "id": "gB8jrOCQju",
+      "description": "Cria ou atualiza um item completo com produtos, grupos e complementos.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "d56bf423-ef22-4522-bfea-5db7f1d3ec9c",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "6c234cf0-a12e-4fb5-baf1-c203f65664ce",
+          "type": "object",
+          "description": "Item completo: item, products, optionGroups e options",
+          "sensitive": false,
+          "sample": "{\"item\": {\"id\": \"uuid\", \"type\": \"DEFAULT\", \"categoryId\": \"cat-id\", \"status\": \"AVAILABLE\", \"price\": {\"value\": 25.00}}, \"products\": [], \"optionGroups\": [], \"options\": []}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "items"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Get inventory",
+      "id": "Gq65e6bTXf",
+      "description": "Retorna o inventário atual de um produto.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "3b0457f8-591c-4ad3-b058-0cd3917f772b",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "product_id",
+          "id": "2a7cd2df-9500-45d8-aebc-219e8a61a6fb",
+          "type": "string",
+          "description": "ID do produto para consultar o inventário",
+          "sensitive": false,
+          "sample": "prod-cake-001",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "inventory",
+            "<>product_id</>"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Create inventory",
+      "id": "FDMOr60g_S",
+      "description": "Define a quantidade máxima vendível de um produto.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "e6cfd5b4-dabc-4a07-b286-255f84c55840",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "0ca50539-30bc-48e7-98b0-68169a442913",
+          "type": "object",
+          "description": "productId e quantidade máxima vendível",
+          "sensitive": false,
+          "sample": "{\"productId\": \"prod-001\", \"quantity\": 10}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "inventory"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Update option status",
+      "id": "JjeiAbxsjK",
+      "description": "Pausa ou reativa um complemento globalmente ou por contexto.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "4f60e439-2865-4f59-9d0e-fe4791cd728b",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "34236919-f796-4977-99c1-c4f242d366b6",
+          "type": "object",
+          "description": "optionId, status e statusByCatalog (opcional por contexto)",
+          "sensitive": false,
+          "sample": "{\"optionId\": \"opt-id\", \"status\": \"UNAVAILABLE\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "options",
+            "status"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Update option price",
+      "id": "14h0Mi0fR3",
+      "description": "Altera o preço de um complemento globalmente ou por contexto.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "572899cd-854b-438b-afbf-60835b17510a",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "42efc013-6abe-4aff-b5ef-0a984288694e",
+          "type": "object",
+          "description": "optionId, price e priceByCatalog (opcional por contexto)",
+          "sensitive": false,
+          "sample": "{\"optionId\": \"opt-id\", \"price\": {\"value\": 8.50}}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "options",
+            "price"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Catalog - Update item external code",
+      "id": "TNr8ehe9Ka",
+      "description": "Atualiza o código externo (POS) de um item globalmente ou por contexto.",
+      "parameters": [
+        {
+          "name": "merchant_id",
+          "id": "13822014-e128-4df2-8265-adbcecf77f77",
+          "type": "string",
+          "description": "ID da loja",
+          "sensitive": false,
+          "sample": "550e8400-e29b-41d4-a716-446655440000",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "44bccdcc-ee77-4c09-9ca5-82be3223b0f1",
+          "type": "object",
+          "description": "itemId, externalCode e externalCodeByCatalog (opcional por contexto)",
+          "sensitive": false,
+          "sample": "{\"itemId\": \"uuid\", \"externalCode\": \"ITEM_001\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "catalog",
+            "v2.0",
+            "merchants",
+            "<>merchant_id</>",
+            "items",
+            "externalCode"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

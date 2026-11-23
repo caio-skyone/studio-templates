@@ -1,0 +1,386 @@
+{
+  "module": {
+    "name": "Xero Accounting",
+    "description": "Conector REST para a API Xero Accounting 2.0: faturas, orcamentos, contatos, compras, conciliacao bancaria, plano de contas, lancamentos, relatorios contabeis e configuracao da organizacao.",
+    "authentication_type": "oauth-2",
+    "strip_path_prefix": [
+      "api.xro",
+      "2.0"
+    ]
+  },
+  "include_roots": [
+    "Accounts",
+    "BankTransactions",
+    "BankTransfers",
+    "BatchPayments",
+    "BrandingThemes",
+    "Budgets",
+    "ContactGroups",
+    "Contacts",
+    "CreditNotes",
+    "Currencies",
+    "ExpenseClaims",
+    "InvoiceReminders",
+    "Invoices",
+    "Items",
+    "Journals",
+    "LinkedTransactions",
+    "ManualJournals",
+    "Organisation",
+    "Overpayments",
+    "PaymentServices",
+    "Payments",
+    "Prepayments",
+    "PurchaseOrders",
+    "Quotes",
+    "Receipts",
+    "RepeatingInvoices",
+    "Reports",
+    "Setup",
+    "TaxRates",
+    "TrackingCategories",
+    "Users"
+  ],
+  "domains": {
+    "Accounts": {
+      "domain": "Accounts",
+      "block": "contabilidade"
+    },
+    "Accounts.Attachments": {
+      "domain": "Accounts",
+      "block": "contabilidade"
+    },
+    "BankTransactions": {
+      "domain": "Bank Transactions",
+      "block": "banco"
+    },
+    "BankTransactions.Attachments": {
+      "domain": "Bank Transactions",
+      "block": "banco"
+    },
+    "BankTransactions.History": {
+      "domain": "Bank Transactions",
+      "block": "banco"
+    },
+    "BankTransfers": {
+      "domain": "Bank Transfers",
+      "block": "banco"
+    },
+    "BankTransfers.Attachments": {
+      "domain": "Bank Transfers",
+      "block": "banco"
+    },
+    "BankTransfers.History": {
+      "domain": "Bank Transfers",
+      "block": "banco"
+    },
+    "BatchPayments": {
+      "domain": "Batch Payments",
+      "block": "vendas"
+    },
+    "BatchPayments.History": {
+      "domain": "Batch Payments",
+      "block": "vendas"
+    },
+    "BrandingThemes": {
+      "domain": "Branding Themes",
+      "block": "organizacao"
+    },
+    "BrandingThemes.PaymentServices": {
+      "domain": "Branding Themes",
+      "block": "organizacao"
+    },
+    "Budgets": {
+      "domain": "Budgets",
+      "block": "contabilidade"
+    },
+    "ContactGroups": {
+      "domain": "Contact Groups",
+      "block": "contatos"
+    },
+    "ContactGroups.Contacts": {
+      "domain": "Contact Groups",
+      "block": "contatos"
+    },
+    "Contacts": {
+      "domain": "Contacts",
+      "block": "contatos"
+    },
+    "Contacts.Attachments": {
+      "domain": "Contacts",
+      "block": "contatos"
+    },
+    "Contacts.CISSettings": {
+      "domain": "Contacts",
+      "block": "contatos"
+    },
+    "Contacts.History": {
+      "domain": "Contacts",
+      "block": "contatos"
+    },
+    "CreditNotes": {
+      "domain": "Credit Notes",
+      "block": "vendas"
+    },
+    "CreditNotes.Allocations": {
+      "domain": "Credit Notes",
+      "block": "vendas"
+    },
+    "CreditNotes.Attachments": {
+      "domain": "Credit Notes",
+      "block": "vendas"
+    },
+    "CreditNotes.History": {
+      "domain": "Credit Notes",
+      "block": "vendas"
+    },
+    "CreditNotes.pdf": {
+      "domain": "Credit Notes",
+      "block": "vendas"
+    },
+    "Currencies": {
+      "domain": "Currencies",
+      "block": "organizacao"
+    },
+    "ExpenseClaims": {
+      "domain": "Expense Claims",
+      "block": "compras"
+    },
+    "ExpenseClaims.History": {
+      "domain": "Expense Claims",
+      "block": "compras"
+    },
+    "InvoiceReminders.Settings": {
+      "domain": "Invoice Reminders",
+      "block": "vendas"
+    },
+    "Invoices": {
+      "domain": "Invoices",
+      "block": "vendas"
+    },
+    "Invoices.Attachments": {
+      "domain": "Invoices",
+      "block": "vendas"
+    },
+    "Invoices.Email": {
+      "domain": "Invoices",
+      "block": "vendas"
+    },
+    "Invoices.History": {
+      "domain": "Invoices",
+      "block": "vendas"
+    },
+    "Invoices.OnlineInvoice": {
+      "domain": "Invoices",
+      "block": "vendas"
+    },
+    "Invoices.pdf": {
+      "domain": "Invoices",
+      "block": "vendas"
+    },
+    "Items": {
+      "domain": "Items",
+      "block": "organizacao"
+    },
+    "Items.History": {
+      "domain": "Items",
+      "block": "organizacao"
+    },
+    "Journals": {
+      "domain": "Journals",
+      "block": "contabilidade"
+    },
+    "LinkedTransactions": {
+      "domain": "Linked Transactions",
+      "block": "contabilidade"
+    },
+    "ManualJournals": {
+      "domain": "Manual Journals",
+      "block": "contabilidade"
+    },
+    "ManualJournals.Attachments": {
+      "domain": "Manual Journals",
+      "block": "contabilidade"
+    },
+    "ManualJournals.History": {
+      "domain": "Manual Journals",
+      "block": "contabilidade"
+    },
+    "Organisation": {
+      "domain": "Organisation",
+      "block": "organizacao"
+    },
+    "Organisation.Actions": {
+      "domain": "Organisation",
+      "block": "organizacao"
+    },
+    "Organisation.CISSettings": {
+      "domain": "Organisation",
+      "block": "organizacao"
+    },
+    "Overpayments": {
+      "domain": "Overpayments",
+      "block": "vendas"
+    },
+    "Overpayments.Allocations": {
+      "domain": "Overpayments",
+      "block": "vendas"
+    },
+    "Overpayments.History": {
+      "domain": "Overpayments",
+      "block": "vendas"
+    },
+    "PaymentServices": {
+      "domain": "Payment Services",
+      "block": "vendas"
+    },
+    "Payments": {
+      "domain": "Payments",
+      "block": "vendas"
+    },
+    "Payments.History": {
+      "domain": "Payments",
+      "block": "vendas"
+    },
+    "Prepayments": {
+      "domain": "Prepayments",
+      "block": "vendas"
+    },
+    "Prepayments.Allocations": {
+      "domain": "Prepayments",
+      "block": "vendas"
+    },
+    "Prepayments.History": {
+      "domain": "Prepayments",
+      "block": "vendas"
+    },
+    "PurchaseOrders": {
+      "domain": "Purchase Orders",
+      "block": "compras"
+    },
+    "PurchaseOrders.Attachments": {
+      "domain": "Purchase Orders",
+      "block": "compras"
+    },
+    "PurchaseOrders.History": {
+      "domain": "Purchase Orders",
+      "block": "compras"
+    },
+    "PurchaseOrders.pdf": {
+      "domain": "Purchase Orders",
+      "block": "compras"
+    },
+    "Quotes": {
+      "domain": "Quotes",
+      "block": "vendas"
+    },
+    "Quotes.Attachments": {
+      "domain": "Quotes",
+      "block": "vendas"
+    },
+    "Quotes.History": {
+      "domain": "Quotes",
+      "block": "vendas"
+    },
+    "Quotes.pdf": {
+      "domain": "Quotes",
+      "block": "vendas"
+    },
+    "Receipts": {
+      "domain": "Receipts",
+      "block": "compras"
+    },
+    "Receipts.Attachments": {
+      "domain": "Receipts",
+      "block": "compras"
+    },
+    "Receipts.History": {
+      "domain": "Receipts",
+      "block": "compras"
+    },
+    "RepeatingInvoices": {
+      "domain": "Repeating Invoices",
+      "block": "vendas"
+    },
+    "RepeatingInvoices.Attachments": {
+      "domain": "Repeating Invoices",
+      "block": "vendas"
+    },
+    "RepeatingInvoices.History": {
+      "domain": "Repeating Invoices",
+      "block": "vendas"
+    },
+    "Reports": {
+      "domain": "Reports",
+      "block": "relatorios"
+    },
+    "Reports.AgedPayablesByContact": {
+      "domain": "Reports",
+      "block": "relatorios"
+    },
+    "Reports.AgedReceivablesByContact": {
+      "domain": "Reports",
+      "block": "relatorios"
+    },
+    "Reports.BalanceSheet": {
+      "domain": "Reports",
+      "block": "relatorios"
+    },
+    "Reports.BankSummary": {
+      "domain": "Reports",
+      "block": "relatorios"
+    },
+    "Reports.BudgetSummary": {
+      "domain": "Reports",
+      "block": "relatorios"
+    },
+    "Reports.ExecutiveSummary": {
+      "domain": "Reports",
+      "block": "relatorios"
+    },
+    "Reports.ProfitAndLoss": {
+      "domain": "Reports",
+      "block": "relatorios"
+    },
+    "Reports.TenNinetyNine": {
+      "domain": "Reports",
+      "block": "relatorios"
+    },
+    "Reports.TrialBalance": {
+      "domain": "Reports",
+      "block": "relatorios"
+    },
+    "Setup": {
+      "domain": "Setup",
+      "block": "organizacao"
+    },
+    "TaxRates": {
+      "domain": "Tax Rates",
+      "block": "contabilidade"
+    },
+    "TrackingCategories": {
+      "domain": "Tracking Categories",
+      "block": "contabilidade"
+    },
+    "TrackingCategories.Options": {
+      "domain": "Tracking Categories",
+      "block": "contabilidade"
+    },
+    "Users": {
+      "domain": "Users",
+      "block": "organizacao"
+    }
+  },
+  "exclude": [],
+  "headers": [
+    {
+      "key": "Idempotency-Key",
+      "param": "idempotency_key",
+      "methods": [
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+    }
+  ]
+}
