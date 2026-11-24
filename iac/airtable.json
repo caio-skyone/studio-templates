@@ -1,0 +1,6021 @@
+{
+  "id": "0Y6WA3uusI",
+  "name": "Airtable",
+  "description": "Registros, comentários, schema de bases, webhooks, colaboradores e administração Enterprise do Airtable.",
+  "type": "rest",
+  "settings": {
+    "authentication_type": "bearer-token"
+  },
+  "operations": [
+    {
+      "id": "wafr7_u42F",
+      "name": "User - Get current user",
+      "description": "Retorna o ID do usuário do token, os escopos concedidos e o e-mail quando o escopo user.email:read está presente.",
+      "parameters": [],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "whoami"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "jahs5LdTGj",
+      "name": "Records - List records",
+      "description": "Lista registros de uma tabela com filtro, ordenação, view e paginação por offset (até 100 por página).",
+      "parameters": [
+        {
+          "id": "6715fd4d-ee2c-4922-bf16-0b48ff7cb218",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "53c476bd-7371-4c82-9d76-9c22c2c35dea",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "721c6b6d-29d7-44e0-afca-fe938b4d71c3",
+          "name": "page_size",
+          "type": "string",
+          "description": "Quantidade de itens por página (máximo de 100).",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "38b028a7-a52a-4773-9dcc-1717016b349b",
+          "name": "max_records",
+          "type": "string",
+          "description": "Número máximo de registros retornados somando todas as páginas.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1000"
+        },
+        {
+          "id": "077fac83-6c29-475e-8efc-48fddf96ef6b",
+          "name": "offset",
+          "type": "string",
+          "description": "Cursor de paginação retornado na resposta anterior.",
+          "required": false,
+          "sensitive": false,
+          "sample": "itrHtNnLWsxrLnU3q/recwPQIfs4wKPyc9D"
+        },
+        {
+          "id": "51d52751-6864-4b8f-b127-998938368bac",
+          "name": "view",
+          "type": "string",
+          "description": "Nome ou ID da view; retorna apenas os registros dela, na ordem dela.",
+          "required": false,
+          "sensitive": false,
+          "sample": "Grid view"
+        },
+        {
+          "id": "91d2c76f-b1a7-445f-8464-d53c0a3a3176",
+          "name": "filter_by_formula",
+          "type": "string",
+          "description": "Fórmula do Airtable usada como filtro; registros em que ela resulta vazia, zero ou falsa são omitidos.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{Status} = 'Done'"
+        },
+        {
+          "id": "bf5eb79b-32cd-4452-be7f-4c30ca6b06e7",
+          "name": "sort_field",
+          "type": "string",
+          "description": "Campo de ordenação. Para mais critérios, duplique as linhas trocando o índice 0 por 1, 2 e assim por diante.",
+          "required": false,
+          "sensitive": false,
+          "sample": "Name"
+        },
+        {
+          "id": "f8405b92-20af-4fd6-b28a-cf1f39181f8d",
+          "name": "sort_direction",
+          "type": "string",
+          "description": "Direção da ordenação: asc ou desc.",
+          "required": false,
+          "sensitive": false,
+          "sample": "asc"
+        },
+        {
+          "id": "8ea4753e-d635-4b30-aead-4e413cfa79c4",
+          "name": "fields",
+          "type": "string",
+          "description": "Nome ou ID de um campo a retornar. Para vários campos, duplique a linha fields[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "Name"
+        },
+        {
+          "id": "b79f7cd9-e6ea-4be7-b522-1cb7e16c3534",
+          "name": "cell_format",
+          "type": "string",
+          "description": "Formato das células: json (padrão) ou string. string exige time_zone e user_locale.",
+          "required": false,
+          "sensitive": false,
+          "sample": "json"
+        },
+        {
+          "id": "244bc629-faa3-4cd4-9848-175f4452fcf7",
+          "name": "time_zone",
+          "type": "string",
+          "description": "Fuso horário usado com cell_format string.",
+          "required": false,
+          "sensitive": false,
+          "sample": "America/Sao_Paulo"
+        },
+        {
+          "id": "bbb4007f-1bbe-438e-ac22-55c474b88445",
+          "name": "user_locale",
+          "type": "string",
+          "description": "Localidade usada com cell_format string.",
+          "required": false,
+          "sensitive": false,
+          "sample": "pt-br"
+        },
+        {
+          "id": "5b018968-9cbf-46b5-b155-0c397ec7a3e6",
+          "name": "return_fields_by_field_id",
+          "type": "string",
+          "description": "true para devolver os campos indexados por ID em vez de nome.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        },
+        {
+          "id": "6e6cf2e9-5cf2-416b-8d2e-17e9f420fd55",
+          "name": "record_metadata",
+          "type": "string",
+          "description": "Metadados extras por registro; único valor aceito é commentCount.",
+          "required": false,
+          "sensitive": false,
+          "sample": "commentCount"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>"
+          ]
+        },
+        "query": [
+          {
+            "key": "pageSize",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "maxRecords",
+            "value": "<>max_records</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          },
+          {
+            "key": "view",
+            "value": "<>view</>",
+            "enabled": true
+          },
+          {
+            "key": "filterByFormula",
+            "value": "<>filter_by_formula</>",
+            "enabled": true
+          },
+          {
+            "key": "sort[0][field]",
+            "value": "<>sort_field</>",
+            "enabled": true
+          },
+          {
+            "key": "sort[0][direction]",
+            "value": "<>sort_direction</>",
+            "enabled": true
+          },
+          {
+            "key": "fields[]",
+            "value": "<>fields</>",
+            "enabled": true
+          },
+          {
+            "key": "cellFormat",
+            "value": "<>cell_format</>",
+            "enabled": true
+          },
+          {
+            "key": "timeZone",
+            "value": "<>time_zone</>",
+            "enabled": true
+          },
+          {
+            "key": "userLocale",
+            "value": "<>user_locale</>",
+            "enabled": true
+          },
+          {
+            "key": "returnFieldsByFieldId",
+            "value": "<>return_fields_by_field_id</>",
+            "enabled": true
+          },
+          {
+            "key": "recordMetadata[]",
+            "value": "<>record_metadata</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "jGu5PDHHIU",
+      "name": "Records - List records (POST)",
+      "description": "Lista registros enviando os parâmetros no corpo JSON; use quando fórmulas ou listas de campos excedem o limite de URL.",
+      "parameters": [
+        {
+          "id": "acbcacf5-8b6d-4a2b-a3bc-58f0cb56ad2c",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "b5e7a48e-1336-42e8-9acb-99b3d591442d",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "284f87cb-8587-4654-a27b-a1f0b520efd1",
+          "name": "body",
+          "type": "object",
+          "description": "Parâmetros da listagem: pageSize, maxRecords, offset, view, filterByFormula, sort, fields, cellFormat, returnFieldsByFieldId.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{\"pageSize\": 100, \"filterByFormula\": \"{Status} = 'Done'\", \"fields\": [\"Name\"]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>",
+            "listRecords"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "rQdMftdK7Z",
+      "name": "Records - Get record",
+      "description": "Retorna um registro pelo ID. Campos vazios não aparecem na resposta.",
+      "parameters": [
+        {
+          "id": "401855fe-e3b1-46d3-a86b-8415a83342d5",
+          "name": "record_id",
+          "type": "string",
+          "description": "ID do registro, iniciado por rec.",
+          "required": true,
+          "sensitive": false,
+          "sample": "recwPQIfs4wKPyc9D"
+        },
+        {
+          "id": "8a81d8ec-08e2-4aac-9d1a-81614fdbc751",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "2c8a08f1-129d-4245-9144-5f30ee30c7c2",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "e4c5d3ff-6cf3-4e15-a5ce-8d6bf535a541",
+          "name": "cell_format",
+          "type": "string",
+          "description": "Formato das células: json (padrão) ou string. string exige time_zone e user_locale.",
+          "required": false,
+          "sensitive": false,
+          "sample": "json"
+        },
+        {
+          "id": "d9538bb2-59a2-4d0c-8539-47e48125ce18",
+          "name": "return_fields_by_field_id",
+          "type": "string",
+          "description": "true para devolver os campos indexados por ID em vez de nome.",
+          "required": false,
+          "sensitive": false,
+          "sample": "false"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>",
+            "<>record_id</>"
+          ]
+        },
+        "query": [
+          {
+            "key": "cellFormat",
+            "value": "<>cell_format</>",
+            "enabled": true
+          },
+          {
+            "key": "returnFieldsByFieldId",
+            "value": "<>return_fields_by_field_id</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "9Z2AOyxpz_",
+      "name": "Records - Create records",
+      "description": "Cria um ou vários registros na tabela.",
+      "parameters": [
+        {
+          "id": "a449eac0-2d3e-49e5-b956-db56446f4675",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "4baea535-f392-444e-8471-618ce376155b",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "f0ee9f1b-65bb-452a-a956-c3940cd6208d",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com records (lista de {fields}) ou fields para um único registro; aceita typecast e returnFieldsByFieldId.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"records\": [{\"fields\": {\"Name\": \"Novo\"}}], \"typecast\": true}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Yyj1v3X_n7",
+      "name": "Records - Update multiple records",
+      "description": "Atualiza vários registros alterando só os campos enviados. Com performUpsert, cria ou atualiza pelos campos de correspondência.",
+      "parameters": [
+        {
+          "id": "ddadfcfc-58db-4398-bedc-768331b32d6e",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "a06ffe8f-85de-4b55-89bb-a2b425f9951f",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "294e2d87-741f-4ad9-a717-583e18e8a19f",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com records (lista de {id, fields}); para upsert, inclua performUpsert com fieldsToMergeOn. Aceita typecast.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"records\": [{\"id\": \"recwPQIfs4wKPyc9D\", \"fields\": {\"Status\": \"Done\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "e90me_BU-v",
+      "name": "Records - Replace multiple records",
+      "description": "Substitui vários registros: campos não enviados são limpos. Aceita performUpsert para upsert destrutivo.",
+      "parameters": [
+        {
+          "id": "51e4750b-b43d-434e-a5fa-eb556817ca80",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "986ba5d5-79ad-4b71-9a26-fce239bce8ed",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "df80526a-bfb6-4292-8f89-5437f2b0f10d",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com records (lista de {id, fields}); para upsert, inclua performUpsert com fieldsToMergeOn. Aceita typecast.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"records\": [{\"id\": \"recwPQIfs4wKPyc9D\", \"fields\": {\"Status\": \"Done\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "s7PeHZXTPl",
+      "name": "Records - Update record",
+      "description": "Atualiza um registro alterando só os campos enviados.",
+      "parameters": [
+        {
+          "id": "12cada7a-a044-481a-9467-f65c7400ca39",
+          "name": "record_id",
+          "type": "string",
+          "description": "ID do registro, iniciado por rec.",
+          "required": true,
+          "sensitive": false,
+          "sample": "recwPQIfs4wKPyc9D"
+        },
+        {
+          "id": "01bbac2c-8f05-471a-aa06-eaee3e782d85",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "5da647dc-9949-48e0-b938-e3d01172b123",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "43c3b651-a51b-4930-b081-384f85e39c7e",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com fields (campos a gravar); aceita typecast e returnFieldsByFieldId.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"fields\": {\"Status\": \"Done\"}, \"typecast\": true}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>",
+            "<>record_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "blrJE3jAe4",
+      "name": "Records - Replace record",
+      "description": "Substitui um registro: campos não enviados são limpos.",
+      "parameters": [
+        {
+          "id": "0cb124f1-1695-4ab8-9fdc-a5405782e260",
+          "name": "record_id",
+          "type": "string",
+          "description": "ID do registro, iniciado por rec.",
+          "required": true,
+          "sensitive": false,
+          "sample": "recwPQIfs4wKPyc9D"
+        },
+        {
+          "id": "c15162cd-2de4-4653-8114-b2998035aa3c",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "5703c5fc-91e7-49f7-bf97-5de09344a507",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "df5d5edb-baf5-48d2-9729-c54435d44fbe",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com fields (campos a gravar); aceita typecast e returnFieldsByFieldId.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"fields\": {\"Status\": \"Done\"}, \"typecast\": true}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>",
+            "<>record_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "haR7K8XyZC",
+      "name": "Records - Delete multiple records",
+      "description": "Exclui vários registros pelos IDs.",
+      "parameters": [
+        {
+          "id": "0b021122-5d0f-425e-8b42-7f638aae5b66",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "91deac6f-601d-4ab4-bb5d-587482632504",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "9edbdf98-0009-46fb-979e-bd2e1a14d618",
+          "name": "record_ids",
+          "type": "string",
+          "description": "ID de um registro a excluir. Para vários, duplique a linha records[] na operação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "recwPQIfs4wKPyc9D"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>"
+          ]
+        },
+        "query": [
+          {
+            "key": "records[]",
+            "value": "<>record_ids</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "B6IAUUJcTa",
+      "name": "Records - Delete record",
+      "description": "Exclui um registro pelo ID.",
+      "parameters": [
+        {
+          "id": "8a87d71f-80de-4394-852c-a1be5bafe1b6",
+          "name": "record_id",
+          "type": "string",
+          "description": "ID do registro, iniciado por rec.",
+          "required": true,
+          "sensitive": false,
+          "sample": "recwPQIfs4wKPyc9D"
+        },
+        {
+          "id": "e1fbdea4-6bbc-4545-bdaf-4ab6357a0256",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "76266f64-e935-4329-adc4-0e8a8cec8454",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>",
+            "<>record_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "-RXcrzEBZs",
+      "name": "Records - Sync CSV data",
+      "description": "Envia CSV bruto para uma tabela da Sync API. Só com token pessoal; até 10 mil linhas e 2 MB por requisição.",
+      "parameters": [
+        {
+          "id": "b41892c5-36d3-4eb2-a61e-93034a8d19bb",
+          "name": "api_endpoint_sync_id",
+          "type": "string",
+          "description": "ID do endpoint de sincronização, exibido na configuração da tabela sincronizada.",
+          "required": true,
+          "sensitive": false,
+          "sample": "Gx8Y2nT4"
+        },
+        {
+          "id": "8014420a-276e-49ea-8af4-d49876c25dc8",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "815ea333-1063-4c69-9a0d-6c6192d5f1f3",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "f5111413-085c-44bf-aa34-3f608d7d0ecc",
+          "name": "content_type",
+          "type": "string",
+          "description": "Tipo do conteúdo enviado; para este endpoint, text/csv.",
+          "required": true,
+          "sensitive": false,
+          "sample": "text/csv"
+        },
+        {
+          "id": "786648bf-77cd-4e1f-a343-3a448726d941",
+          "name": "body",
+          "type": "string",
+          "description": "Conteúdo CSV bruto, com a linha de cabeçalho e as linhas de dados.",
+          "required": true,
+          "sensitive": false,
+          "sample": "Name,Status\nTarefa 1,Done"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>",
+            "sync",
+            "<>api_endpoint_sync_id</>"
+          ]
+        },
+        "query": [],
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "<>content_type</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "hBfTf39VMB",
+      "name": "Comments - List comments",
+      "description": "Lista os comentários de um registro, do mais recente ao mais antigo.",
+      "parameters": [
+        {
+          "id": "17bfd573-5c2a-4454-b95e-7dccbb927699",
+          "name": "record_id",
+          "type": "string",
+          "description": "ID do registro, iniciado por rec.",
+          "required": true,
+          "sensitive": false,
+          "sample": "recwPQIfs4wKPyc9D"
+        },
+        {
+          "id": "1fc1c547-a2cf-430c-a885-f40c9028cf63",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "b1f5107f-7942-48e1-9845-4dd15368c646",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "04144526-d2fa-455c-ae83-c85b1c742eca",
+          "name": "page_size",
+          "type": "string",
+          "description": "Quantidade de itens por página (máximo de 100).",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "b8d05948-55ef-4417-8c74-99b8fbc8d214",
+          "name": "offset",
+          "type": "string",
+          "description": "Cursor de paginação retornado na resposta anterior.",
+          "required": false,
+          "sensitive": false,
+          "sample": "itrHtNnLWsxrLnU3q/recwPQIfs4wKPyc9D"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>",
+            "<>record_id</>",
+            "comments"
+          ]
+        },
+        "query": [
+          {
+            "key": "pageSize",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "lMJzjtPrcW",
+      "name": "Comments - Create comment",
+      "description": "Cria um comentário em um registro, opcionalmente como resposta a outro.",
+      "parameters": [
+        {
+          "id": "86d5f6a5-f89a-42ef-8e05-e9ecae200502",
+          "name": "record_id",
+          "type": "string",
+          "description": "ID do registro, iniciado por rec.",
+          "required": true,
+          "sensitive": false,
+          "sample": "recwPQIfs4wKPyc9D"
+        },
+        {
+          "id": "17f3859e-697e-4302-be5f-d9cba1f64041",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "2b1a9461-66b4-4b22-ac00-fd01cdaac5f3",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "bcf7786e-c9ec-4a16-b323-280786d725e3",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com text e, opcionalmente, parentCommentId.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"text\": \"Comentário\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>",
+            "<>record_id</>",
+            "comments"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "C3f5fMqIY3",
+      "name": "Comments - Update comment",
+      "description": "Altera o texto de um comentário criado pelo próprio usuário do token.",
+      "parameters": [
+        {
+          "id": "4c9fcd34-82e4-44a6-91f9-ef31ef9f2180",
+          "name": "comment_id",
+          "type": "string",
+          "description": "ID do comentário, iniciado por com.",
+          "required": true,
+          "sensitive": false,
+          "sample": "comB5z37Mg9zaEPw6"
+        },
+        {
+          "id": "1e721f12-8afe-4965-9e4c-e6f96f6b9029",
+          "name": "record_id",
+          "type": "string",
+          "description": "ID do registro, iniciado por rec.",
+          "required": true,
+          "sensitive": false,
+          "sample": "recwPQIfs4wKPyc9D"
+        },
+        {
+          "id": "120341cc-0b1d-46ec-a1a9-22b1cd1cf251",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "6eeda9c8-8e23-4fe5-a25c-91a8c0000483",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "68e603fb-2d81-4e0e-92ce-4b5012a1a7b0",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com text (novo texto).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"text\": \"Texto revisado\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>",
+            "<>record_id</>",
+            "comments",
+            "<>comment_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Dwarw4xQTQ",
+      "name": "Comments - Delete comment",
+      "description": "Exclui um comentário de um registro.",
+      "parameters": [
+        {
+          "id": "2fbbe9f5-ad92-4c6b-ad5a-d8c1b43f12cd",
+          "name": "comment_id",
+          "type": "string",
+          "description": "ID do comentário, iniciado por com.",
+          "required": true,
+          "sensitive": false,
+          "sample": "comB5z37Mg9zaEPw6"
+        },
+        {
+          "id": "cc7a5825-04d3-4482-87d4-156aa206a8b0",
+          "name": "record_id",
+          "type": "string",
+          "description": "ID do registro, iniciado por rec.",
+          "required": true,
+          "sensitive": false,
+          "sample": "recwPQIfs4wKPyc9D"
+        },
+        {
+          "id": "2ecd3fcc-08af-4e6e-b278-604d186cd48c",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "c3197ee7-e9ec-4262-bfd8-b873ccc8b2ae",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>base_id</>",
+            "<>table_id_or_name</>",
+            "<>record_id</>",
+            "comments",
+            "<>comment_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "zKEe7_PR9q",
+      "name": "Bases - List bases",
+      "description": "Lista as bases acessíveis pelo token, até 1000 por página.",
+      "parameters": [
+        {
+          "id": "4f48ae33-6977-422d-ae54-a24a3c885571",
+          "name": "offset",
+          "type": "string",
+          "description": "Cursor de paginação retornado na resposta anterior.",
+          "required": false,
+          "sensitive": false,
+          "sample": "itrHtNnLWsxrLnU3q/recwPQIfs4wKPyc9D"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases"
+          ]
+        },
+        "query": [
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "R_hMjNzRf7",
+      "name": "Bases - Create base",
+      "description": "Cria uma base em um workspace com as tabelas informadas.",
+      "parameters": [
+        {
+          "id": "8a0b10b6-37a1-474d-b99a-a2b7f1ee57eb",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com name, workspaceId e tables (cada uma com name e fields).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"Nova base\", \"workspaceId\": \"wspmhESAta6clCCwF\", \"tables\": [{\"name\": \"Tarefas\", \"fields\": [{\"name\": \"Name\", \"type\": \"singleLineText\"}]}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "_SKZSDK-Vb",
+      "name": "Bases - Get base collaborators",
+      "description": "Retorna informações da base e, conforme include, colaboradores, links de convite, interfaces e pacotes.",
+      "parameters": [
+        {
+          "id": "118add28-f529-4d00-919e-760ef3232244",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "088f12d1-4a14-4db0-9804-fc6f40f3277a",
+          "name": "include",
+          "type": "string",
+          "description": "Dados extras a incluir: collaborators, inviteLinks, interfaces, packages. Para vários valores, duplique a linha include[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "collaborators"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>"
+          ]
+        },
+        "query": [
+          {
+            "key": "include[]",
+            "value": "<>include</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "2x2kRVIIWK",
+      "name": "Bases - Get base schema",
+      "description": "Retorna o schema da base: tabelas, campos e views.",
+      "parameters": [
+        {
+          "id": "58c897a7-8835-4da1-b871-faaa9bdf8272",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "ba4c41e2-3e1c-4640-b3e9-64b13c3a43e8",
+          "name": "include",
+          "type": "string",
+          "description": "Dados extras a incluir: visibleFieldIds. Para vários valores, duplique a linha include[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "visibleFieldIds"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "tables"
+          ]
+        },
+        "query": [
+          {
+            "key": "include[]",
+            "value": "<>include</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "aNwGu0e-e6",
+      "name": "Bases - Delete base",
+      "description": "Exclui uma base. Exige plano Enterprise e administrador.",
+      "parameters": [
+        {
+          "id": "e95a4a71-bef2-4e5d-82ef-428cd559cff4",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "4HmE_tWN2E",
+      "name": "Tables - Create table",
+      "description": "Cria uma tabela na base com os campos informados.",
+      "parameters": [
+        {
+          "id": "ab69ead1-c0f2-4195-a61a-ac599f12cefc",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "b1f7e8cd-a5d1-4949-9f12-03066385a59d",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com name, description opcional e fields (o primeiro vira o campo primário).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"Tarefas\", \"fields\": [{\"name\": \"Name\", \"type\": \"singleLineText\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "tables"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "ABTPu1m0ug",
+      "name": "Tables - Update table",
+      "description": "Altera nome, descrição ou configurações de dependência de datas de uma tabela.",
+      "parameters": [
+        {
+          "id": "11a1d006-daaf-46f4-b75a-44c94053762d",
+          "name": "table_id_or_name",
+          "type": "string",
+          "description": "ID (iniciado por tbl) ou nome da tabela. Prefira o ID.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "467ab777-2e0a-4305-a460-86e5ac7f943c",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "244d4e33-c1f5-4242-9bdc-61b05c198004",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com name, description ou dateDependencySettings.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"Tarefas 2026\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "tables",
+            "<>table_id_or_name</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "eWOg7GLqwS",
+      "name": "Fields - Create field",
+      "description": "Cria um campo na tabela; as opções variam conforme o tipo.",
+      "parameters": [
+        {
+          "id": "7464cc4f-6ec4-4adb-8d96-9f2d47e9f349",
+          "name": "table_id",
+          "type": "string",
+          "description": "ID da tabela, iniciado por tbl.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "5eff62e1-afb1-411b-9793-5a0fe139217e",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "4a744b02-3995-409b-9c08-30b966ec5df3",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com name, type, description opcional e options do tipo.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"Prioridade\", \"type\": \"singleSelect\", \"options\": {\"choices\": [{\"name\": \"Alta\"}]}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "tables",
+            "<>table_id</>",
+            "fields"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "BIPt3oILT9",
+      "name": "Fields - Update field",
+      "description": "Altera nome, descrição ou opções de um campo.",
+      "parameters": [
+        {
+          "id": "3b412a3f-b2cc-4759-a191-fe64cb3f1696",
+          "name": "field_id",
+          "type": "string",
+          "description": "ID do campo, iniciado por fld.",
+          "required": true,
+          "sensitive": false,
+          "sample": "fldoaIqdn5szURHpw"
+        },
+        {
+          "id": "096abdc1-b8d6-4f8a-afae-5b4116b51079",
+          "name": "table_id",
+          "type": "string",
+          "description": "ID da tabela, iniciado por tbl.",
+          "required": true,
+          "sensitive": false,
+          "sample": "tbltp8DGLhqbUmjK1"
+        },
+        {
+          "id": "ad59b9ae-bcfc-4eb1-bb45-224437d4b257",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "6649c372-bccf-49f4-b70f-2e154940f47d",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com name, description ou options.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"Prioridade atual\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "tables",
+            "<>table_id</>",
+            "fields",
+            "<>field_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "RIKTze8E97",
+      "name": "Views - List views",
+      "description": "Lista as views da base.",
+      "parameters": [
+        {
+          "id": "ae3a3316-96ac-4a80-92b8-520e4d889c16",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "240c0120-3b14-49fb-89ce-1f153a41a860",
+          "name": "include",
+          "type": "string",
+          "description": "Dados extras a incluir: visibleFieldIds. Para vários valores, duplique a linha include[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "visibleFieldIds"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "views"
+          ]
+        },
+        "query": [
+          {
+            "key": "include[]",
+            "value": "<>include</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "AJISWXiRI9",
+      "name": "Views - Get view metadata",
+      "description": "Retorna os metadados de uma view.",
+      "parameters": [
+        {
+          "id": "688b724f-122e-4085-8b39-38ddabafea9d",
+          "name": "view_id",
+          "type": "string",
+          "description": "ID da view, iniciado por viw.",
+          "required": true,
+          "sensitive": false,
+          "sample": "viwQpsuEDqHFqegkp"
+        },
+        {
+          "id": "e2833ba2-3726-41b4-9606-8a9275b66355",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "0463e7e2-5db5-42ee-86aa-d46f478d053a",
+          "name": "include",
+          "type": "string",
+          "description": "Dados extras a incluir: visibleFieldIds. Para vários valores, duplique a linha include[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "visibleFieldIds"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "views",
+            "<>view_id</>"
+          ]
+        },
+        "query": [
+          {
+            "key": "include[]",
+            "value": "<>include</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "2CVCPMuRsF",
+      "name": "Views - Delete view",
+      "description": "Exclui uma view. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "e06efa44-e952-4f0b-b5cc-81c204032be8",
+          "name": "view_id",
+          "type": "string",
+          "description": "ID da view, iniciado por viw.",
+          "required": true,
+          "sensitive": false,
+          "sample": "viwQpsuEDqHFqegkp"
+        },
+        {
+          "id": "a1d26cf1-08ba-4323-a064-b9a7e81fe301",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "views",
+            "<>view_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "1maLucrPtZ",
+      "name": "Webhooks - List webhooks",
+      "description": "Lista os webhooks da base.",
+      "parameters": [
+        {
+          "id": "683b47e8-8223-49c3-80f0-394063fe5fd8",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "bases",
+            "<>base_id</>",
+            "webhooks"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EViP91KeRF",
+      "name": "Webhooks - Create webhook",
+      "description": "Cria um webhook na base. O macSecretBase64 da resposta só é exibido uma vez; expira em 7 dias sem renovação.",
+      "parameters": [
+        {
+          "id": "8bbc942b-af7d-47f6-95d3-8ff763c28c6a",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "5e2ad039-36ff-41b6-a8e5-4b5f84cd5275",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com notificationUrl opcional e specification.options (filters, includes).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"notificationUrl\": \"https://exemplo.com/hook\", \"specification\": {\"options\": {\"filters\": {\"dataTypes\": [\"tableData\"]}}}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "bases",
+            "<>base_id</>",
+            "webhooks"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "iME6Zuxk5S",
+      "name": "Webhooks - Delete webhook",
+      "description": "Exclui um webhook.",
+      "parameters": [
+        {
+          "id": "a22e5031-0edc-4cd0-a2b8-87e90020de4b",
+          "name": "webhook_id",
+          "type": "string",
+          "description": "ID do webhook, iniciado por ach.",
+          "required": true,
+          "sensitive": false,
+          "sample": "achw8xGHTj6kD3H9C"
+        },
+        {
+          "id": "01e75011-3c07-41d6-8d57-fa1fe47a1acf",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "bases",
+            "<>base_id</>",
+            "webhooks",
+            "<>webhook_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "b0IfSWJ9md",
+      "name": "Webhooks - Enable or disable notifications",
+      "description": "Liga ou desliga os avisos enviados à notificationUrl do webhook.",
+      "parameters": [
+        {
+          "id": "ff5be1f4-d0d4-4ca2-ae60-cb1bfc98f484",
+          "name": "webhook_id",
+          "type": "string",
+          "description": "ID do webhook, iniciado por ach.",
+          "required": true,
+          "sensitive": false,
+          "sample": "achw8xGHTj6kD3H9C"
+        },
+        {
+          "id": "b46f9d6b-de79-4095-bcd8-6a2f12b87e9a",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "a83a23af-d989-4cd8-99a7-39b2b499ae96",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com enable (true ou false).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"enable\": true}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "bases",
+            "<>base_id</>",
+            "webhooks",
+            "<>webhook_id</>",
+            "enableNotifications"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "bzfK1n_jDw",
+      "name": "Webhooks - Refresh webhook",
+      "description": "Estende a expiração do webhook por mais 7 dias.",
+      "parameters": [
+        {
+          "id": "afdd2dd7-95ee-4512-96a6-ec0cecc44666",
+          "name": "webhook_id",
+          "type": "string",
+          "description": "ID do webhook, iniciado por ach.",
+          "required": true,
+          "sensitive": false,
+          "sample": "achw8xGHTj6kD3H9C"
+        },
+        {
+          "id": "d7c4b1e1-f0b1-462e-a187-4fb8055254a4",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "bases",
+            "<>base_id</>",
+            "webhooks",
+            "<>webhook_id</>",
+            "refresh"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "VEgbf55KuQ",
+      "name": "Webhooks - List webhook payloads",
+      "description": "Lista os payloads do webhook a partir do cursor, até 50 por chamada; também estende a validade do webhook.",
+      "parameters": [
+        {
+          "id": "0f133e41-e55b-42e2-bddf-b2fd741c65c9",
+          "name": "webhook_id",
+          "type": "string",
+          "description": "ID do webhook, iniciado por ach.",
+          "required": true,
+          "sensitive": false,
+          "sample": "achw8xGHTj6kD3H9C"
+        },
+        {
+          "id": "478acb0e-1e50-43a4-b001-d62eb12bd075",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "4e3de708-4b4e-4afd-98b0-5509e9b178c8",
+          "name": "cursor",
+          "type": "string",
+          "description": "Número do payload inicial; padrão 1.",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "0b1fa9d4-ea73-4383-9343-3cff627b96e7",
+          "name": "limit",
+          "type": "string",
+          "description": "Quantidade de payloads por chamada (máximo de 50).",
+          "required": false,
+          "sensitive": false,
+          "sample": "50"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "bases",
+            "<>base_id</>",
+            "webhooks",
+            "<>webhook_id</>",
+            "payloads"
+          ]
+        },
+        "query": [
+          {
+            "key": "cursor",
+            "value": "<>cursor</>",
+            "enabled": true
+          },
+          {
+            "key": "limit",
+            "value": "<>limit</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "dBN7VHik5q",
+      "name": "Workspaces - Get workspace collaborators",
+      "description": "Retorna informações do workspace e, conforme include, colaboradores e links de convite.",
+      "parameters": [
+        {
+          "id": "cce3acb7-4ac9-429c-907e-5f051971ee2e",
+          "name": "workspace_id",
+          "type": "string",
+          "description": "ID do workspace, iniciado por wsp.",
+          "required": true,
+          "sensitive": false,
+          "sample": "wspmhESAta6clCCwF"
+        },
+        {
+          "id": "dccf320f-8016-4611-9695-2d30124b4fc6",
+          "name": "include",
+          "type": "string",
+          "description": "Dados extras a incluir: collaborators, inviteLinks. Para vários valores, duplique a linha include[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "collaborators"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "workspaces",
+            "<>workspace_id</>"
+          ]
+        },
+        "query": [
+          {
+            "key": "include[]",
+            "value": "<>include</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "NvO8fy5lSh",
+      "name": "Workspaces - Create workspace",
+      "description": "Cria um workspace na conta Enterprise.",
+      "parameters": [
+        {
+          "id": "bc91d64d-69fc-43b5-a5bd-4a157b004741",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com enterpriseAccountId e name.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"enterpriseAccountId\": \"entUBq2RGdihxl3vU\", \"name\": \"Operações\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "workspaces"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "wlQOmOSZ1M",
+      "name": "Workspaces - Delete workspace",
+      "description": "Exclui um workspace. Exige plano Enterprise e administrador.",
+      "parameters": [
+        {
+          "id": "c2d26dda-97ec-4777-92a2-77ea7de6fcd8",
+          "name": "workspace_id",
+          "type": "string",
+          "description": "ID do workspace, iniciado por wsp.",
+          "required": true,
+          "sensitive": false,
+          "sample": "wspmhESAta6clCCwF"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "workspaces",
+            "<>workspace_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "tkW17ePjjK",
+      "name": "Workspaces - Move base",
+      "description": "Move uma base para outro workspace. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "941a0783-055a-4c06-96d5-2aa5f8c0ec1b",
+          "name": "workspace_id",
+          "type": "string",
+          "description": "ID do workspace, iniciado por wsp.",
+          "required": true,
+          "sensitive": false,
+          "sample": "wspmhESAta6clCCwF"
+        },
+        {
+          "id": "d63c7fd7-4b44-4a0d-84a5-fbfdb90ec472",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com baseId, targetWorkspaceId e targetIndex opcional.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"baseId\": \"appLkNDICXNqxSDhG\", \"targetWorkspaceId\": \"wspmhESAta6clCCwF\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "workspaces",
+            "<>workspace_id</>",
+            "moveBase"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "vL77qDjStJ",
+      "name": "Workspaces - Add workspace collaborator",
+      "description": "Adiciona um colaborador (usuário ou grupo) ao workspace, um por requisição. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "0e9f29fa-b101-4743-8e05-44fd0c560e73",
+          "name": "workspace_id",
+          "type": "string",
+          "description": "ID do workspace, iniciado por wsp.",
+          "required": true,
+          "sensitive": false,
+          "sample": "wspmhESAta6clCCwF"
+        },
+        {
+          "id": "85acbe5f-a6e4-4743-ac66-b12ab3672ba9",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com collaborators: um item com user {id} ou group {id} e permissionLevel.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"collaborators\": [{\"user\": {\"id\": \"usrL2PNC5o3H4lBEi\"}, \"permissionLevel\": \"edit\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "workspaces",
+            "<>workspace_id</>",
+            "collaborators"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "ek3xCdiKIs",
+      "name": "Workspaces - Update workspace collaborator",
+      "description": "Altera o nível de permissão de um colaborador do workspace. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "54f60be4-dc83-4e3b-be4c-2b7d4b34cdc9",
+          "name": "user_or_group_id",
+          "type": "string",
+          "description": "ID do usuário (usr) ou grupo (ugp) colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "cecdca6a-42a9-4f59-860f-adcfbac60019",
+          "name": "workspace_id",
+          "type": "string",
+          "description": "ID do workspace, iniciado por wsp.",
+          "required": true,
+          "sensitive": false,
+          "sample": "wspmhESAta6clCCwF"
+        },
+        {
+          "id": "e9b663ed-e60f-436e-99f0-a02c0115d970",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com permissionLevel (por exemplo read, comment, edit, create).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"permissionLevel\": \"edit\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "workspaces",
+            "<>workspace_id</>",
+            "collaborators",
+            "<>user_or_group_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "iIFWwyrDj_",
+      "name": "Workspaces - Delete workspace collaborator",
+      "description": "Remove um colaborador do workspace. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "664afe7e-2089-4c0a-ac59-c3985ac904d0",
+          "name": "user_or_group_id",
+          "type": "string",
+          "description": "ID do usuário (usr) ou grupo (ugp) colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "3ad92b30-9fda-4038-8976-ebb7c4d586e9",
+          "name": "workspace_id",
+          "type": "string",
+          "description": "ID do workspace, iniciado por wsp.",
+          "required": true,
+          "sensitive": false,
+          "sample": "wspmhESAta6clCCwF"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "workspaces",
+            "<>workspace_id</>",
+            "collaborators",
+            "<>user_or_group_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "SF83ecdzH6",
+      "name": "Workspaces - Delete workspace invite",
+      "description": "Exclui um convite pendente do workspace. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "44989eef-8625-4158-9b3e-8010a2a6e1b8",
+          "name": "invite_id",
+          "type": "string",
+          "description": "ID do convite pendente, iniciado por inv.",
+          "required": true,
+          "sensitive": false,
+          "sample": "invJiqaXmPqq6Ec87"
+        },
+        {
+          "id": "eec591a4-89eb-446d-bd59-ae3ab61a5f73",
+          "name": "workspace_id",
+          "type": "string",
+          "description": "ID do workspace, iniciado por wsp.",
+          "required": true,
+          "sensitive": false,
+          "sample": "wspmhESAta6clCCwF"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "workspaces",
+            "<>workspace_id</>",
+            "invites",
+            "<>invite_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "kXVqAf0rHA",
+      "name": "Workspaces - Update workspace restrictions",
+      "description": "Define quem pode criar convites e compartilhamentos no workspace. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "7f979523-d14a-4d5b-8d08-cc4351bec099",
+          "name": "workspace_id",
+          "type": "string",
+          "description": "ID do workspace, iniciado por wsp.",
+          "required": true,
+          "sensitive": false,
+          "sample": "wspmhESAta6clCCwF"
+        },
+        {
+          "id": "ab96d6c8-eaa5-4ef9-9dd3-dd1e45c5fcb7",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com inviteCreationRestriction e shareCreationRestriction (unrestricted ou onlyOwners).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"inviteCreationRestriction\": \"onlyOwners\", \"shareCreationRestriction\": \"unrestricted\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "workspaces",
+            "<>workspace_id</>",
+            "updateRestrictions"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "cM-HqHyqsh",
+      "name": "Workspaces - Move workspaces",
+      "description": "Move workspaces entre unidades da organização (até 100). Exige Enterprise Hub.",
+      "parameters": [
+        {
+          "id": "b7ea4929-ab8f-4f5f-8736-f064a7fc4a80",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "6125126b-5c85-4cd5-94b3-0842b49b8d16",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com targetEnterpriseAccountId, workspaceIds e replacementOwnerId opcional.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"targetEnterpriseAccountId\": \"entUBq2RGdihxl3vU\", \"workspaceIds\": [\"wspmhESAta6clCCwF\"]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "moveWorkspaces"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "812wBW-bcQ",
+      "name": "Workspaces - Update workspace AI allowlist",
+      "description": "Adiciona ou remove workspaces da lista de permissão de IA, até 10 por requisição. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "de9be921-751e-4d6d-af90-2d82ec2e21c9",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "b460c691-8130-4176-82d9-1082b55322cb",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com workspaces (lista de {workspaceId, isAllowed}) e includeDescendantWorkspaces opcional.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"workspaces\": [{\"workspaceId\": \"wspmhESAta6clCCwF\", \"isAllowed\": true}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "workspaceAiAllowlist"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Tg6dHql-tA",
+      "name": "Shares - List shares",
+      "description": "Lista os compartilhamentos da base. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "e0f45c69-0b50-4f86-916b-6c7b82ffde1c",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "shares"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "BLrWzCZWl-",
+      "name": "Shares - Manage share",
+      "description": "Ativa ou desativa um compartilhamento. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "00ba38f9-370c-44c1-a916-00a602fe2e98",
+          "name": "share_id",
+          "type": "string",
+          "description": "ID do compartilhamento, iniciado por shr.",
+          "required": true,
+          "sensitive": false,
+          "sample": "shr9SpczJvQpfAzSp"
+        },
+        {
+          "id": "af8936c0-41c8-4ffc-9e07-0a0f5e2fc103",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "79fc26dd-f35b-4e0c-ac14-5fdb7dd37c25",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com state (enabled ou disabled).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"state\": \"disabled\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "shares",
+            "<>share_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "u94mHSiU14",
+      "name": "Shares - Delete share",
+      "description": "Exclui definitivamente um compartilhamento, sem recuperação. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "46420b5b-7f63-46f4-b61f-c28f5318dd8a",
+          "name": "share_id",
+          "type": "string",
+          "description": "ID do compartilhamento, iniciado por shr.",
+          "required": true,
+          "sensitive": false,
+          "sample": "shr9SpczJvQpfAzSp"
+        },
+        {
+          "id": "0e4b5dd8-b180-40f1-8278-0e654c8f964a",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "shares",
+            "<>share_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "oZPnoUjJGX",
+      "name": "Base Collaborators - Add base collaborator",
+      "description": "Adiciona um colaborador (usuário ou grupo) à base, um por requisição. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "76df6db7-b928-4a44-bbff-c2b33b23bab6",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "de9f86dc-f600-4871-9ce8-0d8728fbf44d",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com collaborators: um item com user {id} ou group {id} e permissionLevel.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"collaborators\": [{\"user\": {\"id\": \"usrL2PNC5o3H4lBEi\"}, \"permissionLevel\": \"edit\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "collaborators"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "wQQRw9dlUW",
+      "name": "Base Collaborators - Update base collaborator",
+      "description": "Altera o nível de permissão de um colaborador na base. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "4b9f9ba1-4698-404b-b8ed-223aacbdec30",
+          "name": "user_or_group_id",
+          "type": "string",
+          "description": "ID do usuário (usr) ou grupo (ugp) colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "7f7d67e6-96de-4f47-b3df-fe92e4881848",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "64037886-96be-4faf-9317-f39466fda920",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com permissionLevel (por exemplo read, comment, edit, create).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"permissionLevel\": \"edit\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "collaborators",
+            "<>user_or_group_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "1cXYngpNpf",
+      "name": "Base Collaborators - Delete base collaborator",
+      "description": "Remove um colaborador da base. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "1c5fd734-5eed-4ad5-b985-f82ecfe3df9f",
+          "name": "user_or_group_id",
+          "type": "string",
+          "description": "ID do usuário (usr) ou grupo (ugp) colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "e381785d-bf7b-4907-87b3-3ada9908b981",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "collaborators",
+            "<>user_or_group_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "eXKmZzatoT",
+      "name": "Base Collaborators - Delete base invite",
+      "description": "Exclui um convite pendente da base. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "ffa34a63-0ada-4e76-aafc-c556912983c1",
+          "name": "invite_id",
+          "type": "string",
+          "description": "ID do convite pendente, iniciado por inv.",
+          "required": true,
+          "sensitive": false,
+          "sample": "invJiqaXmPqq6Ec87"
+        },
+        {
+          "id": "289bbdd1-9b61-400c-b3b6-c466ab66eb7c",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "invites",
+            "<>invite_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "ZVZGWw-9cL",
+      "name": "Base Collaborators - List base portal collaborators",
+      "description": "Lista usuários do portal da base e convites de portal pendentes. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "9412ee6f-86a6-46ca-b2da-81bf57f7790b",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "portalCollaborators"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "MIBZgFjT88",
+      "name": "Base Collaborators - Delete base portal collaborator",
+      "description": "Remove um usuário do portal da base ou cancela o convite dele. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "dd1bb258-94f9-4c75-a6c9-83b96b1f8d41",
+          "name": "portal_collaborator_id",
+          "type": "string",
+          "description": "ID do colaborador de portal.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrsOEchC9xuwRgKk"
+        },
+        {
+          "id": "731779a7-4aa1-4a1f-9a40-de4ffbf9a8ae",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "portalCollaborators",
+            "<>portal_collaborator_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "NpmNitL1LP",
+      "name": "Interfaces - Get interface",
+      "description": "Retorna informações da interface e, conforme include, colaboradores e links de convite.",
+      "parameters": [
+        {
+          "id": "832ce6b3-8f1a-4ba0-9e10-6e91b8e25a1b",
+          "name": "interface_id",
+          "type": "string",
+          "description": "ID da interface (page bundle), iniciado por pbd.",
+          "required": true,
+          "sensitive": false,
+          "sample": "pbdLkNDICXNqxSDhG"
+        },
+        {
+          "id": "50d6de29-ed01-4844-b0c6-242033fb4233",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "77d071ec-b391-4849-845b-4afe291d008f",
+          "name": "include",
+          "type": "string",
+          "description": "Dados extras a incluir: collaborators, inviteLinks. Para vários valores, duplique a linha include[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "collaborators"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "interfaces",
+            "<>interface_id</>"
+          ]
+        },
+        "query": [
+          {
+            "key": "include[]",
+            "value": "<>include</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "7KlzdoS_Tk",
+      "name": "Interfaces - Add interface collaborator",
+      "description": "Adiciona um colaborador à interface, um por requisição. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "79dcd3ca-f944-4091-9e11-dd5806077c4f",
+          "name": "interface_id",
+          "type": "string",
+          "description": "ID da interface (page bundle), iniciado por pbd.",
+          "required": true,
+          "sensitive": false,
+          "sample": "pbdLkNDICXNqxSDhG"
+        },
+        {
+          "id": "b2c71c4e-c1dc-47ab-b0a1-0cd4aeca9abc",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "5ab064c8-469f-412a-a33d-65621ccc727a",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com collaborators: um item com user {id} ou group {id} e permissionLevel.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"collaborators\": [{\"user\": {\"id\": \"usrL2PNC5o3H4lBEi\"}, \"permissionLevel\": \"edit\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "interfaces",
+            "<>interface_id</>",
+            "collaborators"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LhjXI7G873",
+      "name": "Interfaces - Update interface collaborator",
+      "description": "Altera a permissão de um colaborador da interface (read, comment ou edit). Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "04418881-c948-4d6c-a8a2-26e8501ce5f5",
+          "name": "user_or_group_id",
+          "type": "string",
+          "description": "ID do usuário (usr) ou grupo (ugp) colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "66c69906-9b8a-49f8-9c6a-ec4bb5467cb7",
+          "name": "interface_id",
+          "type": "string",
+          "description": "ID da interface (page bundle), iniciado por pbd.",
+          "required": true,
+          "sensitive": false,
+          "sample": "pbdLkNDICXNqxSDhG"
+        },
+        {
+          "id": "6b52f2e4-47f3-49ef-bdc8-f1e57857bb5e",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "c08502e5-c0ca-44b5-afc6-c4334fb7eb42",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com permissionLevel (por exemplo read, comment, edit, create).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"permissionLevel\": \"edit\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "interfaces",
+            "<>interface_id</>",
+            "collaborators",
+            "<>user_or_group_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "V3Zw-r9h9x",
+      "name": "Interfaces - Delete interface collaborator",
+      "description": "Remove um colaborador da interface. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "b49e751d-ce04-40c4-b27b-2583b9520660",
+          "name": "user_or_group_id",
+          "type": "string",
+          "description": "ID do usuário (usr) ou grupo (ugp) colaborador.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "1fc319ef-0fa4-4d99-bbff-6e5f852d5b47",
+          "name": "interface_id",
+          "type": "string",
+          "description": "ID da interface (page bundle), iniciado por pbd.",
+          "required": true,
+          "sensitive": false,
+          "sample": "pbdLkNDICXNqxSDhG"
+        },
+        {
+          "id": "af59799b-8dc6-4a70-a271-1db16fd4102c",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "interfaces",
+            "<>interface_id</>",
+            "collaborators",
+            "<>user_or_group_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Vl62DmX-7b",
+      "name": "Interfaces - Delete interface invite",
+      "description": "Exclui um convite pendente da interface. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "775aed3f-9714-4188-938a-611feb64546f",
+          "name": "invite_id",
+          "type": "string",
+          "description": "ID do convite pendente, iniciado por inv.",
+          "required": true,
+          "sensitive": false,
+          "sample": "invJiqaXmPqq6Ec87"
+        },
+        {
+          "id": "b3897d25-a3a1-4aee-851a-39576ccfe7f3",
+          "name": "interface_id",
+          "type": "string",
+          "description": "ID da interface (page bundle), iniciado por pbd.",
+          "required": true,
+          "sensitive": false,
+          "sample": "pbdLkNDICXNqxSDhG"
+        },
+        {
+          "id": "47e704c9-743c-475d-91f2-453ba0ee9bcc",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "interfaces",
+            "<>interface_id</>",
+            "invites",
+            "<>invite_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "zEesW8rauy",
+      "name": "Interfaces - Add interface portal collaborators",
+      "description": "Adiciona até 100 usuários externos ao portal da interface por e-mail, todos com o mesmo nível. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "96ff964e-32c3-4429-9c34-f9af11296fee",
+          "name": "interface_id",
+          "type": "string",
+          "description": "ID da interface (page bundle), iniciado por pbd.",
+          "required": true,
+          "sensitive": false,
+          "sample": "pbdLkNDICXNqxSDhG"
+        },
+        {
+          "id": "e9db9ad1-1200-46ee-acae-dd44f5a0c9cf",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "28c0c18d-6f48-4160-bf2f-90c318296b26",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com collaborators (lista de {email, permissionLevel}).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"collaborators\": [{\"email\": \"cliente@exemplo.com\", \"permissionLevel\": \"read\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "interfaces",
+            "<>interface_id</>",
+            "portalCollaborators"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "H8j1vwhIT-",
+      "name": "Interfaces - Update interface portal collaborator",
+      "description": "Altera a permissão de um usuário do portal da interface. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "8ed52c90-5192-4096-90aa-51eedd47f46b",
+          "name": "portal_collaborator_id",
+          "type": "string",
+          "description": "ID do colaborador de portal.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrsOEchC9xuwRgKk"
+        },
+        {
+          "id": "47d18505-eb34-4907-a5b4-677c8eb56906",
+          "name": "interface_id",
+          "type": "string",
+          "description": "ID da interface (page bundle), iniciado por pbd.",
+          "required": true,
+          "sensitive": false,
+          "sample": "pbdLkNDICXNqxSDhG"
+        },
+        {
+          "id": "8ec182dd-a298-4b20-a83c-edbba25f6d55",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "f0bd5ef6-9593-43be-8dc0-42843c1f75cf",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com permissionLevel (por exemplo read, comment, edit, create).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"permissionLevel\": \"edit\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "interfaces",
+            "<>interface_id</>",
+            "portalCollaborators",
+            "<>portal_collaborator_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "A7rP-eAmIL",
+      "name": "Interfaces - Delete interface portal collaborator",
+      "description": "Remove um usuário do portal da interface. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "1ca5cf35-be3a-4277-bd5a-a8e2967af9e5",
+          "name": "portal_collaborator_id",
+          "type": "string",
+          "description": "ID do colaborador de portal.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrsOEchC9xuwRgKk"
+        },
+        {
+          "id": "c767708e-cc29-4e60-ae33-63a5ffb0aa58",
+          "name": "interface_id",
+          "type": "string",
+          "description": "ID da interface (page bundle), iniciado por pbd.",
+          "required": true,
+          "sensitive": false,
+          "sample": "pbdLkNDICXNqxSDhG"
+        },
+        {
+          "id": "c6f270de-f119-4474-9cc0-cb6fb5ca1bb1",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "interfaces",
+            "<>interface_id</>",
+            "portalCollaborators",
+            "<>portal_collaborator_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "knoqgR9M9J",
+      "name": "Block Installations - List block installations",
+      "description": "Lista as extensões instaladas na base.",
+      "parameters": [
+        {
+          "id": "06d5b8dd-07c5-4592-9b36-8f63a33d47e2",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "blockInstallations"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "x3PW8IlGep",
+      "name": "Block Installations - Manage block installation",
+      "description": "Ativa ou desativa uma extensão instalada. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "c357414b-2455-4863-b135-0942cdae8f9e",
+          "name": "block_installation_id",
+          "type": "string",
+          "description": "ID da instalação de extensão, iniciado por bli.",
+          "required": true,
+          "sensitive": false,
+          "sample": "bliXyN0Q6zfajnDOG"
+        },
+        {
+          "id": "e08535ca-8f9b-4598-a4af-41f01af151fb",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "a33ab006-5275-4fa4-9426-0a8a68b08e9b",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com state (enabled ou disabled).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"state\": \"disabled\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "blockInstallations",
+            "<>block_installation_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "tr97mucY5s",
+      "name": "Block Installations - Delete block installation",
+      "description": "Exclui uma extensão instalada; a exclusão pode ser revertida. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "ea5916a9-f3d0-4afc-99ba-87f18ed0f60b",
+          "name": "block_installation_id",
+          "type": "string",
+          "description": "ID da instalação de extensão, iniciado por bli.",
+          "required": true,
+          "sensitive": false,
+          "sample": "bliXyN0Q6zfajnDOG"
+        },
+        {
+          "id": "77c0a734-d041-4c01-8868-467d1a204b40",
+          "name": "base_id",
+          "type": "string",
+          "description": "ID da base do Airtable, iniciado por app.",
+          "required": true,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "bases",
+            "<>base_id</>",
+            "blockInstallations",
+            "<>block_installation_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GF99cbEnSp",
+      "name": "Enterprise - Get enterprise",
+      "description": "Retorna informações da conta Enterprise e, conforme include, dados agregados e unidades descendentes.",
+      "parameters": [
+        {
+          "id": "acc0caa7-5ee3-4d4c-ab99-c5ad88ea386e",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "ae681d7b-72e1-4e32-b97c-e7bfa05622c2",
+          "name": "include",
+          "type": "string",
+          "description": "Dados extras a incluir: aggregated, descendants. Para vários valores, duplique a linha include[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "aggregated"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>"
+          ]
+        },
+        "query": [
+          {
+            "key": "include[]",
+            "value": "<>include</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "_mDf9-jSkW",
+      "name": "Enterprise - Create descendant enterprise",
+      "description": "Cria uma unidade da organização sob a conta Enterprise. Exige Enterprise Hub.",
+      "parameters": [
+        {
+          "id": "10ce8554-abbf-47a4-b3e7-ee6421583e54",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "be80e20f-f038-431f-9c28-b162730e1c2b",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com name.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"name\": \"Filial Sul\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "descendants"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "P0DGIapeMo",
+      "name": "Enterprise Users - Get users by id or email",
+      "description": "Busca usuários da conta Enterprise por ID ou e-mail; informe ao menos um dos dois.",
+      "parameters": [
+        {
+          "id": "559c8617-3d5e-42d1-b275-4c6b2ae67af9",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "f9091ffd-9bc1-45e2-8c90-51ed49e1b20d",
+          "name": "email",
+          "type": "string",
+          "description": "E-mail de um usuário. Para vários, duplique a linha email[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "pessoa@exemplo.com"
+        },
+        {
+          "id": "38258cb7-845b-4b05-a5c0-33c10d91679d",
+          "name": "id",
+          "type": "string",
+          "description": "ID de um usuário. Para vários, duplique a linha id[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "4d597ebd-fbca-4221-a3f3-84d11f7e2878",
+          "name": "include",
+          "type": "string",
+          "description": "Dados extras a incluir: collaborations, aggregated, descendants. Para vários valores, duplique a linha include[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "collaborations"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users"
+          ]
+        },
+        "query": [
+          {
+            "key": "email[]",
+            "value": "<>email</>",
+            "enabled": true
+          },
+          {
+            "key": "id[]",
+            "value": "<>id</>",
+            "enabled": true
+          },
+          {
+            "key": "include[]",
+            "value": "<>include</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EsO05h-7lB",
+      "name": "Enterprise Users - Get user by id",
+      "description": "Retorna um usuário da conta Enterprise pelo ID.",
+      "parameters": [
+        {
+          "id": "d0d14fa8-105f-48d9-bc54-3860fdbd5340",
+          "name": "user_id",
+          "type": "string",
+          "description": "ID do usuário, iniciado por usr.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "4252c31d-a799-4b45-90eb-0d28f325d0dd",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "131a50b4-2026-4793-a326-89d0095c7261",
+          "name": "include",
+          "type": "string",
+          "description": "Dados extras a incluir: collaborations, aggregated, descendants. Para vários valores, duplique a linha include[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "collaborations"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users",
+            "<>user_id</>"
+          ]
+        },
+        "query": [
+          {
+            "key": "include[]",
+            "value": "<>include</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "QqfEdzjVJz",
+      "name": "Enterprise Users - Delete users by email",
+      "description": "Exclui usuários da conta Enterprise pelo e-mail.",
+      "parameters": [
+        {
+          "id": "5c8404e8-ba54-44e4-a7a9-5d8e04b8cec7",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "5fdcb9d2-6f22-4830-8406-9186442d4b6e",
+          "name": "email",
+          "type": "string",
+          "description": "E-mail de um usuário a excluir. Para vários, duplique a linha email[] na operação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "pessoa@exemplo.com"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users"
+          ]
+        },
+        "query": [
+          {
+            "key": "email[]",
+            "value": "<>email</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Mpn1fYCRyr",
+      "name": "Enterprise Users - Manage user",
+      "description": "Altera estado (provisioned ou deactivated), e-mail, nome ou sobrenome de um usuário.",
+      "parameters": [
+        {
+          "id": "91731161-15e0-4d82-ab94-43adc36d38aa",
+          "name": "user_id",
+          "type": "string",
+          "description": "ID do usuário, iniciado por usr.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "466dc945-29bf-49c7-8e67-e6408cac57f2",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "86f1a67f-573e-46d7-ac3f-21da5f09b4a5",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com state, email, firstName ou lastName.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"state\": \"deactivated\"}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users",
+            "<>user_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "qpgPm_u1Z9",
+      "name": "Enterprise Users - Manage users batched",
+      "description": "Altera vários usuários de uma vez; recomenda-se até 10 por requisição para evitar timeout.",
+      "parameters": [
+        {
+          "id": "02609e76-6706-4036-ac51-6c62cc212a5b",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "13bd4f3c-fc02-4f87-a7ad-da8b15301c44",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com users: lista de {id ou email, state, email, firstName, lastName}.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"users\": [{\"email\": \"pessoa@exemplo.com\", \"state\": \"deactivated\"}]}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "k1vdk5f2nG",
+      "name": "Enterprise Users - Manage user membership",
+      "description": "Define usuários como gerenciados ou não gerenciados pela conta Enterprise.",
+      "parameters": [
+        {
+          "id": "87f46360-ea3e-4013-ac8c-69864d8a3e4e",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "51359be6-f14f-4373-8894-9f09aad612c0",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com users: lista de {id ou email, state (managed ou unmanaged)}.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"users\": [{\"email\": \"pessoa@exemplo.com\", \"state\": \"managed\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users",
+            "claim"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Nvn2a7AH1x",
+      "name": "Enterprise Users - Grant admin access",
+      "description": "Concede acesso de administrador aos usuários informados.",
+      "parameters": [
+        {
+          "id": "4463781f-c7f9-4e99-b3aa-f1db40f18146",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "5281c15d-008e-4b93-89ef-c8ff8b992642",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com users: lista de {id} ou {email}.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"users\": [{\"email\": \"pessoa@exemplo.com\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users",
+            "grantAdminAccess"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "xVGj6dQrR4",
+      "name": "Enterprise Users - Revoke admin access",
+      "description": "Revoga o acesso de administrador atribuído diretamente aos usuários informados.",
+      "parameters": [
+        {
+          "id": "4d73ba53-a030-456f-a6a6-c8c403688674",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "fb10a19e-a8a4-4095-8a92-735f31ff58c9",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com users: lista de {id} ou {email}.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"users\": [{\"email\": \"pessoa@exemplo.com\"}]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users",
+            "revokeAdminAccess"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "xKwXcFn1z6",
+      "name": "Enterprise Users - Delete user by id",
+      "description": "Exclui um usuário da conta Enterprise pelo ID.",
+      "parameters": [
+        {
+          "id": "b19479fc-a4bc-486b-9775-c613096244ec",
+          "name": "user_id",
+          "type": "string",
+          "description": "ID do usuário, iniciado por usr.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "0339ee10-e0da-45e3-9bd4-8933089ec495",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users",
+            "<>user_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "iQRluTYKD3",
+      "name": "Enterprise Users - Logout user",
+      "description": "Encerra as sessões ativas de um usuário.",
+      "parameters": [
+        {
+          "id": "787f4534-9427-4110-9eb1-2d6cf92ebbc8",
+          "name": "user_id",
+          "type": "string",
+          "description": "ID do usuário, iniciado por usr.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "dbdccdd7-d82f-4267-af9e-9d8529faf851",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users",
+            "<>user_id</>",
+            "logout"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HJ3vJVAsLf",
+      "name": "Enterprise Users - Remove user from enterprise",
+      "description": "Remove o compartilhamento do usuário de tudo na conta Enterprise; aceita simulação com isDryRun.",
+      "parameters": [
+        {
+          "id": "600b0ab8-4e95-4812-9173-c2935ea78b58",
+          "name": "user_id",
+          "type": "string",
+          "description": "ID do usuário, iniciado por usr.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "b349d80f-3875-4b9d-8cf9-66088ab9fce5",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "84bd8430-3a09-492b-9aaa-b8784da276b7",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto opcional com replacementOwnerId, removeFromDescendants e isDryRun.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{\"isDryRun\": true}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "users",
+            "<>user_id</>",
+            "remove"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "9PunlCmjzN",
+      "name": "Enterprise Groups - Get user group",
+      "description": "Retorna um grupo de usuários e, com include, as colaborações dele.",
+      "parameters": [
+        {
+          "id": "cd634f42-d8b5-4437-957c-db4e209525d4",
+          "name": "group_id",
+          "type": "string",
+          "description": "ID do grupo de usuários, iniciado por ugp.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ugp1mKGb3KXUyQfOZ"
+        },
+        {
+          "id": "dd31ace1-e024-4c63-98a4-83cce04c3edd",
+          "name": "include",
+          "type": "string",
+          "description": "Dados extras a incluir: collaborations. Para vários valores, duplique a linha include[] na operação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "collaborations"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "groups",
+            "<>group_id</>"
+          ]
+        },
+        "query": [
+          {
+            "key": "include[]",
+            "value": "<>include</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "KZNNHLFriC",
+      "name": "Enterprise Groups - Move user groups",
+      "description": "Move grupos de usuários entre unidades da organização (até 100). Exige Enterprise Hub.",
+      "parameters": [
+        {
+          "id": "060b0e73-b54b-40e3-84f3-8e7e21865e3a",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "f7629980-b158-4d8b-a36e-bc5048853239",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com targetEnterpriseAccountId e groupIds.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"targetEnterpriseAccountId\": \"entUBq2RGdihxl3vU\", \"groupIds\": [\"ugp1mKGb3KXUyQfOZ\"]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "moveGroups"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "v-FXVKkQP9",
+      "name": "Audit Logs - Get audit log events",
+      "description": "Lista eventos do log de auditoria dos últimos 180 dias, com filtros e paginação por next e previous.",
+      "parameters": [
+        {
+          "id": "5ae40e82-fd87-4371-bd55-61fb159d5590",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "a2d6adbf-b3ec-4569-949c-451852ccd13a",
+          "name": "start_time",
+          "type": "string",
+          "description": "Início do intervalo em ISO 8601.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2026-11-01T00:00:00.000Z"
+        },
+        {
+          "id": "60f80219-1934-4087-92f5-b77b6c9ffd5d",
+          "name": "end_time",
+          "type": "string",
+          "description": "Fim do intervalo em ISO 8601.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2026-11-24T00:00:00.000Z"
+        },
+        {
+          "id": "4bc9a1a6-f79f-484d-8dcb-e035d58bd5da",
+          "name": "originating_user_id",
+          "type": "string",
+          "description": "Filtra pelo ID do usuário que gerou o evento.",
+          "required": false,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "de07a82d-adf0-4f40-935a-1d80f3c0a27b",
+          "name": "event_type",
+          "type": "string",
+          "description": "Filtra pelo tipo de evento.",
+          "required": false,
+          "sensitive": false,
+          "sample": "createBase"
+        },
+        {
+          "id": "41da82bc-7f5a-4a21-96bb-a617f2c8ebdd",
+          "name": "model_id",
+          "type": "string",
+          "description": "Filtra pelo ID do objeto afetado.",
+          "required": false,
+          "sensitive": false,
+          "sample": "appLkNDICXNqxSDhG"
+        },
+        {
+          "id": "0e875e1b-8e57-4d70-8c5f-84a1b8fbafe5",
+          "name": "category",
+          "type": "string",
+          "description": "Filtra pela categoria do evento.",
+          "required": false,
+          "sensitive": false,
+          "sample": "dataAccess"
+        },
+        {
+          "id": "aa957530-4184-48b2-b19e-b2944dff46dd",
+          "name": "page_size",
+          "type": "string",
+          "description": "Quantidade de eventos por página (máximo de 1000, padrão 10).",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "20783ed4-c48f-462c-8edd-2413194fccfd",
+          "name": "sort_order",
+          "type": "string",
+          "description": "Ordem dos eventos: ascending ou descending.",
+          "required": false,
+          "sensitive": false,
+          "sample": "descending"
+        },
+        {
+          "id": "5d058912-c992-45cd-9012-3a10acc0d7b6",
+          "name": "next",
+          "type": "string",
+          "description": "Cursor da próxima página, retornado em pagination.next.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        },
+        {
+          "id": "e40e7ac9-d4e1-49f1-aaee-b74a2b411db9",
+          "name": "previous",
+          "type": "string",
+          "description": "Cursor da página anterior, retornado em pagination.previous.",
+          "required": false,
+          "sensitive": false,
+          "sample": ""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "auditLogEvents"
+          ]
+        },
+        "query": [
+          {
+            "key": "startTime",
+            "value": "<>start_time</>",
+            "enabled": true
+          },
+          {
+            "key": "endTime",
+            "value": "<>end_time</>",
+            "enabled": true
+          },
+          {
+            "key": "originatingUserId",
+            "value": "<>originating_user_id</>",
+            "enabled": true
+          },
+          {
+            "key": "eventType",
+            "value": "<>event_type</>",
+            "enabled": true
+          },
+          {
+            "key": "modelId",
+            "value": "<>model_id</>",
+            "enabled": true
+          },
+          {
+            "key": "category",
+            "value": "<>category</>",
+            "enabled": true
+          },
+          {
+            "key": "pageSize",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "sortOrder",
+            "value": "<>sort_order</>",
+            "enabled": true
+          },
+          {
+            "key": "next",
+            "value": "<>next</>",
+            "enabled": true
+          },
+          {
+            "key": "previous",
+            "value": "<>previous</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "ZiGBO6HeBw",
+      "name": "Audit Logs - List audit log requests",
+      "description": "Lista as solicitações de log de auditoria (recurso legado; prefira Get audit log events).",
+      "parameters": [
+        {
+          "id": "78a37f8d-aa17-433d-bf18-4491a8b58dfb",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "537d2b83-7033-4028-81e6-190e069a2b1e",
+          "name": "page_size",
+          "type": "string",
+          "description": "Quantidade de itens por página (máximo de 100).",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "09ef5a84-ace1-49c5-b63d-cc4296f37b89",
+          "name": "offset",
+          "type": "string",
+          "description": "Deslocamento numérico da paginação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "auditLogs"
+          ]
+        },
+        "query": [
+          {
+            "key": "pageSize",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "UmTo4DqIOJ",
+      "name": "Audit Logs - Create audit log request",
+      "description": "Cria uma solicitação de log de auditoria (recurso legado).",
+      "parameters": [
+        {
+          "id": "f8bb3967-6157-4d8c-bd8f-874d647d860c",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "auditLogs"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "QMN6O2c6HR",
+      "name": "Audit Logs - Get audit log request",
+      "description": "Retorna o status e o resultado de uma solicitação de log de auditoria (recurso legado).",
+      "parameters": [
+        {
+          "id": "d351a5c3-331f-410b-a7e1-0de8d67f967a",
+          "name": "task_id",
+          "type": "string",
+          "description": "ID da tarefa assíncrona retornado na criação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "atkY6ZbWNHMBYDvJn"
+        },
+        {
+          "id": "1f702ecc-7e8a-49e4-8432-5338b0322804",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "auditLogs",
+            "<>task_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "WqM9F_ETpd",
+      "name": "Audit Logs - Get change events",
+      "description": "Lista eventos de alteração das bases dos últimos 14 dias. Exige Enterprise Scale e o recurso habilitado.",
+      "parameters": [
+        {
+          "id": "d6c3e4d0-a2a3-4cec-a5f7-2857bcc9200c",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "79d3d2e2-d148-42f3-8ead-b5f222f82050",
+          "name": "start_time",
+          "type": "string",
+          "description": "Início do intervalo em ISO 8601.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2026-11-20T00:00:00.000Z"
+        },
+        {
+          "id": "f4d60cfe-30b7-4ad2-9b55-0f1fe7dea820",
+          "name": "end_time",
+          "type": "string",
+          "description": "Fim do intervalo em ISO 8601.",
+          "required": false,
+          "sensitive": false,
+          "sample": "2026-11-24T00:00:00.000Z"
+        },
+        {
+          "id": "acdaac75-2dfc-4b2a-a4a4-7fae68230f2a",
+          "name": "page_size",
+          "type": "string",
+          "description": "Quantidade de eventos por página (máximo de 100, padrão 10).",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "0d9acd26-fe0e-43db-84bd-10487d65989b",
+          "name": "offset",
+          "type": "string",
+          "description": "Cursor de paginação retornado na resposta anterior.",
+          "required": false,
+          "sensitive": false,
+          "sample": "itrHtNnLWsxrLnU3q/recwPQIfs4wKPyc9D"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "changeEvents"
+          ]
+        },
+        "query": [
+          {
+            "key": "startTime",
+            "value": "<>start_time</>",
+            "enabled": true
+          },
+          {
+            "key": "endTime",
+            "value": "<>end_time</>",
+            "enabled": true
+          },
+          {
+            "key": "pageSize",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "3IeietgRCK",
+      "name": "eDiscovery - List eDiscovery exports",
+      "description": "Lista as exportações de eDiscovery, com filtro por estado. Exige Enterprise Scale.",
+      "parameters": [
+        {
+          "id": "ac4185ac-9b38-4478-9622-11addd84305c",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "b1d18a55-0e69-4ffb-b529-07cb33f66bc5",
+          "name": "state",
+          "type": "string",
+          "description": "Filtra pelo estado: pending, processing, error ou done.",
+          "required": false,
+          "sensitive": false,
+          "sample": "done"
+        },
+        {
+          "id": "9cda1895-cf7d-417d-a2bc-655932ef6636",
+          "name": "page_size",
+          "type": "string",
+          "description": "Quantidade de itens por página (máximo de 100).",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "2a7a3d43-a883-4570-9d21-3b1b654be67c",
+          "name": "offset",
+          "type": "string",
+          "description": "Deslocamento numérico da paginação.",
+          "required": false,
+          "sensitive": false,
+          "sample": "0"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "exports"
+          ]
+        },
+        "query": [
+          {
+            "key": "state",
+            "value": "<>state</>",
+            "enabled": true
+          },
+          {
+            "key": "pageSize",
+            "value": "<>page_size</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GXpOfbELR3",
+      "name": "eDiscovery - Create eDiscovery export",
+      "description": "Cria uma exportação de eDiscovery de uma base. Exige Enterprise Scale.",
+      "parameters": [
+        {
+          "id": "83363df4-53bd-487c-902c-ed6f1d5b82da",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "0cdc18cd-eec9-4e5e-a647-091d9c525c33",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com baseId, includeCsvFormat e shouldSendEmailOnCompletion opcionais.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"baseId\": \"appLkNDICXNqxSDhG\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "exports"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "J4_b41BcsP",
+      "name": "eDiscovery - Get eDiscovery export",
+      "description": "Retorna o status de uma exportação de eDiscovery e as URLs de download. Exige Enterprise Scale.",
+      "parameters": [
+        {
+          "id": "df75726f-c7fb-4da1-85a3-a3705600a1a9",
+          "name": "task_id",
+          "type": "string",
+          "description": "ID da tarefa assíncrona retornado na criação.",
+          "required": true,
+          "sensitive": false,
+          "sample": "atkY6ZbWNHMBYDvJn"
+        },
+        {
+          "id": "d51d1082-96f3-4712-a351-f9c7639a87df",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "meta",
+            "enterpriseAccounts",
+            "<>enterprise_account_id</>",
+            "exports",
+            "<>task_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "3FYDyj8r89",
+      "name": "SCIM Groups - List groups",
+      "description": "Lista grupos via SCIM, com filtro por displayName. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "5a20d19d-d459-4b90-bb65-97606a0b177a",
+          "name": "count",
+          "type": "string",
+          "description": "Quantidade máxima de itens retornados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "267e09c4-580d-4d43-a7a6-52123e1c6e91",
+          "name": "filter",
+          "type": "string",
+          "description": "Filtro SCIM; aceita só igualdade em displayName.",
+          "required": false,
+          "sensitive": false,
+          "sample": "displayName eq \"Financeiro\""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Groups"
+          ]
+        },
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "filter",
+            "value": "<>filter</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Ob5InSULVb",
+      "name": "SCIM Groups - Create group",
+      "description": "Cria um grupo sem membros via SCIM. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "fbcc9390-a729-4697-84bc-7a070684cafe",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto SCIM com schemas e displayName.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"schemas\": [\"urn:ietf:params:scim:schemas:core:2.0:Group\"], \"displayName\": \"Financeiro\"}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Groups"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRKIzV6m_i",
+      "name": "SCIM Groups - Get group",
+      "description": "Retorna um grupo via SCIM. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "66b358df-ed3f-46bd-ac88-a54febf41335",
+          "name": "scim_group_id",
+          "type": "string",
+          "description": "ID do grupo no SCIM.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ugp1mKGb3KXUyQfOZ"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Groups",
+            "<>scim_group_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "A64BUTcALP",
+      "name": "SCIM Groups - Patch group",
+      "description": "Aplica operações SCIM de patch a um grupo, como incluir ou remover membros. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "c3a745cf-76b6-4163-9b70-1e8a3dc5b96e",
+          "name": "scim_group_id",
+          "type": "string",
+          "description": "ID do grupo no SCIM.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ugp1mKGb3KXUyQfOZ"
+        },
+        {
+          "id": "41208cb0-5818-4c42-9fa6-db9a1a7df76f",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto SCIM PatchOp com schemas e Operations (lista de {op, path, value}).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"schemas\": [\"urn:ietf:params:scim:api:messages:2.0:PatchOp\"], \"Operations\": [{\"op\": \"replace\", \"path\": \"active\", \"value\": false}]}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Groups",
+            "<>scim_group_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "hjlQiyhAAI",
+      "name": "SCIM Groups - Put group",
+      "description": "Substitui um grupo via SCIM, incluindo nome e membros. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "64aba63e-a21b-499a-badf-48a4e06656ee",
+          "name": "scim_group_id",
+          "type": "string",
+          "description": "ID do grupo no SCIM.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ugp1mKGb3KXUyQfOZ"
+        },
+        {
+          "id": "7edfd2f8-884e-45b1-a915-33abf5095c73",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto SCIM com schemas, displayName e members (lista de {value: ID do usuário}).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"schemas\": [\"urn:ietf:params:scim:schemas:core:2.0:Group\"], \"displayName\": \"Financeiro\", \"members\": [{\"value\": \"usrL2PNC5o3H4lBEi\"}]}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Groups",
+            "<>scim_group_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "5P9fOZd60d",
+      "name": "SCIM Groups - Delete group",
+      "description": "Exclui um grupo via SCIM. Exige plano Enterprise.",
+      "parameters": [
+        {
+          "id": "82523e26-b306-4b4e-bcb8-b9765b151549",
+          "name": "scim_group_id",
+          "type": "string",
+          "description": "ID do grupo no SCIM.",
+          "required": true,
+          "sensitive": false,
+          "sample": "ugp1mKGb3KXUyQfOZ"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Groups",
+            "<>scim_group_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Cj0RyiSOSX",
+      "name": "SCIM Users - List users",
+      "description": "Lista usuários via SCIM, com filtro por userName. Exige plano Business ou superior.",
+      "parameters": [
+        {
+          "id": "2d20ab24-164f-4e50-9f44-7f55b7989f6a",
+          "name": "start_index",
+          "type": "string",
+          "description": "Índice inicial da paginação (começa em 1).",
+          "required": false,
+          "sensitive": false,
+          "sample": "1"
+        },
+        {
+          "id": "42043084-9914-4e3c-8383-073c0e105a73",
+          "name": "count",
+          "type": "string",
+          "description": "Quantidade máxima de itens retornados.",
+          "required": false,
+          "sensitive": false,
+          "sample": "100"
+        },
+        {
+          "id": "359fd3f5-bffa-4919-8351-0c35571c0c40",
+          "name": "filter",
+          "type": "string",
+          "description": "Filtro SCIM; aceita só igualdade em userName.",
+          "required": false,
+          "sensitive": false,
+          "sample": "userName eq \"pessoa@exemplo.com\""
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Users"
+          ]
+        },
+        "query": [
+          {
+            "key": "startIndex",
+            "value": "<>start_index</>",
+            "enabled": true
+          },
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "filter",
+            "value": "<>filter</>",
+            "enabled": true
+          }
+        ],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "9yKCvRl0Jv",
+      "name": "SCIM Users - Create user",
+      "description": "Cria um usuário via SCIM, para cenários com SSO. Exige plano Business ou superior.",
+      "parameters": [
+        {
+          "id": "12a46ab9-a18a-474d-8ddd-3f9b044b4ac1",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto SCIM com schemas, userName e atributos opcionais como name, emails, active, externalId e title.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"schemas\": [\"urn:ietf:params:scim:schemas:core:2.0:User\"], \"userName\": \"pessoa@exemplo.com\", \"name\": {\"givenName\": \"Ana\", \"familyName\": \"Silva\"}}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Users"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "IQ1ouDBBZX",
+      "name": "SCIM Users - Get user",
+      "description": "Retorna um usuário via SCIM. Exige plano Business ou superior.",
+      "parameters": [
+        {
+          "id": "ef510867-f712-480e-856c-6bfae83ec9d9",
+          "name": "scim_user_id",
+          "type": "string",
+          "description": "ID do usuário no SCIM.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Users",
+            "<>scim_user_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "9xG4KLK6A6",
+      "name": "SCIM Users - Patch user",
+      "description": "Aplica operações SCIM de patch a um usuário, como desativá-lo. Exige plano Business ou superior.",
+      "parameters": [
+        {
+          "id": "63584aeb-a7d7-40b1-b6cd-0cc776b61862",
+          "name": "scim_user_id",
+          "type": "string",
+          "description": "ID do usuário no SCIM.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "6e73e5b5-528b-49f3-bbdd-866acc61a652",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto SCIM PatchOp com schemas e Operations (lista de {op, path, value}).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"schemas\": [\"urn:ietf:params:scim:api:messages:2.0:PatchOp\"], \"Operations\": [{\"op\": \"replace\", \"path\": \"active\", \"value\": false}]}"
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Users",
+            "<>scim_user_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "UAfchIwi1X",
+      "name": "SCIM Users - Put user",
+      "description": "Substitui um usuário via SCIM, com o mesmo corpo da criação. Exige plano Business ou superior.",
+      "parameters": [
+        {
+          "id": "9360af87-7f57-4a58-88de-14685de4dfa1",
+          "name": "scim_user_id",
+          "type": "string",
+          "description": "ID do usuário no SCIM.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        },
+        {
+          "id": "5f7f7421-bdb8-4c88-b885-3a0c2ff3691a",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto SCIM com schemas, userName e atributos opcionais como name, emails, active, externalId e title.",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"schemas\": [\"urn:ietf:params:scim:schemas:core:2.0:User\"], \"userName\": \"pessoa@exemplo.com\", \"name\": {\"givenName\": \"Ana\", \"familyName\": \"Silva\"}}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Users",
+            "<>scim_user_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "wW7X969kkV",
+      "name": "SCIM Users - Delete user",
+      "description": "Exclui um usuário via SCIM; não vale para a própria conta nem para o único dono de workspace compartilhado.",
+      "parameters": [
+        {
+          "id": "a4533457-2b68-4e2c-b1a0-b413230b6f6b",
+          "name": "scim_user_id",
+          "type": "string",
+          "description": "ID do usuário no SCIM.",
+          "required": true,
+          "sensitive": false,
+          "sample": "usrL2PNC5o3H4lBEi"
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "urlType": "full-url",
+        "url": {
+          "path": [
+            "https:",
+            "",
+            "airtable.com",
+            "scim",
+            "v2",
+            "Users",
+            "<>scim_user_id</>"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "mOXjt8kOQP",
+      "name": "HyperDB - Read records",
+      "description": "Lê registros de uma tabela HyperDB, com cursor e filtro por chaves primárias. Exige Enterprise Scale e token pessoal.",
+      "parameters": [
+        {
+          "id": "ebae6a3d-116c-48cf-a03b-4889ae1c0c29",
+          "name": "data_table_id",
+          "type": "string",
+          "description": "ID da tabela de dados do HyperDB.",
+          "required": true,
+          "sensitive": false,
+          "sample": "dtbXyN0Q6zfajnDOG"
+        },
+        {
+          "id": "8b80bcfe-8e98-4beb-a59b-86a8c2401f2a",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "63a7a197-fa96-4d0d-aae4-c963df0072d4",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com cursor, maxRecords, fields e primaryKeys, todos opcionais.",
+          "required": false,
+          "sensitive": false,
+          "sample": "{\"maxRecords\": 100}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>enterprise_account_id</>",
+            "<>data_table_id</>",
+            "getRecords"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "gn8wadqcSA",
+      "name": "HyperDB - Delete records by primary keys",
+      "description": "Exclui registros de uma tabela HyperDB pelas chaves primárias. Exige Enterprise Scale e token pessoal.",
+      "parameters": [
+        {
+          "id": "e434f39d-08fb-49ae-9651-d88f7f4d7c88",
+          "name": "data_table_id",
+          "type": "string",
+          "description": "ID da tabela de dados do HyperDB.",
+          "required": true,
+          "sensitive": false,
+          "sample": "dtbXyN0Q6zfajnDOG"
+        },
+        {
+          "id": "0410a7e2-f176-47c6-9810-ea7c09de8208",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "beac9311-370e-4ad0-813d-789b32fb1f70",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com primaryKeysForDelete (lista de chaves primárias).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"primaryKeysForDelete\": [\"pk-001\"]}"
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>enterprise_account_id</>",
+            "<>data_table_id</>",
+            "deleteRecords"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "A0XnPkNy61",
+      "name": "HyperDB - Upsert records by primary keys",
+      "description": "Cria ou atualiza registros de uma tabela HyperDB pela chave primária. Exige Enterprise Scale e token pessoal.",
+      "parameters": [
+        {
+          "id": "0c6a090f-8633-44ea-bb1d-1b9330fbe323",
+          "name": "data_table_id",
+          "type": "string",
+          "description": "ID da tabela de dados do HyperDB.",
+          "required": true,
+          "sensitive": false,
+          "sample": "dtbXyN0Q6zfajnDOG"
+        },
+        {
+          "id": "06c60f84-cc20-41d3-b4e7-3a829b92ef04",
+          "name": "enterprise_account_id",
+          "type": "string",
+          "description": "ID da conta Enterprise, iniciado por ent.",
+          "required": true,
+          "sensitive": false,
+          "sample": "entUBq2RGdihxl3vU"
+        },
+        {
+          "id": "f90cca33-2c81-4c74-a11e-6102cb8486d7",
+          "name": "body",
+          "type": "object",
+          "description": "Objeto com records (lista de {primaryKey, fields}).",
+          "required": true,
+          "sensitive": false,
+          "sample": "{\"records\": [{\"primaryKey\": \"pk-001\", \"fields\": {\"status\": \"ativo\"}}]}"
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "v0",
+            "<>enterprise_account_id</>",
+            "<>data_table_id</>",
+            "upsertRecords"
+          ]
+        },
+        "query": [],
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
