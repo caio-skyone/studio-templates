@@ -61,6 +61,24 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "severity",
+          "id": "db21326a-a851-46a8-8251-5ca237aff13b",
+          "type": "string",
+          "description": "Severidades separadas por vírgula (low, medium, high, critical)",
+          "sensitive": false,
+          "sample": "high",
+          "required": false
+        },
+        {
+          "name": "state",
+          "id": "17386d52-cbbb-4f55-b9b4-47a09b3cfe82",
+          "type": "string",
+          "description": "Estados separados por vírgula (auto_dismissed, dismissed, fixed, open)",
+          "sensitive": false,
+          "sample": "open",
+          "required": false
         }
       ],
       "request": {
@@ -259,6 +277,15 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "state",
+          "id": "1c54e53c-4d2a-4559-a8b4-4dde08401597",
+          "type": "string",
+          "description": "Estado do alerta (open, resolved)",
+          "sensitive": false,
+          "sample": "open",
+          "required": false
         }
       ],
       "request": {
@@ -293,52 +320,6 @@
           {
             "key": "state",
             "value": "<>state</>",
-            "enabled": true
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Secret Scanning - List push protection bypasses",
-      "id": "Ut883JcEXJ",
-      "description": "Lista bypasses de proteção de push de uma organização",
-      "parameters": [],
-      "request": {
-        "method": "GET",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "orgs",
-            "<>org</>",
-            "secret-scanning",
-            "push-protection-bypasses"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [
-          {
-            "key": "page",
-            "value": "<>page</>",
-            "enabled": true
-          },
-          {
-            "key": "per_page",
-            "value": "<>per_page</>",
             "enabled": true
           }
         ],
@@ -402,6 +383,24 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "state",
+          "id": "37595e18-d824-4313-b3d1-9184297e1298",
+          "type": "string",
+          "description": "Estado do alerta (open, closed, dismissed, fixed)",
+          "sensitive": false,
+          "sample": "open",
+          "required": false
+        },
+        {
+          "name": "tool_name",
+          "id": "4718049b-d7d9-4ccd-8fa4-3f7233aaa48f",
+          "type": "string",
+          "description": "Nome da ferramenta de code scanning",
+          "sensitive": false,
+          "sample": "CodeQL",
+          "required": false
         }
       ],
       "request": {
@@ -460,7 +459,44 @@
       "name": "Code Scanning - Get alert",
       "id": "9x5EVkTuK6",
       "description": "Obtém um alerta de code scanning",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "9d289c26-e3c2-4cb4-abc6-bcfcbc200545",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "b1d1783b-f408-4603-bb1c-9bffb2f0261c",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "a71527f9-df94-41fd-9677-1c3624bf7f0f",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "alert_number",
+          "id": "d8ddfcb8-ef6d-4770-af9f-0fcff86d72e3",
+          "type": "number",
+          "description": "Número do alerta",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -616,6 +652,24 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "state",
+          "id": "43fc50a6-ee1a-4dd4-a560-bce66d795aea",
+          "type": "string",
+          "description": "Estado do alerta (open, closed, dismissed, fixed)",
+          "sensitive": false,
+          "sample": "open",
+          "required": false
+        },
+        {
+          "name": "tool_name",
+          "id": "7ac06f19-e147-40a4-bb36-6a43d9cd43d0",
+          "type": "string",
+          "description": "Nome da ferramenta de code scanning",
+          "sensitive": false,
+          "sample": "CodeQL",
+          "required": false
         }
       ],
       "request": {
@@ -718,6 +772,24 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "ref",
+          "id": "1fceb5a5-f562-4ea1-9a72-1a9c9133af66",
+          "type": "string",
+          "description": "Referência Git das análises (branch ou refs/pull/<n>/merge)",
+          "sensitive": false,
+          "sample": "main",
+          "required": false
+        },
+        {
+          "name": "tool_name",
+          "id": "9f11fe7b-4f71-4e43-b48b-7f81ffa5a786",
+          "type": "string",
+          "description": "Nome da ferramenta de code scanning",
+          "sensitive": false,
+          "sample": "CodeQL",
+          "required": false
         }
       ],
       "request": {
@@ -776,7 +848,44 @@
       "name": "Code Scanning - Get analysis",
       "id": "ld06AyZ2x8",
       "description": "Obtém uma análise de code scanning",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "b8d84d7d-b4ba-4437-bddc-b7da4d16b30a",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "310a1ef9-9627-4759-8837-6f753d73fa97",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "3899055b-0ffb-4e97-9491-a544d1e6520c",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "analysis_id",
+          "id": "d19a64af-9ebe-44d4-9502-159f0cdca485",
+          "type": "number",
+          "description": "ID da análise",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -922,6 +1031,15 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "state",
+          "id": "fc463984-2966-466e-9ceb-a6c84eb31eb3",
+          "type": "string",
+          "description": "Estado do alerta (open, resolved)",
+          "sensitive": false,
+          "sample": "open",
           "required": false
         }
       ],
@@ -1167,6 +1285,24 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "severity",
+          "id": "2e960af4-3723-48e3-bc4e-2b71ed31c7ea",
+          "type": "string",
+          "description": "Severidades separadas por vírgula (low, medium, high, critical)",
+          "sensitive": false,
+          "sample": "high",
+          "required": false
+        },
+        {
+          "name": "state",
+          "id": "b8aa665d-c96d-4c2a-b5f5-9e30e8189a74",
+          "type": "string",
+          "description": "Estados separados por vírgula (auto_dismissed, dismissed, fixed, open)",
+          "sensitive": false,
+          "sample": "open",
           "required": false
         }
       ],
@@ -1659,6 +1795,24 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "severity",
+          "id": "ca794504-bf40-40be-8b58-c99776cc2f7a",
+          "type": "string",
+          "description": "Severidade (unknown, low, medium, high, critical)",
+          "sensitive": false,
+          "sample": "high",
+          "required": false
+        },
+        {
+          "name": "type",
+          "id": "5dfd8fb2-a17d-44df-b3e3-75322c51bea1",
+          "type": "string",
+          "description": "Tipo de advisory (reviewed, malware, unreviewed)",
+          "sensitive": false,
+          "sample": "reviewed",
+          "required": false
         }
       ],
       "request": {
@@ -1695,88 +1849,6 @@
           {
             "key": "type",
             "value": "<>type</>",
-            "enabled": true
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - List columns",
-      "id": "pKikJyLiWz",
-      "description": "Lista colunas de um projeto",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "d6127369-004d-4381-8244-ffcc50a5d28a",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "project_id",
-          "id": "f74154bb-12ae-4a73-8869-e092f29d9796",
-          "type": "number",
-          "description": "ID do projeto",
-          "sensitive": false,
-          "sample": "1",
-          "required": true
-        },
-        {
-          "name": "per_page",
-          "id": "b49bdc75-a84e-4686-84eb-260c344282f3",
-          "type": "number",
-          "description": "Itens por página",
-          "sensitive": false,
-          "sample": "30",
-          "required": false
-        },
-        {
-          "name": "page",
-          "id": "e2129f8a-4e3f-45c3-a67b-ac6079b04304",
-          "type": "number",
-          "description": "Número da página",
-          "sensitive": false,
-          "sample": "1",
-          "required": false
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "projects",
-            "<>project_id</>",
-            "columns"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [
-          {
-            "key": "page",
-            "value": "<>page</>",
-            "enabled": true
-          },
-          {
-            "key": "per_page",
-            "value": "<>per_page</>",
             "enabled": true
           }
         ],
@@ -1830,6 +1902,15 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "visibility",
+          "id": "e9aa6e1e-baae-4d42-8ca3-c486875e50d1",
+          "type": "string",
+          "description": "Visibilidade do pacote (public, private, internal)",
+          "sensitive": false,
+          "sample": "public",
           "required": false
         }
       ],
@@ -1994,6 +2075,15 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "state",
+          "id": "81b56f9e-06e3-4415-a11f-08cc6e0123b7",
+          "type": "string",
+          "description": "Estado da versão (active, deleted)",
+          "sensitive": false,
+          "sample": "active",
+          "required": false
         }
       ],
       "request": {
@@ -2118,283 +2208,6 @@
       }
     },
     {
-      "name": "Projects - List for org",
-      "id": "wURMBkcDoh",
-      "description": "Lista projetos de uma organização",
-      "parameters": [],
-      "request": {
-        "method": "GET",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "orgs",
-            "<>org</>",
-            "projects"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [
-          {
-            "key": "page",
-            "value": "<>page</>",
-            "enabled": true
-          },
-          {
-            "key": "per_page",
-            "value": "<>per_page</>",
-            "enabled": true
-          },
-          {
-            "key": "state",
-            "value": "<>state</>",
-            "enabled": true
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - Create for org",
-      "id": "bYDqvdJwsH",
-      "description": "Cria um projeto em uma organização",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "b92bcf7a-c5ed-4027-b133-4b69048271cd",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "org",
-          "id": "6d39f771-cc6c-4229-90b0-8d5a0f446dd0",
-          "type": "string",
-          "description": "Nome da organização",
-          "sensitive": false,
-          "sample": "github",
-          "required": true
-        },
-        {
-          "name": "body",
-          "id": "6c3afc87-78b6-48c5-9d1c-f12490909a21",
-          "type": "object",
-          "description": "Dados do projeto",
-          "sensitive": false,
-          "sample": "{}",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "orgs",
-            "<>org</>",
-            "projects"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "<>body</>",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - Get",
-      "id": "WATN6YShwr",
-      "description": "Obtém um projeto",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "f8e893a0-025c-4df6-a2d3-880b4a325b01",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "project_id",
-          "id": "2b1d6039-a9f7-489f-a368-c8d84cf02509",
-          "type": "number",
-          "description": "ID do projeto",
-          "sensitive": false,
-          "sample": "1",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "projects",
-            "<>project_id</>"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - Update",
-      "id": "AohGYkfHS4",
-      "description": "Atualiza um projeto",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "878a0043-e950-4ac3-b77a-53195fc35ec5",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "project_id",
-          "id": "5f25c347-6d27-46c8-9238-f532612db43d",
-          "type": "number",
-          "description": "ID do projeto",
-          "sensitive": false,
-          "sample": "1",
-          "required": true
-        },
-        {
-          "name": "body",
-          "id": "e58c88eb-8f15-466d-8f34-866d7f8fc840",
-          "type": "object",
-          "description": "Dados de atualização do projeto",
-          "sensitive": false,
-          "sample": "{}",
-          "required": false
-        }
-      ],
-      "request": {
-        "method": "PATCH",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "projects",
-            "<>project_id</>"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "<>body</>",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - Delete",
-      "id": "KexQtgFPB7",
-      "description": "Exclui um projeto",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "cd314311-32ca-4dae-8a6e-29ed3c565908",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "project_id",
-          "id": "55585acf-41ad-4212-836e-77f18085f223",
-          "type": "number",
-          "description": "ID do projeto",
-          "sensitive": false,
-          "sample": "1",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "DELETE",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "projects",
-            "<>project_id</>"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
       "name": "Interactions - Remove restrictions for org",
       "id": "KJ2sqoFACS",
       "description": "Remove restrições de interação de uma organização",
@@ -2439,368 +2252,6 @@
         "body": {
           "mode": "raw",
           "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - Create column",
-      "id": "Z03qc0qbK7",
-      "description": "Cria uma coluna em um projeto",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "98344a2b-9fee-426d-ad39-81e9241c2806",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "project_id",
-          "id": "f4a11008-3e95-46fe-b2eb-a9806a877699",
-          "type": "number",
-          "description": "ID do projeto",
-          "sensitive": false,
-          "sample": "1",
-          "required": true
-        },
-        {
-          "name": "body",
-          "id": "3928d170-d681-4849-b92d-0057a9e01471",
-          "type": "object",
-          "description": "Dados da coluna",
-          "sensitive": false,
-          "sample": "{}",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "projects",
-            "<>project_id</>",
-            "columns"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "<>body</>",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - Get column",
-      "id": "RWDWaTdLjY",
-      "description": "Obtém uma coluna de projeto",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "a002335d-fe75-4086-8a47-491589ede64c",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "column_id",
-          "id": "502d4b14-5a4d-4bc5-bbf5-a7dbae572388",
-          "type": "number",
-          "description": "ID da coluna",
-          "sensitive": false,
-          "sample": "1",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "projects",
-            "columns",
-            "<>column_id</>"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - Update column",
-      "id": "nhL5-IEXuY",
-      "description": "Atualiza uma coluna de projeto",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "75b38911-73a7-4fa0-b681-0f1f57322893",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "column_id",
-          "id": "98869d10-3c12-4831-b2bd-c2496d39d323",
-          "type": "number",
-          "description": "ID da coluna",
-          "sensitive": false,
-          "sample": "1",
-          "required": true
-        },
-        {
-          "name": "body",
-          "id": "bbc4b32a-d7f8-42c0-b7d2-7d4e464a8de0",
-          "type": "object",
-          "description": "Dados de atualização da coluna",
-          "sensitive": false,
-          "sample": "{}",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "PATCH",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "projects",
-            "columns",
-            "<>column_id</>"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "<>body</>",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - Delete column",
-      "id": "gUDZWgYmlh",
-      "description": "Exclui uma coluna de projeto",
-      "parameters": [],
-      "request": {
-        "method": "DELETE",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "projects",
-            "columns",
-            "<>column_id</>"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - List cards",
-      "id": "4GOcFULy5j",
-      "description": "Lista cards de uma coluna de projeto",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "265dbda2-447d-4dc7-8468-da32b8bafac6",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "column_id",
-          "id": "0c9a8b5f-dfa2-459c-90bd-65da079fb186",
-          "type": "number",
-          "description": "ID da coluna",
-          "sensitive": false,
-          "sample": "1",
-          "required": true
-        },
-        {
-          "name": "per_page",
-          "id": "61936bb4-8965-4d47-9b21-b3fd97305ef5",
-          "type": "number",
-          "description": "Itens por página",
-          "sensitive": false,
-          "sample": "30",
-          "required": false
-        },
-        {
-          "name": "page",
-          "id": "32ab199b-136a-407f-b88c-3e50f30747a9",
-          "type": "number",
-          "description": "Número da página",
-          "sensitive": false,
-          "sample": "1",
-          "required": false
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "projects",
-            "columns",
-            "<>column_id</>",
-            "cards"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [
-          {
-            "key": "archived_state",
-            "value": "<>archived_state</>",
-            "enabled": true
-          },
-          {
-            "key": "page",
-            "value": "<>page</>",
-            "enabled": true
-          },
-          {
-            "key": "per_page",
-            "value": "<>per_page</>",
-            "enabled": true
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "Projects - Create card",
-      "id": "-KaRY4J_3T",
-      "description": "Cria um card em uma coluna de projeto",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "b325da3f-6409-4c43-b353-71ec14b8e2db",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "column_id",
-          "id": "31c5c605-d8c8-45b8-bed3-baba65c1b82d",
-          "type": "number",
-          "description": "ID da coluna",
-          "sensitive": false,
-          "sample": "1",
-          "required": true
-        },
-        {
-          "name": "body",
-          "id": "a06c1808-a220-416e-8387-87653228ee19",
-          "type": "object",
-          "description": "Dados do card",
-          "sensitive": false,
-          "sample": "{}",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "projects",
-            "columns",
-            "<>column_id</>",
-            "cards"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "<>body</>",
           "options": {
             "raw": {
               "language": "json"
@@ -2857,6 +2308,15 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "state",
+          "id": "49a77cb3-4595-464c-a34e-93b66c0a2b36",
+          "type": "string",
+          "description": "Estado do alerta (open, resolved)",
+          "sensitive": false,
+          "sample": "open",
           "required": false
         }
       ],
@@ -2985,7 +2445,53 @@
       "name": "Secret Scanning - Update alert",
       "id": "qA6uXMOZSA",
       "description": "Atualiza um alerta de secret scanning",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "e1e3f6c0-253a-4e7f-ae67-f985bc91af80",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "de6b227c-0dba-4742-b93e-0f21b2d90d9e",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "a12b877a-05e8-4af5-ad6b-94439d20c3f0",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "alert_number",
+          "id": "8e59cb14-f437-4539-937e-b156ad17e7bd",
+          "type": "number",
+          "description": "Número do alerta",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "5e5d2cc0-4eeb-4fd3-9795-9af529c7f20d",
+          "type": "object",
+          "description": "Dados de atualização do alerta",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "PATCH",
         "urlType": "base-url",
@@ -3550,81 +3056,6 @@
       }
     },
     {
-      "name": "Copilot - Get usage metrics",
-      "id": "UdmBHexzjU",
-      "description": "Obtém métricas de uso do Copilot de uma organização",
-      "parameters": [
-        {
-          "name": "x_github_api_version",
-          "id": "ed363ce1-ca7a-49e7-bda3-53fc5c7762d8",
-          "type": "string",
-          "description": "Versão da API GitHub",
-          "sensitive": false,
-          "sample": "2022-11-28",
-          "required": true
-        },
-        {
-          "name": "org",
-          "id": "1070cc3f-0d9b-442e-aa83-3e7af3bc5a15",
-          "type": "string",
-          "description": "Nome da organização",
-          "sensitive": false,
-          "sample": "github",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "orgs",
-            "<>org</>",
-            "copilot",
-            "usage"
-          ]
-        },
-        "header": [
-          {
-            "key": "X-GitHub-Api-Version",
-            "value": "<>x_github_api_version</>",
-            "enabled": true
-          }
-        ],
-        "query": [
-          {
-            "key": "page",
-            "value": "<>page</>",
-            "enabled": true
-          },
-          {
-            "key": "per_page",
-            "value": "<>per_page</>",
-            "enabled": true
-          },
-          {
-            "key": "since",
-            "value": "<>since</>",
-            "enabled": true
-          },
-          {
-            "key": "until",
-            "value": "<>until</>",
-            "enabled": true
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
       "name": "Dependency Graph - Compare commits",
       "id": "Z6oEFYjVXm",
       "description": "Compara dependências entre dois commits",
@@ -3810,6 +3241,15 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "state",
+          "id": "55049145-eea7-4fa4-a585-e2adaecfe30d",
+          "type": "string",
+          "description": "Estado do advisory (triage, draft, published, closed)",
+          "sensitive": false,
+          "sample": "published",
           "required": false
         }
       ],
@@ -5765,7 +5205,44 @@
       "name": "Collaborators - Check user",
       "id": "jLI1GemF6k",
       "description": "Verifica se um usuário é colaborador do repositório",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "bd01bce2-65bf-47cc-8f84-105c0693f1c5",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "dff7483a-9432-47b4-877f-6a067e5242ad",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "6854fea6-f990-4942-bc9b-499da7f40793",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "username",
+          "id": "783575ba-9e5b-45dd-801c-80c75d7c4bac",
+          "type": "string",
+          "description": "Nome de usuário",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -5801,7 +5278,62 @@
       "name": "Collaborators - List",
       "id": "_OR2OZxA6l",
       "description": "Lista colaboradores de um repositório",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "98ad158d-bd57-4d05-8f3f-b72ee2d8e226",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "26f8cff8-ff82-4c61-b94a-90fc10b6b6c4",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "dd67ebf3-5a84-453d-9fee-47fe744b448a",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "affiliation",
+          "id": "34c9917b-6f40-49f3-a0b3-284114e2d14c",
+          "type": "string",
+          "description": "Filtro de afiliação (outside, direct, all)",
+          "sensitive": false,
+          "sample": "all",
+          "required": false
+        },
+        {
+          "name": "page",
+          "id": "ce5ed3b1-e5f5-4654-8f2c-b4e8cfdddadf",
+          "type": "number",
+          "description": "Número da página",
+          "sensitive": false,
+          "sample": "1",
+          "required": false
+        },
+        {
+          "name": "per_page",
+          "id": "5ab06517-77ae-457d-8342-30526bd03676",
+          "type": "number",
+          "description": "Itens por página",
+          "sensitive": false,
+          "sample": "30",
+          "required": false
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -5852,7 +5384,44 @@
       "name": "Webhooks - Ping repo webhook",
       "id": "4iZHbV0GnR",
       "description": "Envia um ping para um webhook de repositório",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "9e2c8863-b78a-4166-a55f-d48fc4d7e3db",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "26892ec0-3a9f-4132-9ad4-03143c820c42",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "5a831342-d3a5-477e-bc0f-b3cc58ad3f2b",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "hook_id",
+          "id": "b348437d-dfc1-40fc-a0b9-a72619782eb0",
+          "type": "number",
+          "description": "ID do webhook",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -5889,7 +5458,44 @@
       "name": "Webhooks - Delete repo webhook",
       "id": "W0kDNsTGMV",
       "description": "Exclui um webhook de repositório",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "6bf483f9-361e-424d-bd00-dc04799e2b3b",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "d8765627-8186-46fb-adca-c7f93976f9a5",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "064323c1-460a-4420-a76f-e83aff223c9b",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "hook_id",
+          "id": "265cc05c-5eb5-45fb-b3c1-e8a655871479",
+          "type": "number",
+          "description": "ID do webhook",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -6080,7 +5686,44 @@
       "name": "Webhooks - Create repo webhook",
       "id": "PaAMUUyFf4",
       "description": "Cria um webhook em um repositório",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "355524b3-1b46-46bd-b24c-e85009595fee",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "b0534711-65cc-4e4d-85d4-b135cc197b8c",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "04fa8c4f-d967-4fbb-858d-2593c1f995e0",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "14ef86ea-83e2-482a-9da3-47dc8d8d89bc",
+          "type": "object",
+          "description": "Configuração do webhook (config, events, active)",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -6142,6 +5785,24 @@
           "sensitive": false,
           "sample": "hello-world",
           "required": true
+        },
+        {
+          "name": "page",
+          "id": "16c93d87-7eb1-43ee-b771-00cea302d289",
+          "type": "number",
+          "description": "Número da página",
+          "sensitive": false,
+          "sample": "1",
+          "required": false
+        },
+        {
+          "name": "per_page",
+          "id": "b7b10244-02bc-4f0e-bf35-05a42f54b756",
+          "type": "number",
+          "description": "Itens por página",
+          "sensitive": false,
+          "sample": "30",
+          "required": false
         }
       ],
       "request": {
@@ -6189,7 +5850,62 @@
       "name": "Checks - List suites for commit",
       "id": "ONCoNLLGfx",
       "description": "Lista check suites de um commit",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "88dc361a-2cb6-44ba-87d9-db401f787f46",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "c06cb55b-6da2-4c82-a47f-6dafd6024bf9",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "939bff8b-fa1c-4475-a834-0a05dca9c974",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "ref",
+          "id": "6c41507a-0f36-4e36-88ef-c5cfb9b5e3a5",
+          "type": "string",
+          "description": "Referência do commit",
+          "sensitive": false,
+          "sample": "main",
+          "required": true
+        },
+        {
+          "name": "page",
+          "id": "424b1d95-d273-4680-991f-fcdacc145a80",
+          "type": "number",
+          "description": "Número da página",
+          "sensitive": false,
+          "sample": "1",
+          "required": false
+        },
+        {
+          "name": "per_page",
+          "id": "ba6a4ffa-fb26-47e5-8c18-5d96f178f794",
+          "type": "number",
+          "description": "Itens por página",
+          "sensitive": false,
+          "sample": "30",
+          "required": false
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -6384,7 +6100,44 @@
       "name": "Checks - Create suite",
       "id": "eYjGeOdbWt",
       "description": "Cria um check suite",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "62fed8af-f00e-40e1-b7d9-cd5a15ff717c",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "17934593-a9e3-4448-bc05-68ba66bc0f8c",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "6508866b-b125-4636-bd24-cbcfe162d31a",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "4292ca57-dc6f-4b5f-8e04-abee3b1e1a30",
+          "type": "object",
+          "description": "Dados da check suite (head_sha)",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -6419,7 +6172,53 @@
       "name": "Collaborators - Add",
       "id": "oTYxpL3jgj",
       "description": "Adiciona um colaborador ao repositório",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "73094dd0-57a6-42b5-afb0-2f84c9aba174",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "b7b500f9-b1e9-41d4-8d01-cf6c52ffeef7",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "0df36c29-8391-4584-b95d-8fa31aa714c7",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "username",
+          "id": "4014a44a-7676-4244-a484-8dfe524a2bad",
+          "type": "string",
+          "description": "Nome de usuário",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "f320e384-e86c-449b-bf8e-9f0bdda184bd",
+          "type": "object",
+          "description": "Permissão do colaborador (permission)",
+          "sensitive": false,
+          "sample": "{}",
+          "required": false
+        }
+      ],
       "request": {
         "method": "PUT",
         "urlType": "base-url",
@@ -6602,7 +6401,53 @@
       "name": "Collaborators - List invitations",
       "id": "HMgdCwAGaB",
       "description": "Lista convites pendentes de colaboração",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "46c6324c-d717-4b1b-9569-55a6c0aac35c",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "b145ae3a-bc62-4466-b5c8-b66f46917980",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "4c2e8e0e-5f68-4650-92de-8b03f1494352",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "page",
+          "id": "e87f4e33-1588-43cd-b363-78afae519ef5",
+          "type": "number",
+          "description": "Número da página",
+          "sensitive": false,
+          "sample": "1",
+          "required": false
+        },
+        {
+          "name": "per_page",
+          "id": "3099c809-e9bc-43f4-9e60-e5df8eca5e45",
+          "type": "number",
+          "description": "Itens por página",
+          "sensitive": false,
+          "sample": "30",
+          "required": false
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -7298,7 +7143,53 @@
       "name": "Deployments - Create status",
       "id": "hQK0XG39DS",
       "description": "Cria um status de deployment",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "0794d27e-89d0-4f26-a9dc-9b3c6a3d6f84",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "ce6acbd2-1c85-44ae-95b2-6329a45b3abc",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "7418ccd2-ec38-4346-8c56-1181c9f08a19",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "deployment_id",
+          "id": "feea12b7-f3ae-4622-a1ac-7cb9d6ea46c8",
+          "type": "number",
+          "description": "ID do deployment",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "78fb3fbf-3281-432f-b4df-76d495cc8772",
+          "type": "object",
+          "description": "Dados do status do deployment (state)",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -7370,6 +7261,24 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "order",
+          "id": "3bef8f59-1581-4b76-bb0d-43bf3f2ea923",
+          "type": "string",
+          "description": "Direção da ordenação (desc, asc); exige sort",
+          "sensitive": false,
+          "sample": "desc",
+          "required": false
+        },
+        {
+          "name": "sort",
+          "id": "31018a16-24c7-46f9-868a-919fcf17f216",
+          "type": "string",
+          "description": "Campo de ordenação (indexed)",
+          "sensitive": false,
+          "sample": "indexed",
           "required": false
         }
       ],
@@ -7467,6 +7376,24 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "order",
+          "id": "46feb19f-b0f2-4c68-9f31-4d123da0786c",
+          "type": "string",
+          "description": "Direção da ordenação (desc, asc); exige sort",
+          "sensitive": false,
+          "sample": "desc",
+          "required": false
+        },
+        {
+          "name": "sort",
+          "id": "5d58a87f-14a8-45c8-be4a-606ce7d14f3b",
+          "type": "string",
+          "description": "Campo de ordenação (stars, forks, help-wanted-issues, updated)",
+          "sensitive": false,
+          "sample": "stars",
+          "required": false
         }
       ],
       "request": {
@@ -7562,6 +7489,24 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "order",
+          "id": "3b625ac4-e60a-4066-863f-a4e6086bf1e1",
+          "type": "string",
+          "description": "Direção da ordenação (desc, asc); exige sort",
+          "sensitive": false,
+          "sample": "desc",
+          "required": false
+        },
+        {
+          "name": "sort",
+          "id": "68475ecd-70ff-4e7b-8e95-aead1a98d1f1",
+          "type": "string",
+          "description": "Campo de ordenação (author-date, committer-date)",
+          "sensitive": false,
+          "sample": "author-date",
           "required": false
         }
       ],
@@ -7659,6 +7604,24 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "order",
+          "id": "9b6200e7-ee99-44ac-873a-48abbe98718b",
+          "type": "string",
+          "description": "Direção da ordenação (desc, asc); exige sort",
+          "sensitive": false,
+          "sample": "desc",
+          "required": false
+        },
+        {
+          "name": "sort",
+          "id": "381a6695-ca1f-49bd-a81c-812e5b27cc79",
+          "type": "string",
+          "description": "Campo de ordenação (comments, reactions, interactions, created, updated)",
+          "sensitive": false,
+          "sample": "created",
+          "required": false
         }
       ],
       "request": {
@@ -7754,6 +7717,24 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "order",
+          "id": "05b2ed0d-e70c-4da5-8d25-cc91bcaef482",
+          "type": "string",
+          "description": "Direção da ordenação (desc, asc); exige sort",
+          "sensitive": false,
+          "sample": "desc",
+          "required": false
+        },
+        {
+          "name": "sort",
+          "id": "0b7b481e-617e-42b4-8a77-cd7522d09e08",
+          "type": "string",
+          "description": "Campo de ordenação (followers, repositories, joined)",
+          "sensitive": false,
+          "sample": "followers",
           "required": false
         }
       ],
@@ -7945,6 +7926,33 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "environment",
+          "id": "6b17fb27-654f-4c61-b036-efc1243a3da8",
+          "type": "string",
+          "description": "Ambiente do deployment",
+          "sensitive": false,
+          "sample": "production",
+          "required": false
+        },
+        {
+          "name": "ref",
+          "id": "1b86153c-7e13-40e5-8546-9002cb961853",
+          "type": "string",
+          "description": "Nome da ref (branch, tag ou SHA)",
+          "sensitive": false,
+          "sample": "main",
+          "required": false
+        },
+        {
+          "name": "sha",
+          "id": "0325466e-a0ac-4406-9099-6e036195ed16",
+          "type": "string",
+          "description": "SHA registrado na criação do deployment",
+          "sensitive": false,
+          "sample": "a1b2c3d",
           "required": false
         }
       ],
@@ -8432,7 +8440,53 @@
       "name": "Deployments - Get status",
       "id": "2wlNem4_vu",
       "description": "Obtém um status de deployment",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "cb21c8f6-9411-4e5f-a21b-2351bab0281d",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "4dfc437c-a204-4f33-a89d-eaf1c3e38f1e",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "cdbe61a0-730c-41ab-963d-8a9fc946095f",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "deployment_id",
+          "id": "3978c8a1-fadf-44a5-8424-2c4e689c402d",
+          "type": "number",
+          "description": "ID do deployment",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        },
+        {
+          "name": "status_id",
+          "id": "3f7d82de-5b0e-462b-8b12-68b7412b9e1a",
+          "type": "number",
+          "description": "ID do status do deployment",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -8470,7 +8524,53 @@
       "name": "Deployments - List environments",
       "id": "-U6xYsuJjb",
       "description": "Lista ambientes de um repositório",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "f4aa6dd7-e8e1-44ab-844a-d93188f82418",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "3e910add-b9ab-4620-b943-036587ec32fb",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "a7d58e49-34bd-4588-a515-d4326b358119",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "page",
+          "id": "8f3d611a-aa26-4444-8c1d-1f29966d9619",
+          "type": "number",
+          "description": "Número da página",
+          "sensitive": false,
+          "sample": "1",
+          "required": false
+        },
+        {
+          "name": "per_page",
+          "id": "56820cd8-07f2-43ee-babd-df58e97ca69c",
+          "type": "number",
+          "description": "Itens por página",
+          "sensitive": false,
+          "sample": "30",
+          "required": false
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -8598,7 +8698,44 @@
       "name": "Deployments - Delete environment",
       "id": "v0Qlw3yfQ2",
       "description": "Exclui um ambiente de deployment",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "0b06cf79-3cdc-41f6-a8b9-140e71b885b5",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "14b3f7ef-dccb-48e5-a0b8-73362cde11ef",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "bf07407b-1f56-4584-8cd6-21fb7b3208f9",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "environment_name",
+          "id": "e4b81b89-933c-4816-8c41-45bb8aaf3c9b",
+          "type": "string",
+          "description": "Nome do ambiente",
+          "sensitive": false,
+          "sample": "production",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -8737,7 +8874,53 @@
       "name": "Deployments - Create branch policy",
       "id": "pcumoCRrAe",
       "description": "Cria uma política de branch para um ambiente",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "7d9cd8a9-a8a3-41ef-9591-9af06f4b09ba",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "21afe556-2285-40de-bdce-db10abba5e18",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "514274f4-051a-4dd0-bfc4-814ec42f1995",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "environment_name",
+          "id": "76f406cb-fbe0-4f9f-9397-7295ac89f805",
+          "type": "string",
+          "description": "Nome do ambiente",
+          "sensitive": false,
+          "sample": "production",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "d3db5d1b-92c2-4a5c-819b-a9835cbb7906",
+          "type": "object",
+          "description": "Dados da política de branch (name, type)",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -8774,7 +8957,53 @@
       "name": "Deployments - Get branch policy",
       "id": "bvdulyd61N",
       "description": "Obtém uma política de branch de um ambiente",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "7395ef18-ab73-480c-b90f-f9d134b67492",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "23f10591-52da-4510-a6a3-2d99b9b6ee0d",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "87c91db5-180b-4d4b-b347-917324a42507",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "environment_name",
+          "id": "dab54e70-e552-4c3b-b936-09db052bda80",
+          "type": "string",
+          "description": "Nome do ambiente",
+          "sensitive": false,
+          "sample": "production",
+          "required": true
+        },
+        {
+          "name": "branch_policy_id",
+          "id": "6b9bf928-5d2d-4511-823e-5beaa34afeb1",
+          "type": "number",
+          "description": "ID da política de branch",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -8812,7 +9041,53 @@
       "name": "Deployments - Delete branch policy",
       "id": "W-oV_VU-O_",
       "description": "Exclui uma política de branch de um ambiente",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "3c3faac5-d7ac-404c-a00c-336596d7185d",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "5f29c44f-8744-4747-910e-cf706cf12051",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "d7f725b8-ea7e-4b0b-bb5b-4f4c6fc6c1a6",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "environment_name",
+          "id": "6205eaeb-76ab-4ede-9899-c4f74e15c0a7",
+          "type": "string",
+          "description": "Nome do ambiente",
+          "sensitive": false,
+          "sample": "production",
+          "required": true
+        },
+        {
+          "name": "branch_policy_id",
+          "id": "1bb7c21d-bd45-4284-8c52-da76f0224148",
+          "type": "number",
+          "description": "ID da política de branch",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -8850,7 +9125,44 @@
       "name": "Checks - Create run",
       "id": "bQmtcQir6d",
       "description": "Cria um check run",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "1ae6e966-80e6-4add-bf81-9bdd000f0ca3",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "1602f57a-3f36-4cf6-ae4f-3c682d5a667c",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "11a23115-1586-4776-aaf1-2e76a03edde2",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "fc4f9551-5122-460c-86c8-9cf839ef1ef5",
+          "type": "object",
+          "description": "Dados do check run (name, head_sha)",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -8958,7 +9270,53 @@
       "name": "Checks - Update run",
       "id": "Bl2D2FMOcu",
       "description": "Atualiza um check run",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "ed3d00b8-8a2e-431f-bd77-cd2fec7304d6",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "3b38bf02-fb5e-4c58-bf21-6b86663515d6",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "9a9cbe48-d659-4d15-956e-637611226dc4",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "check_run_id",
+          "id": "300fe8c0-7ab4-4925-9835-bae6d0095105",
+          "type": "number",
+          "description": "ID do check run",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "1a7de29c-621e-4ed4-9fd0-be1b25a31d24",
+          "type": "object",
+          "description": "Dados de atualização do check run",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "PATCH",
         "urlType": "base-url",
@@ -9111,6 +9469,15 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "all",
+          "id": "f30904f5-b02e-43a4-a5d4-2a4a3d03b556",
+          "type": "string",
+          "description": "Inclui notificações já lidas (true, false)",
+          "sensitive": false,
+          "sample": "false",
+          "required": false
         }
       ],
       "request": {
@@ -9189,6 +9556,15 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "all",
+          "id": "fe4e7204-0515-4dd4-b379-b164a782c70f",
+          "type": "string",
+          "description": "Inclui notificações já lidas (true, false)",
+          "sensitive": false,
+          "sample": "false",
           "required": false
         }
       ],
@@ -9523,6 +9899,15 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "sort",
+          "id": "6d1f5a36-281e-4a72-8571-688b1d38aede",
+          "type": "string",
+          "description": "Campo de ordenação (created, updated)",
+          "sensitive": false,
+          "sample": "created",
           "required": false
         }
       ],
@@ -10322,6 +10707,15 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "visibility",
+          "id": "600e203b-188f-482d-bee3-9ed6e49367bc",
+          "type": "string",
+          "description": "Visibilidade do pacote (public, private, internal)",
+          "sensitive": false,
+          "sample": "public",
+          "required": false
         }
       ],
       "request": {
@@ -10652,6 +11046,15 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "state",
+          "id": "b380a12e-022d-462e-a27d-24f82b01c46f",
+          "type": "string",
+          "description": "Estado da versão (active, deleted)",
+          "sensitive": false,
+          "sample": "active",
+          "required": false
         }
       ],
       "request": {
@@ -10790,7 +11193,53 @@
       "name": "Reactions - Delete commit comment reaction",
       "id": "bSAnAm6Y5p",
       "description": "Exclui uma reação de comentário de commit",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "452262fa-91aa-495c-9d5f-31259a2d7289",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "3a63be85-6696-4bf2-bcef-6542e3c54c3f",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "0d5bb16e-f232-4b78-a306-f8e32ca37084",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "comment_id",
+          "id": "802780ca-d634-4f57-aaed-5223bdc3bd28",
+          "type": "number",
+          "description": "ID do comentário",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        },
+        {
+          "name": "reaction_id",
+          "id": "22d84299-95a2-42be-9a78-9e6bb53bf264",
+          "type": "number",
+          "description": "ID da reação",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -11197,6 +11646,33 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "direction",
+          "id": "da7d1682-1c73-4e91-a42a-5888dd466805",
+          "type": "string",
+          "description": "Direção da ordenação (asc, desc)",
+          "sensitive": false,
+          "sample": "asc",
+          "required": false
+        },
+        {
+          "name": "sort",
+          "id": "324c8876-5593-4bb8-8b1f-944506b54589",
+          "type": "string",
+          "description": "Campo de ordenação (due_on, completeness)",
+          "sensitive": false,
+          "sample": "due_on",
+          "required": false
+        },
+        {
+          "name": "state",
+          "id": "8eb454c1-2c3a-4dc7-acd4-f9a9741d2455",
+          "type": "string",
+          "description": "Estado do milestone (open, closed, all)",
+          "sensitive": false,
+          "sample": "open",
+          "required": false
         }
       ],
       "request": {
@@ -11331,7 +11807,44 @@
       "name": "Milestones - Get",
       "id": "_wvE51fR46",
       "description": "Obtém um milestone",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "046de1b1-5fdf-459c-8f59-6107dc87f218",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "7894e4d2-e96c-48af-9067-52dfa12e9de4",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "56060410-3b96-4bbf-8546-b55bfa1d4f39",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "milestone_number",
+          "id": "399a801c-8328-490c-a12c-2285265e82a1",
+          "type": "number",
+          "description": "Número do milestone",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -11367,7 +11880,53 @@
       "name": "Milestones - Update",
       "id": "h2x_GIWv-h",
       "description": "Atualiza um milestone",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "c9fc8490-60b5-49dd-9f7a-8ba89a864273",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "53f7d315-68db-4f7e-895f-a57f58b934f6",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "fdc0cd32-8c63-4178-a33f-8516ad3b3d41",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "milestone_number",
+          "id": "fe5032ee-332a-4ccf-94df-e5cbc633d282",
+          "type": "number",
+          "description": "Número do milestone",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "c525f7c8-b4d4-4e8f-b93d-5cef268b1fd2",
+          "type": "object",
+          "description": "Dados de atualização do milestone",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "PATCH",
         "urlType": "base-url",
@@ -11403,7 +11962,44 @@
       "name": "Milestones - Delete",
       "id": "OyNNWbsvYo",
       "description": "Exclui um milestone",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "e66487c2-6238-4e8f-b437-3737036dc97a",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "42625fec-8336-4155-98af-a76d068a9ff2",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "06bc81bb-138b-4d3e-a332-2c13e8649abb",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "milestone_number",
+          "id": "e0b5049a-6d07-429c-a131-a27a725d09d7",
+          "type": "number",
+          "description": "Número do milestone",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -11493,6 +12089,15 @@
           "sensitive": false,
           "sample": "1",
           "required": false
+        },
+        {
+          "name": "content",
+          "id": "82426f70-256b-41b2-938a-6a06ddbbefb5",
+          "type": "string",
+          "description": "Tipo de reação (+1, -1, laugh, confused, heart, hooray, rocket, eyes)",
+          "sensitive": false,
+          "sample": "+1",
+          "required": false
         }
       ],
       "request": {
@@ -11547,7 +12152,53 @@
       "name": "Reactions - Create for commit comment",
       "id": "gY1qePYjoC",
       "description": "Cria uma reação em um comentário de commit",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "eee4f2f4-dc8f-45c7-b863-fa0fd2bfa5f7",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "55302628-6a8a-4768-8a32-45905991bc35",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "b6234f5e-78c7-423c-8513-b238fbed43e2",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "comment_id",
+          "id": "373a66d7-98d9-469c-99e5-a612e7f3b3d3",
+          "type": "number",
+          "description": "ID do comentário",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "1003be61-3c8a-45fd-9d8a-6a7a79297862",
+          "type": "object",
+          "description": "Dados da reação",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -11687,7 +12338,71 @@
       "name": "Reactions - List for issue",
       "id": "TgaN7mpLDY",
       "description": "Lista reações de uma issue",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "62b439d7-4daf-4828-8ff7-dcbee7f55f51",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "a4c59884-88b0-4f02-959e-2e072b5eb144",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "db0846db-abc4-433d-8084-0fb80a7b3c78",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "issue_number",
+          "id": "0260c084-0280-483f-8714-b60d9ade3ac3",
+          "type": "number",
+          "description": "Número da issue",
+          "sensitive": false,
+          "sample": "42",
+          "required": true
+        },
+        {
+          "name": "content",
+          "id": "22803642-c168-4b47-85c0-9547f1bfbae0",
+          "type": "string",
+          "description": "Tipo de reação (+1, -1, laugh, confused, heart, hooray, rocket, eyes)",
+          "sensitive": false,
+          "sample": "+1",
+          "required": false
+        },
+        {
+          "name": "page",
+          "id": "97a482ca-bfef-4569-90e3-40589b4cf3a3",
+          "type": "number",
+          "description": "Número da página",
+          "sensitive": false,
+          "sample": "1",
+          "required": false
+        },
+        {
+          "name": "per_page",
+          "id": "2c0fef59-f6c0-46bb-82b0-4bfca0a94079",
+          "type": "number",
+          "description": "Itens por página",
+          "sensitive": false,
+          "sample": "30",
+          "required": false
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -11823,7 +12538,53 @@
       "name": "Reactions - Delete issue reaction",
       "id": "MJEnBMJIQH",
       "description": "Exclui uma reação de issue",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "2cb83c4b-9280-41a2-87f1-2457b682011f",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "eace7b8c-73f6-49e6-98e8-b0dccd9af959",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "6cb87ba8-2680-451f-9ed8-d14ddaadde88",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "issue_number",
+          "id": "8476f6d6-aed9-4cc9-a99e-81a72f3bf465",
+          "type": "number",
+          "description": "Número da issue",
+          "sensitive": false,
+          "sample": "42",
+          "required": true
+        },
+        {
+          "name": "reaction_id",
+          "id": "13ce2aec-257f-45a7-8d3e-3fe91f2470f6",
+          "type": "number",
+          "description": "ID da reação",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -11861,7 +12622,71 @@
       "name": "Reactions - List for PR review comment",
       "id": "6qTsvMkRHr",
       "description": "Lista reações de um comentário de review de PR",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "c4a99d70-1807-4a1a-8871-5dcc3bc1c111",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "343ce43b-a865-45c3-b69f-7fcefa7a94e8",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "3cec28c6-6594-40ae-b121-0a262af7398a",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "comment_id",
+          "id": "a69e3c6a-4712-4cec-8c3f-344e8d3aa7ad",
+          "type": "number",
+          "description": "ID do comentário do PR",
+          "sensitive": false,
+          "sample": "1",
+          "required": true
+        },
+        {
+          "name": "content",
+          "id": "865dfc70-b831-4c2d-9ac6-e917c494c32a",
+          "type": "string",
+          "description": "Tipo de reação (+1, -1, laugh, confused, heart, hooray, rocket, eyes)",
+          "sensitive": false,
+          "sample": "+1",
+          "required": false
+        },
+        {
+          "name": "page",
+          "id": "f94cf367-2dc7-4a10-8e8e-5b93bef7fa5b",
+          "type": "number",
+          "description": "Número da página",
+          "sensitive": false,
+          "sample": "1",
+          "required": false
+        },
+        {
+          "name": "per_page",
+          "id": "04c705a3-ba9e-4f19-a37c-9deeacfb1b33",
+          "type": "number",
+          "description": "Itens por página",
+          "sensitive": false,
+          "sample": "30",
+          "required": false
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -19570,7 +20395,44 @@
       "name": "Git - Create blob",
       "id": "704ms6WIvY",
       "description": "Cria um blob de conteúdo no repositório",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "a0ee2ce6-cbaf-4240-90b5-d2b3329f9f5a",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "263dca5b-f685-49ea-8423-9e1326491cef",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "5237a1c2-355f-4420-96ff-37ef7f27b90b",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "f9652191-b2b9-478d-8733-8ae740e9a6a9",
+          "type": "object",
+          "description": "Conteúdo do blob (content, encoding)",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -19680,7 +20542,44 @@
       "name": "Git - Create tag",
       "id": "7QljD-C40v",
       "description": "Cria um objeto de tag Git",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "eccd4ed8-4393-4d48-a406-1f81ce0bb21d",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "4c43de80-cb36-4794-a6b0-c674a819a99b",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "e8fa9031-4459-40a8-8d0a-9843e38e4dfe",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "db25f10a-cc65-4769-b1af-7c3d03610007",
+          "type": "object",
+          "description": "Dados da tag (tag, message, object, type)",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -19716,7 +20615,44 @@
       "name": "Git - Delete ref",
       "id": "H45BNbHOUP",
       "description": "Exclui uma referência Git",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "915b1755-b36a-4f95-a4e0-1bfee8896c18",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "cb23a8c8-3270-4a08-977d-12272d720d63",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "ea0e3152-49b0-4dcf-b1c6-47c61674bb82",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "ref",
+          "id": "d4fb77b0-e809-4c73-9082-dc4ace4d0e2d",
+          "type": "string",
+          "description": "Referência do Git",
+          "sensitive": false,
+          "sample": "heads/main",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -19836,7 +20772,44 @@
       "name": "Git - Create ref",
       "id": "UUdA9oJTZz",
       "description": "Cria uma referência Git",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "aafd7291-8870-464f-8e77-58c470d8d000",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "519b1539-3e42-492c-8533-2fa50114e34c",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "53874793-98e7-4cbe-83a6-0463227fb060",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "c097b73b-117b-4808-ab4f-f21e88b83030",
+          "type": "object",
+          "description": "Dados da ref (ref, sha)",
+          "sensitive": false,
+          "sample": "{}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -19872,7 +20845,44 @@
       "name": "Git - Get ref",
       "id": "YiqK7P2o8t",
       "description": "Obtém uma referência Git",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "2d8b0a68-1d92-454e-af1f-31a50a1f45b3",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "663a6e13-e931-44a4-a94d-95aba90c6877",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "19211d6c-cbb3-4e7e-bda3-a1e162ee0581",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "ref",
+          "id": "6ab27569-f163-46de-baac-774413480b57",
+          "type": "string",
+          "description": "Referência do Git",
+          "sensitive": false,
+          "sample": "heads/main",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -19983,7 +20993,44 @@
       "name": "Git - Get commit",
       "id": "eNAa-81WlQ",
       "description": "Obtém um commit do banco de dados Git",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "a6e41a2c-899c-47a5-b93f-4b9bc5c5ca1d",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "98c77936-a810-42f0-b2ae-1cc1d02f62d4",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "906d5279-23ec-412e-b503-1ff5d8bfbdb9",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "commit_sha",
+          "id": "c755da24-5337-481e-8a9d-c91afeb0baab",
+          "type": "string",
+          "description": "SHA do commit",
+          "sensitive": false,
+          "sample": "abc123",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -20093,7 +21140,44 @@
       "name": "Git - Get blob",
       "id": "bXvJ2avwLu",
       "description": "Obtém um blob pelo SHA",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "x_github_api_version",
+          "id": "e5cacced-5567-4aa3-838d-38e7cc27e7df",
+          "type": "string",
+          "description": "Versão da API GitHub",
+          "sensitive": false,
+          "sample": "2022-11-28",
+          "required": true
+        },
+        {
+          "name": "owner",
+          "id": "72ec93d5-58a9-4bd4-9099-5785e4f6d9e6",
+          "type": "string",
+          "description": "Dono do repositório",
+          "sensitive": false,
+          "sample": "octocat",
+          "required": true
+        },
+        {
+          "name": "repo",
+          "id": "80528de7-8f4b-48a4-9b56-0da0a231cb2a",
+          "type": "string",
+          "description": "Nome do repositório",
+          "sensitive": false,
+          "sample": "hello-world",
+          "required": true
+        },
+        {
+          "name": "file_sha",
+          "id": "11f48d80-d00c-48ff-8cc3-2d5088d5a5f3",
+          "type": "string",
+          "description": "SHA do blob",
+          "sensitive": false,
+          "sample": "3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -20928,6 +22012,15 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "protected",
+          "id": "1164d932-f991-4085-b5dd-d68c657c19c9",
+          "type": "string",
+          "description": "Somente branches protegidas (true) ou não protegidas (false)",
+          "sensitive": false,
+          "sample": "true",
           "required": false
         }
       ],
@@ -22719,6 +23812,42 @@
           "description": "Número da página",
           "sensitive": false,
           "sample": "1",
+          "required": false
+        },
+        {
+          "name": "path",
+          "id": "48083baa-e536-4a9d-9f37-cae1bcb2d7f3",
+          "type": "string",
+          "description": "Somente commits que alteram este caminho",
+          "sensitive": false,
+          "sample": "README.md",
+          "required": false
+        },
+        {
+          "name": "sha",
+          "id": "0ace1484-6366-4368-8de6-e0a59568a4b0",
+          "type": "string",
+          "description": "SHA ou branch inicial da listagem",
+          "sensitive": false,
+          "sample": "main",
+          "required": false
+        },
+        {
+          "name": "since",
+          "id": "1e253fc6-e4a4-4cd1-8291-d9a9f33a40ea",
+          "type": "string",
+          "description": "Somente commits após esta data (ISO 8601)",
+          "sensitive": false,
+          "sample": "2024-01-01T00:00:00Z",
+          "required": false
+        },
+        {
+          "name": "until",
+          "id": "391cd97e-6d0a-4e4e-b81e-b4f30cde96de",
+          "type": "string",
+          "description": "Somente commits antes desta data (ISO 8601)",
+          "sensitive": false,
+          "sample": "2024-12-31T23:59:59Z",
           "required": false
         }
       ],

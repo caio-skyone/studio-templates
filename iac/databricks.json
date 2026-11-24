@@ -16,7 +16,17 @@
       "name": "Instance Profiles - Remove",
       "id": "56u1hs9DUu",
       "description": "Remove um instance profile IAM do Databricks",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "body",
+          "id": "6ac5b04f-6d40-4447-9fa1-9eefcd6aa160",
+          "type": "object",
+          "description": "ARN do instance profile a remover (instance_profile_arn)",
+          "sensitive": false,
+          "sample": "{\"instance_profile_arn\": \"arn:aws:iam::123456789012:instance-profile/my-profile\"}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -101,7 +111,17 @@
       "name": "Global Init Scripts - Get",
       "id": "rSX8S78S3o",
       "description": "Retorna detalhes de um global init script pelo ID",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "script_id",
+          "id": "28c0de15-d651-475f-865a-e368bba8bd72",
+          "type": "string",
+          "description": "ID do global init script",
+          "sensitive": false,
+          "sample": "714B166709FBD56F",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -130,7 +150,26 @@
       "name": "Repos - Update",
       "id": "Yh1t2WK4sN",
       "description": "Atualiza o branch/tag/commit de um repo Git",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "repo_id",
+          "id": "0c79c4ea-130d-414a-bbbf-401dbefd3309",
+          "type": "number",
+          "description": "ID do repo",
+          "sensitive": false,
+          "sample": "5249608814509279",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "b7dfd6bb-bcbc-4503-a009-68882d12e28c",
+          "type": "object",
+          "description": "Branch ou tag para checkout (informe apenas um): branch ou tag",
+          "sensitive": false,
+          "sample": "{\"branch\": \"main\"}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "PATCH",
         "urlType": "base-url",
@@ -159,7 +198,17 @@
       "name": "Repos - Delete",
       "id": "3MF6w68b4k",
       "description": "Remove um repositório Git do workspace",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "repo_id",
+          "id": "71473306-7465-46a0-a9cd-6de5d79ea73d",
+          "type": "number",
+          "description": "ID do repo",
+          "sensitive": false,
+          "sample": "5249608814509279",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -188,7 +237,17 @@
       "name": "Git Credentials - Get",
       "id": "eDLuGAX1D7",
       "description": "Retorna uma credencial Git pelo ID",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "credential_id",
+          "id": "cd77dc56-462d-429b-9d11-d5219f31ed98",
+          "type": "number",
+          "description": "ID da credencial Git",
+          "sensitive": false,
+          "sample": "93488329053511",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -217,7 +276,17 @@
       "name": "Git Credentials - Create",
       "id": "sb_oOdGnZ5",
       "description": "Cria credenciais Git para o usuário atual",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "body",
+          "id": "de9e2028-59da-47f8-b5ff-a68874fb16fc",
+          "type": "object",
+          "description": "Dados da credencial: git_provider, git_username, git_email, personal_access_token",
+          "sensitive": true,
+          "sample": "{\"git_provider\": \"gitHub\", \"git_username\": \"jane-doe\", \"git_email\": \"jane.doe@example.com\", \"personal_access_token\": \"ghp_xxxxxxxxxxxxxxxxxxxx\"}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -245,7 +314,26 @@
       "name": "Git Credentials - Update",
       "id": "a4ojBaaCT_",
       "description": "Atualiza credenciais Git existentes",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "credential_id",
+          "id": "2abdd592-9d7e-4ad1-aee8-33ba12b7747c",
+          "type": "number",
+          "description": "ID da credencial Git",
+          "sensitive": false,
+          "sample": "93488329053511",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "380bedcf-d430-4877-907c-59e03905fef9",
+          "type": "object",
+          "description": "Campos a atualizar: git_provider (obrigatório), git_username, git_email, personal_access_token",
+          "sensitive": true,
+          "sample": "{\"git_provider\": \"gitHub\", \"personal_access_token\": \"ghp_xxxxxxxxxxxxxxxxxxxx\"}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "PATCH",
         "urlType": "base-url",
@@ -274,7 +362,17 @@
       "name": "Git Credentials - Delete",
       "id": "vUT_D-mNmA",
       "description": "Remove credenciais Git pelo ID",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "credential_id",
+          "id": "2defcc1f-1fe0-42d8-9044-d770ec01e0ec",
+          "type": "number",
+          "description": "ID da credencial Git",
+          "sensitive": false,
+          "sample": "93488329053511",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -303,7 +401,26 @@
       "name": "Global Init Scripts - Update",
       "id": "FGVX7mZz3f",
       "description": "Atualiza um global init script existente",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "script_id",
+          "id": "b62c2f7d-08c2-45fa-8710-b651b9c92759",
+          "type": "string",
+          "description": "ID do global init script",
+          "sensitive": false,
+          "sample": "714B166709FBD56F",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "668660d0-0be0-4bd8-b025-b03a63e9842f",
+          "type": "object",
+          "description": "Campos a atualizar: name, script (Base64), position, enabled",
+          "sensitive": false,
+          "sample": "{\"name\": \"install-monitoring-agent\", \"script\": \"IyEvYmluL2Jhc2gKZWNobyAiSGVsbG8iCg==\", \"enabled\": false}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "PATCH",
         "urlType": "base-url",
@@ -360,7 +477,17 @@
       "name": "Instance Profiles - Edit",
       "id": "xKlxWE9aKX",
       "description": "Edita um instance profile IAM",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "body",
+          "id": "f4bb0084-a42c-4e00-add0-ba6c9f4779bb",
+          "type": "object",
+          "description": "Dados do instance profile: instance_profile_arn e iam_role_arn",
+          "sensitive": false,
+          "sample": "{\"instance_profile_arn\": \"arn:aws:iam::123456789012:instance-profile/my-profile\", \"iam_role_arn\": \"arn:aws:iam::123456789012:role/my-role\"}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -389,7 +516,17 @@
       "name": "Repos - Get",
       "id": "GQyC1LqVoM",
       "description": "Retorna detalhes de um repo Git pelo ID",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "repo_id",
+          "id": "a93c3ce1-4c7e-47c6-9bc6-7dc00080eab9",
+          "type": "number",
+          "description": "ID do repo",
+          "sensitive": false,
+          "sample": "5249608814509279",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -418,7 +555,17 @@
       "name": "Repos - Create",
       "id": "6AjZdKQ5Zx",
       "description": "Adiciona um repositório Git ao workspace",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "body",
+          "id": "227833d0-8cdd-4fcb-8af9-f343daf1e25e",
+          "type": "object",
+          "description": "Dados do repo: url, provider e path (opcional)",
+          "sensitive": false,
+          "sample": "{\"url\": \"https://github.com/databricks/cli.git\", \"provider\": \"gitHub\", \"path\": \"/Repos/user@example.com/cli\"}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -446,7 +593,17 @@
       "name": "Global Init Scripts - Create",
       "id": "EEqd3x13KD",
       "description": "Cria um novo global init script",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "body",
+          "id": "7ec24d8f-5e8b-43ed-a7cc-1a5a08d52c17",
+          "type": "object",
+          "description": "Dados do script: name, script (Base64), position, enabled",
+          "sensitive": false,
+          "sample": "{\"name\": \"install-monitoring-agent\", \"script\": \"IyEvYmluL2Jhc2gKZWNobyAiSGVsbG8iCg==\", \"position\": 0, \"enabled\": true}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -503,7 +660,17 @@
       "name": "Instance Profiles - Add",
       "id": "fTRa7qU573",
       "description": "Adiciona um instance profile IAM ao Databricks (AWS)",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "body",
+          "id": "db3ef355-741d-4270-ae03-7ea5b1165e03",
+          "type": "object",
+          "description": "Dados do instance profile: instance_profile_arn, iam_role_arn, skip_validation",
+          "sensitive": false,
+          "sample": "{\"instance_profile_arn\": \"arn:aws:iam::123456789012:instance-profile/my-profile\", \"iam_role_arn\": \"arn:aws:iam::123456789012:role/my-role\", \"skip_validation\": false}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -532,7 +699,17 @@
       "name": "Global Init Scripts - Delete",
       "id": "6ch2Brn828",
       "description": "Remove um global init script",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "script_id",
+          "id": "8454f039-0d3c-49be-8e30-5cb1a8d6ee23",
+          "type": "string",
+          "description": "ID do global init script",
+          "sensitive": false,
+          "sample": "714B166709FBD56F",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -561,7 +738,17 @@
       "name": "Storage Credentials - Delete",
       "id": "SPBF2aYSjS",
       "description": "Remove uma storage credential do Unity Catalog",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "name",
+          "id": "4dd2098c-34cb-4dbe-88b8-3b86a6aeb73d",
+          "type": "string",
+          "description": "Nome da storage credential a deletar",
+          "sensitive": false,
+          "sample": "my_storage_credential",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -620,17 +807,7 @@
       "name": "Storage Credentials - List",
       "id": "CzzYFFtg34",
       "description": "Lista storage credentials do Unity Catalog",
-      "parameters": [
-        {
-          "name": "name",
-          "id": "7feebbac-7410-47ed-83eb-f734ca3736f0",
-          "type": "string",
-          "description": "Nome da storage credential",
-          "sensitive": false,
-          "sample": "my_storage_credential",
-          "required": true
-        }
-      ],
+      "parameters": [],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -937,185 +1114,26 @@
       }
     },
     {
-      "name": "SQL Dashboards - Delete",
-      "id": "-XUsNRefXO",
-      "description": "Remove um dashboard SQL",
-      "parameters": [
-        {
-          "name": "body",
-          "id": "7cfbee54-1193-4630-8372-63f0bd1ecb74",
-          "type": "object",
-          "description": "Dados do dashboard AI/BI: display_name, warehouse_id, serialized_dashboard",
-          "sensitive": false,
-          "sample": "{\"display_name\": \"My AI/BI Dashboard\"}",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "DELETE",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "api",
-            "2.0",
-            "sql",
-            "dashboards",
-            "<>dashboard_id</>"
-          ]
-        },
-        "header": [],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "SQL Dashboards - Update",
-      "id": "gi4yUoEsHf",
-      "description": "Atualiza um dashboard SQL existente",
-      "parameters": [
-        {
-          "name": "dashboard_id",
-          "id": "5684b22d-544e-4495-a6c8-5c5ed5165a89",
-          "type": "string",
-          "description": "ID do dashboard AI/BI",
-          "sensitive": false,
-          "sample": "01234567-89ab-cdef-0123-456789abcdef",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "PATCH",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "api",
-            "2.0",
-            "sql",
-            "dashboards",
-            "<>dashboard_id</>"
-          ]
-        },
-        "header": [],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "<>body</>",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "SQL Dashboards - Get",
-      "id": "r8yz6wQEOn",
-      "description": "Retorna detalhes de um dashboard SQL",
-      "parameters": [
-        {
-          "name": "dashboard_id",
-          "id": "d91b9fa3-c0a7-4043-9c83-da7df0190822",
-          "type": "string",
-          "description": "ID do dashboard SQL",
-          "sensitive": false,
-          "sample": "ghi789",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "api",
-            "2.0",
-            "sql",
-            "dashboards",
-            "<>dashboard_id</>"
-          ]
-        },
-        "header": [],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "SQL Dashboards - List",
-      "id": "jLv6aj8YYa",
-      "description": "Lista os dashboards SQL do workspace",
-      "parameters": [
-        {
-          "name": "dashboard_id",
-          "id": "8d67171f-b5b3-4473-809f-b44e88aab09a",
-          "type": "string",
-          "description": "ID do dashboard a atualizar",
-          "sensitive": false,
-          "sample": "ghi789",
-          "required": true
-        },
-        {
-          "name": "body",
-          "id": "ec69ff8e-7282-4594-aed6-7fa65a8d41bf",
-          "type": "object",
-          "description": "Campos do dashboard a atualizar",
-          "sensitive": false,
-          "sample": "{\"name\": \"Updated Dashboard\"}",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "api",
-            "2.0",
-            "sql",
-            "dashboards"
-          ]
-        },
-        "header": [],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
       "name": "SQL Queries - Update",
       "id": "tlRhTCI22P",
       "description": "Atualiza uma query SQL existente",
       "parameters": [
         {
           "name": "query_id",
-          "id": "41564a5a-145c-44d3-9fc2-6317223e0245",
+          "id": "ca4128fc-53dc-4bf0-b992-c23d0c501f77",
           "type": "string",
-          "description": "ID da query a deletar",
+          "description": "ID da query a atualizar",
           "sensitive": false,
           "sample": "def456",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "27f2f7ec-b0c2-4ad4-8590-dc8eec28e1c1",
+          "type": "object",
+          "description": "Campos a atualizar: update_mask e objeto query com os campos alterados",
+          "sensitive": false,
+          "sample": "{\"update_mask\": \"display_name\", \"query\": {\"display_name\": \"Updated Query\"}}",
           "required": true
         }
       ],
@@ -2393,12 +2411,12 @@
       "description": "Cria uma nova query SQL",
       "parameters": [
         {
-          "name": "query_id",
-          "id": "f5523974-ce8e-4f41-a807-3d0a3ec3663c",
-          "type": "string",
-          "description": "ID da query SQL",
+          "name": "body",
+          "id": "6874c780-5e68-42fa-b294-9749e9c27e20",
+          "type": "object",
+          "description": "Dados da query: objeto query com display_name, query_text, warehouse_id, description",
           "sensitive": false,
-          "sample": "def456",
+          "sample": "{\"query\": {\"display_name\": \"My Query\", \"query_text\": \"SELECT 1\", \"warehouse_id\": \"a7066a8ef796be84\"}}",
           "required": true
         }
       ],
@@ -2942,17 +2960,7 @@
       "name": "SQL Queries - List",
       "id": "kXVwKIAXQG",
       "description": "Lista as queries SQL salvas do workspace",
-      "parameters": [
-        {
-          "name": "body",
-          "id": "6874c780-5e68-42fa-b294-9749e9c27e20",
-          "type": "object",
-          "description": "Dados da query: name, query, data_source_id, description",
-          "sensitive": false,
-          "sample": "{\"name\": \"My Query\", \"query\": \"SELECT * FROM table\", \"data_source_id\": \"abc\"}",
-          "required": true
-        }
-      ],
+      "parameters": [],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -3217,7 +3225,17 @@
       "name": "Workspace - Delete",
       "id": "okxaQ8a0b_",
       "description": "Remove um notebook ou diretório do workspace",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "body",
+          "id": "f4aa0cf1-7a71-4d14-a9a5-504216e7a96a",
+          "type": "object",
+          "description": "Dados da remoção: path e recursive",
+          "sensitive": false,
+          "sample": "{\"path\": \"/Users/user@example.com/project\", \"recursive\": true}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -3413,21 +3431,12 @@
       "description": "Cria uma nova storage credential no Unity Catalog",
       "parameters": [
         {
-          "name": "name",
-          "id": "297480fc-589d-4c77-960e-9bf5ce0f848d",
-          "type": "string",
-          "description": "Nome da storage credential a atualizar",
-          "sensitive": false,
-          "sample": "my_storage_credential",
-          "required": true
-        },
-        {
           "name": "body",
-          "id": "b3e91911-fc3e-466c-877c-8067f8f3d343",
+          "id": "029aba89-afed-4a51-9c24-efefb4aa6cbe",
           "type": "object",
-          "description": "Campos a atualizar: comment, owner, azure_managed_identity",
+          "description": "Dados da credencial: name e azure_managed_identity ou aws_iam_role",
           "sensitive": false,
-          "sample": "{\"comment\": \"Updated credential\"}",
+          "sample": "{\"name\": \"my_credential\", \"azure_managed_identity\": {\"access_connector_id\": \"/subscriptions/.../accessConnectors/my-connector\"}}",
           "required": true
         }
       ],
@@ -3799,7 +3808,17 @@
       "name": "Workspace - Get Status",
       "id": "AfmD0mPNau",
       "description": "Retorna informações de um objeto do workspace",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "path",
+          "id": "09407304-f3a8-4f35-8ecd-f05dee4c6ca2",
+          "type": "string",
+          "description": "Caminho absoluto do objeto no workspace",
+          "sensitive": false,
+          "sample": "/Users/user@example.com/project",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -4035,7 +4054,17 @@
       "name": "Workspace - Mkdirs",
       "id": "9weBbwKN8q",
       "description": "Cria um diretório e todos os pais no workspace",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "path",
+          "id": "3e83a7c4-ffa8-4054-bd88-d3f0e0e86db1",
+          "type": "string",
+          "description": "Caminho absoluto do diretório a criar",
+          "sensitive": false,
+          "sample": "/Users/user@example.com/project",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -4064,7 +4093,17 @@
       "name": "Workspace - Import",
       "id": "YLzFjMowOa",
       "description": "Importa um notebook ou diretório para o workspace",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "body",
+          "id": "5ac8f801-01ba-464d-8f14-abbbdee14998",
+          "type": "object",
+          "description": "Dados da importação: path, format, language, content (Base64), overwrite",
+          "sensitive": false,
+          "sample": "{\"path\": \"/Users/user@example.com/project/MyNotebook\", \"format\": \"SOURCE\", \"language\": \"PYTHON\", \"content\": \"cHJpbnQoMSk=\", \"overwrite\": true}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -4093,7 +4132,17 @@
       "name": "Workspace - Export",
       "id": "AfuW1N2R_e",
       "description": "Exporta o conteúdo de um notebook ou diretório do workspace",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "path",
+          "id": "9ec5d4bd-cedb-424b-bd77-9ff1f8035e0e",
+          "type": "string",
+          "description": "Caminho absoluto do objeto a exportar",
+          "sensitive": false,
+          "sample": "/Users/user@example.com/project/MyNotebook",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -4864,20 +4913,11 @@
       "parameters": [
         {
           "name": "query_id",
-          "id": "ca4128fc-53dc-4bf0-b992-c23d0c501f77",
+          "id": "f5523974-ce8e-4f41-a807-3d0a3ec3663c",
           "type": "string",
-          "description": "ID da query a atualizar",
+          "description": "ID da query SQL",
           "sensitive": false,
           "sample": "def456",
-          "required": true
-        },
-        {
-          "name": "body",
-          "id": "27f2f7ec-b0c2-4ad4-8590-dc8eec28e1c1",
-          "type": "object",
-          "description": "Campos da query a atualizar",
-          "sensitive": false,
-          "sample": "{\"name\": \"Updated Query\"}",
           "required": true
         }
       ],
@@ -4907,49 +4947,29 @@
       }
     },
     {
-      "name": "SQL Dashboards - Create",
-      "id": "t6nimRFK3O",
-      "description": "Cria um novo dashboard SQL",
-      "parameters": [
-        {
-          "name": "dashboard_id",
-          "id": "5a2a60da-c72b-4de0-8269-8a2e6fa1f2d0",
-          "type": "string",
-          "description": "ID do dashboard a deletar",
-          "sensitive": false,
-          "sample": "ghi789",
-          "required": true
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "urlType": "base-url",
-        "url": {
-          "path": [
-            "api",
-            "2.0",
-            "sql",
-            "dashboards"
-          ]
-        },
-        "header": [],
-        "query": [],
-        "body": {
-          "mode": "raw",
-          "raw": "<>body</>",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      }
-    },
-    {
       "name": "Lakeview Dashboards - Publish",
       "id": "caXT-K5mTq",
       "description": "Publica um dashboard AI/BI para uso geral",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "dashboard_id",
+          "id": "90a324b4-4ae8-46fd-9207-9490080447e8",
+          "type": "string",
+          "description": "ID do dashboard a publicar",
+          "sensitive": false,
+          "sample": "01234567-89ab-cdef-0123-456789abcdef",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "92d23d5f-4fb4-41cf-baa7-d6a878f9696a",
+          "type": "object",
+          "description": "Configurações de publicação: warehouse_id e embed_credentials",
+          "sensitive": false,
+          "sample": "{\"warehouse_id\": \"abc123def456\", \"embed_credentials\": true}",
+          "required": false
+        }
+      ],
       "request": {
         "method": "POST",
         "urlType": "base-url",
@@ -5223,12 +5243,12 @@
       "description": "Retorna detalhes de uma storage credential pelo nome",
       "parameters": [
         {
-          "name": "body",
-          "id": "029aba89-afed-4a51-9c24-efefb4aa6cbe",
-          "type": "object",
-          "description": "Dados da credencial: name e azure_managed_identity ou aws_iam_role",
+          "name": "name",
+          "id": "7feebbac-7410-47ed-83eb-f734ca3736f0",
+          "type": "string",
+          "description": "Nome da storage credential",
           "sensitive": false,
-          "sample": "{\"name\": \"my_credential\", \"azure_managed_identity\": {\"access_connector_id\": \"/subscriptions/.../accessConnectors/my-connector\"}}",
+          "sample": "my_storage_credential",
           "required": true
         }
       ],
@@ -6259,26 +6279,7 @@
       "name": "Lakeview Dashboards - List",
       "id": "v60mYGBwUC",
       "description": "Lista os dashboards AI/BI (Lakeview) do workspace",
-      "parameters": [
-        {
-          "name": "dashboard_id",
-          "id": "5c76be38-9bdb-4cdc-9578-42d636508762",
-          "type": "string",
-          "description": "ID do dashboard a atualizar",
-          "sensitive": false,
-          "sample": "01234567-89ab-cdef-0123-456789abcdef",
-          "required": true
-        },
-        {
-          "name": "body",
-          "id": "f6109d20-14d1-4981-86f6-7e453c5de9a2",
-          "type": "object",
-          "description": "Campos a atualizar: display_name, warehouse_id",
-          "sensitive": false,
-          "sample": "{\"display_name\": \"Updated Dashboard\"}",
-          "required": true
-        }
-      ],
+      "parameters": [],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -6431,7 +6432,26 @@
       "name": "Lakeview Dashboards - Update",
       "id": "Y-KGvEkoU3",
       "description": "Atualiza um dashboard AI/BI existente",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "dashboard_id",
+          "id": "5c76be38-9bdb-4cdc-9578-42d636508762",
+          "type": "string",
+          "description": "ID do dashboard a atualizar",
+          "sensitive": false,
+          "sample": "01234567-89ab-cdef-0123-456789abcdef",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "f6109d20-14d1-4981-86f6-7e453c5de9a2",
+          "type": "object",
+          "description": "Campos a atualizar: display_name, warehouse_id",
+          "sensitive": false,
+          "sample": "{\"display_name\": \"Updated Dashboard\"}",
+          "required": true
+        }
+      ],
       "request": {
         "method": "PATCH",
         "urlType": "base-url",
@@ -6463,22 +6483,13 @@
       "description": "Cria um novo dashboard AI/BI",
       "parameters": [
         {
-          "name": "dashboard_id",
-          "id": "90a324b4-4ae8-46fd-9207-9490080447e8",
-          "type": "string",
-          "description": "ID do dashboard a publicar",
-          "sensitive": false,
-          "sample": "01234567-89ab-cdef-0123-456789abcdef",
-          "required": true
-        },
-        {
           "name": "body",
-          "id": "92d23d5f-4fb4-41cf-baa7-d6a878f9696a",
+          "id": "7cfbee54-1193-4630-8372-63f0bd1ecb74",
           "type": "object",
-          "description": "Configurações de publicação: warehouse_id e embed_credentials",
+          "description": "Dados do dashboard AI/BI: display_name, warehouse_id, serialized_dashboard",
           "sensitive": false,
-          "sample": "{\"warehouse_id\": \"abc123def456\", \"embed_credentials\": true}",
-          "required": false
+          "sample": "{\"display_name\": \"My AI/BI Dashboard\"}",
+          "required": true
         }
       ],
       "request": {
@@ -6511,12 +6522,12 @@
       "description": "Remove uma query SQL",
       "parameters": [
         {
-          "name": "body",
-          "id": "32d7ba24-2653-49ba-8011-3d077144e415",
-          "type": "object",
-          "description": "Dados do dashboard SQL: name, layout, widgets",
+          "name": "query_id",
+          "id": "41564a5a-145c-44d3-9fc2-6317223e0245",
+          "type": "string",
+          "description": "ID da query a deletar",
           "sensitive": false,
-          "sample": "{\"name\": \"My Dashboard\"}",
+          "sample": "def456",
           "required": true
         }
       ],
@@ -7201,7 +7212,17 @@
       "name": "Lakeview Dashboards - Delete",
       "id": "AXgCRk5SxP",
       "description": "Remove um dashboard AI/BI",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "dashboard_id",
+          "id": "0d733131-e5f3-49de-a9e4-f072330918c4",
+          "type": "string",
+          "description": "ID do dashboard a deletar",
+          "sensitive": false,
+          "sample": "01234567-89ab-cdef-0123-456789abcdef",
+          "required": true
+        }
+      ],
       "request": {
         "method": "DELETE",
         "urlType": "base-url",
@@ -7630,11 +7651,20 @@
       "parameters": [
         {
           "name": "name",
-          "id": "4dd2098c-34cb-4dbe-88b8-3b86a6aeb73d",
+          "id": "297480fc-589d-4c77-960e-9bf5ce0f848d",
           "type": "string",
-          "description": "Nome da storage credential a deletar",
+          "description": "Nome da storage credential a atualizar",
           "sensitive": false,
           "sample": "my_storage_credential",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "b3e91911-fc3e-466c-877c-8067f8f3d343",
+          "type": "object",
+          "description": "Campos a atualizar: comment, owner, azure_managed_identity",
+          "sensitive": false,
+          "sample": "{\"comment\": \"Updated credential\"}",
           "required": true
         }
       ],
@@ -7808,7 +7838,17 @@
       "name": "Workspace - List",
       "id": "18tt0E97fo",
       "description": "Lista objetos no workspace (notebooks, diretórios, libraries, repos)",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "path",
+          "id": "0c829b89-6659-4b7f-b2c9-d1d28f63cca1",
+          "type": "string",
+          "description": "Caminho absoluto do diretório a listar",
+          "sensitive": false,
+          "sample": "/Users/user@example.com/project",
+          "required": true
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
@@ -8154,9 +8194,9 @@
       "parameters": [
         {
           "name": "dashboard_id",
-          "id": "0d733131-e5f3-49de-a9e4-f072330918c4",
+          "id": "5684b22d-544e-4495-a6c8-5c5ed5165a89",
           "type": "string",
-          "description": "ID do dashboard a deletar",
+          "description": "ID do dashboard AI/BI",
           "sensitive": false,
           "sample": "01234567-89ab-cdef-0123-456789abcdef",
           "required": true

@@ -233,11 +233,6 @@ O **token** é o access token da plataforma, para obter:
 | **SQL Queries - Create** | **POST** | Cria uma nova query SQL |
 | **SQL Queries - Update** | **PATCH** | Atualiza uma query SQL existente |
 | **SQL Queries - Delete** | **DELETE** | Remove uma query SQL |
-| **SQL Dashboards - List** | **GET** | Lista os dashboards SQL do workspace |
-| **SQL Dashboards - Get** | **GET** | Retorna detalhes de um dashboard SQL |
-| **SQL Dashboards - Create** | **POST** | Cria um novo dashboard SQL |
-| **SQL Dashboards - Update** | **PATCH** | Atualiza um dashboard SQL existente |
-| **SQL Dashboards - Delete** | **DELETE** | Remove um dashboard SQL |
 | **Lakeview Dashboards - List** | **GET** | Lista os dashboards AI/BI (Lakeview) do workspace |
 | **Lakeview Dashboards - Get** | **GET** | Retorna detalhes de um dashboard AI/BI pelo ID |
 | **Lakeview Dashboards - Create** | **POST** | Cria um novo dashboard AI/BI |

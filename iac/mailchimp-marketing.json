@@ -53,6 +53,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de registros a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "9f745558-81f2-47ce-9efb-2442db9f74d5"
         }
       ],
       "request": {
@@ -66,7 +75,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -225,21 +245,73 @@
       "name": "SMS Campaigns - List",
       "id": "mGnB5tMmgl",
       "description": "Retorna as campanhas SMS da conta.",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "fields",
+          "id": "599246d0-18ed-4542-9285-0a1eeeb9e8ea",
+          "type": "string",
+          "description": "Lista separada por vírgulas dos campos a retornar. Use notação de ponto para campos de subobjetos.",
+          "sensitive": false,
+          "sample": "id,name,status",
+          "required": false
+        },
+        {
+          "name": "exclude_fields",
+          "id": "ee55a072-a4f3-42ad-a7d0-1cf865198ee4",
+          "type": "string",
+          "description": "Lista separada por vírgulas dos campos a excluir da resposta. Use notação de ponto para campos de subobjetos.",
+          "sensitive": false,
+          "sample": "_links",
+          "required": false
+        },
+        {
+          "name": "count",
+          "id": "6a5b05f3-bb76-4b13-9bd7-a859c38ea46d",
+          "type": "number",
+          "description": "Máximo de campanhas a retornar.",
+          "sensitive": false,
+          "sample": "10",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "id": "1a48d946-f93f-4635-9bb9-3dffc70e91c1",
+          "type": "number",
+          "description": "Número de campanhas a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false
+        }
+      ],
       "request": {
         "method": "GET",
         "urlType": "base-url",
         "url": {
           "path": [
             "3.0",
-            "campaigns"
+            "sms-campaigns"
           ]
         },
         "header": [],
         "query": [
           {
-            "key": "type",
-            "value": "sms",
+            "key": "fields",
+            "value": "<>fields</>",
+            "enabled": true
+          },
+          {
+            "key": "exclude_fields",
+            "value": "<>exclude_fields</>",
+            "enabled": true
+          },
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
             "enabled": true
           }
         ],
@@ -265,7 +337,7 @@
           "type": "object",
           "description": "Dados da campanha SMS a criar.",
           "sensitive": false,
-          "sample": "{}",
+          "sample": "{\"name\": \"Campanha SMS Black Friday\", \"list_id\": 123456, \"segments\": [101]}",
           "required": true
         }
       ],
@@ -275,7 +347,7 @@
         "url": {
           "path": [
             "3.0",
-            "campaigns"
+            "sms-campaigns"
           ]
         },
         "header": [],
@@ -423,7 +495,7 @@
       "description": "Atualiza uma campanha SMS.",
       "parameters": [
         {
-          "name": "campaign_id",
+          "name": "sms_campaign_id",
           "id": "73536919-d445-479b-83cd-d688120aa26d",
           "type": "string",
           "description": "ID da campanha SMS.",
@@ -437,7 +509,7 @@
           "type": "object",
           "description": "Campos da campanha a atualizar.",
           "sensitive": false,
-          "sample": "{}",
+          "sample": "{\"name\": \"Campanha SMS Black Friday - revisada\", \"excluded_segments\": [202]}",
           "required": true
         }
       ],
@@ -447,8 +519,8 @@
         "url": {
           "path": [
             "3.0",
-            "campaigns",
-            "<>campaign_id</>"
+            "sms-campaigns",
+            "<>sms_campaign_id</>"
           ]
         },
         "header": [],
@@ -470,7 +542,7 @@
       "description": "Remove uma campanha SMS.",
       "parameters": [
         {
-          "name": "campaign_id",
+          "name": "sms_campaign_id",
           "id": "6e063734-6445-41a3-a166-6444155806c4",
           "type": "string",
           "description": "ID da campanha SMS.",
@@ -485,8 +557,8 @@
         "url": {
           "path": [
             "3.0",
-            "campaigns",
-            "<>campaign_id</>"
+            "sms-campaigns",
+            "<>sms_campaign_id</>"
           ]
         },
         "header": [],
@@ -607,12 +679,12 @@
       }
     },
     {
-      "name": "SMS Campaigns - Unschedule",
+      "name": "SMS Campaigns - Cancel send",
       "id": "NRR4WJftfa",
-      "description": "Cancela o agendamento de uma campanha SMS.",
+      "description": "Cancela o envio de uma campanha SMS agendada ou em andamento.",
       "parameters": [
         {
-          "name": "campaign_id",
+          "name": "sms_campaign_id",
           "id": "b15f57ce-65ec-4c60-9483-14fd61e5f67b",
           "type": "string",
           "description": "ID da campanha SMS.",
@@ -627,10 +699,10 @@
         "url": {
           "path": [
             "3.0",
-            "campaigns",
-            "<>campaign_id</>",
+            "sms-campaigns",
+            "<>sms_campaign_id</>",
             "actions",
-            "unschedule"
+            "cancel-send"
           ]
         },
         "header": [],
@@ -652,7 +724,7 @@
       "description": "Agenda o envio de uma campanha SMS.",
       "parameters": [
         {
-          "name": "campaign_id",
+          "name": "sms_campaign_id",
           "id": "a5e9b34a-f8d8-4b94-8913-2b7fae721531",
           "type": "string",
           "description": "ID da campanha SMS.",
@@ -666,7 +738,7 @@
           "type": "object",
           "description": "Data e hora de agendamento.",
           "sensitive": false,
-          "sample": "{}",
+          "sample": "{\"schedule_time\": \"2026-12-01T13:00:00Z\"}",
           "required": true
         }
       ],
@@ -676,8 +748,8 @@
         "url": {
           "path": [
             "3.0",
-            "campaigns",
-            "<>campaign_id</>",
+            "sms-campaigns",
+            "<>sms_campaign_id</>",
             "actions",
             "schedule"
           ]
@@ -701,13 +773,31 @@
       "description": "Retorna detalhes de uma campanha SMS.",
       "parameters": [
         {
-          "name": "campaign_id",
+          "name": "sms_campaign_id",
           "id": "b413edbe-02de-4da6-939d-4afa0ba4c66e",
           "type": "string",
           "description": "ID da campanha SMS.",
           "sensitive": false,
           "sample": "campaign123",
           "required": true
+        },
+        {
+          "name": "fields",
+          "id": "45ff375d-8c9f-4d85-891f-b3544bee91ac",
+          "type": "string",
+          "description": "Lista separada por vírgulas dos campos a retornar. Use notação de ponto para campos de subobjetos.",
+          "sensitive": false,
+          "sample": "id,name,status",
+          "required": false
+        },
+        {
+          "name": "exclude_fields",
+          "id": "bcc19379-e2c1-478b-a0e1-bcb41f2503ef",
+          "type": "string",
+          "description": "Lista separada por vírgulas dos campos a excluir da resposta. Use notação de ponto para campos de subobjetos.",
+          "sensitive": false,
+          "sample": "_links",
+          "required": false
         }
       ],
       "request": {
@@ -716,12 +806,23 @@
         "url": {
           "path": [
             "3.0",
-            "campaigns",
-            "<>campaign_id</>"
+            "sms-campaigns",
+            "<>sms_campaign_id</>"
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "fields",
+            "value": "<>fields</>",
+            "enabled": true
+          },
+          {
+            "key": "exclude_fields",
+            "value": "<>exclude_fields</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -825,6 +926,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de registros a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "c08959cf-4906-4ff3-8574-6adfac27c288"
         }
       ],
       "request": {
@@ -838,7 +948,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -856,7 +977,7 @@
       "description": "Envia uma campanha SMS.",
       "parameters": [
         {
-          "name": "campaign_id",
+          "name": "sms_campaign_id",
           "id": "ff1af3f1-ecde-46d9-ad06-05c7d4f1fe91",
           "type": "string",
           "description": "ID da campanha SMS.",
@@ -871,8 +992,8 @@
         "url": {
           "path": [
             "3.0",
-            "campaigns",
-            "<>campaign_id</>",
+            "sms-campaigns",
+            "<>sms_campaign_id</>",
             "actions",
             "send"
           ]
@@ -882,6 +1003,122 @@
         "body": {
           "mode": "raw",
           "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "SMS Campaigns - Get content",
+      "id": "91d215da-a669-4934-a0c3-110f04b3ae5d",
+      "description": "Retorna o conteúdo (texto da mensagem e mídia) de uma campanha SMS.",
+      "parameters": [
+        {
+          "name": "sms_campaign_id",
+          "id": "3fc37a51-df2d-484d-b804-96ae2cd56b2b",
+          "type": "string",
+          "description": "ID da campanha SMS.",
+          "sensitive": false,
+          "sample": "campaign123",
+          "required": true
+        },
+        {
+          "name": "fields",
+          "id": "61110c4d-61aa-4490-aa1f-5c95f504695f",
+          "type": "string",
+          "description": "Lista separada por vírgulas dos campos a retornar. Use notação de ponto para campos de subobjetos.",
+          "sensitive": false,
+          "sample": "id,name,status",
+          "required": false
+        },
+        {
+          "name": "exclude_fields",
+          "id": "b32de670-1842-45ac-abcc-3edc11321812",
+          "type": "string",
+          "description": "Lista separada por vírgulas dos campos a excluir da resposta. Use notação de ponto para campos de subobjetos.",
+          "sensitive": false,
+          "sample": "_links",
+          "required": false
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "3.0",
+            "sms-campaigns",
+            "<>sms_campaign_id</>",
+            "content"
+          ]
+        },
+        "header": [],
+        "query": [
+          {
+            "key": "fields",
+            "value": "<>fields</>",
+            "enabled": true
+          },
+          {
+            "key": "exclude_fields",
+            "value": "<>exclude_fields</>",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "SMS Campaigns - Set content",
+      "id": "98fea380-cbee-4999-8d8b-89e3c8caa671",
+      "description": "Define o conteúdo (texto da mensagem e mídia) de uma campanha SMS.",
+      "parameters": [
+        {
+          "name": "sms_campaign_id",
+          "id": "160a0d20-bf9a-47d8-b155-76f3af7c50c3",
+          "type": "string",
+          "description": "ID da campanha SMS.",
+          "sensitive": false,
+          "sample": "campaign123",
+          "required": true
+        },
+        {
+          "name": "body",
+          "id": "cb924a3b-1ed9-4e0f-b655-72f474290f33",
+          "type": "object",
+          "description": "Conteúdo da campanha SMS: message_body obrigatório; media opcional (no máximo 1 item com url). Omitir media ou enviar lista vazia remove a mídia existente.",
+          "sensitive": false,
+          "sample": "{\"message_body\": \"Olá! Aproveite 20% de desconto só hoje.\"}",
+          "required": true
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "urlType": "base-url",
+        "url": {
+          "path": [
+            "3.0",
+            "sms-campaigns",
+            "<>sms_campaign_id</>",
+            "content"
+          ]
+        },
+        "header": [],
+        "query": [],
+        "body": {
+          "mode": "raw",
+          "raw": "<>body</>",
           "options": {
             "raw": {
               "language": "json"
@@ -1713,6 +1950,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de pedidos a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "4bd8b574-9406-4e59-8ec5-801204a73e7f"
         }
       ],
       "request": {
@@ -1726,7 +1972,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -1846,6 +2103,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de arquivos a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "58ea66d9-7f16-454a-b04d-366b1083dd36"
         }
       ],
       "request": {
@@ -1859,7 +2125,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -3533,6 +3810,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de pastas a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "9012448b-010c-4c0d-9fd0-de24e364e1a7"
         }
       ],
       "request": {
@@ -3545,7 +3831,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -3786,6 +4083,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de batch webhooks a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "b1079e38-2b03-4f96-874c-574599d3071b"
         }
       ],
       "request": {
@@ -3798,7 +4104,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -4469,6 +4786,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de apps a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "4334fd6b-7393-4a26-a98f-0a0c9199c1e8"
         }
       ],
       "request": {
@@ -4481,7 +4807,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -4906,7 +5243,13 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -4969,6 +5312,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de registros a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "cad3f572-94ef-4981-accc-78f28955da3c"
         }
       ],
       "request": {
@@ -4982,7 +5334,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -6666,6 +7029,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de lojas a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "f65a58d0-ced8-4e6c-bb66-d2726e5601ab"
         }
       ],
       "request": {
@@ -6679,7 +7051,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -7198,6 +7581,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de pastas a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "1c727f5a-ad96-4533-9588-b56de403faa6"
         }
       ],
       "request": {
@@ -7210,7 +7602,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -7362,6 +7765,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de audiências a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "497cd507-1631-4205-b5b7-b4fc4e173e34"
         }
       ],
       "request": {
@@ -7374,7 +7786,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -7399,6 +7822,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de exportações a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "cb963707-80fa-4cb1-9d6e-7cb67bc7059f"
         }
       ],
       "request": {
@@ -7411,7 +7843,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -7848,7 +8291,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -7873,6 +8327,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de pastas a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "c1d86309-b16a-404e-80e3-d90b9525b1f8"
         }
       ],
       "request": {
@@ -7886,7 +8349,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -7950,6 +8424,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de anuncios a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "9c583ef7-eeb8-44f0-b5d8-88e2a5611515"
         }
       ],
       "request": {
@@ -7962,7 +8445,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -10818,6 +11312,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de sites a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "d929867b-9e01-48cc-acfd-4f5802043cc3"
         }
       ],
       "request": {
@@ -10830,7 +11333,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -12751,6 +13265,15 @@
           "sensitive": false,
           "sample": "10",
           "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "description": "Número de lotes a pular.",
+          "sensitive": false,
+          "sample": "0",
+          "required": false,
+          "id": "e9a29832-7aeb-4dbf-8129-683f0450996d"
         }
       ],
       "request": {
@@ -12763,7 +13286,18 @@
           ]
         },
         "header": [],
-        "query": [],
+        "query": [
+          {
+            "key": "count",
+            "value": "<>count</>",
+            "enabled": true
+          },
+          {
+            "key": "offset",
+            "value": "<>offset</>",
+            "enabled": true
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "",

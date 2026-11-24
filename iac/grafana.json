@@ -5899,12 +5899,12 @@
           },
           {
             "key": "fieldSelector",
-            "value": "metadata.name",
+            "value": "metadata.name=<>dashboard_uid</>",
             "enabled": true
           },
           {
             "key": "labelSelector",
-            "value": "grafana.app/get-history",
+            "value": "grafana.app/get-history=true",
             "enabled": true
           },
           {

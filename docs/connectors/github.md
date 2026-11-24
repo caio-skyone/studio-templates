@@ -4,7 +4,7 @@
 
 O GitHub é a plataforma de hospedagem de código e colaboração da Microsoft. A REST API (`https://api.github.com`) expõe recursos em JSON para automação de repositórios, organizações, usuários, segurança, CI/CD e integrações de terceiros.
 
-Este conector cobre **351 operações** nos vários domínios do Github.
+Este conector cobre **337 operações** nos vários domínios do Github.
 
 **Convenções da API usadas pelo módulo:**
 
@@ -308,25 +308,12 @@ Documentação: [Authenticating to the REST API](https://docs.github.com/en/rest
 | **Packages - Get for authenticated user**            | **GET**    | Obtém um pacote do usuário autenticado                             |
 | **Packages - List versions for authenticated user**  | **GET**    | Lista versões de um pacote do usuário autenticado                  |
 | **Packages - Delete version for authenticated user** | **DELETE** | Exclui uma versão de pacote do usuário autenticado                 |
-| **Projects - List for org**                          | **GET**    | Lista projetos de uma organização                                  |
-| **Projects - Create for org**                        | **POST**   | Cria um projeto em uma organização                                 |
-| **Projects - Get**                                   | **GET**    | Obtém um projeto                                                   |
-| **Projects - Update**                                | **PATCH**  | Atualiza um projeto                                                |
-| **Projects - Delete**                                | **DELETE** | Exclui um projeto                                                  |
-| **Projects - List columns**                          | **GET**    | Lista colunas de um projeto                                        |
-| **Projects - Create column**                         | **POST**   | Cria uma coluna em um projeto                                      |
-| **Projects - Get column**                            | **GET**    | Obtém uma coluna de projeto                                        |
-| **Projects - Update column**                         | **PATCH**  | Atualiza uma coluna de projeto                                     |
-| **Projects - Delete column**                         | **DELETE** | Exclui uma coluna de projeto                                       |
-| **Projects - List cards**                            | **GET**    | Lista cards de uma coluna de projeto                               |
-| **Projects - Create card**                           | **POST**   | Cria um card em uma coluna de projeto                              |
 | **Secret Scanning - List alerts for repo**           | **GET**    | Lista alertas de secret scanning de um repositório                 |
 | **Secret Scanning - Get alert**                      | **GET**    | Obtém um alerta de secret scanning                                 |
 | **Secret Scanning - Update alert**                   | **PATCH**  | Atualiza um alerta de secret scanning                              |
 | **Secret Scanning - List alerts for org**            | **GET**    | Lista alertas de secret scanning de uma organização                |
 | **Secret Scanning - List alert locations**           | **GET**    | Lista localizações de um alerta de secret scanning                 |
 | **Secret Scanning - List alerts for enterprise**     | **GET**    | Lista alertas de secret scanning de uma empresa                    |
-| **Secret Scanning - List push protection bypasses**  | **GET**    | Lista bypasses de proteção de push de uma organização              |
 | **Code Scanning - List alerts for repo**             | **GET**    | Lista alertas de code scanning de um repositório                   |
 | **Code Scanning - Get alert**                        | **GET**    | Obtém um alerta de code scanning                                   |
 | **Code Scanning - Update alert**                     | **PATCH**  | Atualiza um alerta de code scanning                                |
@@ -372,7 +359,6 @@ Documentação: [Authenticating to the REST API](https://docs.github.com/en/rest
 | **Copilot - Add users to subscription**              | **POST**   | Adiciona usuários à assinatura do Copilot                          |
 | **Copilot - Remove users from subscription**         | **DELETE** | Remove usuários da assinatura do Copilot                           |
 | **Copilot - Get seat details for user**              | **GET**    | Obtém detalhes de assento Copilot de um membro                     |
-| **Copilot - Get usage metrics**                      | **GET**    | Obtém métricas de uso do Copilot de uma organização                |
 | **Dependency Graph - Compare commits**               | **GET**    | Compara dependências entre dois commits                            |
 | **Dependency Graph - Export SBOM**                   | **GET**    | Exporta o SBOM (Software Bill of Materials) do repositório         |
 | **Dependency Graph - Create snapshot**               | **POST**   | Cria um snapshot de dependências do repositório                    |
