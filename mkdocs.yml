@@ -15,6 +15,7 @@ hooks:
 nav:
 - Início: index.md
 - Conectores:
+  - Airtable: connectors/airtable.md
   - ClickUp: connectors/clickup.md
   - Convenia: connectors/convenia.md
   - Databricks: connectors/databricks.md
