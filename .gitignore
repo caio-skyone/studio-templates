@@ -214,27 +214,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
-.toolkit-hub.local.yaml
 scratchpad/*
 
-# >>> skytk:managed (gerado de .toolkit-hub.yaml — não edite à mão) >>>
-/.claude/agents/studio-connector-translator.md
-/.claude/skills/studio-connector-account/SKILL.md
-/.claude/skills/studio-connector-build/SKILL.md
-/.claude/skills/studio-connector-document/SKILL.md
-/.claude/skills/studio-connector-patch/SKILL.md
-/.claude/skills/studio-connector-plan/SKILL.md
-/.claude/skills/studio-connector-publish/SKILL.md
-/.claude/skills/studio-connector-shared/auth-config.md
-/.claude/skills/studio-connector-shared/authoring-rules.md
-/.claude/skills/studio-connector-shared/doc-template.md
-/.claude/skills/studio-connector-shared/iac-extract.md
-/.claude/skills/studio-connector-shared/openapi-pipeline.md
-/.claude/skills/studio-connector-shared/prose-contract.md
-/.claude/skills/studio-connector-shared/server-normalization.md
-/.claude/skills/studio-connector-shared/template-pattern.md
+# Servidor MCP do toolkit não é usado neste repo (ver CLAUDE.md)
 /.mcp.json
-# <<< skytk:managed <<<
 
 # gerado por scripts/sync_iac_assets.py
 docs/iac-data/

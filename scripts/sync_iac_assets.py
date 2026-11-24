@@ -32,6 +32,8 @@ def main() -> int:
     slugs: list[str] = []
     invalid: list[str] = []
     for json_path in sorted(IAC_DIR.glob("*.json")):
+        if json_path.name.endswith(".openapi-config.json"):
+            continue  # config do gerador OpenAPI, não é IAC
         try:
             json.loads(json_path.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, UnicodeDecodeError) as exc:

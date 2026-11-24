@@ -5,5 +5,24 @@ description = "Documentação e IAC dos templates do Skyone Studio"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "pydantic>=2.9",
     "zensical>=0.1.3",
 ]
+
+[project.scripts]
+studio-iac = "studio_iac.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.9,<0.10"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "studio_iac"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
