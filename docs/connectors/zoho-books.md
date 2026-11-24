@@ -53,7 +53,7 @@ A API suporta: **OAuth2**.
 
 No Skyone Studio, acesse **API Gateway**, crie um Gateway e uma rota sem autenticação como essa:
 
-![[gateway-no-auth.png]]
+![gateway-no-auth.png](../img/gateway-no-auth.png)
 
 > Você pode ver a URL gerada inteira criando um fluxo e adicionando um gatilho de gateway
 
@@ -72,13 +72,13 @@ No Skyone Studio, acesse **API Gateway**, crie um Gateway e uma rota sem autenti
 
 1. Voltando para o Skyone Studio, no conector do Zoho Books, crie uma conta com os seguintes campos preenchidos:
 
-![[conta-inicial.png]]
+![conta-inicial.png](../img/zoho-books/conta-inicial.png)
 
 2. Crie uma integração e fluxo para resgatarmos o access_token e o refresh_token
 3. No fluxo, coloque o gatilho de **API Gateway** e selecione o gateway e rota criados anteriormente, insira um parâmetro de query com o nome "code"
 4. Insira no fluxo o conector do Zoho Books, escolha a operação **OAuth-Get Access Token**, nos parâmetros preencha: o Client ID, o Client Secret e a redirect url (a mesma rota anterior). Em code, arraste o parâmetro query, clique na seta e digite ".code"
 
-![[gateway-code-parameter.png]]
+![gateway-code-parameter.png](../img/gateway-code-parameter.png)
 
 5. **Ative o fluxo** e acesse a URL de autenticação do Zoho, veja o formato:
 
@@ -91,7 +91,7 @@ https://accounts.zoho.com/oauth/v2/auth?scope={scopes}&client_id={client_id}&res
 
 6.  Ao final, você deve ser redirecionado para uma tela com um JSON indicando que seu fluxo foi executado, volte ao fluxo e acesse os logs, na ultima execução do módulo do Zoho Books deve constar:
 
-![[books-log.png]]
+![books-log.png](../img/zoho-books/books-log.png)
 
 > Caso o refresh_token não apareça no log, certifique-se de ter adicionado access_type=offline na URL de autenticação. Se isso ocorrer após autenticações sucessivas, adicione prompt=consent na URL de autenticação.
 
@@ -638,7 +638,7 @@ Abaixo listamos as operações mapeadas neste conector.
 
 Este exemplo demonstra como construir um fluxo básico para testar a autenticação no Skyone Studio, controlando variáveis da integração para rastrear o id da organização alvo.
 
-![[fluxo-books.png]]
+![fluxo-books.png](../img/zoho-books/fluxo-books.png)
 
 Veja um exemplo de body que cria uma organização:
 

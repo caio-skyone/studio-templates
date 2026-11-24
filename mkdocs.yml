@@ -8,10 +8,6 @@ theme:
     scheme: slate
   favicon: img/favicon.svg
   logo: img/logo.svg
-plugins:
-- roamlinks
-hooks:
-- hooks/iac_assets.py
 nav:
 - Início: index.md
 - Conectores:

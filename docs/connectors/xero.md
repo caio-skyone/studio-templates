@@ -68,7 +68,7 @@ Para iniciar o desenvolvimento são necessários uma **conta ativa** na Xero e a
 
 No Skyone Studio, acesse **API Gateway** e crie um gateway e uma rota **sem autenticação**:
 
-![[gateway-no-auth.png]]
+![gateway-no-auth.png](../img/gateway-no-auth.png)
 
 > Você vê a URL completa gerada criando um fluxo e adicionando um gatilho de gateway.
 
@@ -78,7 +78,7 @@ No Skyone Studio, acesse **API Gateway** e crie um gateway e uma rota **sem aute
 2. Escolha um nome, informe qualquer URL em **Company URL** e a URL de callback criada acima em **Redirect URI**.
 3. Abra o app, vá em **Configurações** e guarde **Client ID** e **Client Secret**.
 
-![[xero-credentials.png]]
+![xero-credentials.png](../img/xero/xero-credentials.png)
 
 4. Codifique o par em Base64 e guarde o resultado:
 
@@ -124,11 +124,11 @@ A Xero usa exclusivamente **OAuth 2.0 com `authorization_code`**. O access token
 1. No conector dentro do **Skyone Studio**, clique em **Conta conectada** e em **Adicionar conta conectada**.
 2. Preencha os valores da tabela acima e salve.
 
-![[xero-conta-inicial.png]]
+![xero-conta-inicial.png](../img/xero/xero-conta-inicial.png)
 
 3. Crie ou use um fluxo em **Integrações** com gatilho de **API Gateway**, apontando para o mesmo gateway e rota cadastrados como Redirect URI na Xero, e declare um parâmetro de query chamado **code**.
 
-![[gateway-code-parameter.png]]
+![gateway-code-parameter.png](../img/gateway-code-parameter.png)
 
 4. Insira um módulo deste conector com a operação **OAuth2 - Exchanges the authorization code for an access token**, ligue-o ao gatilho e monte o `form_body` com o `code` recebido e o mesmo `redirect_uri` cadastrado na Xero. Em `credenciais_codificadas`, use o Base64 gerado nos pré-requisitos.
 5. Acesse a URL de autorização da Xero e faça login:
@@ -461,11 +461,11 @@ Este exemplo monta um fluxo básico para testar o template criando um **contato*
 
 Primeiro, use **Connections - Retrieves the Xero tenants authorised for the current token** para resgatar o **tenant ID** desejado e gravá-lo numa variável de integração — vale rodar essa operação periodicamente, num fluxo separado, e manter a variável atualizada. Em seguida, chame **Contacts - Creates multiple contacts (bulk) in a Xero organisation** com o tenant ID no parâmetro `xero_tenant_id`. Abaixo, um corpo mínimo de contato:
 
-![[contact-body.png]]
+![contact-body.png](../img/xero/contact-body.png)
 
 O resultado final deve ficar parecido com isto:
 
-![[fluxo-xero.png]]
+![fluxo-xero.png](../img/xero/fluxo-xero.png)
 
 ---
 

@@ -289,6 +289,6 @@ Abaixo listamos as operações mapeadas neste conector.
 
 Este exemplo demonstra como construir um fluxo básico usando o conector do Mailgun, recebendo dados de cadastro em um webhook e enviando um email de boas vindas.
 
-![[fluxo.png]]
+![fluxo.png](../img/mailgun/fluxo.png)
 
 **Documentação Oficial da API:** [Mailgun API Reference](https://documentation.mailgun.com/docs/mailgun/api-reference/)

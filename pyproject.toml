@@ -1,11 +1,9 @@
 [project]
 name = "studio-templates"
 version = "0.1.0"
-description = "Add your description here"
+description = "Documentação e IAC dos templates do Skyone Studio"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "mkdocs<2.0",
-    "mkdocs-material>=9.7.4",
-    "mkdocs-roamlinks-plugin>=0.3.2",
+    "zensical>=0.1.3",
 ]

@@ -91,7 +91,7 @@ Visto que usaremos o fluxo de **Client Credentials** de OAuth2 (preferível para
 
 ### Fluxo e escopos
 
-O fluxo é **client_credentials** no template, caso opte por usar o fluxo de authorization code será necessário [[contexto.md|configurar um callback]].
+O fluxo é **client_credentials** no template, caso opte por usar o fluxo de authorization code será necessário [configurar um callback](../dev-flow/callback/contexto.md).
 
 Use no tuturial de callback: Será necessário inserir no campo de Redirect URI do OAuth client criado a URL de um webhook do Skyone Studio, crie uma conta provisória sem o campo chave valor **Parâmetros no cabeçalho da requisição após autenticação**,
 não insira access token ou refresh token. Use a conta provisória no conector do Zendesk com a operação **Auth - Get tokens with authorization code**, acesse a url de autenticação do zendesk, no formato:

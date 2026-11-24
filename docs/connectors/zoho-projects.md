@@ -42,7 +42,7 @@ A API suporta: **OAuth2**.
 
 No Skyone Studio, acesse **API Gateway**, crie um Gateway e uma rota sem autenticação como essa:
 
-![[gateway-no-auth.png]]
+![gateway-no-auth.png](../img/gateway-no-auth.png)
 
 > Você pode ver a URL gerada inteira criando um fluxo e adicionando um gatilho de gateway
 
@@ -61,13 +61,13 @@ No Skyone Studio, acesse **API Gateway**, crie um Gateway e uma rota sem autenti
 
 1. Voltando para o Skyone Studio, no conector do Zoho Projects, crie uma conta com os seguintes campos preenchidos:
 
-![[conta-inicial.png]]
+![conta-inicial.png](../img/zoho-projects/conta-inicial.png)
 
 2. Crie uma integração e fluxo para resgatarmos o access_token e o refresh_token
 3. No fluxo, coloque o gatilho de **API Gateway** e selecione o gateway e rota criados anteriormente, insira um parâmetro de query com o nome "code"
 4. Insira no fluxo o conector do Zoho Projects, escolha a operação **OAuth-Get Access Token**, nos parâmetros e preencha: o Client ID, o Client Secret e a redirect url criada. Em code, arraste o parâmetro query, clique na seta e digite ".code"
 
-![[auth-parametros.png]]
+![auth-parametros.png](../img/zoho-projects/auth-parametros.png)
 
 5. **Ative o fluxo** e acesse a URL de autenticação do Zoho, veja o formato:
 
@@ -80,7 +80,7 @@ https://accounts.zoho.com/oauth/v2/auth?scope={scopes}&client_id={client_id}&res
 
 6.  Ao final, você deve ser redirecionado para uma tela com um JSON indicando que seu fluxo foi executado, volte ao fluxo e acesse os logs, na ultima execução do conector do Zoho Projects deve constar:
 
-![[logs.png]]
+![logs.png](../img/zoho-projects/logs.png)
 
 7. Insira access token e refresh token na conta conectada do Zoho Projects
 
@@ -280,10 +280,10 @@ Abaixo listamos as operações mapeadas neste conector.
 
 Este exemplo demonstra como construir um fluxo básico testando scopes e criações, usando as operações **Projects-Create a Project** e **Tasks-Create a Task**
 
-![[fluxo.png]]
+![fluxo.png](../img/zoho-projects/fluxo.png)
 
 Veja parâmetros enviados para criar uma task:
 
-![[parametros.png]]
+![parametros.png](../img/zoho-projects/parametros.png)
 
 **Documentação Oficial da API:** [Zoho Projects API Resources](https://www.zoho.com/projects/help/rest-api/projects-api.html)

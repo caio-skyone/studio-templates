@@ -235,3 +235,6 @@ scratchpad/*
 /.claude/skills/studio-connector-shared/template-pattern.md
 /.mcp.json
 # <<< skytk:managed <<<
+
+# gerado por scripts/sync_iac_assets.py
+docs/iac-data/
